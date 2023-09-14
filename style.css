@@ -1,1 +1,33 @@
 @import url('css-sub/fonts.css');
+
+:root {
+  --bg-login: #ffffff; /* Login-BG*/
+  --bg-header: #ffffff;
+  --bg-menu: #2a3647;
+  --bg-arrow-up: #ff3d00;
+  --bg-default: #f6f7f8; 
+  --fo-bo: #d1d1d1; /* Form Border*/
+  --svg: #cdcdcd; /* SVGs*/
+  --cutline: #c29abe2; /* Cutline*/
+  --cutline2: #d1d1d1; /* Cutline2*/
+  --headline: #000000; /* Font Colors: Headline Font Color + Big Fonts: ##000000*/
+  --font-color: #2a3647; /* Allg Font Color */
+  --sub: #29abe2; /* sub */
+  --good-morning: #29abe2; /* Good morning "name" */
+  --sub-sub: #a8a8a8; /* Sub-sub*/
+  --progressbar: #4589ff; /* Progressbar*/
+}
+
+/** use cases
+/*
+body { background-color: var(--bg-default); }
+h2 { border-bottom: 2px solid var(--); }
+.container { color: var(--blue);
+  background-color: var(--white);
+}
+button {
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+*/

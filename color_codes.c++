@@ -1,3 +1,9 @@
+
+
+// übernommen als Variablen in style.css!
+// 14.9. / Stefan
+
+
 Log in:
     Background: #ffffff
 
