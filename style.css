@@ -42,3 +42,7 @@ button {
   font-family: 'PT Sans';
 }
 
+.container {
+  width: 1440px;
+  height: 1024px;
+}

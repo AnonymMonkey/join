@@ -21,25 +21,32 @@
 </head>
     <body onload="updateHTML()">
 
-        <div class="board_container">
-            <div class="board_headline">
-                <div class="board_headline_text">Board</div>
-                <div class="board_headline_actionpanel">
-                    <input type="text" id="board_headline_find_task" placeholder="Find Task">
-                    <button id="board_headline_add_task">Add task</button>
-                </div>
-            </div>            
-            <div class="board_content" id="board_content"></div> 
-            <!-- 
-                #board_content enthält die Inhalte die zur Laufzeit gerendert werden
-                4x .board_content_category (drag & drop)
-            -->
+        <div class="container">
+
+            <div class="board_container">
+                
+                <div class="board_headline">
+                    <div class="board_headline_text">Board</div>
+                    <div class="board_headline_panel">
+                        <input type="text" id="board_headline_find_task" placeholder="Find Task">
+                        <button id="board_headline_add_task">Add task</button>
+                    </div>
+                </div>            
+                
+                <div class="board_content" id="board_content"></div> 
+                <!-- 
+                    #board_content enthält die Inhalte die zur Laufzeit gerendert werden
+                    4x .board_content_category (drag & drop)
+                -->
+            </div>
+            
         </div>
 
-
-        <div class="drag-area" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')" ondragover="allowDrop(event); highlight('open')"></div>
+        <!-- 
+            Vorlagen Drag & Drop
+            <div class="drag-area" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')" ondragover="allowDrop(event); highlight('open')"></div>
         <div class="drag-area" id="closed" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')" ondragover="allowDrop(event); highlight('closed')"></div>
-      
+       -->
 
     <script>
         includeHTML();
