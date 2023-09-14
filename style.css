@@ -6,7 +6,11 @@
   --bg-login: #ffffff;
   /* Login-BG*/
   --bg-header: #ffffff;
+  --bg-button: #2a3647;
   --bg-menu: #2a3647;
+  /* left menu */
+  --bg-menu-hover: #081931;
+  /* left menu hover */
   --bg-arrow-up: #ff3d00;
   --bg-default: #f6f7f8;
   --fo-bo: #d1d1d1;
@@ -56,4 +60,13 @@ button {
 .container {
   width: 1440px;
   height: 1024px;
+  background-color: var(--bg-default);
+}
+
+/* Summary, Add Task, Board, Contacts, Help, Privacy Policy, Legal Notice, etc. */
+.text-title {
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 73.2px;
+  color: var(--headline);
 }
