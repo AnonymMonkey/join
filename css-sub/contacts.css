@@ -1,0 +1,70 @@
+header {
+    width: 1440px;
+    height: 10vh;
+    background-color: var(--bg-header);
+    padding: 0 !important;
+    z-index: 1;
+    position: relative;
+}
+
+main {
+    height: 90vh;
+    z-index: 2;
+    position: relative;
+}
+
+.test-menu {
+    position: relative;
+    top: -10vh;
+    background-color: var(--bg-menu);
+    width: 16vw;
+    height: 100vh;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: var(--bg-default);
+    width: 84vw;
+}
+
+.contact-content img {
+    height: 32px;
+    width: 32px;
+}
+
+.contact-content section:first-child {
+    background-color: var(--bg-header);
+    filter: drop-shadow(0px 2px 4px black);
+}
+
+.contact-content section:first-child button {
+    border-radius: 10px;
+    background-color: var(--bg-menu);
+    color: var(--bg-header);
+}
+
+.cutline-contacts {
+    height: 1px;
+    background-color: var(--cutline2);
+}
+
+.font-color-link {
+    color: var(--sub);
+}
+
+.contacts-contact:hover {
+    background-color: #f0f0f0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 50%);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.test {
+    width: Fixed (352px);
+    height: Hug (78px);
+    padding: 15px, 24px, 15px, 24px;
+    border-radius: 10px;
+    gap: 35px;
+
+}
