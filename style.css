@@ -5,12 +5,14 @@
 :root {
   --bg-login: #ffffff; /* Login-BG*/
   --bg-header: #ffffff;
-  --bg-menu: #2a3647;
+  --bg-button: #2a3647;
+  --bg-menu: #2a3647; /* left menu */
+  --bg-menu-hover: #081931;  /* left menu hover */
   --bg-arrow-up: #ff3d00;
   --bg-default: #f6f7f8; 
   --fo-bo: #d1d1d1; /* Form Border*/
   --svg: #cdcdcd; /* SVGs*/
-  --cutline: #c29abe2; /* Cutline*/
+  --cutline: #29abe2; /* Cutline*/
   --cutline2: #d1d1d1; /* Cutline2*/
   --headline: #000000; /* Font Colors: Headline Font Color + Big Fonts: ##000000*/
   --font-color: #2a3647; /* Allg Font Color */
@@ -45,6 +47,7 @@ button {
 .container {
   width: 1440px;
   height: 1024px;
+  background-color: var(--bg-default);
 }
 
 /* Summary, Add Task, Board, Contacts, Help, Privacy Policy, Legal Notice, etc. */
