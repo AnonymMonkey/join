@@ -10,42 +10,27 @@
 
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css-sub/contacts.css">
+    <link rel="stylesheet" href="/css-sub/headerSidebar.css" />
 
     <link rel="icon" type="image/png" href="">
 
     <title>Join</title>
 </head>
 
-<body>
-    <header class="">Kanban Project Managment Tool
-    </header>
-    <main class="">
-        <div class=""></div>
+<body onload="includeHTML()">
+    <div class="mainContainer">
+        <div id="sidebar" w3-include-html="/assets/templates/sidebar.html"></div>
+        <div>
+            <div id="header" w3-include-html="/assets/templates/header.html"></div>
+            <div class="content">
 
-        <div class="">
-            <section class="">
-                <button class="">Add new contact <img class="" src="../assets/img/contacts/person_add.svg"></button>
-                <div id="contact_content">
-                    <div>
-                        <div class="">A</div>
-                        <div class="">
-                            <div class=""></div>
-                        </div>
-                        <div class="">
-                            <div class="">Max Mustermann</div>
-                            <div class="">max-mustermann@gmail.com</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section></section>
+                <!-- insert content and own style from here -->
+            </div>
         </div>
-    </main>
+    </div>
+</body>
 
-
-    <script>
-        includeHTML();
-    </script>
+</html>
 </body>
 
 </html>
