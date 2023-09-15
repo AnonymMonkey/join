@@ -39,11 +39,11 @@
 .header{
     display: flex;
     justify-content: space-between;
-    
-    height: 104px;
+    padding-left: 300px;
+    height: 10vh;
     width: clamp(290px, 85vw, 1440px);
-    box-shadow: 0px 2px 5px rgba(63, 59, 59, 0.2);
-    background-color: white;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+    background-color: var(--bg-header);
 }
 
 
@@ -86,7 +86,7 @@
     margin-right: 32px;
 }
 
-.marginL256px{
+.marginL256{
     margin-left: 256px;
 }
 
