@@ -1,20 +1,94 @@
-.content-contacts section:first-child {
-    width: 456px;
-    height: 928px;
-    top: 96px;
-    left: 232px;
-    background-color: var(--bg-header);
+.content-contacts {
+    display: flex;
 }
 
-.content-contacts section:first-child button {
-    position: fixed;
+.content-contacts section:first-child {
+    display: flex;
+    width: 456px;
+    height: 928px;
+    flex-shrink: 0;
+    background: var(--white, #FFF);
+    box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
+}
+
+.content-contacts section:first-child div {
+    display: inline-flex;
+    padding: 32px 24px;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white, #FFF);
+}
+
+.content-contacts button {
+    display: flex;
     width: 352px;
-    height: Hug (56px);
-    top: 22.5px;
-    left: 52px;
-    padding: 12px 0px 12px 0px;
-    border-radius: 10px;
-    border: 1px;
+    padding: 12px 0px;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
-    background-color: var(--bg-button);
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    border: 1px solid #2A3647;
+    background: #2A3647;
+}
+
+.content-contacts section:first-child button img {
+    height: 32px;
+    width: 32px;
+}
+
+.scrollbar {
+    width: 24px;
+    height: 928px;
+    flex-shrink: 0;
+    background-color: green;
+}
+
+.content-contacts section:last-child {
+    position: absolute;
+    min-width: 569px;
+    min-height: 73px;
+    top: 206px;
+    left: 743px;
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+
+.content-contacts section:last-child div:first-child {
+    color: #000;
+
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.content-contacts section:last-child div:last-child {
+    color: #2A3647;
+
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.contact-register div:first-child {
+    display: flex;
+    padding: 17px 36px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.contact-letter {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
 }
