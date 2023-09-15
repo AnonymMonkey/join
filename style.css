@@ -13,6 +13,7 @@
   /* left menu hover */
   --bg-arrow-up: #ff3d00;
   --bg-default: #f6f7f8;
+  --text-btn: #ffffff;;
   --fo-bo: #d1d1d1;
   /* Form Border*/
   --svg: #cdcdcd;
@@ -61,7 +62,26 @@ button {
   width: 1440px;
   height: 1024px;
   background-color: var(--bg-default);
+  display: flex;
+  flex-direction: column;
 }
+
+.header {
+  height: 96px;
+  width: 100%;
+  position: fixed;
+  background-color: var(--bg-header);
+}
+
+.menu {
+  height: 100%;
+  width: 232px;
+  position: fixed;
+  z-index: 99;
+  background-color: var(--bg-menu);
+}
+
+
 
 /* Summary, Add Task, Board, Contacts, Help, Privacy Policy, Legal Notice, etc. */
 .text-title {
@@ -69,4 +89,15 @@ button {
   font-size: 61px;
   line-height: 73.2px;
   color: var(--headline);
+}
+
+.btn-dark {
+  background-color: var(--bg-button);
+  border: 1px solid var(--bg-button);
+  border-radius: 10px;
+  padding: 8px 16px, 8px, 16px;
+  font-size: 21px;
+  line-height: 25.2px;
+  font-weight: 700;
+  color: var(--text-btn);
 }
