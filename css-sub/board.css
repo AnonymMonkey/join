@@ -1,11 +1,18 @@
-/* Temporary border for all css-elements */
+/* Temporary border for all css-elements
 * {
   border: 1px solid red;
 }
 
+*/
+
 .board_container {
   display: flex;
   flex-direction: column;
+  width: 1208px;
+  height: 928px;
+  top: 96px;
+  left: 232px;
+  position: relative;
 }
 
 .board_headline {
