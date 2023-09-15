@@ -1,14 +1,3 @@
-/*Should be in style.css */
-.mainContainer{
-    display: flex;
-    
-}
-
-.content{
-    height: 90vh;
-    width: clamp(290px, 85vw, 1440px); 
-}
-
 /*summary CSS*/
 
 .cardSmall{
