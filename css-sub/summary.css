@@ -1,0 +1,10 @@
+.mainContainer{
+    display: flex;
+    height: 100vh;
+   
+}
+
+.content{
+    height: 900px;
+    background-color: green;
+}
