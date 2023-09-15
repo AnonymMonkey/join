@@ -112,7 +112,6 @@ body {
   top: 96px;
   width: calc(100% - 232px);
   height: calc(100vh - 96px);
-  background-color: green;
   position: absolute;
 }
 
