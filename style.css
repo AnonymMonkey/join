@@ -81,9 +81,18 @@ body {
 
 .header {
   height: 96px;
-  width: 100%;
+  width: 1440px;
   position: fixed;
   background-color: var(--bg-header);
+  display: flex;
+  align-items: center;
+  padding-left: 300px;
+}
+
+#header {
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--headline);  
 }
 
 .menu {
