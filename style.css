@@ -1,23 +1,42 @@
 @import url('css-sub/fonts.css');
 @import url('css-sub/board.css');
 @import url('css-sub/add_task.css');
+@import url('css-sub/desktop_header.css');
+@import url('css-sub/desktop_menu.css');
 
 :root {
-  --bg-login: #ffffff; /* Login-BG*/
+  --bg-body: #f5f5f5;
+  --bg-login: #ffffff;
+  /* Login-BG*/
   --bg-header: #ffffff;
+  --bg-button: #2a3647;
   --bg-menu: #2a3647;
+  /* left menu */
+  --bg-menu-hover: #081931;
+  /* left menu hover */
   --bg-arrow-up: #ff3d00;
-  --bg-default: #f6f7f8; 
-  --fo-bo: #d1d1d1; /* Form Border*/
-  --svg: #cdcdcd; /* SVGs*/
-  --cutline: #c29abe2; /* Cutline*/
-  --cutline2: #d1d1d1; /* Cutline2*/
-  --headline: #000000; /* Font Colors: Headline Font Color + Big Fonts: ##000000*/
-  --font-color: #2a3647; /* Allg Font Color */
-  --sub: #29abe2; /* sub */
-  --good-morning: #29abe2; /* Good morning "name" */
-  --sub-sub: #a8a8a8; /* Sub-sub*/
-  --progressbar: #4589ff; /* Progressbar*/
+  --bg-default: #f6f7f8;
+  --text-btn: #ffffff;
+  --fo-bo: #d1d1d1;
+  /* Form Border*/
+  --svg: #cdcdcd;
+  /* SVGs*/
+  --cutline: #29abe2;
+  /* Cutline*/
+  --cutline2: #d1d1d1;
+  /* Cutline2*/
+  --headline: #000000;
+  /* Font Colors: Headline Font Color + Big Fonts: ##000000*/
+  --font-color: #2a3647;
+  /* Allg Font Color */
+  --sub: #29abe2;
+  /* sub */
+  --good-morning: #29abe2;
+  /* Good morning "name" */
+  --sub-sub: #a8a8a8;
+  /* Sub-sub*/
+  --progressbar: #4589ff;
+  /* Progressbar*/
 }
 
 /** use cases
@@ -42,7 +61,46 @@ button {
   font-family: 'PT Sans';
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-body);
+}
+
 .container {
   width: 1440px;
+  max-width: 1440px;
   height: 1024px;
+  max-height: 1024px;
+  background-color: var(--bg-default);
+  display: flex;
+  flex-direction: column;
+}
+
+.main {  
+  width: 1440px;
+  max-width: 1440px;
+  height: 1024px;
+  max-height: 1024px;
+  position: fixed;
+}
+
+/* Summary, Add Task, Board, Contacts, Help, Privacy Policy, Legal Notice, etc. */
+.text-title {
+  font-weight: 700;
+  font-size: 61px;
+  line-height: 73.2px;
+  color: var(--headline);
+}
+
+.btn-dark {
+  background-color: var(--bg-button);
+  border: 1px solid var(--bg-button);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 21px;
+  line-height: 25.2px;
+  font-weight: 700;
+  color: var(--text-btn);
 }
