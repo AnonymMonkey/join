@@ -1,6 +1,8 @@
 @import url('css-sub/fonts.css');
 @import url('css-sub/board.css');
 @import url('css-sub/add_task.css');
+@import url('css-sub/desktop_header.css');
+@import url('css-sub/desktop_menu.css');
 
 :root {
   --bg-body: #f5f5f5;
@@ -82,31 +84,6 @@ body {
   height: 1024px;
   max-height: 1024px;
   position: fixed;
-}
-
-.header {
-  height: 96px;
-  width: 1440px;
-  position: fixed;
-  background-color: var(--bg-header);
-  display: flex;
-  align-items: center;
-  padding-left: 300px;
-  box-shadow: 0px 4px 4px 0px #0000001A;
-}
-
-#header {
-  font-size: 20px;
-  line-height: 24px;
-  color: var(--headline);
-}
-
-.menu {
-  height: 1024px;
-  width: 232px;
-  position: fixed;
-  z-index: 99;
-  background-color: var(--bg-menu);
 }
 
 /* Summary, Add Task, Board, Contacts, Help, Privacy Policy, Legal Notice, etc. */
