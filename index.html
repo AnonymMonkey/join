@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../java_script_sub/w3_include.js"></script>
+    <script src="../script.js"></script>
 
-    <script src="./java-script-sub/w3-include.js"></script>
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="../style.css" />
 
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="icon" type="image/png" href="">
+    <link rel="icon" type="image/png" href="" />
 
     <title>Join</title>
-</head>
+  </head>
 
-<body>
-    <div w3-include-html="static_content_template.html"></div> <!-- Sidebar & Header -->
+  <body onload="updateHTML()">
+    <div class="container">      
+      <div class="header" w3-include-html="../assets/templates/desktop_header.html"></div>
+      <div class="main">
+        <div class="menu" w3-include-html="../assets/templates/desktop_menu.html"></div>
+        
+        <!-- insert content and own style from here -->
 
+      </div>
+      </div>
+    </div>
 
     <script>
-        includeHTML();
+      includeHTML();
     </script>
-</body>
-
+  </body>
 </html>
