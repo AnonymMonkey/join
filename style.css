@@ -115,3 +115,7 @@ body {
   background-color: green;
   position: absolute;
 }
+
+.h {
+  height: calc(100vh - 96px);
+}
