@@ -19,15 +19,15 @@
   </head>
 
 <body onload="includeHTML()">
-    <div class="mainContainer">      
-        <div id="sidebar" w3-include-html="/assets/templates/sidebar.html"></div>
-        <div>
-            <div id="header" w3-include-html="/assets/templates/header.html"></div>
-            <div class="content">
+    <div class="mainContainer column">      
+        <div id="header" w3-include-html="../assets/templates/header.html"></div>
+
+        <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
+            <div class="content d-flex">
                 
                 <!-- insert content and own style from here -->
                 
-                <section class="flex sections marginT2vh">
+                <section class="flex sections marginT2vh headlineSection">
                     <span>Summary</span>
                     <img src="/assets/img/summary/vector_blue.png" alt="">
                     <span>Everything in a nutshell!</span>
@@ -50,9 +50,9 @@
                     </div>
                 </section>
                 
-                <section class="flex sections">
+                <section class="flex sections section3">
                     <div class="cardLarge">
-                        <img src="/assets/img/summary/pen.png" alt="">
+                        <img src="/assets/img/summary/red_up_arrows.png" alt="">
                         <span>1</span>
                         <span>Urgent</span>
                         <img src="" alt="">
@@ -62,7 +62,7 @@
                     <span>Good Morning, Sofia</span>
                 </section>
                 
-                <section class="flex sections">
+                <section class="flex sections section4">
                     <div class="cardMedium">
                         <img src="/assets/img/summary/pen.png" alt="">
                         <span>1</span>
@@ -76,7 +76,6 @@
                 </section>
                 
             </div>
-        </div>
       </div>
 
 
