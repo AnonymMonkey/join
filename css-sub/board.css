@@ -64,6 +64,13 @@
   justify-content: space-between;
   align-items: center;
   flex: 1 0 0;
+  width: 280px;
+  height: 32px;
+  border: none;
+}
+
+input{
+  width: 100px !important;  
 }
 
 .frame121::placeholder {
@@ -73,12 +80,16 @@
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-  width: 100px;
   height: 24px;
 }
 
 .frame122 {
-  
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  width: 48px;
+  height: 32px;
 }
 
 .add_task {
