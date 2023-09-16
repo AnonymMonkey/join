@@ -20,31 +20,64 @@
     top: -96px;
 }
 
-.sidebar a {
-    text-decoration: none;
-    color: #D7D9DD;
+.joinLogo{
+    width: 100.034px;
+    height: 121.966px;
+    flex-shrink: 0; 
 }
 
 .quicklinks {
-    width: 230px;
-    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px; 
 }
 
-.quicklinks img {
-    margin-right: 8px;
+.quicklinksSpan{
+    display: flex;
+    width: 232px;
+    height: 46px;
+    padding: 8px 56px;
+    align-items: center;
+    gap: 8px; 
+     
 }
 
-.quicklinks:hover {
+.quicklinksSpan:hover{
     background-color: #091931;
 }
 
-/*sidebar responsive*/
+.sidebar a {
+    text-decoration: none;
+    color: #CDCDCD;
+}
 
+.legal{
+    display: flex;
+    padding: 243px 0px 0px 52px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch; 
+}
+
+.legalSpan{
+    display: flex;
+    padding: 8px;
+    align-items: center;
+    gap: 8px; 
+    color: #CDCDCD;
+}
+
+.isActiveColor{
+    background-color: #091931;
+}
 
 
 
 /*header*/
-
 .header {
     display: flex;
     width: 100%;
@@ -52,20 +85,26 @@
     padding: 20px 40px 20px 348px;
     justify-content: space-between;
     align-items: center;
-
     background: #FFF;
-
     /* Barra superior */
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
+.headerSpan{
+    color: #000;
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */ 
+}
 
-
-/*header responsive*/
-
-
-
-
+.headerSymbols{
+    display: flex;
+    align-items: center;
+    gap: 16px; 
+}
 
 /*generics*/
 
@@ -73,43 +112,3 @@
     cursor: pointer;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-}
-
-
-.paddingR20 {
-    padding-right: 20px;
-}
-
-.marginT64 {
-    margin-top: 64px;
-}
-
-.marginT256 {
-    margin-top: 256px;
-}
-
-.marginL16 {
-    margin-left: 16px;
-}
-
-.marginR32 {
-    margin-right: 32px;
-}
-
-.marginL256 {
-    margin-left: 256px;
-}
-
-.directionColumn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.alignItems {
-    display: flex;
-    align-items: center;
-}

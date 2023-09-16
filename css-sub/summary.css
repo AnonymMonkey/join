@@ -6,10 +6,60 @@
     justify-content: center;
     align-items: center;
     gap: 30px; 
+
+    /*Fixation*/
+    position: fixed;
+    top: 206px;
+    left: 328px;
+    bottom: 745px;
+    right: 461px
 }
 
+.headlineSummary{
+    color: #000;
+    /* Version 2/t1 */
+    font-family: Inter;
+    font-size: 61px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 73.2px */ 
+}
+
+.headlineVector{
+    height: 59px; 
+    stroke-width: 3px;
+    stroke: #29ABE2; 
+}
+
+.headlineSpan{
+    color: #2A3647;
+    /* Version 2/t5 */
+    font-family: Inter;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 32.4px */ 
+}
 
 /*Section 2*/
+.smallCardSection{
+    display: flex;
+    width: 560px;
+    height: 170px;
+    padding: 1px 0px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+    flex-shrink: 0;
+    
+    /*Fixation*/
+    position: fixed;
+    top: 335px;
+    left: 328px;
+    bottom: 519px;
+    right: 552px
+}
+
 .cardSmall{
     display: flex;
     width: 168px;
@@ -18,7 +68,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 13px;
+    /*gap: 13px;*/
     flex-shrink: 0; 
 
     border-radius: 30px;
@@ -27,7 +77,39 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10); 
 }
 
+.tasksAmount{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 76.8px */ 
+}
+
+.tasksSpan{
+    color: #2A3647;
+    text-align: center;
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */ 
+}
+
+
 /*Section 3*/
+.largeCardSection{
+    
+    /*Fixation*/
+    position: fixed;
+    top: 531.5px;
+    left: 328px;
+    bottom: 324.5px;
+    right: 552px
+}
+
 .cardLarge{
     display: flex;
     width: 560px;
@@ -42,26 +124,99 @@
     background: var(--white, #FFF);
     /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10); 
+
+
+    /*Fixation*/
+    position: fixed;
+    top: 531.5px;
+    left: 328px;
+    bottom: 324.5px;
+    right: 552px
 }
 
-.section3{
+.urgentSection{
     display: flex;
-    width: 560px;
-    height: 168px;
-    padding: 28px 48px;
-    justify-content: center;
     align-items: center;
-    gap: 61px;
-    flex-shrink: 0; 
-
-    border-radius: 30px;
-    background: var(--white, #FFF);
-    /* nuevo */
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10); 
+    gap: 18px; 
 }
+
+.deadlineSection{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px; 
+}
+
+.deadlineSpan{
+    color: #2A3647;
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 25.2px */ 
+}
+
+.dateTextSpan{
+    color: #2A3647;
+    /* Version 2/body */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 19.2px */ 
+}
+
+.greetingSection{
+    /*Fixation*/
+    position: fixed;
+    top: 548px;
+    left: 968px;
+    bottom: 341px;
+    right: 87px
+}
+
+.spanGreeting{
+    width: 338px; 
+    color: #2A3647;
+    /* Version 2/t2 */
+    font-family: Inter;
+    font-size: 47px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 56.4px */ 
+}
+
+.spanName{
+    width: 385px;
+    color: var(--Ligth-blue, #29ABE2);
+    font-family: Inter;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 76.8px */ 
+}
+
 
 
 /*Section 4*/
+.mediumCardSection{
+    display: flex;
+    width: 560px;
+    height: 168px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    flex-shrink: 0; 
+
+
+    /*Fixation*/
+    position: fixed;
+    top: 728px;
+    left: 328px;
+    bottom: 128px;
+    right: 552px
+}
+
 .cardMedium{
     display: flex;
     width: 264px;
@@ -78,27 +233,10 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10); 
 }
 
-.section4{
-    display: flex;
-    width: 560px;
-    height: 168px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 32px;
-    flex-shrink: 0; 
-}
+
 
 /*generics Summary */
 
 .flex{
     display: flex;
-}
-
-.sections{
-    padding-bottom: 5vh;
-    padding-left: 10vh;
-}
-
-.marginT2vh{
-    padding-top: 5vh;
 }

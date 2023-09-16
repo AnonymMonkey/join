@@ -27,51 +27,70 @@
                 
                 <!-- insert content and own style from here -->
                 
-                <section class="flex sections marginT2vh headlineSection">
-                    <span>Summary</span>
-                    <img src="/assets/img/summary/vector_blue.png" alt="">
-                    <span>Everything in a nutshell!</span>
+                <section class="headlineSection">
+                    <span class="headlineSummary">Summary</span>
+                    <img  class="headlineVector" src="/assets/img/summary/vector_blue.png" alt="">
+                    <span class="headlineSpan">Everything in a nutshell!</span>
                 </section>
 
-                <section class="flex sections">
+                <section class="flex smallCardSection">
                     <div class="cardSmall">
-                        <span>5</span>
-                        <span>Tasks in Board</span>
+                        <span class="tasksAmount">5</span>
+                        <span class="tasksSpan">Tasks In</span>
+                        <span class="tasksSpan">Board</span>
                     </div>
 
                     <div class="cardSmall">
-                        <span>2</span>
-                        <span>Tasks in Progress</span>
+                        <span class="tasksAmount">2</span>
+                        <span class="tasksSpan">Tasks In</span>
+                        <span class="tasksSpan">Progress</span>
                     </div>
                     
                     <div class="cardSmall">
-                        <span>2</span>
-                        <span>Awaiting Feedback</span>
+                        <span class="tasksAmount">2</span>
+                        <span class="tasksSpan">Awaiting</span>
+                        <span class="tasksSpan">Feedback</span>
                     </div>
                 </section>
                 
-                <section class="flex sections section3">
+                <section class="flex largeCardSection">
                     <div class="cardLarge">
-                        <img src="/assets/img/summary/red_up_arrows.png" alt="">
-                        <span>1</span>
-                        <span>Urgent</span>
-                        <img src="" alt="">
-                        <span><b>October 16, 2022</b></span>
-                        <span>Upcoming Deadline</span>
+                        <div class="urgentSection">
+                            <img src="/assets/img/summary/red_up_arrows.png" alt="">
+                            <div class="flex column">
+                                <span class="tasksAmount">1</span>
+                                <span class="tasksSpan">Urgent</span>
+                            </div>
+                        </div>
+                        
+                        <img src="/assets/img/summary/vector_grey.png" alt="">
+                        
+                        <div class="deadlineSection">
+                            <span class="deadlineSpan">October 16, 2022</span>
+                            <span class="dateTextSpan">Upcoming Deadline</span>
+                        </div>
+
                     </div>
-                    <span>Good Morning, Sofia</span>
+                    <div class="greetingSection">
+                        <span class="spanGreeting">Good Morning,</span>
+                        <span class="spanName">Sofia Müller</span>
+                    </div>
                 </section>
                 
-                <section class="flex sections section4">
+                <section class="flex mediumCardSection">
                     <div class="cardMedium">
                         <img src="/assets/img/summary/pen.png" alt="">
-                        <span>1</span>
-                        <span>To-do</span>
+                        <div class="flex column">
+                            <span class="tasksAmount">1</span>
+                            <span class="tasksSpan">To-do</span>
+                        </div>
                     </div>
                     <div class="cardMedium">
                         <img src="/assets/img/summary/checkmark.png" alt="">
-                        <span>1</span>
-                        <span>Done</span>
+                        <div class="flex column">
+                            <span class="tasksAmount">1</span>
+                            <span class="tasksSpan">Done</span>
+                        </div>
                     </div>
                 </section>
                 
