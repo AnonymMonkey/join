@@ -7,9 +7,12 @@
 
     <script src="../java_script_sub/w3_include.js"></script>
     <script src="../script.js"></script>
+    <script src="../java_script_sub/contacts.js"></script>
+    <script src="../java_script_sub/help_functions.js"></script>
 
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../css-sub/contacts.css">
+    <link rel="stylesheet" href="../css-sub/contacts/contacts.css">
+    <link rel="stylesheet" href="../css-sub/contacts/dialog.css">
     <link rel="stylesheet" href="../css-sub/headerSidebar.css" />
 
 
@@ -18,7 +21,7 @@
     <title>Join</title>
 </head>
 
-<body onload="includeHTML()">
+<body id="body" onload="includeHTML()">
 
     <div id="main" class="mainContainer column">
         <div id="header" w3-include-html="../assets/templates/header.html"></div>
@@ -29,7 +32,7 @@
             <section class="contact-register d-flex">
                 <div class="scrollbar"></div>
                 <div class="contact-inner-register column">
-                    <button onclick="addContactOverlay()" class="pointer">Add new contact
+                    <button onclick="openAddContactOverlay()" class="pointer">Add new contact
                         <img src="../assets/img/contacts/person_add.svg">
                     </button>
                     <div class="contact-register-entry">
@@ -58,6 +61,47 @@
                 </div>
                 <div class="contact"></div>
             </section>
+
+            <!-- overlay -->
+            <div id="overlay-bg" class="overlay-bg">
+
+                <div id="overlay-content" class="overlay-content">
+                    <img src="../assets/img/contacts/close.svg" class="close-button pointer"
+                        onclick="closeAddContactOverlay()">
+                    <section class="overlay-left">
+                        <img src="../assets/img/logo_light.png">
+                        <h1>Add contact</h1>
+                        <div>Tasks are better with a team!</div>
+                        <img src="../assets/img/contacts/overlay_cutline.svg">
+                    </section>
+                    <section class="overlay-right">
+                        <div class="person-bg">
+                            <img src="../assets/img/contacts/person.svg">
+                        </div>
+                        <form>
+                            <div>
+                                <div class="place-img">
+                                    <input type="text" name="" id="name" placeholder="Name">
+                                    <img src="../assets/img/contacts/person_small.svg">
+                                </div>
+                                <div class="place-img">
+                                    <input type="text" name="" id="mail" placeholder="E-Mail">
+                                    <img src="../assets/img/contacts/mail.svg">
+                                </div>
+                                <div class="place-img">
+                                    <input type="number" name="" id="phone" placeholder="Phone">
+                                    <img src="../assets/img/contacts/call.svg">
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <button>Cancel<img src="../assets/img/contacts/cancel.svg"></button>
+                                <button>Create contact<img src="../assets/img/contacts/check.svg"></button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+            </div>
 
         </div>
 

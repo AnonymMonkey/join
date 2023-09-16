@@ -188,3 +188,9 @@
     width: auto;
     height: auto;
 }
+
+.shadow-bg {
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(200, 200, 200, 1);
+}
