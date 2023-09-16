@@ -1,57 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="../java_script_sub/w3_include.js"></script>
     <script src="../script.js"></script>
 
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../style.css">    
+    <link rel="stylesheet" href="../css-sub/headerSidebar.css" />
 
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 
     <title>Join</title>
-  </head>
+</head>
 
-  <body onload="updateHTML()">
-    <div class="container">      
-      <div class="header" w3-include-html="../assets/templates/desktop_header.html"></div>
-      <div class="main">        
-        <div class="menu" w3-include-html="../assets/templates/desktop_menu.html"></div>
+<body onload="includeHTML()">
 
-        <div class="board_container">
-          <div class="board_headline">
-            <div class="board_headline_text text-title">Board</div>
-            <div class="board_headline_panel">
-              <input
-                type="text"
-                id="board_headline_find_task"
-                placeholder="Find Task"
-              />
-              <button class="btn-dark" id="board_headline_add_task">
-                Add task
-              </button>
+    <div class="mainContainer column">
+        <div id="header" w3-include-html="../assets/templates/header.html"></div>
+
+        <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
+        <div class="content d-flex">            
+          <div class="board_frame">
+            <div class="board_headline">
+              <div class="headline_text">Board</div>
+              <div class="frame123">                
+                <div class="search_task">
+                  <input type="text" class="search_field" placeholder="Find Task">
+                  <img src="../assets/img/board/search.svg" alt="">
+                </div>
+                <button class="add_task">Add task <img src="../assets/img/board/add.svg"></button>
+              </div>
             </div>
+            <!-- <div class="column_title">
+              asdf
+            </div> -->
           </div>
-
-          <div class="board_content" id="board_content"></div>
-          <!-- 
-                    #board_content enthält die Inhalte die zur Laufzeit gerendert werden
-                    4x .board_content_category (drag & drop)
-                -->
+          <div class="board_distribution"></div>
         </div>
-      </div>
     </div>
+    </div>
+</body>
 
-    <!-- 
-            Vorlagen Drag & Drop
-            <div class="drag-area" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')" ondragover="allowDrop(event); highlight('open')"></div>
-        <div class="drag-area" id="closed" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')" ondragover="allowDrop(event); highlight('closed')"></div>
-       -->
+</html>
+</body>
 
-    <script>
-      includeHTML();
-    </script>
-  </body>
 </html>

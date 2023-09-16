@@ -1,8 +1,6 @@
 @import url('css-sub/fonts.css');
 @import url('css-sub/board.css');
 @import url('css-sub/add_task.css');
-@import url('css-sub/desktop_header.css');
-@import url('css-sub/desktop_menu.css');
 
 :root {
   --bg-body: #f5f5f5;
