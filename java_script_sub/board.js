@@ -1,16 +1,49 @@
 let todos = [{
   'id': 0,
   'title': 'Putzen',
-  'category': 'open'
+  'description': 'Beschreibung',
+  'status': 'in_progress',
+  'prio': 'urgent',
+  'subtasks': [
+    {
+      'subid': 0,
+      'subtitle': 'Badezimmer',
+      'substatus': 'open'
+    },
+    {
+      'subid': 1,
+      'subtitle': 'Küche',
+      'substatus': 'open'
+    }
+  ],
+  'member': [] 
 },{
   'id': 1,
   'title': 'Kochen',
-  'category': 'open'
+  'description': 'Beschreibung',
+  'status': 'todo',
+  'prio': 'medium',
+  'subtasks': [],
+  'member': []
 },{
   'id': 2,
   'title': 'Bügeln',
-  'category': 'closed'
+  'description': 'Beschreibung',
+  'status': 'done',
+  'prio': 'low',
+  'subtasks': [],
+  'member': []
 }];
+
+let category = [{
+  'id': 1,
+  'title': 'Technical Task',
+  'bgColor': '#1dd7c1'
+},{
+  'id': 2,
+  'title': 'User Story',
+  'bgColor': '#0837ff'
+}]
 
 let currentDraggedElement;
 
