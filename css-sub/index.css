@@ -1,0 +1,74 @@
+.container{
+    width: 1440px;
+    height: 1024px;
+    background: #F6F7F8;  
+}
+
+.logIn{
+    display: inline-flex;
+    padding: 48px 115px;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px; 
+
+    border-radius: 30px;
+    background: var(--white, #FFF);
+    /* shadoe backlog box */
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04); 
+
+    /*Fixation*/
+    position: fixed;
+    top: 259.55px;
+    left: 394px;
+    bottom: 745px;
+    right: 259.5px
+}
+
+
+.signUp{
+    display: inline-flex;
+    align-items: center;
+    gap: 35px; 
+
+    /*Fixation*/
+    position: fixed;
+    top: 67px;
+    left: 1039px;
+    bottom: 908px;
+    right: 122px
+}
+
+.signUp span{
+    color: #000;
+    /* Version 2/t6 */
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */ 
+}
+
+.signUp button{
+    display: flex;
+    padding: 15px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+
+    border-radius: 8px;
+    background: #2A3647; 
+}
+
+/*TODO Animation */
+.logoTopLeft{
+    width: 100.034px;
+    height: 121.966px;
+    flex-shrink: 0; 
+
+    /*Fixation*/
+    position: fixed;
+    top: 80px;
+    left: 77px;
+    bottom: 822.03px;
+    right: 1262.97px
+}
