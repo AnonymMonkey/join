@@ -26,21 +26,29 @@
         <div class="content d-flex">            
           <div class="board_frame">
             <div class="column_title">
-              x
+              <div class="frame136">To do <img class="pointer" src="../assets/img/board/plus_button.svg"></div>
+              <div class="frame149">In Progress <img class="pointer" src="../assets/img/board/plus_button.svg"></div>
+              <div class="frame137">Await feedback <img class="pointer" src="../assets/img/board/plus_button.svg"></div>
+              <div class="frame138">Done</div>
             </div>
             <div class="board_headline">
               <div class="headline_text">Board</div>
               <div class="frame123">                
                 <div class="search_task_web">
-                  <input type="text" class="frame121" placeholder="Find Task">
+                  <input type="text" class="frame121 pointer" placeholder="Find Task">
                   <img src="../assets/img/board/vector.svg" alt="">
-                  <img class="pointer" src="../assets/img/board/search.svg" alt="">
+                  <img class="pointer btn_search" src="../assets/img/board/search.svg" alt="">
                 </div>
                 <button class="add_task pointer">Add task <img src="../assets/img/board/add.svg"></button>                
               </div>
             </div>
           </div>
-          <div class="board_distribution"></div>
+          <div class="board_distribution">
+            <div id="column_todo"><div class="no_tasks_feedback">No tasks To do</div></div>
+            <div id="column_in_progress"><div class="no_tasks_feedback">No tasks in progress</div></div>
+            <div id="column_await_feedback"><div class="no_tasks_feedback">No tasks await feedback</div></div>
+            <div id="column_done"><div class="no_tasks_feedback">No tasks done</div></div>
+          </div>
         </div>
     </div>
     </div>

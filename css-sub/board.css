@@ -1,24 +1,10 @@
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
 .board_frame {
   width: 100%;
   height: 232px;
-  top: 96px;
-  left: 232px;
-}
-
-.board_distribution {
-  width: 1208px;
-  height: 688px;
-  top: 336px;
-  left: 232px;
-  padding: 0px, 64px, 0px, 64px;
-  gap: 26px;
-  background-color: green;
-  width: 100%;
-  height: 100%;
 }
 
 .board_headline {
@@ -63,7 +49,7 @@
   background: #fff;
 }
 
-.search_task_web:focus-within {  
+.search_task_web:focus-within {
   border: 2px solid #5fc0e9;
 }
 
@@ -74,6 +60,11 @@
   flex: 1 0 0;
   height: 32px;
   border: none;
+  font-size: 20px;
+}
+
+.frame121:focus {
+  outline: none;
 }
 
 .frame121::placeholder {
@@ -95,6 +86,11 @@
   height: 32px;
 }
 
+.btn_search:hover {
+  background-color: rgb(232, 229, 229);
+  border-radius: 50%;
+}
+
 .add_task {
   width: auto;
   height: 48px;
@@ -111,6 +107,12 @@
   gap: 4px;
 }
 
+.add_task:hover {
+  background-color: var(--sub);
+  border: 1px solid var(--sub);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
 .btn_text {
   margin-left: auto;
   margin-right: auto;
@@ -120,12 +122,64 @@
   width: 100%;
   height: 24px;
   top: 200.5px;
-  padding: 0 64px 0 64px;
-  justify-content: space-between;
-  background-color: yellow;
   position: absolute;
+  display: flex;
+  padding: 0px 64px;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.frame121:focus{
-  outline: none;
+.column_title img:hover {  
+  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
+}
+
+.frame136,
+.frame149,
+.frame137,
+.frame138 {
+  width: 252px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: relative;
+  color: #43526e;
+}
+
+.board_distribution {
+  width: 100%;
+  height: 688px;
+  padding: 0 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#column_todo,
+#column_in_progress,
+#column_await_feedback,
+#column_done {
+  width: 252px;
+  height: calc(100vh - 328px);
+  background-color: lightblue;
+  position: relative;
+}
+
+.no_tasks_feedback {
+  display: flex;
+  height: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 10px;
+  border: 1px dashed var(--icon, #a8a8a8);
+  background: #e7e7e7;
+  /* nuevo */
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
 }
