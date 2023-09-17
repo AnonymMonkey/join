@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="../java_script_sub/w3_include.js"></script>
+    <script src="../java_script_sub/board.js"></script>
     <script src="../script.js"></script>
 
     <link rel="stylesheet" href="../style.css">    
@@ -17,7 +18,7 @@
     <title>Join</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="init();">
 
     <div class="mainContainer column">
         <div id="header" w3-include-html="../assets/templates/header.html"></div>
@@ -44,10 +45,10 @@
             </div>
           </div>
           <div class="board_distribution">
-            <div id="column_todo"><div class="no_tasks_feedback">No tasks To do</div></div>
-            <div id="column_in_progress"><div class="no_tasks_feedback">No tasks in progress</div></div>
-            <div id="column_await_feedback"><div class="no_tasks_feedback">No tasks await feedback</div></div>
-            <div id="column_done"><div class="no_tasks_feedback">No tasks done</div></div>
+            <div id="todo"><div class="no_tasks_feedback">No tasks To do</div></div>
+            <div id="inProgress"><div class="no_tasks_feedback">No tasks in progress</div></div>
+            <div id="awaitFeedback"><div class="no_tasks_feedback">No await feedback</div></div>
+            <div id="done"><div class="no_tasks_feedback">No tasks done</div></div>
           </div>
         </div>
     </div>

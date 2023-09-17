@@ -159,10 +159,10 @@
   align-items: flex-start;
 }
 
-#column_todo,
-#column_in_progress,
-#column_await_feedback,
-#column_done {
+#todo,
+#inProgress,
+#awaitFeedback,
+#done {
   width: 252px;
   height: calc(100vh - 328px);
   background-color: lightblue;
