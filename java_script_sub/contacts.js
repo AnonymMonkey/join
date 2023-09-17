@@ -30,6 +30,7 @@ function closeAddContactOverlay() {
 
     function onAnimationEnd() {
         overlayContent.removeEventListener("animationend", onAnimationEnd);
+        overlayBg.classList.remove("d-flex");
         overlayBg.classList.add("d-none");
         overlayContent.classList.remove("slideOut");
     }
