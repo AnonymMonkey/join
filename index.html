@@ -18,7 +18,7 @@
   </head>
 
   <body onload="includeHTML()">
-    <div class="container">      
+    <div>      
 
       <img class="logoTopLeft" src="/assets/img/login/logo_dark.png" alt="">
 
@@ -28,33 +28,47 @@
       </div>
 
       <div class="logIn">
-          <div>
-            <span></span>
-            <img src="">
+        <div class="headlineLogIn">
+          <span>Log in</span>
+          <img src="../assets/img/login/vector_blue_underline.png">
+        </div>
+         
+        <div class="inputsLogin">
+          
+          <div class="inputsDecoration">
+            <div class="inputs">
+              <input type="email" placeholder="Email">
+              <img src="../assets/img/login/mail.png">
+            </div>
           </div>
-          <div>
-            <div>
-              <input type="email">
-              <img src="">
-            </div>
-            
-            <div>
-              <input type="password">
-              <img src="">
-            </div>
-            
-            <div>
-              <!--Checkbox-->
-              <span>Remember me</span>
-              <span>I forgot my password</span>
-            </div>
 
-            <div>
-              <button></button>
-              <button></button>
+          <div class="inputsDecoration">
+            <div class="inputs">
+              <input type="password" placeholder="Password">
+              <img src="../assets/img/login/lock.png">
             </div>
-
           </div>
+
+        </div>
+
+          
+        <div class="settingsLogin">
+          <div class="rememberMe">
+            <input type="checkbox">
+            <span>Remember me</span>
+          </div>
+          <span class="settingsLoginSpan">I forgot my password</span>
+        </div>
+
+        <div class="buttonsLogin">
+          <img src="../assets/img/login/button_login.png">
+          <img src="../assets/img/login/button_guest_login.png">
+        </div>
+      </div>
+
+      <div class="legalPrivacy">
+        <button class="legalPrivacyButton">Privacy Policy</button>
+        <button class="legalPrivacyButton">Legal notice</button>
       </div>
 
     </div>
