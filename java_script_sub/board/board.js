@@ -1,4 +1,21 @@
 let currentDraggedElement;
+let category = [
+  {
+    id: 0,
+    title: 'Technical Task',
+    bgColor: '#1dd7c1',
+  },
+  {
+    id: 1,
+    title: 'User Story',
+    bgColor: '#0837ff',
+  },
+];
+
+// Hier wird der HTML-Code für den Fortschrittscontainer erstellt
+let progressHTML = '';
+// Zähler für erledigte Subtasks
+let doneSubtaskCount;
 
 function init() {
   includeHTML();

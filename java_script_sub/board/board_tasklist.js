@@ -26,7 +26,7 @@ let todos = [
     title: 'HTML Base Template Creation',
     description: 'Create reusable HTML base templates...',
     status: 'awaitFeedback',
-    prio: 'low',
+    prio: 'Low',
     subtasks: [],
     member: [],
     category: 0,
@@ -37,7 +37,7 @@ let todos = [
     title: 'Daily Kochwelt Recipe',
     description: 'Implement daily recipe and portion calculator...',
     status: 'awaitFeedback',
-    prio: 'low',
+    prio: 'Low',
     subtasks: [],
     member: [],
     category: 1,
@@ -48,23 +48,21 @@ let todos = [
     title: 'CSS Architecture Planning',
     description: 'Define CSS naming conventions and structure...',
     status: 'done',
-    prio: 'high',
-    subtasks: [],
+    prio: 'Urgent',
+    subtasks: [
+      {
+        subid: 0,
+        subtitle: 'Establish CSS Methodology',
+        substatus: 'done',
+      },
+      {
+        subid: 1,
+        subtitle: 'Setup Base Styles',
+        substatus: 'done',
+      },
+    ],
     member: [],
     category: 0,
     duedate: '2023-05-01',
   }
-];
-
-let category = [
-  {
-    id: 0,
-    title: 'Technical Task',
-    bgColor: '#1dd7c1',
-  },
-  {
-    id: 1,
-    title: 'User Story',
-    bgColor: '#0837ff',
-  },
 ];
