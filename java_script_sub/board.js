@@ -1,60 +1,3 @@
-let todos = [
-  {
-    id: 0,
-    title: 'Putzen',
-    description: 'Beschreibung',
-    status: 'inProgress',
-    prio: 'urgent',
-    subtasks: [
-      {
-        subid: 0,
-        subtitle: 'Badezimmer',
-        substatus: 'open',
-      },
-      {
-        subid: 1,
-        subtitle: 'Küche',
-        substatus: 'open',
-      },
-    ],
-    member: [],
-    category: 1,
-  },
-  {
-    id: 1,
-    title: 'Kochen',
-    description: 'Beschreibung',
-    status: 'todo',
-    prio: 'medium',
-    subtasks: [],
-    member: [],
-    category: 0,
-  },
-  {
-    id: 2,
-    title: 'Bügeln',
-    description: 'Beschreibung',
-    status: 'done',
-    prio: 'low',
-    subtasks: [],
-    member: [],
-    category: 0,
-  },
-];
-
-let category = [
-  {
-    id: 0,
-    title: 'Technical Task',
-    bgColor: '#1dd7c1',
-  },
-  {
-    id: 1,
-    title: 'User Story',
-    bgColor: '#0837ff',
-  },
-];
-
 let currentDraggedElement;
 
 function init() {
@@ -71,24 +14,17 @@ function updateHTML() {
   issue('todo', todo);
   issue('inProgress', inProgress);
   issue('awaitFeedback', awaitFeedback);
-  issue('done', done);  
+  issue('done', done);
 }
 
 function issue(name, job) {
-  if (job.length) {   
+  if (job.length) {
     document.getElementById(name).innerHTML = '';
     for (let index = 0; index < job.length; index++) {
-      const element = job[index];
-      document.getElementById(name).innerHTML +=
-        generateTasksHTML(element);
+      let element = job[index];
+      document.getElementById(name).innerHTML += generateTasksHTML(element);
     }
   }
-}
-
-function generateTasksHTML(element) {
-  return /*html*/`
-  <div draggable="true" ondragstart="startDragging(${element['id']})" class="taskCard">${element['title']}</div>
-  `;
 }
 
 function startDragging(id) {
