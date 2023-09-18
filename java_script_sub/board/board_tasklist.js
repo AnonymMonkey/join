@@ -3,7 +3,7 @@ let todos = [
     id: 0,
     title: 'Kochwelt Page & Recipe Recommender',
     description: 'Build start page with recipe recommendation.',
-    status: 'inProgress',
+    status: 'todo',
     prio: 'Medium',
     subtasks: [
       {
