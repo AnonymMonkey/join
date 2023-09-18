@@ -1,0 +1,6 @@
+
+function contactsInit() {
+    includeHTML();
+    loadContacts();
+}
+
