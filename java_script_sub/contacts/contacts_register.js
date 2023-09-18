@@ -39,3 +39,25 @@ function resetContactsForm() {
     contact_phone.value = '';
     create_btn.disabled = false;
 }
+
+function createRegister() {
+    let register = elementByID('register');
+    register.innerHTML = '';
+
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i];
+        let nameFirstLetter = contacts[i]['contact_name'].charAt(0);
+        let name = contacts[i]['contact_name'];
+        let mail = contacts[i]['contact_mail'];
+
+        register.innerHTML += /* html */` 
+        <div>
+            <div class="contact-letter">${nameFirstLetter}</div>
+            </div>
+                <img src="../assets/img/contacts/cutline2.svg">
+            <div class="contact-info column pointer">
+            <div class="contact-info-name">${name}</div>
+            <div class="contact-info-mail">${mail}</div>
+        </div>`;
+    }
+}
