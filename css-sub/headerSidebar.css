@@ -45,7 +45,7 @@
 }
 
 .quicklinksSpan:hover{
-    background-color: #091931;
+    background-color: #2A3D59;
 }
 
 .sidebar a {
@@ -69,6 +69,11 @@
     align-items: center;
     gap: 8px; 
     color: #CDCDCD;
+}
+
+.legalSpan :hover{
+    color: #29ABE2;
+    transform: scale(1.1);
 }
 
 .isActiveColor{
@@ -106,7 +111,13 @@
     gap: 16px; 
 }
 
-.submenu{
+
+
+.headerHelp:hover{
+    transform: scale(1.2);
+}
+
+.subMenu{
     display: inline-flex;
     padding: 10px;
     flex-direction: column;
@@ -115,10 +126,16 @@
     border-radius: 20px 0px 20px 20px;
     background: var(--version-2-main-color, #2A3647);
     /* nuevo */
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10); 
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    
+
+    /*Fixation*/
+    position: absolute;
+    top: 96px;
+    right: 16px;
 }
 
-.submenu a{
+.subMenu span{
     display: flex;
     width: 130px;
     height: 46px;
@@ -135,6 +152,11 @@
     line-height: 120%; /* 19.2px */ 
     text-decoration: none;
     color: #CDCDCD; 
+}
+
+.subMenuSpanContainer span:hover{
+    background-color: #2A3D59;
+    cursor: pointer;
 }
 
 /*generics*/

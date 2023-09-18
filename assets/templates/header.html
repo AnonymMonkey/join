@@ -3,13 +3,24 @@
     <div class="alignItems">
         <span class="headerSpan">Kanban Project Management Tool</span>
     </div>
+
     <div class="headerSymbols">
-        <img src="../assets/img/summary/help.svg" alt="">
+        <img class="headerHelp clickable" src="../assets/img/summary/help.svg" alt="">
+        
+        <!--SVG Code einfügen-->
         <img onclick="showSubmenu()" class="clickable" src="../assets/img/summary/user_profile_initials.png" alt="">
-        <div class="submenu dNone" id="subMenu">
-            <a href="">Legal Notice</a>
-            <a href="">Privacy Policy</a>
-            <a href="">Log out</a>
+    </div>
+
+    <div class="subMenu dNone" id="subMenu">
+        <div class="subMenuSpanContainer">
+            <span>Legal Notice</span>
+        </div>
+        <div class="subMenuSpanContainer">
+            <span>Privacy Policy</span>
+        </div>
+        <div class="subMenuSpanContainer">
+            <span>Log out</span>
         </div>
     </div>
+
 </div>
