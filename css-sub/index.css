@@ -1,3 +1,6 @@
+body{
+    margin: 0;
+}
 .container{
     width: 1440px;
     height: 1024px;
@@ -20,8 +23,8 @@
     position: fixed;
     top: 259.5px;
     left: 394px;
-    bottom: 259.5px;
-    right: 394px
+    bottom: 200.5px;
+    right: 394px;
 }
 
 
@@ -35,7 +38,7 @@
     top: 67px;
     left: 1039px;
     bottom: 908px;
-    right: 122px
+    right: 122px;
 }
 
 .signUp span{
@@ -48,15 +51,13 @@
     line-height: 120%; /* 24px */ 
 }
 
-.signUp button{
-    display: flex;
-    padding: 15px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; 
 
-    border-radius: 8px;
-    background: #2A3647; 
+.signUp:hover svg rect{
+    fill: #29ABE2;  
+}
+
+.signUp:hover svg{
+    transform: scale(1.05); 
 }
 
 /*TODO Animation */
@@ -70,7 +71,7 @@
     top: 80px;
     left: 77px;
     bottom: 822.03px;
-    right: 1262.97px
+    right: 1262.97px;
 }
 
 .headlineLogIn{
@@ -79,6 +80,13 @@
     align-items: center;
     gap: 16px; 
     color: #000000;
+
+    /*Fixation*/
+    position: fixed;
+    top: 307.5px;
+    left: 562.5px;
+    bottom: 627.5px;
+    right: 562.5px;
 }
 
 .headlineLogIn span{
@@ -110,6 +118,12 @@
     align-items: flex-start;
     gap: 32px;
     
+    /*Fixation*/
+    position: fixed;
+    top: 428.5px;
+    left: 509px;
+    bottom: 443.5px;
+    right: 509px;
 }
 
 .inputsDecoration{
@@ -123,6 +137,8 @@
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF; 
+
+
 }
 
 .inputs{
@@ -161,6 +177,13 @@
     align-items: center;
     gap: 48px;
     align-self: stretch; 
+
+    /*Fixation*/
+    position: fixed;
+    top: 612.5px;
+    left: 509px;
+    bottom: 387.5px;
+    right: 509px
 }
 
 .settingsLoginSpan{
@@ -183,13 +206,23 @@
     color: black;
 }
 
+.checkboxBG{
+    accent-color: green !important;
+}
 
 
 .buttonsLogin{
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 35px; 
+    gap: 35px;
+    
+    /*Fixation*/
+    position: fixed;
+    top: 668.5px;
+    left: 559px;
+    bottom: 307.5px;
+    right: 559px
 }
 
 
@@ -202,6 +235,23 @@
     gap: 10px; 
 }
 
+.svgLogin:hover rect{
+    fill: #29ABE2;
+}
+
+
+.svgGuestLogin:hover path {
+    fill: #29ABE2;
+}
+
+.svgGuestLogin:hover rect {
+    stroke: #29ABE2;
+}
+
+.svgGuestLogin:hover{
+    border-color: #29ABE2;
+    transform: scale(1.05);
+}
 
 .legalPrivacy{
     display: inline-flex;
@@ -237,4 +287,12 @@
 .legalPrivacyButton:hover{
     transform: scale(1.1);
     color: #29ABE2;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.transform:hover{
+    transform: scale(1.05);
 }
