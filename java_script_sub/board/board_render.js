@@ -70,8 +70,8 @@ function generateTasksHTML(element) {
 }
 
 function taskProgress(element) {
-   // Counter for completed Subtasks
-  doneSubtaskCount = 0;  
+  // Counter for completed Subtasks
+  let doneSubtaskCount = 0;  
   let allSubtaskCount = element['subtasks'].length;
   if (element['subtasks'] && allSubtaskCount > 0) {
     // Check, if subtasks aren´t empty

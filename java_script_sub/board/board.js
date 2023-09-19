@@ -17,25 +17,40 @@ function init() {
   updateHTML();
 }
 
-function updateHTML() {
-  let todo = todos.filter((t) => t['status'] == 'todo');
-  let inProgress = todos.filter((t) => t['status'] == 'inProgress');
-  let awaitFeedback = todos.filter((t) => t['status'] == 'awaitFeedback');
-  let done = todos.filter((t) => t['status'] == 'done');
+function updateHTML(search) {
+  let todo;
+  let inProgress;
+  let awaitFeedback;
+  let done;
+  
+  if (search) {
+    todo = todos.filter((t) => t['status'] == 'todo' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
+    inProgress = todos.filter((t) => t['status'] == 'inProgress' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
+    awaitFeedback = todos.filter((t) => t['status'] == 'awaitFeedback' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
+    done = todos.filter((t) => t['status'] == 'done' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
+  } else {
+    todo = todos.filter((t) => t['status'] == 'todo');
+    inProgress = todos.filter((t) => t['status'] == 'inProgress');
+    awaitFeedback = todos.filter((t) => t['status'] == 'awaitFeedback');
+    done = todos.filter((t) => t['status'] == 'done');
+  }  
 
-  issue('todo', todo);
-  issue('inProgress', inProgress);
-  issue('awaitFeedback', awaitFeedback);
-  issue('done', done);
+  issue('todo', todo, 'No tasks To do');
+  issue('inProgress', inProgress, 'No tasks in progress');
+  issue('awaitFeedback', awaitFeedback, 'No await feedback');
+  issue('done', done, 'No tasks done');
 }
 
-function issue(name, job) {
+function issue(name, job, longText) {
   if (job.length) {
     document.getElementById(name).innerHTML = '';
     for (let index = 0; index < job.length; index++) {
       let element = job[index];
       document.getElementById(name).innerHTML += generateTasksHTML(element);
     }
+  }
+  else{
+    document.getElementById(name).innerHTML = `<div class="no_tasks_feedback">${longText}</div>`;
   }
 }
 
@@ -67,3 +82,14 @@ function calculateProgress(doneSubtaskCount, allSubtaskCount) {
   resultProgress = basis - resultProgress;
   return resultProgress;
 }
+
+function filterTasks() {
+  let search = document.getElementById('search').value;
+  search = search.toLowerCase();
+  updateHTML(search);  
+}
+
+// Funktioniert noch nicht!
+document.querySelector(".btn_search").addEventListener("click", function() {
+  this.querySelector("path").setAttribute("fill", "#5fc0e9");
+});

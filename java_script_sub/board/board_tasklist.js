@@ -25,7 +25,7 @@ let todos = [
     id: 1,
     title: 'HTML Base Template Creation',
     description: 'Create reusable HTML base templates...',
-    status: 'awaitFeedback',
+    status: 'todo',
     prio: 'Low',
     subtasks: [],
     member: [],
