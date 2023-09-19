@@ -18,6 +18,25 @@ function init() {
 }
 
 function updateHTML(search) {
+  let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
+  let longText = ['No tasks To do', 'No tasks in progress', 'No await feedback', 'No tasks done'];
+
+  let filteredTodos = search
+    ? todos.filter(
+        (t) =>
+          statuses.includes(t['status']) &&
+          (t['title'].toLowerCase().includes(search) ||
+            t['description'].toLowerCase().includes(search))
+      )
+    : todos;
+
+  statuses.forEach((status, index) => {
+    let filteredByStatus = filteredTodos.filter((t) => t['status'] === status);
+    issue(status, filteredByStatus, longText[index]);
+  });
+}
+
+function uxpdateHTML(search) {
   let todo;
   let inProgress;
   let awaitFeedback;
@@ -34,7 +53,7 @@ function updateHTML(search) {
     awaitFeedback = todos.filter((t) => t['status'] == 'awaitFeedback');
     done = todos.filter((t) => t['status'] == 'done');
   }  
-
+  
   issue('todo', todo, 'No tasks To do');
   issue('inProgress', inProgress, 'No tasks in progress');
   issue('awaitFeedback', awaitFeedback, 'No await feedback');
