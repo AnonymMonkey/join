@@ -107,8 +107,3 @@ function filterTasks() {
   search = search.toLowerCase();
   updateHTML(search);  
 }
-
-// Funktioniert noch nicht!
-document.querySelector(".btn_search").addEventListener("click", function() {
-  this.querySelector("path").setAttribute("fill", "#5fc0e9");
-});
