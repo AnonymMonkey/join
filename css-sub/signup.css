@@ -37,10 +37,10 @@ body{
 
     /*Fixation*/
     position: fixed;
-    top: 259.5px;
-    left: 394px;
-    bottom: 200.5px;
-    right: 394px;
+    top: 197px;
+    left: 421px;
+    bottom: 140px;
+    right: 421px;
 }
 
 .headlineSignUp{
@@ -52,9 +52,9 @@ body{
 
     /*Fixation*/
     position: fixed;
-    top: 307.5px;
+    top: 245px;
     left: 562.5px;
-    bottom: 627.5px;
+    bottom: 690px;
     right: 562.5px;
 }
 
@@ -86,16 +86,15 @@ body{
 
 .inputsSignUp{
     display: flex;
-    height: 152px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 24px;
     
     /*Fixation*/
     position: fixed;
-    top: 428.5px;
+    top: 366px;
     left: 509px;
-    bottom: 443.5px;
+    bottom: 372px;
     right: 509px;
 }
 
@@ -142,6 +141,10 @@ body{
     flex-shrink: 0; 
 }
 
+input:focus {
+    outline: none;
+    color: black;
+}
 
 /*Fine till here*/
 
@@ -151,23 +154,23 @@ body{
     padding: 0px 33px 0px 39px;
     justify-content: flex-end;
     align-items: center;
-    gap: 48px;
+    gap: 16px;
     align-self: stretch; 
 
     /*Fixation*/
     position: fixed;
-    top: 612.5px;
-    left: 509px;
-    bottom: 387.5px;
-    right: 509px
+    top: 668px;
+    left: 560x;
+    bottom: 332px;
+    right: 560px
+    /*left 604.5 */
 }
 
 .settingsSignUpSpan{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    
     color: #29ABE2;
-    cursor: pointer; 
+    cursor: pointer;
+    
 }
 
 .settingsSignUpSpan:hover{
@@ -175,17 +178,17 @@ body{
 }
 
 .rememberMe{
-    display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px; 
     color: black;
+    width: 231px;
+    height: 24px; 
 }
 
 .checkboxBG{
     accent-color: green !important;
 }
-
 
 
 .buttonsSignUp{
@@ -196,10 +199,10 @@ body{
     
     /*Fixation*/
     position: fixed;
-    top: 668.5px;
-    left: 559px;
-    bottom: 307.5px;
-    right: 559px
+    top: 724px;
+    left: 657px;
+    bottom: 245px;
+    right: 657px
 }
 
 

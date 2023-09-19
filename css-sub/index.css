@@ -21,9 +21,9 @@ body{
 
     /*Fixation*/
     position: fixed;
-    top: 259.5px;
+    top: 265.5px;
     left: 394px;
-    bottom: 200.5px;
+    bottom: 200px;
     right: 394px;
 }
 
@@ -83,9 +83,9 @@ body{
 
     /*Fixation*/
     position: fixed;
-    top: 307.5px;
+    top: 313.5px;
     left: 562.5px;
-    bottom: 627.5px;
+    bottom: 621.5px;
     right: 562.5px;
 }
 
@@ -111,6 +111,23 @@ body{
     stroke-width: 3px;
 }
 
+.loginOverview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    align-self: stretch; 
+    
+    /*Fixation*/
+    position: fixed;
+    top: 434.5px;
+    left: 509px;
+    bottom: 393.5px;
+    right: 509px;
+
+}
+
+
 .inputsLogin{
     display: flex;
     height: 152px;
@@ -120,9 +137,9 @@ body{
     
     /*Fixation*/
     position: fixed;
-    top: 428.5px;
+    top: 434.5px;
     left: 509px;
-    bottom: 443.5px;
+    bottom: 437.5px;
     right: 509px;
 }
 
@@ -137,8 +154,6 @@ body{
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF; 
-
-
 }
 
 .inputs{
@@ -160,8 +175,20 @@ body{
     font-style: normal;
     font-weight: 400;
     line-height: 120%; /* 24px */
-    cursor: pointer; 
+    cursor: pointer;
+    
 }
+
+
+/*TODO up to change with JS
+...if value not "" apply color black for inputs
+using event "onFocus" in html file with function in JS
+*/
+input:focus {
+    outline: none;
+    color: black;
+}
+
 
 .inputs img{
     width: 24px;
@@ -172,20 +199,47 @@ body{
 
 .settingsLogin{
     display: flex;
-    padding: 0px 33px 0px 39px;
-    justify-content: flex-end;
+    padding: 0px 241px 0px 39px;
     align-items: center;
-    gap: 48px;
-    align-self: stretch; 
+    align-self: stretch;
 
-    /*Fixation*/
+   
     position: fixed;
-    top: 612.5px;
-    left: 509px;
-    bottom: 387.5px;
-    right: 509px
+    top: 606.5px;
+    left: 548px;
+    bottom: 393.5px;
+    right: 750px
 }
 
+.rememberMe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; 
+    color: black;
+    
+    position: fixed;
+    top: 606.5px;
+    left: 548px;
+    bottom: 393.5px;
+    right: 750px
+}
+
+.rememberMe span{
+    color: #000;
+    /* Version 2/body */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 19.2px */
+}
+
+.checkboxBG{
+    accent-color: green !important;
+}
+
+/*
 .settingsLoginSpan{
     display: flex;
     align-items: flex-start;
@@ -197,18 +251,10 @@ body{
 .settingsLoginSpan:hover{
     text-decoration: underline;
 }
+*/
 
-.rememberMe{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px; 
-    color: black;
-}
 
-.checkboxBG{
-    accent-color: green !important;
-}
+
 
 
 .buttonsLogin{
@@ -219,9 +265,9 @@ body{
     
     /*Fixation*/
     position: fixed;
-    top: 668.5px;
+    top: 662.5px;
     left: 559px;
-    bottom: 307.5px;
+    bottom: 313.5px;
     right: 559px
 }
 

@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+.firstPageContainer{
+    display: flex;
+    width: 1440px;
+
+    padding: 345px 0px 344.928px 0px;
+    justify-content: center;
+    align-items: center; 
+
+    background: #F6F7F8; 
+}
+
+.logoBig{
+    width: 274px;
+    height: 334.07px;
+    
+    position: absolute;
+    top: 345px;
+    left: 583px;
+}

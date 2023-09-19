@@ -54,9 +54,9 @@
     
     /*Fixation*/
     position: fixed;
-    top: 335px;
+    top: 727px;
     left: 328px;
-    bottom: 519px;
+    bottom: 127px;
     right: 552px
 }
 
@@ -118,9 +118,9 @@
     
     /*Fixation*/
     position: fixed;
-    top: 531.5px;
+    top: 531px;
     left: 328px;
-    bottom: 324.5px;
+    bottom: 325px;
     right: 552px
 }
 
@@ -196,9 +196,9 @@
 .greetingSection{
     /*Fixation*/
     position: fixed;
-    top: 548px;
+    top: 547.5px;
     left: 968px;
-    bottom: 341px;
+    bottom: 340.5px;
     right: 87px
 }
 
@@ -240,9 +240,9 @@
 
     /*Fixation*/
     position: fixed;
-    top: 728px;
+    top: 335px;
     left: 328px;
-    bottom: 128px;
+    bottom: 521px;
     right: 552px
 }
 
