@@ -1,7 +1,10 @@
 
-function contactsInit() {
+async function contactsInit() {
     includeHTML();
-    loadContacts();
+
+    await loadContacts();
+    deleteTest();
+    await setItem('contacts', JSON.stringify(contacts));
     createRegister();
 }
 
