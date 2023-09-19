@@ -1,4 +1,6 @@
 let contacts = [];
+const generatedIDs = new Set();
+const generatedColors = new Set();
 
 /**
  * This function create a contact.
@@ -20,6 +22,8 @@ async function saveContact() {
         contact_name: contact_name.value,
         contact_email: contact_mail.value,
         contact_phone: contact_phone.value,
+        contact_color: randomColor(),
+        contact_ID: randomID(),
     });
     await setItem('contacts', JSON.stringify(contacts));
     resetContactsForm()
@@ -39,6 +43,31 @@ function resetContactsForm() {
     contact_phone.value = '';
     create_btn.disabled = false;
 }
+
+function randomColor() {
+    let color;
+
+    do {
+        color = Math.floor(Math.random() * 16777215).toString(16);
+    } while (generatedColors.has(color));
+
+    generatedColors.add(color);
+    color = '#' + color;
+    return color;
+}
+
+function randomID() {
+    let id;
+
+    do {
+        id = Math.floor(Math.random() * 10000);
+    } while (generatedIDs.has(id));
+
+    generatedIDs.add(id);
+
+    return id;
+}
+
 
 function createRegister() {
     let register = elementByID('register');
