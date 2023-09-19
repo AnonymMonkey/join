@@ -3,18 +3,18 @@ let todos = [
     id: 0,
     title: 'Kochwelt Page & Recipe Recommender',
     description: 'Build start page with recipe recommendation.',
-    status: 'inProgress',
+    status: 'todo',
     prio: 'Medium',
     subtasks: [
       {
         subid: 0,
         subtitle: 'Implement Recipe Recommendation',
-        substatus: 'done',
+        substatus: 'open',
       },
       {
         subid: 1,
         subtitle: 'Start Page Layout',
-        substatus: 'open',
+        substatus: 'done',
       },
     ],
     member: [],
@@ -26,7 +26,7 @@ let todos = [
     title: 'HTML Base Template Creation',
     description: 'Create reusable HTML base templates...',
     status: 'awaitFeedback',
-    prio: 'low',
+    prio: 'Low',
     subtasks: [],
     member: [],
     category: 0,
@@ -36,8 +36,8 @@ let todos = [
     id: 2,
     title: 'Daily Kochwelt Recipe',
     description: 'Implement daily recipe and portion calculator...',
-    status: 'awaitFeedback',
-    prio: 'low',
+    status: 'todo',
+    prio: 'Low',
     subtasks: [],
     member: [],
     category: 1,
@@ -48,23 +48,26 @@ let todos = [
     title: 'CSS Architecture Planning',
     description: 'Define CSS naming conventions and structure...',
     status: 'done',
-    prio: 'high',
-    subtasks: [],
+    prio: 'Urgent',
+    subtasks: [
+      {
+        subid: 0,
+        subtitle: 'Establish CSS Methodology',
+        substatus: 'done',
+      },
+      {
+        subid: 1,
+        subtitle: 'Setup Base Styles',
+        substatus: 'open',
+      },
+      {
+        subid: 2,
+        subtitle: 'Do something',
+        substatus: 'open',
+      },
+    ],
     member: [],
     category: 0,
     duedate: '2023-05-01',
   }
-];
-
-let category = [
-  {
-    id: 0,
-    title: 'Technical Task',
-    bgColor: '#1dd7c1',
-  },
-  {
-    id: 1,
-    title: 'User Story',
-    bgColor: '#0837ff',
-  },
 ];
