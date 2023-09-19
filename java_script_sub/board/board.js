@@ -12,11 +12,6 @@ let category = [
   },
 ];
 
-// Hier wird der HTML-Code für den Fortschrittscontainer erstellt
-let progressHTML = '';
-// Zähler für erledigte Subtasks
-let doneSubtaskCount;
-
 function init() {
   includeHTML();
   updateHTML();
@@ -63,4 +58,12 @@ function highlight(id) {
 
 function removeHighlight(id) {
   document.getElementById(id).classList.remove('drag-area-highlight');
+}
+
+function calculateProgress(doneSubtaskCount, allSubtaskCount) {
+  const basis = 128;
+  let percent = doneSubtaskCount * 100 / allSubtaskCount;
+  let resultProgress = (basis * percent) / 100;
+  resultProgress = basis - resultProgress;
+  return resultProgress;
 }

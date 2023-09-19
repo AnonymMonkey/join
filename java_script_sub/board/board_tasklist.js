@@ -9,12 +9,12 @@ let todos = [
       {
         subid: 0,
         subtitle: 'Implement Recipe Recommendation',
-        substatus: 'done',
+        substatus: 'open',
       },
       {
         subid: 1,
         subtitle: 'Start Page Layout',
-        substatus: 'open',
+        substatus: 'done',
       },
     ],
     member: [],
@@ -58,7 +58,12 @@ let todos = [
       {
         subid: 1,
         subtitle: 'Setup Base Styles',
-        substatus: 'done',
+        substatus: 'open',
+      },
+      {
+        subid: 2,
+        subtitle: 'Do something',
+        substatus: 'open',
       },
     ],
     member: [],

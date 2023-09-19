@@ -1,3 +1,8 @@
+// Hier wird der HTML-Code für den Fortschrittscontainer erstellt
+let progressHTML = '';
+// Zähler für erledigte Subtasks
+let doneSubtaskCount;
+
 function generateTasksHTML(element) {
   progressHTML = '';
   taskProgress(element);
@@ -20,11 +25,44 @@ function generateTasksHTML(element) {
   ${progressHTML}
   <div class="frame139">
     <div class="frame217">
-      <div class="profile_badge">AM</div>
-      <div class="profile_badge">EM</div>
-      <div class="profile_badge">MB</div>
+      <div class="profile_badge">
+        <div class="group9">
+          <div class="group9_ellipse">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="15.5" fill="#FF7A00" stroke="white"/>          
+            </svg>        
+            <div class="group9_text">AM</div>
+          </div>
+        </div>      
+      </div>
+
+      <div style="left: -8px" class="profile_badge">
+        <div class="group9">
+          <div class="group9_ellipse">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="15.5" fill="#1FD7C1" stroke="white"/>          
+            </svg>        
+            <div class="group9_text">EM</div>
+          </div>
+        </div>      
+      </div>
+
+      <div style="left: -16px" class="profile_badge">
+        <div class="group9">
+          <div class="group9_ellipse">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="15.5" fill="#462F8A" stroke="white"/>          
+            </svg>        
+            <div class="group9_text">MB</div>
+          </div>
+        </div>      
+      </div>
+      
     </div>
-    <img class="priority_symbol" src="../assets/img/add-task/${element['prio']}.svg" alt="">
+    <div class="priority_symbol">
+      <img src="../assets/img/add-task/${element['prio']}.svg" alt="">
+    </div>
+
   </div>
   </div>
   </div>
@@ -32,37 +70,27 @@ function generateTasksHTML(element) {
 }
 
 function taskProgress(element) {
-  doneSubtaskCount = 0; // Zähler für erledigte Subtasks
-  let percent = 0;
-  let basis = element['subtasks'].length;
-  let resultProgress;
-  if (element['subtasks'] && element['subtasks'].length > 0) {
-    // Prüfen, ob subtasks Werte enthält
+   // Counter for completed Subtasks
+  doneSubtaskCount = 0;  
+  let allSubtaskCount = element['subtasks'].length;
+  if (element['subtasks'] && allSubtaskCount > 0) {
+    // Check, if subtasks aren´t empty
     for (const subtask of element['subtasks']) {
       if (subtask['substatus'] === 'done') {
         doneSubtaskCount++;
       }
     }
+    let resultProgress = calculateProgress(doneSubtaskCount, allSubtaskCount);    
+    generateProgressHTML(resultProgress, doneSubtaskCount, allSubtaskCount);
+  }
+}
 
-    // 128 = 0
-    // 64 = 50%
-    percent = (doneSubtaskCount * 100) / basis;
-    calculateProgress(percent);
-
-    // Prüfen, ob subtasks Werte enthält
-    return progressHTML = `
+function generateProgressHTML(resultProgress, doneSubtaskCount, allSubtaskCount) {
+  return progressHTML = `
       <div class="frame114_progress">
         <div style="padding-right: ${resultProgress}px;" class="frame114_progressbar">
           <div class="frame114_progressfilter"></div>
         </div>
-        <div class="frame114_progresstext">${doneSubtaskCount}/${element['subtasks'].length} Subtasks</div>
+        <div class="frame114_progresstext">${doneSubtaskCount}/${allSubtaskCount} Subtasks</div>
       </div>`;
-  }
-}
-
-function calculateProgress(percent) {
-  const basis = 128;
-  console.log(basis * percent / 100);
-  let resultProgress = (basis * percent / 100);
-  return parseInt(resultProgress);
 }
