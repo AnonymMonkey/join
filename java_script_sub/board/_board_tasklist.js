@@ -1,4 +1,27 @@
-let todos = [
+
+
+/**
+ * Nicht mehr nutzen - dient nur noch als Vorlage für den Aufbau
+ * Sämtliche Inhalte können vom remote-Storage abgerufen werden 
+ * key = "tasks" oder key = "taskCategory"
+ * 
+ * 
+ 
+let taskCategory = [
+  {
+    id: 0,
+    title: 'Technical Task',
+    bgColor: '#1dd7c1',
+  },
+  {
+    id: 1,
+    title: 'User Story',
+    bgColor: '#0837ff',
+  },
+];
+
+
+let tasks = [
   {
     id: 0,
     title: 'Kochwelt Page & Recipe Recommender',
@@ -17,7 +40,7 @@ let todos = [
         substatus: 'done',
       },
     ],
-    member: [],
+    member: [0, 1, 4],
     category: 1,
     duedate: '2023-05-10',
   },
@@ -28,7 +51,7 @@ let todos = [
     status: 'awaitFeedback',
     prio: 'Low',
     subtasks: [],
-    member: [],
+    member: [1],
     category: 0,
     duedate: '2023-05-01',
   },
@@ -39,7 +62,7 @@ let todos = [
     status: 'todo',
     prio: 'Low',
     subtasks: [],
-    member: [],
+    member: [2, 3],
     category: 1,
     duedate: '2023-05-01',
   },
@@ -66,8 +89,10 @@ let todos = [
         substatus: 'open',
       },
     ],
-    member: [],
+    member: [0],
     category: 0,
     duedate: '2023-05-01',
   }
 ];
+
+*/

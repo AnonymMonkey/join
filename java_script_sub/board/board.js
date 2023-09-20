@@ -1,18 +1,13 @@
 let currentDraggedElement;
-let category = [
-  {
-    id: 0,
-    title: 'Technical Task',
-    bgColor: '#1dd7c1',
-  },
-  {
-    id: 1,
-    title: 'User Story',
-    bgColor: '#0837ff',
-  },
-];
+let contactsStefan = [];
+let tasks = [];
+let taskCategory = [];
+let progressHTML = '';
 
-function init() {
+async function init() {
+  await loadTasks();
+  await loadTaskCategory();
+  await loadContacts();
   includeHTML();
   updateHTML();
 }
@@ -21,43 +16,19 @@ function updateHTML(search) {
   let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
   let longText = ['No tasks To do', 'No tasks in progress', 'No await feedback', 'No tasks done'];
 
-  let filteredTodos = search
-    ? todos.filter(
+  let filteredTasks = search
+    ? tasks.filter(
         (t) =>
           statuses.includes(t['status']) &&
           (t['title'].toLowerCase().includes(search) ||
             t['description'].toLowerCase().includes(search))
       )
-    : todos;
+    : tasks;
 
   statuses.forEach((status, index) => {
-    let filteredByStatus = filteredTodos.filter((t) => t['status'] === status);
+    let filteredByStatus = filteredTasks.filter((t) => t['status'] === status);
     issue(status, filteredByStatus, longText[index]);
   });
-}
-
-function uxpdateHTML(search) {
-  let todo;
-  let inProgress;
-  let awaitFeedback;
-  let done;
-  
-  if (search) {
-    todo = todos.filter((t) => t['status'] == 'todo' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
-    inProgress = todos.filter((t) => t['status'] == 'inProgress' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
-    awaitFeedback = todos.filter((t) => t['status'] == 'awaitFeedback' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
-    done = todos.filter((t) => t['status'] == 'done' && (t['title'].toLowerCase().includes(search) || t['description'].toLowerCase().includes(search)));
-  } else {
-    todo = todos.filter((t) => t['status'] == 'todo');
-    inProgress = todos.filter((t) => t['status'] == 'inProgress');
-    awaitFeedback = todos.filter((t) => t['status'] == 'awaitFeedback');
-    done = todos.filter((t) => t['status'] == 'done');
-  }  
-  
-  issue('todo', todo, 'No tasks To do');
-  issue('inProgress', inProgress, 'No tasks in progress');
-  issue('awaitFeedback', awaitFeedback, 'No await feedback');
-  issue('done', done, 'No tasks done');
 }
 
 function issue(name, job, longText) {
@@ -82,7 +53,7 @@ function allowDrop(ev) {
 }
 
 function moveTo(status) {
-  todos[currentDraggedElement]['status'] = status;
+  tasks[currentDraggedElement]['status'] = status;
   updateHTML();
 }
 
@@ -106,4 +77,51 @@ function filterTasks() {
   let search = document.getElementById('search').value;
   search = search.toLowerCase();
   updateHTML(search);  
+}
+
+function taskProgress(element) {
+  // Counter for completed Subtasks
+  let doneSubtaskCount = 0;  
+  let allSubtaskCount = element['subtasks'].length;
+  if (element['subtasks'] && allSubtaskCount > 0) {
+    // Check, if subtasks aren´t empty
+    for (const subtask of element['subtasks']) {
+      if (subtask['substatus'] === 'done') {
+        doneSubtaskCount++;
+      }
+    }
+    let resultProgress = calculateProgress(doneSubtaskCount, allSubtaskCount);    
+    generateProgressHTML(resultProgress, doneSubtaskCount, allSubtaskCount);
+  }
+}
+
+function assignetTo(element) {
+  console.log(element['id'] + " member " + element['member']);
+  // get all contacts from remote storage
+  generateProfileBadges('AM', '#FFA800', 0);
+  generateProfileBadges('SJ', '#4589FF', 8);
+}
+
+async function loadContacts(){
+  try {
+      contactsStefan = JSON.parse(await getItem('contacts'));
+  } catch(e){
+      console.error('Loading error:', e);
+  }
+}
+
+async function loadTasks(){
+  try {
+      tasks = JSON.parse(await getItem('tasks'));
+  } catch(e){
+      console.error('Loading error:', e);
+  }
+}
+
+async function loadTaskCategory(){
+  try {
+    taskCategory = JSON.parse(await getItem('taskCategory'));
+  } catch(e){
+      console.error('Loading error:', e);
+  }
 }
