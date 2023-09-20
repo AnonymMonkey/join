@@ -4,7 +4,7 @@ function generateTasksHTML(element) {
   taskProgress(element);
   assignetTo(element);  
   return /*html*/ `
-  <div id="${element['id']}" draggable="true" ondragstart="startDragging(${element['id']})"  class="card pointer">
+  <div id="${element['id']}" draggable="true" onmousedown="startTransform(${element['id']})" onmouseup="stopTransform(${element['id']})" ondragstart="startDragging(${element['id']})"  class="card pointer">
     <div class="frame119">
       <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']}">
       <span class="board_card_label">${taskCategory[element['category']]['title']}</span>

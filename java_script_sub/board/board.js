@@ -45,7 +45,17 @@ function issue(name, job, longText) {
 }
 
 function startDragging(id) {
-  currentDraggedElement = id;
+  currentDraggedElement = id;  
+}
+
+function startTransform(id){
+  console.log("start transform: " + id);
+  // transform: rotate(5deg);
+}
+
+function stopTransform(id){
+  console.log("stop transform: " + id);
+  // transform: rotate(0deg);
 }
 
 function allowDrop(ev) {
@@ -97,10 +107,12 @@ function taskProgress(element) {
 }
 
 function assignetTo(element) {
-  console.log(element['id'] + " member " + element['member']);
-  // get all contacts from remote storage
-  generateProfileBadges('AM', '#FFA800', 0);
+  let pixelLeft = 0;
+  // console.log(element['id'] + " member " + element['member']);
+  // get all contacts from remote storage where member of this task
+  generateProfileBadges('AM', '#FFA800', pixelLeft);
   generateProfileBadges('SJ', '#4589FF', 8);
+  pixelLeft = pixelLeft + 8;
 }
 
 async function loadContacts(){
