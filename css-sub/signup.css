@@ -74,8 +74,8 @@ body{
     transform: scale(1.1);
 }
 
-.arrowBack:hover svg{
-    fill: green;
+.checkboxBG:hover{
+    background-color: #F6F7F8;
 }
 
 .headlineSignUp{
@@ -116,9 +116,6 @@ body{
 }
 
 
-
-
-
 .inputsSignUp{
     display: flex;
     flex-direction: column;
@@ -144,8 +141,6 @@ body{
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF; 
-
-
 }
 
 .inputs{
@@ -204,8 +199,7 @@ input:focus {
 .settingsSignUpSpan{
     
     color: #29ABE2;
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 
 .settingsSignUpSpan:hover{
@@ -219,10 +213,6 @@ input:focus {
     color: black;
     width: 231px;
     height: 24px; 
-}
-
-.checkboxBG{
-    accent-color: green !important;
 }
 
 
@@ -242,12 +232,13 @@ input:focus {
 
 
 .svgSignUp:hover rect{
-    fill: #29ABE2;
+    fill: #29ABE2; 
 }
 
-
-
-
+.svgSignUp:hover svg{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 8px; 
+}
 
 
 /*STAYS*/
@@ -294,4 +285,8 @@ input:focus {
 
 .transform:hover{
     transform: scale(1.05);
+}
+
+.dNone{
+    display: none;
 }

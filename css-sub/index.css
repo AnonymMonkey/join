@@ -57,8 +57,12 @@ body{
 }
 
 .signUp:hover svg{
-    transform: scale(1.05); 
+    transform: scale(1.02);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 8px; 
 }
+
+
 
 /*TODO Animation */
 .logoTopLeft{
@@ -235,27 +239,9 @@ input:focus {
     line-height: 120%; /* 19.2px */
 }
 
-.checkboxBG{
-    accent-color: green !important;
+.checkboxBG:hover{
+    background-color: #F6F7F8;
 }
-
-/*
-.settingsLoginSpan{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    color: #29ABE2;
-    cursor: pointer; 
-}
-
-.settingsLoginSpan:hover{
-    text-decoration: underline;
-}
-*/
-
-
-
-
 
 .buttonsLogin{
     display: flex;
@@ -285,6 +271,10 @@ input:focus {
     fill: #29ABE2;
 }
 
+.svgLogin:hover svg{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
 
 .svgGuestLogin:hover path {
     fill: #29ABE2;
@@ -294,9 +284,11 @@ input:focus {
     stroke: #29ABE2;
 }
 
-.svgGuestLogin:hover{
-    border-color: #29ABE2;
+.svgGuestLogin:hover svg{
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
+    border-color: #29ABE2;
+    border-radius: 8px;
 }
 
 .legalPrivacy{
@@ -341,4 +333,8 @@ input:focus {
 
 .transform:hover{
     transform: scale(1.05);
+}
+
+.dNone{
+    display: none;
 }
