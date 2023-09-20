@@ -8,6 +8,8 @@
     <script src="../java_script_sub/w3_include.js"></script>
     <script src="../script.js"></script>
     <script src="../java_script_sub/header.js"></script>
+    <script src="../java_script_sub/board/board_tasklist.js"></script>
+    <script src="../java_script_sub/summary.js"></script>
 
 
     <link rel="stylesheet" href="../style.css" />
@@ -19,7 +21,7 @@
     <title>Join</title>
   </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(); renderSummary()">
     <div class="mainContainer column">      
         <div id="header" w3-include-html="../assets/templates/header.html"></div>
 
@@ -48,9 +50,8 @@
                         </svg>
                         
                         
-                        <div class="flex column">
-                            <span class="tasksAmount">1</span>
-                            <span class="tasksSpan">To-do</span>
+                        <div id="summaryToDo" class="flex column">
+
                         </div>
                     </div>
 
@@ -63,9 +64,8 @@
                         </svg> 
                         
                         
-                        <div class="flex column">
-                            <span class="tasksAmount">1</span>
-                            <span class="tasksSpan">Done</span>
+                        <div id="summaryDone" class="flex column">
+
                         </div>
                     </div>
                 </section>
@@ -74,10 +74,11 @@
                     <div onclick="openBoard()" class="cardLarge">
                         <div class="urgentSection">
                             <img src="../assets/img/summary/red_up_arrows.png" alt="">
-                            <div class="flex column">
-                                <span class="tasksAmount">1</span>
-                                <span class="tasksSpan">Urgent</span>
+                            
+                            <div id="summaryUrgent" class="flex column">
+
                             </div>
+
                         </div>
                         
                         <img src="../assets/img/summary/vector_grey.png" alt="">
@@ -96,22 +97,16 @@
                 
 
                 <section class="flex smallCardSection">
-                    <div onclick="openBoard()" class="cardSmall">
-                        <span class="tasksAmount">5</span>
-                        <span class="tasksSpan">Tasks In</span>
-                        <span class="tasksSpan">Board</span>
+                    <div id="summaryTasks" onclick="openBoard()" class="cardSmall">
+
                     </div>
 
-                    <div onclick="openBoard()" class="cardSmall">
-                        <span class="tasksAmount">2</span>
-                        <span class="tasksSpan">Tasks In</span>
-                        <span class="tasksSpan">Progress</span>
+                    <div id="summaryInProgress" onclick="openBoard()" class="cardSmall">
+
                     </div>
                     
-                    <div onclick="openBoard()" class="cardSmall">
-                        <span class="tasksAmount">2</span>
-                        <span class="tasksSpan">Awaiting</span>
-                        <span class="tasksSpan">Feedback</span>
+                    <div id="summaryAwaitingFeedback" onclick="openBoard()" class="cardSmall">
+
                     </div>
                 </section>
 
