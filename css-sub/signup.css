@@ -43,6 +43,41 @@ body{
     right: 421px;
 }
 
+.arrowBackground{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    
+
+    position: fixed;
+    top: 261px;
+    left: 469px;
+    bottom: 731px;
+    right: 939px;
+}
+
+.arrowBackground:hover{
+    background: #F6F7F8;
+}
+
+.arrowBack{
+    /*Fixation*/
+    position: fixed;
+    top: 261px;
+    left: 469px;
+    bottom: 731px;
+    right: 939px;
+}
+
+.arrowBack:hover{
+    transform: scale(1.1);
+}
+
+.arrowBack:hover svg{
+    fill: green;
+}
+
 .headlineSignUp{
     display: flex;
     flex-direction: column;

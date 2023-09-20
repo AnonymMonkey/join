@@ -12,7 +12,7 @@
     top: 206px;
     left: 328px;
     bottom: 745px;
-    right: 461px
+    right: 461px;
 }
 
 .headlineSummary{
@@ -23,12 +23,26 @@
     font-style: normal;
     font-weight: 700;
     line-height: 120%; /* 73.2px */ 
+
+    /*Fixation*/
+    position: fixed;
+    top: 206px;
+    left: 328px;
+    bottom: 745px;
+    right: 825px;
 }
 
 .headlineVector{
     height: 59px; 
     stroke-width: 3px;
-    stroke: #29ABE2; 
+    stroke: #29ABE2;
+    
+    /*Fixation*/
+    position: fixed;
+    top: 213px;
+    left: 645px;
+    bottom: 745px;
+    right: 795px;
 }
 
 .headlineSpan{
@@ -38,8 +52,17 @@
     font-size: 27px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 32.4px */ 
+    line-height: 120%; /* 32.4px */
+    text-wrap: nowrap; 
+    
+    /*Fixation*/
+    position: fixed;
+    top: 226.5px;
+    left: 675px;
+    bottom: 765.5px;
+    right: 461px;
 }
+
 
 /*Section 2*/
 .smallCardSection{
@@ -236,7 +259,6 @@
     align-items: flex-start;
     gap: 32px;
     flex-shrink: 0; 
-
 
     /*Fixation*/
     position: fixed;

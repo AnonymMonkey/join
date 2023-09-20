@@ -111,6 +111,7 @@ body {
   width: calc(100% - 232px);
   height: calc(100vh - 96px);
   position: absolute;
+  
 }
 
 .h {

@@ -93,6 +93,8 @@
     background: #FFF;
     /* Barra superior */
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    
+   
 }
 
 .headerSpan{
@@ -102,19 +104,72 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */ 
+    line-height: 120%; /* 24px */
+    text-wrap: nowrap;  
 }
 
 .headerSymbols{
     display: flex;
     align-items: center;
     gap: 16px; 
+
+    /*Fixation*/
+    position: fixed;
+    top: 20px;
+    left: 1296px;
+    bottom: 948px;
+    right: 40px;
+    
 }
 
-
+.headerHelp{
+    
+    /*Fixation*/
+    position: fixed;
+    top: 32px;
+    left: 1296px;
+    bottom: 960px;
+    right: 40px;
+}
 
 .headerHelp:hover{
     transform: scale(1.2);
+}
+
+.headerInitialsBG{
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    
+    /*Fixation*/
+    position: fixed;
+    top: 20px;
+    left: 1344px;
+    bottom: 948px;
+    right: 40px;
+}
+
+.headerInitialsBG:hover{
+    background: #F6F7F8;
+}
+
+.headerInitials{
+    width: 17.614px;
+    height: 20px;
+    flex-shrink: 0; 
+    color: #29ABE2;
+    font-weight: bold;
+    font-size: 24px;
+   
+    /*Fixation*/
+    position: fixed;
+    top: 32px;
+    left: 1355px;
+    bottom: 966px;
+    right: 59.19px;
+
+    
 }
 
 .subMenu{
@@ -127,12 +182,12 @@
     background: var(--version-2-main-color, #2A3647);
     /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-    
 
     /*Fixation*/
     position: absolute;
     top: 96px;
     right: 16px;
+    z-index: 1;
 }
 
 .subMenu span{
@@ -144,6 +199,7 @@
     gap: 8px; 
     border-radius: 8px;
     
+
     /* Version 2/body */
     font-family: Inter;
     font-size: 16px;
@@ -157,7 +213,9 @@
 .subMenuSpanContainer span:hover{
     background-color: #2A3D59;
     cursor: pointer;
+    
 }
+
 
 /*generics*/
 
