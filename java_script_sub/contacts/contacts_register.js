@@ -1,74 +1,36 @@
-let contacts = [];
+let contacts = [{
+    'register_category': [],
+    'register_entry': [{
+        'contact_name': [],
+        'contact_mail': [],
+        'contact_phone': [],
+        'contact_color': [],
+        'contact_ID': []
+    }]
+}];
+
 let categories = [];
 const generatedIDs = new Set();
 const generatedColors = new Set();
 
-/**
- * This function create a contact.
- * 
- * @param {*} name - This is the Name of the contact.
- * @param {*} mail - This is the E-Mail of the contact.
- * @param {*} phone - This is the Phone-Number of the contact.
- */
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
+// CREATE CONTACT ||||||||||||||||||||||||||||||||||||||||||| //
+
 function createContact() {
     create_btn.disabled = true;
     getValues();
     saveContact();
     resetContactsForm();
+    loadContacts();
+    closeAddContactOverlay();
 }
+
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
+// GET VALUES ||||||||||||||||||||||||||||||||||||||||||||||| //
 
 function getValues() {
     getCategoryLetter();
     getEntry();
-}
-
-function getCategory() {
-    contacts.push({
-        'register_category': [categoryLetter()],
-    });
-}
-
-function getEntry() {
-    contacts.push({
-        'register_entry': [
-            {
-                'contact_name': contact_name.value,
-                'contact_mail': contact_mail.value,
-                'contact_phone': contact_phone.value,
-                'contact_color': randomColor(),
-                'contact_ID': randomID(),
-            }
-        ]
-    });
-}
-
-async function saveContact() {
-    await setItem('contacts', JSON.stringify(contacts));
-}
-
-async function loadContacts() {
-    try {
-        contacts = JSON.parse(await getItem('contacts'));
-    } catch (e) {
-        console.error('Loading error:', e);
-    }
-}
-
-function resetContactsForm() {
-    contact_name.value = '';
-    contact_mail.value = '';
-    contact_phone.value = '';
-    create_btn.disabled = false;
-}
-
-function createRegister() {
-    debugger;
-    let register = elementByID('register');
-    register.innerHTML = '';
-
-    for (let i = 0; i < contacts.length; i++) {
-        register.innerHTML += createRegisterEntry();
-    }
 }
 
 function getCategoryLetter() {
@@ -85,9 +47,46 @@ function getCategoryLetter() {
 
 function categoryLetter() {
     for (let i = 0; i < contacts.length; i++) {
-        let category = contacts[i];
-
+        let category = contacts[i]['register_category'];
+        category.push(categories)
     }
+}
+
+function getEntry() {
+    contacts.push({
+        'register_entry': [
+            {
+                'contact_name': contact_name.value,
+                'contact_mail': contact_mail.value,
+                'contact_phone': contact_phone.value,
+                'contact_color': randomColor(),
+                'contact_ID': randomID(),
+            }
+        ]
+    });
+}
+
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
+// STORAGE |||||||||||||||||||||||||||||||||||||||||||||||||| //
+
+async function saveContact() {
+    await setItem('contacts', JSON.stringify(contacts));
+}
+
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItem('contacts'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
+}
+
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
+// CREATE REGISTER |||||||||||||||||||||||||||||||||||||||||| //
+
+function createRegister() {
+    let register = elementByID('register');
+    register.innerHTML = createRegisterEntry();
 }
 
 function createRegisterEntry() {
@@ -98,7 +97,7 @@ function createRegisterEntry() {
 function createRegisterCategory() {
     let register = elementByID('register');
     for (let i = 0; i < contacts.length; i++) {
-        let contactCategory = contacts[i]['register_category'][0];
+        let contactCategory = contacts[i]['register_category'][i];
         register.innerHTML += /* html */`
         <div id="category_${contactCategory}">
             <div class="contact-letter">${contactCategory}</div>
@@ -110,20 +109,59 @@ function createRegisterCategory() {
 
 function createRegisterInfo() {
     let register = elementByID('register');
-    for (let i = 0; i < contacts.length; i++) {
-        let name = contacts[i]['register_entry'][0]['contact_name'];
-        let mail = contacts[i]['register_entry'][0]['contact_mail'];
+    for (let i = 0; i < contacts[i]['register_entry'].length; i++) {
+        let registerEntry = contacts[i]['register_entry'][i];
+        let name = registerEntry['contact_name'];
+        let mail = registerEntry['contact_mail'];
+        let ID = registerEntry['contact_ID'];
+        let color = registerEntry['contact_color'];
         register.innerHTML += /* html */`
-        <div class="contact-info column pointer">
-            <div class="contact-info-name">${name}</div>
-            <div class="contact-info-mail">${mail}</div>
+        <div id="contactID_${ID}" class="contact-info pointer">
+            <div id="contactLettersID_${ID}" class="first-letters"></div>
+            <div>
+                <div class="contact-info-name">${name}</div>
+                <div class="contact-info-mail">${mail}</div>
+            </div>
         </div>`;
+        contactInitials(`${name}`, `${ID}`, `${color}`)
     }
+}
+
+function contactFirstLettersBG(ID, color) {
+    let element = elementByID(`contactLettersID_${ID}`);
+    element.style.backgroundColor = color;
+}
+
+function contactFirstLetters(ID, name) {
+    let element = elementByID(`contactLettersID_${ID}`);
+    let words = name.split(' ');
+
+    let firstInitial = words[0].charAt(0).toUpperCase();
+    let secondInitial = words[1].charAt(0).toUpperCase();
+
+    let initials = firstInitial + secondInitial;
+
+    element.innerHTML = initials;
+}
+
+function contactInitials(name, ID, color) {
+    contactFirstLetters(ID, name);
+    contactFirstLettersBG(ID, color);
+}
+
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
+// RESET & DELETE ||||||||||||||||||||||||||||||||||||||||||| //
+
+function resetContactsForm() {
+    contact_name.value = '';
+    contact_mail.value = '';
+    contact_phone.value = '';
+    create_btn.disabled = false;
 }
 
 function deleteTest() {
     for (let i = 0; i < contacts.length; i++) {
         contacts.splice(1, 3)
-
+        saveContact();
     }
 }
