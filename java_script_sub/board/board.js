@@ -52,8 +52,9 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function moveTo(status) {
+async function moveTo(status) {
   tasks[currentDraggedElement]['status'] = status;
+  await setItem('tasks', JSON.stringify(tasks));
   updateHTML();
 }
 
