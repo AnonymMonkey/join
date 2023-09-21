@@ -1,9 +1,25 @@
 let amountTodos;
 let amountDone;
 let amountUrgent;
-let amountInBoard = todos.length;
+let amountInBoard;
 let amountInProgress;
 let amountAwaitingFeedback;
+let urgentDueDate;
+let todos = [];
+
+
+async function loadTodos(){
+    try {
+        todos = JSON.parse(await getItem('tasks'));
+    } catch(e){
+        console.error('Loading error:', e);
+    }
+}
+
+
+function getAmountInBoard(){
+    amountInBoard = todos.length;
+}
 
 
 function getAmountTodos(){
@@ -31,6 +47,7 @@ function getAmountUrgent(){
     for (let index = 0; index < todos.length; index++) {
         if(todos[index].prio == 'Urgent'){
             amountUrgent++
+            urgentDueDate = todos[index].duedate;
         }
     }
 }
@@ -56,7 +73,9 @@ function getAmountAwaitingFeedback(){
 }
 
 
-function renderSummary(){
+async function renderSummary(){
+    await loadTodos();
+    getAmountInBoard()
     getAmountTodos();
     getAmountDone();
     getAmountUrgent();
@@ -83,6 +102,11 @@ function renderSummary(){
     document.getElementById('summaryUrgent').innerHTML = /*html*/`
         <span class="tasksAmount">${amountUrgent}</span>
         <span class="tasksSpan">Urgent</span>
+    `;
+    //Urgent duedate / Deadline
+    document.getElementById('deadline').innerHTML = /*html*/`
+        <span class="deadlineSpan">${urgentDueDate}</span>
+        <span class="dateTextSpan">Upcoming Deadline</span>
     `;
     //Amount Tasks In Progress
     document.getElementById('summaryInProgress').innerHTML = /*html*/`

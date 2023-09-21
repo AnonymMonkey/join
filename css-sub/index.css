@@ -51,15 +51,15 @@ body{
     line-height: 120%; /* 24px */ 
 }
 
-
-.signUp:hover svg rect{
-    fill: #29ABE2;  
+.signupHover:hover rect{
+    fill: #29ABE2; 
 }
 
-.signUp:hover svg{
+
+.signupHover:hover svg{
     transform: scale(1.02);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
 
@@ -180,6 +180,7 @@ body{
     font-weight: 400;
     line-height: 120%; /* 24px */
     cursor: pointer;
+    width: 350px;
     
 }
 
@@ -190,6 +191,9 @@ using event "onFocus" in html file with function in JS
 */
 input:focus {
     outline: none;
+}
+
+input:not(:placeholder-shown){
     color: black;
 }
 
@@ -305,7 +309,7 @@ input:focus {
     /*Fixation*/
     position: fixed;
     top: 900px;
-    left: 597px;
+    left: 580px;
     bottom: 40px;
     right: 597px;
 }

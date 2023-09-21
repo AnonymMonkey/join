@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="../java_script_sub/w3_include.js"></script>
+    <script src="../java_script_sub/storage.js"></script>
     <script src="../script.js"></script>
     <script src="../java_script_sub/login/signup.js"></script>
     
@@ -18,7 +19,7 @@
 
   </head>
 
-  <body onload="includeHTML()">
+  <body onload="includeHTML(); loadUsers()">
     <div>      
 
       <img class="logoTopLeft" src="/assets/img/login/logo_dark.png" alt="">
@@ -37,7 +38,7 @@
                 <img src="../assets/img/login/vector_blue_underline.png">
             </div>
 
-            <form onsubmit="addUser(); return false">
+            <form onsubmit="registerUser(); return false">
 
                 <div class="inputsSignUp">
                     <div class="inputsDecoration">

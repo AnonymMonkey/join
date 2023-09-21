@@ -9,14 +9,10 @@ if(msg) {
     //display none auf message id
 }
 
-let users = [
-    {
-        'name': 'simon',
-        'email': 'simon.w2@gmx.net',
-        'password': 'test123',
-        'confirmation': 'test123',
-    }
-];
+let users = [];
+
+
+
 
 
 function changeCheckbox(){
@@ -38,20 +34,30 @@ function openSignUp(){
 
 
 function login(){
-    let email = document.getElementById('loginEmail').value
-    let password = document.getElementById('loginPassword').value
-    
-    let user = users.find(u => u.email == email && u.password == password)
+    let email = document.getElementById('loginEmail').value;
+    let password = document.getElementById('loginPassword').value;
+    loadUsers();
+    let user = users.find(u => u.email == email && u.password == password);
     
     if(user){
-        window.location.href = 'http://127.0.0.1:5500/html-sub/summary.html';
+        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html;`
 
     }
     else{
         //messagebox anzeigen lassen
         alert("Kein user gefunden")
+    };
+}
+
+
+async function loadUsers(){
+    try {
+        users = JSON.parse(await getItem('users'));
+    } catch(e){
+        console.error('Loading error:', e);
     }
 }
+
 
 function guestLogin(){
     window.location.href = 'http://127.0.0.1:5500/html-sub/summary.html';

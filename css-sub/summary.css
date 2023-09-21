@@ -102,6 +102,7 @@
 
 .cardSmall:hover{
     transform: scale(1.1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 .smallCardSection :hover{
@@ -182,6 +183,7 @@
 
 .cardLarge:hover{
     transform: scale(1.05);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 .urgentSection{
@@ -271,6 +273,7 @@
 .mediumCardSection :hover{
     background-color: #2A3647;
     cursor: pointer;
+    
 }
 
 .mediumCardSection :hover span{
@@ -285,6 +288,17 @@
 .svgPen:hover path{
     fill: #2A3647;
 }
+
+
+
+.invertIMG:hover img {
+    
+    filter: invert(100%)  saturate(140%) hue-rotate(290deg)
+      brightness(1000%) contrast(100%) 
+    ; 
+    border-radius: 80px;
+}
+
 
 .svgCheckmark:hover path{
     fill: #2A3647;
@@ -308,6 +322,7 @@
 
 .cardMedium:hover{
     transform: scale(1.1);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 

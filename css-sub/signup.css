@@ -162,7 +162,8 @@ body{
     font-style: normal;
     font-weight: 400;
     line-height: 120%; /* 24px */
-    cursor: pointer; 
+    cursor: pointer;
+    width: 350px; 
 }
 
 .inputs img{
@@ -173,6 +174,10 @@ body{
 
 input:focus {
     outline: none;
+    color: black;
+}
+
+input:not(:placeholder-shown){
     color: black;
 }
 
@@ -259,7 +264,7 @@ input:focus {
     /*Fixation*/
     position: fixed;
     top: 900px;
-    left: 597px;
+    left: 580px;
     bottom: 40px;
     right: 597px;
 }

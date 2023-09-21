@@ -1,26 +1,44 @@
 let isChecked = false;
 
-let users = [
-    {
-        'name': 'simon',
-        'email': 'simon.w2@gmx.net',
-        'password': 'test123',
-        'confirmation': 'test123',
-    }
-];
+const urlParams = new URLSearchParams(window.location.search)
+const msg = urlParams.get('msg');
 
-function addUser(){
+if(msg) {
+    msgbox.innerHTML = msg;
+}else{
+    //display none auf message id
+}
+
+
+let users = [];
+
+async function loadUsers(){
+    try {
+        users = JSON.parse(await getItem('users'));
+    } catch(e){
+        console.error('Loading error:', e);
+    }
+}
+
+
+async function registerUser(){
 
     let name = document.getElementById('signupName').value;
+    let surname = document.getElementById('signupName').value;
     let email = document.getElementById('signupEmail').value;
     let password = document.getElementById('signupPassword').value;
     let confirmation = document.getElementById('signupConfirmation').value;
 
-    
-
     if(password == confirmation){
-        users.push({name: name, email: email, password: password, confirmation: confirmation})
-        //window.location.href = 'http://127.0.0.1:5500/index.html';
+        await loadUsers()
+        users.push({
+            name: name,
+            surname: surname,
+            email: email,
+            password: password,
+        });
+        await setItem('users', JSON.stringify(users));
+        window.location.href = 'http://127.0.0.1:5500/index.html?userregistered';
     }
     else{
         alert("password does not match confirmation")
