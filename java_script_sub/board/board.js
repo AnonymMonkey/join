@@ -50,12 +50,14 @@ function startDragging(id) {
 
 function startTransform(id){
   console.log("start transform: " + id);
+  document.getElementById(id).style.transform = 'rotate(5deg)';
   // transform: rotate(5deg);
 }
 
 function stopTransform(id){
   console.log("stop transform: " + id);
   // transform: rotate(0deg);
+  document.getElementById(id).style.transform = 'rotate(0deg)';
 }
 
 function allowDrop(ev) {
