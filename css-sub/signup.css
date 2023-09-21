@@ -215,6 +215,10 @@ input:focus {
     height: 24px; 
 }
 
+.fakeSubmitButton rect{
+    fill: grey;
+}
+
 
 .buttonsSignUp{
     display: flex;
@@ -231,13 +235,17 @@ input:focus {
 }
 
 
-.svgSignUp:hover rect{
+.submitButton:hover rect{
     fill: #29ABE2; 
 }
 
-.svgSignUp:hover svg{
+.submitButton:hover svg{
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
     border-radius: 8px; 
+}
+
+.submitButton{
+    border: none;
 }
 
 

@@ -267,6 +267,11 @@ input:focus {
     gap: 10px; 
 }
 
+.submitButton{
+    border: none;
+    
+}
+
 .svgLogin:hover rect{
     fill: #29ABE2;
 }
