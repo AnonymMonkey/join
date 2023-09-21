@@ -1,8 +1,7 @@
 
 async function contactsInit() {
     includeHTML();
-
-    await loadContacts();
+    await loadData();
 
     createRegister();
 }
