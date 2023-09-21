@@ -1,0 +1,83 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.overlay-bg {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(200, 200, 200, 0.5);
+    z-index: 5;
+}
+
+.overlay-content {
+    position:relative;
+    width: 525px;
+    height: 871px;    
+    padding: 48px 40px;
+    border-radius: 30px;    
+    gap: 24px;
+    background-color: #FFF;
+    z-index: 6;
+    transition: right 0.3s ease;
+    /* Add transition */
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-in-out forwards;
+    /* 0.3s ist die Dauer der Animation */
+}
+
+.slideOut {
+    animation: slideOut 0.3s ease-in-out forwards;
+    /* 0.3s ist die Dauer der Animation */
+}
+
+@keyframes slideIn {
+    from {
+        right: -100%;
+        /* Startposition: rechts außerhalb des Bildschirms */
+    }
+
+    to {
+        right: 0;
+        /* Endposition: in die Mitte des Bildschirms */
+    }
+}
+
+@keyframes slideOut {
+    from {
+        right: 0;
+        /* Startposition: in der Mitte des Bildschirms */
+    }
+
+    to {
+        right: -100%;
+        /* Endposition: rechts außerhalb des Bildschirms */
+    }
+}
+
+.frame203{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    background-color: blue;
+}
+
+.close-button {
+    position: absolute;
+    top: 48px;
+    right: 48px;
+}

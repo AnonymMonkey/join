@@ -49,14 +49,10 @@ function startDragging(id) {
 }
 
 function startTransform(id){
-  console.log("start transform: " + id);
-  document.getElementById(id).style.transform = 'rotate(5deg)';
-  // transform: rotate(5deg);
+  document.getElementById(id).style.transform = 'rotate(5deg)';  
 }
 
-function stopTransform(id){
-  console.log("stop transform: " + id);
-  // transform: rotate(0deg);
+function stopTransform(id){  
   document.getElementById(id).style.transform = 'rotate(0deg)';
 }
 
@@ -108,7 +104,7 @@ function taskProgress(element) {
   }
 }
 
-function assignetTo(element) {
+function assignedTo(element) {
   let pixelLeft = 0;
   // console.log(element['id'] + " member " + element['member']);
   // get all contacts from remote storage where member of this task
