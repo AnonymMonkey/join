@@ -140,3 +140,14 @@ async function loadTaskCategory(){
       console.error('Loading error:', e);
   }
 }
+
+/*
+let isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches;
+if(isDarkMode){
+  document.getElementById("favicon").href="../assets/img/logo_light.png";
+}
+else
+{
+  document.getElementById("favicon").href="../assets/img/favicon.png";
+}
+*/

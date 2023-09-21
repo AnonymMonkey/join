@@ -1,0 +1,46 @@
+.pointer {
+  cursor: pointer;
+}
+
+.addtask_frame {
+  background-color: yellow;
+  height: 100vh;
+  padding-left: calc(328px - 232px);
+  padding-top: calc(206px - 96px);
+}
+
+.addtask_content {
+  display: flex;
+  width: 100%;
+  margin-top: calc(327px - 96px);
+}
+
+.frame219 {
+  display: flex;
+  width: 440px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: aqua;
+}
+
+.frame39 {
+  display: flex;
+  width: 440px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  background-color: orange;
+}
+
+.frame40 {
+  color: #000;
+  /* Version 2/t1 */
+  font-family: Inter;
+  font-size: 61px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 73.2px */
+}

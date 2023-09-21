@@ -5,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="../java_script_sub/w3_include.js"></script>
+    <script src="../java_script_sub/storage.js"></script>
     <script src="../script.js"></script>
+    <script src="../java_script_sub/add_task.js"></script>
+    <script src="../java_script_sub/header.js"></script>
 
     <link rel="stylesheet" href="../style.css" />
-
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <link rel="stylesheet" href="../css-sub/headerSidebar.css" />
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/png"
+      href="../assets/img/favicon.png"
+    />
 
     <title>Join</title>
   </head>
 
-  <body onload="updateHTML()">
-    <div class="container">      
-      <div class="header" w3-include-html="../assets/templates/desktop_header.html"></div>
-      <div class="main">
-        <div class="menu" w3-include-html="../assets/templates/desktop_menu.html"></div>
-        
-        <!-- insert content and own style from here -->
-
-      </div>
+  <body onload="init();">
+    <div class="mainContainer column">
+      <div id="header" w3-include-html="../assets/templates/header.html"></div>
+      <div
+        id="sidebar"
+        class="h"
+        w3-include-html="../assets/templates/sidebar.html"
+      ></div>
+      <div class="content d-flex">
+        <div
+          id="task_form"
+          class="h"
+          w3-include-html="../assets/templates/task_form.html"
+        ></div>
       </div>
     </div>
-
-    <script>
-      includeHTML();
-    </script>
   </body>
 </html>
