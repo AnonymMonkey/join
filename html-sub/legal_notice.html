@@ -8,15 +8,17 @@
     <script src="../script.js"></script>
 
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css-sub/headerSidebar.css" />
 
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
 
     <title>Join</title>
   </head>
 
-  <body onload="updateHTML()">
-    <div class="container">      
-      <div class="header" w3-include-html="../assets/templates/desktop_header.html"></div>
+  <body onload="includeHTML()">
+    <div class="mainContainer column">      
+      <div class="header" w3-include-html="../assets/templates/header.html"></div>
+      
       <div class="main">
         <div class="menu" w3-include-html="../assets/templates/desktop_menu.html"></div>
         

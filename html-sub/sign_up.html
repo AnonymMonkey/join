@@ -41,35 +41,42 @@
             <form onsubmit="registerUser(); return false">
 
                 <div class="inputsSignUp">
-                    <div class="inputsDecoration">
+                    <div class="inputsDecoration" id="decoSignupName">
                         <div class="inputs">
-                            <input id="signupName" type="text" placeholder="Name" required>
+                            <input onfocus="changeBorderOnFocus('signupName')" id="signupName" type="text" placeholder="Name" required>
                             <img src="../assets/img/login/person.png">
                         </div>
                     </div>
     
-                    <div class="inputsDecoration">
+                    <div class="inputsDecoration" id="decoSignupEmail">
                         <div class="inputs">
-                            <input id="signupEmail" type="email" placeholder="Email" required>
+                            <input onfocus="changeBorderOnFocus('signupEmail')" id="signupEmail" type="email" placeholder="Email" required>
                             <img src="../assets/img/login/mail.png">
                         </div>
                     </div>
 
-                    <div class="inputsDecoration">
+                    <div class="inputsDecoration" id="decoSignupPassword">
                         <div class="inputs">
-                            <input id="signupPassword" type="password" placeholder="Password" required>
-                            <img src="../assets/img/login/lock.png">
+                            <input onfocus="changeBorderOnFocus('signupPassword')" id="signupPassword" type="password" placeholder="Password" required>
+                            <img onclick="passwordVisibilityLock('passwordLock')" id="passwordLock" src="../assets/img/login/lock.png">
+                            <img onclick="passwordVisibilityLock('passwordVisibilityOff')" id="passwordVisibilityOff" class="dNone" src="../assets/img/login/visibility_off.png">
+                            <img onclick="passwordVisibilityLock('passwordVisibility')" id="passwordVisibility" class="dNone" src="../assets/img/login/visibility.png">
                         </div>
                     </div>
 
-                    <div class="inputsDecoration">
+                    <div class="inputsDecoration" id="decoSignupConfirmation">
                         <div class="inputs">
-                            <input id="signupConfirmation" type="password" placeholder="Confirm Password" required>
-                            <img src="../assets/img/login/lock.png">
+                            <input onfocus="changeBorderOnFocus('signupConfirmation')" id="signupConfirmation" type="password" placeholder="Confirm Password" required>
+                            <img onclick="confirmationVisibilityLock('confirmationLock')" id="confirmationLock" src="../assets/img/login/lock.png">
+                            <img onclick="confirmationVisibilityLock('confirmationVisibilityOff')" id="confirmationVisibilityOff" class="dNone" src="../assets/img/login/visibility_off.png">
+                            <img onclick="confirmationVisibilityLock('confirmationVisibility')" id="confirmationVisibility" class="dNone" src="../assets/img/login/visibility.png">
                         </div>
                     </div>
                 </div>
 
+                <div id="signupMsgBox" class="signupMsgBox">
+                    
+                </div>
 
                 <div class="settingsSignUp">
                     <div class="rememberMe">

@@ -44,18 +44,25 @@
 
           <div class="inputsLogin">
               
-            <div class="inputsDecoration">
+            <div class="inputsDecoration" id="decoLoginName">
               <div class="inputs">
-                <input id="loginEmail" type="email" placeholder="Email" required>
+                <input onfocus="changeBorderOnFocus('loginEmail')" id="loginEmail" type="email" placeholder="Email" required>
                 <img src="../assets/img/login/mail.png">
               </div>
             </div>
               
-            <div class="inputsDecoration">
+            <div class="inputsDecoration" id="decoLoginPassword">
               <div class="inputs">
-                <input id="loginPassword" type="password" placeholder="Password" required>
-                <img src="../assets/img/login/lock.png">
+                <input onfocus="changeBorderOnFocus('loginPassword')" id="loginPassword" type="password" placeholder="Password" required>
+                <img onclick="passwordVisibilityLock('passwordLock')" id="passwordLock" src="../assets/img/login/lock.png">
+                <img onclick="passwordVisibilityLock('passwordVisibilityOff')" id="passwordVisibilityOff" class="dNone" src="../assets/img/login/visibility_off.png">
+                <img onclick="passwordVisibilityLock('passwordVisibility')" id="passwordVisibility" class="dNone" src="../assets/img/login/visibility.png">
+
               </div>
+            </div>
+
+            <div id="LoginMsgBox" class="loginMsgBox">
+              
             </div>
 
           </div>

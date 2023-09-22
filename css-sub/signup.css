@@ -143,6 +143,15 @@ body{
     background: #FFF; 
 }
 
+.changeBorderBlue{
+    border: 1px solid var(--Style, #29ABE2)
+}
+
+.changeBorderRed{
+    border: 1px solid var(--Style, red); 
+}
+
+
 .inputs{
     display: flex;
     width: 380px;
@@ -182,6 +191,18 @@ input:not(:placeholder-shown){
 }
 
 /*Fine till here*/
+
+.signupMsgBox{
+    position: fixed;
+    top: 640px;
+    left: 510px;
+    bottom: 393.5px;
+    right: 750px;
+
+    font-size: 12px;
+    width: 350px; 
+    color: red;
+}
 
 
 .settingsSignUp{
@@ -264,7 +285,7 @@ input:not(:placeholder-shown){
     /*Fixation*/
     position: fixed;
     top: 900px;
-    left: 580px;
+    left: 597px;
     bottom: 40px;
     right: 597px;
 }
