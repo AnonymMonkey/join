@@ -2,13 +2,25 @@ function generateTasksHTML(element) {
   progressHTML = '';
   badgeHTML = '';
   taskProgress(element);
-  assignedTo(element); 
+  assignedTo(element);
   let status = element['status'];
   return /*html*/ `
-  <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${element['id']}),openTaskOverlay()" onmousedown="startTransform(${element['id']}, '${status}')" onmouseup="stopTransform(${element['id']}, '${status}')" ondragstart="startDragging(${element['id']})"  class="card pointer">
+  <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${
+    element['id']
+  }),openTaskOverlay()" onmousedown="startTransform(${
+    element['id']
+  }, '${status}')" onmouseup="stopTransform(${
+    element['id']
+  }, '${status}')" ondragstart="startDragging(${
+    element['id']
+  })"  class="card pointer">
     <div class="frame119">
-      <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']}">
-      <span class="board_card_label">${taskCategory[element['category']]['title']}</span>
+      <div class="board_card" style="background: ${
+        taskCategory[element['category']]['bgColor']
+      }">
+      <span class="board_card_label">${
+        taskCategory[element['category']]['title']
+      }</span>
     </div>
     <div class="frame114">
       <span class="frame114_title">${element['title']}</span>
@@ -26,7 +38,11 @@ function generateTasksHTML(element) {
   `;
 }
 
-function generateProgressHTML(resultProgress,doneSubtaskCount,allSubtaskCount,) {
+function generateProgressHTML(
+  resultProgress,
+  doneSubtaskCount,
+  allSubtaskCount,
+) {
   return (progressHTML = `
       <div class="frame114_progress">
         <div style="padding-right: ${resultProgress}px;" class="frame114_progressbar">
@@ -52,37 +68,37 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
   `);
 }
 
-function generatePlaceholer(name) { 
-  document.getElementById(name).innerHTML += `<div class="placeholderCard"></div>`;
+function generatePlaceholer(name) {
+  document.getElementById(
+    name,
+  ).innerHTML += `<div class="placeholderCard"></div>`;
 }
 
-function generateOverlayAddTask(status) {  
+function generateOverlayAddTask(status) {
   openAddTaskOverlay();
   content = document.getElementById('overlayAddTaskContent');
   content.innerHTML = '';
-  content.innerHTML = /*html*/`
+  content.innerHTML = /*html*/ `
     <div class="frame203">                   
       <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">
-    </div>` 
+    </div>`;
 }
 
-function generateOverlayContent(element) {  
+function generateOverlayContent(element) {
   content = document.getElementById('overlayTaskContent');
   content.innerHTML = '';
   // console.log(tasks[element]);
 
-  content.innerHTML = /*html*/`
-  <div class="frame203">                   
-          <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
-        </div>
-  <div class="frame119">
-      <div class="board_card" style="background: ${taskCategory[tasks[element]['category']]['bgColor']}">
-      <span class="board_card_label">${taskCategory[tasks[element]['category']]['title']}</span>
+  content.innerHTML = /*html*/ `
+  <div class="framse203_task">                   
+    <div class="board_card_task" style="background: ${taskCategory[tasks[element]['category']]['bgColor']}">
+      <span class="board_card_label_task">${taskCategory[tasks[element]['category']]['title']}</span>
     </div>  
-    <div class="frame114">
-      <span class="frame114_title">${tasks[element]['title']}</span>
-      <span class="frame114_content">${tasks[element]['description']}</span>
-    </div>  
+    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
+    </div>
+      <span class="frame119_title_task">${tasks[element]['title']}</span>
+      <span class="frame119_content_task">${tasks[element]['description']}</span>
+      </div>  
     
     Due date: ${tasks[element]['duedate']}
 
@@ -98,5 +114,5 @@ function generateOverlayContent(element) {
     <br>
     <br>
     Buttons
-  `  
+  `;
 }
