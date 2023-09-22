@@ -3,8 +3,9 @@ function generateTasksHTML(element) {
   badgeHTML = '';
   taskProgress(element);
   assignedTo(element); 
+  let status = element['status'];
   return /*html*/ `
-  <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${element['id']}),openTaskOverlay()" onmousedown="startTransform(${element['id']})" onmouseup="stopTransform(${element['id']})" ondragstart="startDragging(${element['id']})"  class="card pointer">
+  <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${element['id']}),openTaskOverlay()" onmousedown="startTransform(${element['id']}, '${status}')" onmouseup="stopTransform(${element['id']}, '${status}')" ondragstart="startDragging(${element['id']})"  class="card pointer">
     <div class="frame119">
       <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']}">
       <span class="board_card_label">${taskCategory[element['category']]['title']}</span>

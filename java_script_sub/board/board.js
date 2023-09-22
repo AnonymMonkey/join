@@ -49,14 +49,14 @@ function startDragging(id) {
   currentDraggedElement = id;  
 }
 
-function startTransform(id){
+function startTransform(id, status){
   document.getElementById(id).style.transform = 'rotate(5deg)';  
-  addHighlight();
+  addHighlight(status);
 }
 
-function stopTransform(id){  
+function stopTransform(id, status){  
   document.getElementById(id).style.transform = 'rotate(0deg)';
-  removeHighlight();
+  removeHighlight(status);
 }
 
 function allowDrop(ev) {
@@ -69,11 +69,29 @@ async function moveTo(status) {
   updateHTML();
 }
 
-function addHighlight() {  
+function addHighlight(status) {  
   let matches = document.querySelectorAll('div.placeholderCard');  
-  matches.forEach((placeholderItem) => {
-    placeholderItem.classList.add('highlight');
-  });
+  // Element mit der ID "todo" auswählen
+  let excludeContainer = document.getElementById(status);
+
+  // Array zum Speichern der ausgeschlossenen Elemente erstellen
+  let excludedElements = [];
+
+  // Überprüfen Sie jedes placeholderCard-Element
+  matches.forEach(function(placeholderItem) {
+  // Überprüfen Sie, ob das placeholderCard-Element ein Kind des "todo" Containers ist
+  if (!excludeContainer.contains(placeholderItem)) {
+    // Wenn es kein Kind des "todo" Containers ist, fügen Sie es zu den ausgeschlossenen Elementen hinzu
+    //excludedElements.push(card);
+    placeholderItem.classList.add('highlight')
+  }
+});
+
+
+
+  // matches.forEach((placeholderItem) => {
+  //   placeholderItem.classList.add('highlight');
+  // });
 }
 
 function removeHighlight() {
