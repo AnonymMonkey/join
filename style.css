@@ -1,6 +1,6 @@
 @import url('css-sub/fonts.css');
 @import url('css-sub/board/board.css');
-@import url('css-sub/board/dialog.css');
+@import url('css-sub/board/task_dialog.css');
 @import url('css-sub/add_task.css');
 
 :root {
