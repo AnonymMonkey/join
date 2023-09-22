@@ -56,6 +56,10 @@ function generatePlaceholer(name) {
   document.getElementById(name).innerHTML += `<div class="placeholderCard"></div>`;
 }
 
+function generateOverlayAddTask(status) {
+  alert(status);
+}
+
 function generateOverlayContent(element) {  
   content = document.getElementById('overlayTaskContent');
   content.innerHTML = '';
