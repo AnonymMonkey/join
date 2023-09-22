@@ -9,6 +9,7 @@
     <script src="../java_script_sub/board/board.js"></script>   
     <script src="../java_script_sub/board/board_render.js"></script>
     <script src="../java_script_sub/board/task_overlay.js"></script>    
+    <script src="../java_script_sub/board/addtask_overlay.js"></script>    
     <script src="../java_script_sub/storage.js"></script>
     <script src="../java_script_sub/help_functions.js"></script>
     <script src="../script.js"></script>
@@ -66,11 +67,20 @@
     </div>
     </div>
 
-    <!-- overlay -->
+    <!-- overlay task -->
     <div id="overlay-bg" class="overlay-bg d-none">    
       <div id="overlay-content" class="overlay-content d-flex">
         
-        <div id="overlayTaskContent">x</div>
+        <div id="overlayTaskContent"></div>
+
+      </div>
+    </div>
+    
+    <!-- overlay addtask -->
+    <div id="overlay-bg-addTask" class="overlay-bg-addTask d-none">    
+      <div id="overlay-content-addTask" class="overlay-content-addTask d-flex">
+        
+        <div id="overlayAddTaskContent"></div>
 
       </div>
     </div>
