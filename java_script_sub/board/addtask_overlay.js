@@ -14,8 +14,8 @@ function openAddContactOverlay() {
 
     function onAnimationEnd() {
         overlayContent.removeEventListener("animationend", onAnimationEnd);
-        overlayBg.classList.remove("d-none");
-    }
+        overlayBg.classList.remove("d-none");        
+    }    
 }
 
 function closeAddContactOverlay() {

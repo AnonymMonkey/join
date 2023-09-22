@@ -2,9 +2,9 @@ function generateTasksHTML(element) {
   progressHTML = '';
   badgeHTML = '';
   taskProgress(element);
-  assignedTo(element);  
+  assignedTo(element); 
   return /*html*/ `
-  <div id="${element['id']}" draggable="true" onclick="openTaskOverlay(${element['id']})" onmousedown="startTransform(${element['id']})" onmouseup="stopTransform(${element['id']})" ondragstart="startDragging(${element['id']})"  class="card pointer">
+  <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${element['id']}),openTaskOverlay()" onmousedown="startTransform(${element['id']})" onmouseup="stopTransform(${element['id']})" ondragstart="startDragging(${element['id']})"  class="card pointer">
     <div class="frame119">
       <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']}">
       <span class="board_card_label">${taskCategory[element['category']]['title']}</span>
@@ -49,4 +49,43 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
       </div>
     </div>
   `);
+}
+
+function generatePlaceholer(name) { 
+  document.getElementById(name).innerHTML += `<div class="placeholderCard"></div>`;
+}
+
+function generateOverlayContent(element) {  
+  content = document.getElementById('overlayTaskContent');
+  content.innerHTML = '';
+  console.log(tasks[element]);
+
+  content.innerHTML = /*html*/`
+  <div class="frame203">                   
+          <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
+        </div>
+  <div class="frame119">
+      <div class="board_card" style="background: ${taskCategory[tasks[element]['category']]['bgColor']}">
+      <span class="board_card_label">${taskCategory[tasks[element]['category']]['title']}</span>
+    </div>  
+    <div class="frame114">
+      <span class="frame114_title">${tasks[element]['title']}</span>
+      <span class="frame114_content">${tasks[element]['description']}</span>
+    </div>  
+    
+    Due date: ${tasks[element]['duedate']}
+
+    </div>
+    Priority: ${tasks[element]['prio']}
+    <div class="priority_symbol">
+      <img src="../assets/img/add-task/${tasks[element]['prio']}.svg" alt="">
+    </div>
+    Assigned To:
+    <br>
+    <br>
+    Subtasks
+    <br>
+    <br>
+    Buttons
+  `  
 }

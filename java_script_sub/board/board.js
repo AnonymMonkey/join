@@ -31,7 +31,7 @@ function updateHTML(search) {
   });
 }
 
-function issue(name, job, longText) {
+async function issue(name, job, longText) {
   if (job.length) {
     document.getElementById(name).innerHTML = '';
     for (let index = 0; index < job.length; index++) {
@@ -42,6 +42,7 @@ function issue(name, job, longText) {
   else{
     document.getElementById(name).innerHTML = `<div class="no_tasks_feedback">${longText}</div>`;
   }
+  generatePlaceholer(name);
 }
 
 function startDragging(id) {
@@ -50,10 +51,12 @@ function startDragging(id) {
 
 function startTransform(id){
   document.getElementById(id).style.transform = 'rotate(5deg)';  
+  addHighlight();
 }
 
 function stopTransform(id){  
   document.getElementById(id).style.transform = 'rotate(0deg)';
+  removeHighlight();
 }
 
 function allowDrop(ev) {
@@ -66,12 +69,18 @@ async function moveTo(status) {
   updateHTML();
 }
 
-function highlight(id) {
-  document.getElementById(id).classList.add('drag-area-highlight');
+function addHighlight() {  
+  let matches = document.querySelectorAll('div.placeholderCard');  
+  matches.forEach((placeholderItem) => {
+    placeholderItem.classList.add('highlight');
+  });
 }
 
-function removeHighlight(id) {
-  document.getElementById(id).classList.remove('drag-area-highlight');
+function removeHighlight() {
+  let matches = document.querySelectorAll('div.placeholderCard');  
+  matches.forEach((placeholderItem) => {
+    placeholderItem.classList.remove('highlight');
+  });
 }
 
 function calculateProgress(doneSubtaskCount, allSubtaskCount) {
