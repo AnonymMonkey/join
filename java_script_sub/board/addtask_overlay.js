@@ -1,6 +1,6 @@
-function openAddContactOverlay() {
-    let overlayBg = elementByID("overlay-bg");
-    let overlayContent = elementByID("overlay-content");
+function openAddTaskOverlay() {
+    let overlayBg = elementByID("overlay-bg-addTask");
+    let overlayContent = elementByID("overlay-content-addTask");
 
     overlayContent.classList.remove("slideOut");
 
@@ -14,13 +14,13 @@ function openAddContactOverlay() {
 
     function onAnimationEnd() {
         overlayContent.removeEventListener("animationend", onAnimationEnd);
-        overlayBg.classList.remove("d-none");
-    }
+        overlayBg.classList.remove("d-none");        
+    }    
 }
 
-function closeAddContactOverlay() {
-    let overlayBg = elementByID("overlay-bg");
-    let overlayContent = elementByID("overlay-content");
+function closeAddTaskOverlay() {
+    let overlayBg = elementByID("overlay-bg-addTask");
+    let overlayContent = elementByID("overlay-content-addTask");
 
     overlayContent.classList.add("slideOut");
 

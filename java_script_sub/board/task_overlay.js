@@ -1,4 +1,4 @@
-function openTaskOverlay(element) {
+function openTaskOverlay() {
     let overlayBg = elementByID("overlay-bg");
     let overlayContent = elementByID("overlay-content");
 
@@ -8,14 +8,13 @@ function openTaskOverlay(element) {
     overlayBg.classList.remove("d-none");
 
     overlayContent.classList.add("slide-in");
-    overlayContent.style.right = "0";
-
+    overlayContent.style.right = "0";    
     overlayContent.addEventListener("animationend", onAnimationEnd);
-
-    function onAnimationEnd() {
+    
+    function onAnimationEnd() {        
         overlayContent.removeEventListener("animationend", onAnimationEnd);
-        overlayBg.classList.remove("d-none");
-    }
+        overlayBg.classList.remove("d-none");        
+    }    
 }
 
 function closeTaskOverlay() {

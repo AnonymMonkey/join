@@ -9,6 +9,7 @@
     <script src="../java_script_sub/board/board.js"></script>   
     <script src="../java_script_sub/board/board_render.js"></script>
     <script src="../java_script_sub/board/task_overlay.js"></script>    
+    <script src="../java_script_sub/board/addtask_overlay.js"></script>    
     <script src="../java_script_sub/storage.js"></script>
     <script src="../java_script_sub/help_functions.js"></script>
     <script src="../script.js"></script>
@@ -31,9 +32,9 @@
         <div class="content d-flex">            
           <div class="board_frame">
             <div class="column_title">
-              <div class="frame136">To do <img class="pointer" src="../assets/img/board/plus_button.svg"></div>
-              <div class="frame149">In Progress <img class="pointer" src="../assets/img/board/plus_button.svg"></div>
-              <div class="frame137">Await feedback <img class="pointer" src="../assets/img/board/plus_button.svg"></div>
+              <div class="frame136">To do <img class="pointer" src="../assets/img/board/plus_button.svg" onclick="generateOverlayAddTask('todo')"></div>
+              <div class="frame149">In Progress <img class="pointer" src="../assets/img/board/plus_button.svg" onclick="generateOverlayAddTask('inProgress')"></div>
+              <div class="frame137">Await feedback <img class="pointer" src="../assets/img/board/plus_button.svg" onclick="generateOverlayAddTask('awaitFeedback')"></div>
               <div class="frame138">Done</div>
             </div>
             <div class="board_headline">
@@ -52,7 +53,7 @@
                     </g>
                   </svg>
                 </div>
-                <button class="add_task pointer">Add task <img src="../assets/img/board/add.svg"></button>                
+                <button class="add_task pointer" onclick="generateOverlayAddTask()">Add task <img src="../assets/img/board/add.svg"></button>                
               </div>
             </div>
           </div>
@@ -66,13 +67,21 @@
     </div>
     </div>
 
-    <!-- overlay -->
-    <div id="overlay-bg" class="overlay-bg d-none">
+    <!-- overlay task -->
+    <div id="overlay-bg" class="overlay-bg d-none">    
       <div id="overlay-content" class="overlay-content d-flex">
-        <div class="frame203">
-          d
-          <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
-        </div>
+        
+        <div id="overlayTaskContent"></div>
+
+      </div>
+    </div>
+    
+    <!-- overlay addtask -->
+    <div id="overlay-bg-addTask" class="overlay-bg-addTask d-none">    
+      <div id="overlay-content-addTask" class="overlay-content-addTask d-flex">
+        
+        <div id="overlayAddTaskContent"></div>
+
       </div>
     </div>
 </body>
