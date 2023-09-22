@@ -1,7 +1,7 @@
 @import url('css-sub/fonts.css');
 @import url('css-sub/board/board.css');
 @import url('css-sub/board/task_dialog.css');
-@import url('css-sub/add_task.css');
+@import url('css-sub/board/add_task.css');
 
 :root {
   --bg-body: #f5f5f5;
