@@ -120,8 +120,39 @@ function generateOverlayContent(element) {
    
     <div class="frame214">
       <div class="frame214_text">Assigned To:</div>  
-      <div class="204">
-        x
+      <div id="task-contactlist" class="task-contactlist">        
+        
+        <div class="task-contactlist-contact">
+          <div class="frame191">
+            <div class="profile-badge">EM</div>
+            <div class="profile-name">Emmanuel Mauer</div>
+          </div>
+          <div class="check-button">x</div>
+        </div>
+
+        <div class="task-contactlist-contact">
+          <div class="frame191">
+            <div class="profile-badge">MB</div>
+            <div class="profile-name">Marcel Bauer</div>
+          </div>
+          <div class="check-button">x</div>
+        </div>
+
+        <div class="task-contactlist-contact">
+          <div class="frame191">
+            <div class="profile-badge">AM</div>
+            <div class="profile-name">Anton Mayer</div>
+          </div>
+          <div class="check-button">x</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="frame215">
+      <div class="frame215_text">Subtasks</div>
+      <div class="frame204">
+        Checkbox name
       </div>
     </div>
   `;
