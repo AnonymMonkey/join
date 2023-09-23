@@ -68,6 +68,12 @@ input::-webkit-inner-spin-button {
   }
 }
 
+#overlayTaskContent {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
 .frame203_task {
   display: flex;
   justify-content: space-between;
@@ -80,26 +86,106 @@ input::-webkit-inner-spin-button {
 .board_card_task {
   display: flex;
   padding: 4px 24px;
-  align-items: center;  
+  align-items: center;
   gap: 10px;
   border-radius: 8px;
   color: #fff;
   width: auto;
   height: 28px;
 }
+
 .board_card_label_task {
-    color: #FFF;    
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%; /* 27.6px */    
-    letter-spacing: 0em;
-    text-align: left;
-    height: 28px;
+  color: #fff;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 27.6px */
+  letter-spacing: 0em;
+  text-align: left;
+  height: 28px;
 }
 
 .close-button {
-  position: absolute;
+  position: relative;
   top: 48px;
   right: 48px;
+}
+
+.frame119_title_task {
+  width: 100%;
+  height: auto;
+  font-size: 61px;
+  font-weight: 700;
+  line-height: 73.2px;
+  color: black;
+}
+
+.frame119_content_task {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.frame179,
+.frame178 {
+  width: 445px;
+  height: 24px;
+  gap: 25px;
+  display: flex;
+}
+
+.frame179_text,
+.frame178_text {
+  width: 92px;
+  height: 24px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2a3647;
+}
+
+.frame179_date,
+.frame178_content {
+  height: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.frame178 {
+  height: 32px !important;
+  display: flex;
+  align-items: center;
+}
+
+.frame178_icon {
+  display: flex;
+  height: 32px;
+  width: 32px;
+  padding: 10px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.frame214 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: yellow;
+}
+
+.frame214_text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2a3647;
+}
+
+.frame204 {
+  background-color: green;
 }

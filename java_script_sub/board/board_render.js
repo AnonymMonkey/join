@@ -90,29 +90,39 @@ function generateOverlayContent(element) {
   // console.log(tasks[element]);
 
   content.innerHTML = /*html*/ `
-  <div class="framse203_task">                   
-    <div class="board_card_task" style="background: ${taskCategory[tasks[element]['category']]['bgColor']}">
-      <span class="board_card_label_task">${taskCategory[tasks[element]['category']]['title']}</span>
+  <div class="frame203_task">                   
+    <div class="board_card_task" style="background: ${
+      taskCategory[tasks[element]['category']]['bgColor']
+    }">
+      <span class="board_card_label_task">${
+        taskCategory[tasks[element]['category']]['title']
+      }</span>
     </div>  
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
     </div>
       <span class="frame119_title_task">${tasks[element]['title']}</span>
-      <span class="frame119_content_task">${tasks[element]['description']}</span>
-      </div>  
-    
-    Due date: ${tasks[element]['duedate']}
+      <span class="frame119_content_task">${
+        tasks[element]['description']
+      }</span>
+      
+    <div class="frame179">      
+      <div class="frame179_text">Due date:</div>
+      <div class="frame179_date">${tasks[element]['duedate']}</div>
+    </div>
 
+    <div class="frame178">
+      <div class="frame178_text">Priority:</div>
+      <div class="frame178_content">${tasks[element]['prio']}</div>    
+      <div class="frame178_icon">
+        <img src="../assets/img/add-task/${tasks[element]['prio']}.svg" alt="">
+      </div>
     </div>
-    Priority: ${tasks[element]['prio']}
-    <div class="priority_symbol">
-      <img src="../assets/img/add-task/${tasks[element]['prio']}.svg" alt="">
+   
+    <div class="frame214">
+      <div class="frame214_text">Assigned To:</div>  
+      <div class="204">
+        x
+      </div>
     </div>
-    Assigned To:
-    <br>
-    <br>
-    Subtasks
-    <br>
-    <br>
-    Buttons
   `;
 }
