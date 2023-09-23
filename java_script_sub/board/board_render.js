@@ -151,8 +151,25 @@ function generateOverlayContent(element) {
 
     <div class="frame215">
       <div class="frame215_text">Subtasks</div>
-      <div class="frame204">
-        Checkbox name
+      <div id="frame204" class="frame204">
+        
+        <div class="subtasks-check">
+          <div class="subtasks-checkbutton">x</div>        
+          <div class="subtasks-title">y</div>
+        </div>        
+
+      </div>
+    </div>
+
+    <div class="frame20">      
+      <div class="delete-task">
+      <img class="delete-icon" src="../assets/img/board/delete.svg" alt="" srcset="">
+        <div class="delete-text">Delete</div>     
+      </div> 
+      <div class="task-vector"></div>
+      <div class="edit-task">        
+        <img class="edit-icon" src="../assets/img/board/edit.svg" alt="" srcset="">
+        <div class="edit-text">Edit</div>
       </div>
     </div>
   `;
