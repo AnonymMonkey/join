@@ -12,6 +12,36 @@ if(msg) {
 
 let users = [];
 
+
+async function registerUser(){
+    let name = document.getElementById('signupName').value;
+    let surname = document.getElementById('signupName').value;
+    let email = document.getElementById('signupEmail').value;
+    let password = document.getElementById('signupPassword').value;
+    let confirmation = document.getElementById('signupConfirmation').value;
+
+    if(password == confirmation){
+        pushUser(name, surname, email);
+        await setItem('users', JSON.stringify(users));
+        window.location.href = 'http://127.0.0.1:5500/index.html?userregistered';
+    }
+    else{
+        showMsgBoxInvalidConfirmation();
+    }
+}
+
+
+async function pushUser(name, surname, email){
+    await loadUsers();
+    users.push({
+        name: name,
+        surname: surname,
+        email: email,
+        password: password,
+    });
+}
+
+
 async function loadUsers(){
     try {
         users = JSON.parse(await getItem('users'));
@@ -21,61 +51,41 @@ async function loadUsers(){
 }
 
 
-async function registerUser(){
-
-    let name = document.getElementById('signupName').value;
-    let surname = document.getElementById('signupName').value;
-    let email = document.getElementById('signupEmail').value;
-    let password = document.getElementById('signupPassword').value;
-    let confirmation = document.getElementById('signupConfirmation').value;
-
-    if(password == confirmation){
-        await loadUsers()
-        users.push({
-            name: name,
-            surname: surname,
-            email: email,
-            password: password,
-        });
-        await setItem('users', JSON.stringify(users));
-        window.location.href = 'http://127.0.0.1:5500/index.html?userregistered';
-    }
-    else{
-        document.getElementById('decoSignupConfirmation').classList.remove('changeBorderBlack')
-        document.getElementById('decoSignupConfirmation').classList.add('changeBorderRed')
-        
-        document.getElementById('signupMsgBox').classList.remove('dNone');
-        document.getElementById('signupMsgBox').innerHTML = /*html*/`
-            <span>Ups! your password don´t match.</span>  
-        `;
-    }
+function showMsgBoxInvalidConfirmation(){
+    document.getElementById('decoSignupConfirmation').classList.remove('changeBorderBlack')
+    document.getElementById('decoSignupConfirmation').classList.add('changeBorderRed')
+    document.getElementById('signupMsgBox').classList.remove('dNone');
+    document.getElementById('signupMsgBox').innerHTML = /*html*/`
+        <span>Ups! your password don´t match.</span>  
+    `;
 }
 
 
 function changeCheckbox(){
     if(isChecked){
-        document.getElementById('signupCheckboxUnchecked').classList.remove('dNone');
-        document.getElementById('signupCheckboxChecked').classList.add('dNone');
-
-        document.getElementById('signupFakeSubmit').classList.remove('dNone');
-        document.getElementById('signupSubmit').classList.add('dNone');
-
-        isChecked = false;
+        signupCheckboxOff()
     }
     else{
-        document.getElementById('signupCheckboxUnchecked').classList.add('dNone');
-        document.getElementById('signupCheckboxChecked').classList.remove('dNone');
-        
-        document.getElementById('signupFakeSubmit').classList.add('dNone');
-        document.getElementById('signupSubmit').classList.remove('dNone');
-
-        isChecked = true;
+        signupCheckboxOn()
     }
 }
 
 
-function openLogin(){
-    window.location.href = 'http://127.0.0.1:5500/index.html';
+function signupCheckboxOff(){
+    document.getElementById('signupCheckboxUnchecked').classList.remove('dNone');
+    document.getElementById('signupCheckboxChecked').classList.add('dNone');
+    document.getElementById('signupFakeSubmit').classList.remove('dNone');
+    document.getElementById('signupSubmit').classList.add('dNone');
+    isChecked = false;
+}
+
+
+function signupCheckboxOn(){
+    document.getElementById('signupCheckboxUnchecked').classList.add('dNone');
+    document.getElementById('signupCheckboxChecked').classList.remove('dNone');
+    document.getElementById('signupFakeSubmit').classList.add('dNone');
+    document.getElementById('signupSubmit').classList.remove('dNone');
+    isChecked = true;
 }
 
 
@@ -86,16 +96,26 @@ function changeBorderOnFocus(id){
     for (let index = 0; index < identifiers.length; index++) {
         const idName = identifiers[index];
         if(idName == id){
-            document.getElementById(`${decorations[index]}`).classList.add('changeBorderBlue');
-            document.getElementById('decoSignupConfirmation').classList.remove('changeBorderRed')
-            showLock();
+            signupChangeBorderToBlue(decorations, index)
         }
         else{
-            document.getElementById(`${decorations[index]}`).classList.remove('changeBorderBlue');
-            document.getElementById('decoSignupConfirmation').classList.remove('changeBorderRed')
-            showLock();
+            sisgnupChangeBorderToStandard(decorations, index)
         } 
     }
+}
+
+
+function signupChangeBorderToBlue(decorations, index){
+    document.getElementById(`${decorations[index]}`).classList.add('changeBorderBlue');
+    document.getElementById('decoSignupConfirmation').classList.remove('changeBorderRed')
+    showLock();
+}
+
+
+function sisgnupChangeBorderToStandard(decorations, index){
+    document.getElementById(`${decorations[index]}`).classList.remove('changeBorderBlue');
+    document.getElementById('decoSignupConfirmation').classList.remove('changeBorderRed')
+    showLock();
 }
 
 
@@ -119,29 +139,39 @@ function passwordVisibilityLock(id){
         const idName = identifiers[index];
         if(idName == id){
             if(index == 0){
-                //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
-                document.getElementById('passwordLock').classList.add('dNone');
-                document.getElementById('passwordVisibilityOff').classList.remove('dNone');
-                document.getElementById('passwordVisibility').classList.add('dNone');
+                signupChangeLockSymbol() //check here to fix Symbol behavior-Problem
             }
             else if(index == 1){
-                //Password is covered
-                document.getElementById('passwordLock').classList.add('dNone');
-                document.getElementById('passwordVisibilityOff').classList.add('dNone');
-                document.getElementById('passwordVisibility').classList.remove('dNone');
-                
-                document.getElementById('signupPassword').type = 'text';
-                
+                singupCoverPassword()
             }else{
-                //Password is visible
-                document.getElementById('passwordLock').classList.add('dNone');
-                document.getElementById('passwordVisibilityOff').classList.remove('dNone');
-                document.getElementById('passwordVisibility').classList.add('dNone');
-                
-                document.getElementById('signupPassword').type = 'password';
+                signupRevealPassword()
             }
         }
     }
+}
+
+
+function signupChangeLockSymbol(){
+    //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
+    document.getElementById('passwordLock').classList.add('dNone');
+    document.getElementById('passwordVisibilityOff').classList.remove('dNone');
+    document.getElementById('passwordVisibility').classList.add('dNone');
+}
+
+
+function singupCoverPassword(){
+    document.getElementById('passwordLock').classList.add('dNone');
+    document.getElementById('passwordVisibilityOff').classList.add('dNone');
+    document.getElementById('passwordVisibility').classList.remove('dNone');  
+    document.getElementById('signupPassword').type = 'text';
+}
+
+
+function signupRevealPassword(){
+    document.getElementById('passwordLock').classList.add('dNone');
+    document.getElementById('passwordVisibilityOff').classList.remove('dNone');
+    document.getElementById('passwordVisibility').classList.add('dNone');
+    document.getElementById('signupPassword').type = 'password';
 }
 
 
@@ -151,27 +181,42 @@ function confirmationVisibilityLock(id){
         const idName = identifiers[index];
         if(idName == id){
             if(index == 0){
-                //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
-                document.getElementById('confirmationLock').classList.add('dNone');
-                document.getElementById('confirmationVisibilityOff').classList.remove('dNone');
-                document.getElementById('confirmationVisibility').classList.add('dNone');
+                signupChangeLockSymbolConfirmation(); //check here to fix Symbol behavior-Problem
             }
             else if(index == 1){
-                //Password is covered
-                document.getElementById('confirmationLock').classList.add('dNone');
-                document.getElementById('confirmationVisibilityOff').classList.add('dNone');
-                document.getElementById('confirmationVisibility').classList.remove('dNone');
-                
-                document.getElementById('signupConfirmation').type = 'text';
-                
+                signupCoverConfirmation();
             }else{
-                //Password is visible
-                document.getElementById('confirmationLock').classList.add('dNone');
-                document.getElementById('confirmationVisibilityOff').classList.remove('dNone');
-                document.getElementById('confirmationVisibility').classList.add('dNone');
-                
-                document.getElementById('signupConfirmation').type = 'password';
+                signupRevealConfirmation();
             }
         }
     }
+}
+
+
+function signupChangeLockSymbolConfirmation(){
+    //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
+    document.getElementById('confirmationLock').classList.add('dNone');
+    document.getElementById('confirmationVisibilityOff').classList.remove('dNone');
+    document.getElementById('confirmationVisibility').classList.add('dNone');
+}
+
+
+function signupCoverConfirmation(){
+    document.getElementById('confirmationLock').classList.add('dNone');
+    document.getElementById('confirmationVisibilityOff').classList.add('dNone');
+    document.getElementById('confirmationVisibility').classList.remove('dNone');
+    document.getElementById('signupConfirmation').type = 'text';
+}
+
+
+function signupRevealConfirmation(){
+    document.getElementById('confirmationLock').classList.add('dNone');
+    document.getElementById('confirmationVisibilityOff').classList.remove('dNone');
+    document.getElementById('confirmationVisibility').classList.add('dNone');
+    document.getElementById('signupConfirmation').type = 'password';
+}
+
+
+function openLogin(){
+    window.location.href = 'http://127.0.0.1:5500/index.html';
 }

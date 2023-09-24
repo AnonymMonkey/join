@@ -6,7 +6,7 @@ mail: test@test2.de   pw: test2
 */
 
 let isChecked = false;
-
+/*
 const urlParams = new URLSearchParams(window.location.search)
 const msg = urlParams.get('msg');
 
@@ -15,25 +15,32 @@ if(msg) {
 }else{
     //display none auf message id
 }
+*/
 
 let users = [];
 
 
 function changeCheckbox(){
     if(isChecked){
-        document.getElementById('loginCheckboxUnchecked').classList.remove('dNone');
-        document.getElementById('loginCheckboxChecked').classList.add('dNone');
-        isChecked = false;
+        loginCheckboxOff();
     }
     else{
-        document.getElementById('loginCheckboxUnchecked').classList.add('dNone');
-        document.getElementById('loginCheckboxChecked').classList.remove('dNone');
-        isChecked = true;
+        loginCheckboxOn();
     }
 }
 
-function openSignUp(){
-    window.location.href = 'http://127.0.0.1:5500/html-sub/sign_up.html';
+
+function loginCheckboxOff(){
+    document.getElementById('loginCheckboxUnchecked').classList.remove('dNone');
+    document.getElementById('loginCheckboxChecked').classList.add('dNone');
+    isChecked = false;
+}
+
+
+function loginCheckboxOn(){
+    document.getElementById('loginCheckboxUnchecked').classList.add('dNone');
+    document.getElementById('loginCheckboxChecked').classList.remove('dNone');
+    isChecked = true;
 }
 
 
@@ -42,20 +49,11 @@ function login(){
     let password = document.getElementById('loginPassword').value;
     loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
-    
     if(user){
         window.location.href = `http://127.0.0.1:5500/html-sub/summary.html;`
-
     }
     else{
-        //messagebox anzeigen lassen
-        document.getElementById('decoLoginPassword').classList.remove('changeBorderBlack')
-        document.getElementById('decoLoginPassword').classList.add('changeBorderRed')
-        
-        document.getElementById('LoginMsgBox').classList.remove('dNone');
-        document.getElementById('LoginMsgBox').innerHTML = /*html*/`
-            <span>Wrong passsword Ups! Try again.</span>  
-        `;
+        showMsgBoxInvalidPassword();
     };
 }
 
@@ -69,8 +67,13 @@ async function loadUsers(){
 }
 
 
-function guestLogin(){
-    window.location.href = 'http://127.0.0.1:5500/html-sub/summary.html';
+function showMsgBoxInvalidPassword(){
+    document.getElementById('decoLoginPassword').classList.remove('changeBorderBlack')
+    document.getElementById('decoLoginPassword').classList.add('changeBorderRed')
+    document.getElementById('LoginMsgBox').classList.remove('dNone');
+    document.getElementById('LoginMsgBox').innerHTML = /*html*/`
+        <span>Wrong passsword Ups! Try again.</span>  
+    `;
 }
 
 
@@ -81,19 +84,30 @@ function changeBorderOnFocus(id){
     for (let index = 0; index < identifiers.length; index++) {
         const idName = identifiers[index];
         if(idName == id){
-            document.getElementById(`${decorations[index]}`).classList.add('changeBorderBlue');
-            document.getElementById('decoLoginPassword').classList.remove('changeBorderRed')
-            showLock();
+            changeBorderToBlue(decorations, index);
         }
         else{
-            document.getElementById(`${decorations[index]}`).classList.remove('changeBorderBlue');
-            document.getElementById('decoLoginPassword').classList.remove('changeBorderRed')
-            showLock();
+            changeBorderToStandard(decorations, index);
         } 
     }
 }
 
-function showLock(){
+
+function changeBorderToBlue(decorations, index){
+    document.getElementById(`${decorations[index]}`).classList.add('changeBorderBlue');
+    document.getElementById('decoLoginPassword').classList.remove('changeBorderRed')
+    showLockSymbol();
+}
+
+
+function changeBorderToStandard(decorations, index){
+    document.getElementById(`${decorations[index]}`).classList.remove('changeBorderBlue');
+    document.getElementById('decoLoginPassword').classList.remove('changeBorderRed')
+    showLockSymbol();
+}
+
+
+function showLockSymbol(){
     document.getElementById('passwordLock').classList.remove('dNone');
     document.getElementById('passwordVisibilityOff').classList.add('dNone');
     document.getElementById('passwordVisibility').classList.add('dNone');
@@ -106,35 +120,54 @@ function showLock(){
 }
 
 
-
-//change visibility of lock-symbol in signup-form
+//change visibility of lock-symbol in Login-form
 function passwordVisibilityLock(id){
     let identifiers = ['passwordLock', 'passwordVisibilityOff', 'passwordVisibility'];
     for (let index = 0; index < identifiers.length; index++) {
         const idName = identifiers[index];
         if(idName == id){
             if(index == 0){
-                //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
-                document.getElementById('passwordLock').classList.add('dNone');
-                document.getElementById('passwordVisibilityOff').classList.remove('dNone');
-                document.getElementById('passwordVisibility').classList.add('dNone');
+                changeLockSymbol(); //check here to fix Symbol behavior-Problem
             }
             else if(index == 1){
-                //Password is covered
-                document.getElementById('passwordLock').classList.add('dNone');
-                document.getElementById('passwordVisibilityOff').classList.add('dNone');
-                document.getElementById('passwordVisibility').classList.remove('dNone');
-                
-                document.getElementById('loginPassword').type = 'text';
-                
+                coverPassword();
             }else{
-                //Password is visible
-                document.getElementById('passwordLock').classList.add('dNone');
-                document.getElementById('passwordVisibilityOff').classList.remove('dNone');
-                document.getElementById('passwordVisibility').classList.add('dNone');
-                
-                document.getElementById('loginPassword').type = 'password';
+                revealPassword();
             }
         }
     }
+}
+
+
+function revealPassword(){
+    document.getElementById('passwordLock').classList.add('dNone');
+    document.getElementById('passwordVisibilityOff').classList.remove('dNone');
+    document.getElementById('passwordVisibility').classList.add('dNone');     
+    document.getElementById('loginPassword').type = 'password';
+}
+
+
+function coverPassword(){
+    document.getElementById('passwordLock').classList.add('dNone');
+    document.getElementById('passwordVisibilityOff').classList.add('dNone');
+    document.getElementById('passwordVisibility').classList.remove('dNone');  
+    document.getElementById('loginPassword').type = 'text';
+}
+
+
+function changeLockSymbol(){
+    //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
+    document.getElementById('passwordLock').classList.add('dNone');
+    document.getElementById('passwordVisibilityOff').classList.remove('dNone');
+    document.getElementById('passwordVisibility').classList.add('dNone');
+}
+
+
+function guestLogin(){
+    window.location.href = 'http://127.0.0.1:5500/html-sub/summary.html?msg=guest';
+}
+
+
+function openSignUp(){
+    window.location.href = 'http://127.0.0.1:5500/html-sub/sign_up.html';
 }

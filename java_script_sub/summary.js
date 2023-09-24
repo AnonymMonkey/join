@@ -8,6 +8,20 @@ let urgentDueDate;
 let todos = [];
 
 
+async function renderSummary(){
+    includeHTML();
+    await loadTodos();
+    getAmountInBoard();
+    getAmountTodos();
+    getAmountDone();
+    getAmountUrgent();
+    getAmountInProgress();
+    getAmountAwaitingFeedback();
+    getHTMLTemplateforSummary();
+    test12();
+}
+
+
 async function loadTodos(){
     try {
         todos = JSON.parse(await getItem('tasks'));
@@ -73,15 +87,7 @@ function getAmountAwaitingFeedback(){
 }
 
 
-async function renderSummary(){
-    await loadTodos();
-    getAmountInBoard()
-    getAmountTodos();
-    getAmountDone();
-    getAmountUrgent();
-    getAmountInProgress();
-    getAmountAwaitingFeedback()
-    //Source out into Template?
+function getHTMLTemplateforSummary(){
     //Amount To-do
     document.getElementById('summaryToDo').innerHTML = /*html*/`
         <span class="tasksAmount">${amountTodos}</span>
