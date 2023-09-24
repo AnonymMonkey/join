@@ -18,7 +18,7 @@ async function renderSummary(){
     getAmountInProgress();
     getAmountAwaitingFeedback();
     getHTMLTemplateforSummary();
-    test12();
+    adjustQuicklinkBG();
 }
 
 

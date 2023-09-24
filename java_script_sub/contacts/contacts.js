@@ -4,5 +4,6 @@ async function contactsInit() {
     await loadData();
 
     createRegister();
+    adjustQuicklinkBG();
 }
 
