@@ -50,7 +50,7 @@ function login(){
     loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
     if(user){
-        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html;`
+        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login`;
     }
     else{
         showMsgBoxInvalidPassword();
