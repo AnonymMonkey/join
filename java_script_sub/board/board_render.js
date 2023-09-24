@@ -162,13 +162,13 @@ function generateOverlayContent(element) {
     </div>
 
     <div class="frame20">      
-      <div class="delete-task pointer">
-      <img class="delete-icon" src="../assets/img/board/delete.svg" alt="" srcset="">
+      <div class="delete-task pointer" onclick="deleteTask(${tasks[element]['id']})">
+      <img class="delete-icon" src="../assets/img/board/delete.svg">
         <div class="delete-text">Delete</div>     
       </div> 
       <div class="task-vector"></div>
-      <div class="edit-task pointer">        
-        <img class="edit-icon" src="../assets/img/board/edit.svg" alt="" srcset="">
+      <div class="edit-task pointer">
+        <img class="edit-icon" src="../assets/img/board/edit.svg">
         <div class="edit-text">Edit</div>
       </div>
     </div>

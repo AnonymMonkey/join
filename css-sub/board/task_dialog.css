@@ -265,10 +265,10 @@ input::-webkit-inner-spin-button {
   padding: 6px 16px;
   gap: 16px;
   display: flex;
-  align-items: center;  
+  align-items: center;
 }
 
-.subtasks-check:hover{
+.subtasks-check:hover {
   background-color: #e1e1e1;
   border-radius: 8px;
 }
@@ -280,7 +280,7 @@ input::-webkit-inner-spin-button {
   border-radius: 3px;
 }
 
-.subtasks-title{
+.subtasks-title {
   height: 19px;
   font-weight: 400;
   font-size: 16px;
@@ -288,7 +288,7 @@ input::-webkit-inner-spin-button {
   color: black;
 }
 
-.frame20{
+.frame20 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -299,7 +299,7 @@ input::-webkit-inner-spin-button {
 }
 
 .delete-task,
-.edit-task{
+.edit-task {
   width: 81px;
   height: 24px;
   gap: 8px;
@@ -307,23 +307,34 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
+.delete-task:hover,
+.edit-task:hover {
+  scale: 1.02;  
+  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);  
+}
+
+.delete-task:hover .delete-text,
+.edit-task:hover .edit-text{  
+  font-weight: bold;
+}
+
 .delete-icon,
-.edit-icon{
+.edit-icon {
   height: 24px;
   width: 24px;
 }
 
 .delete-text,
-.edit-text{  
+.edit-text {
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0em;
-  text-align: left;  
+  text-align: left;
   color: #2a3647;
 }
 
-.task-vector{
-  border: 1px solid #D1D1D1;
+.task-vector {
+  border: 1px solid #d1d1d1;
   height: 24px;
 }
