@@ -139,27 +139,19 @@ function passwordVisibilityLock(id){
         const idName = identifiers[index];
         if(idName == id){
             if(index == 0){
-                signupChangeLockSymbol() //check here to fix Symbol behavior-Problem
+                singupRevealPassword();
             }
             else if(index == 1){
-                singupCoverPassword()
+                singupRevealPassword();
             }else{
-                signupRevealPassword()
+                signupCoverPassword();
             }
         }
     }
 }
 
 
-function signupChangeLockSymbol(){
-    //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
-    document.getElementById('passwordLock').classList.add('dNone');
-    document.getElementById('passwordVisibilityOff').classList.remove('dNone');
-    document.getElementById('passwordVisibility').classList.add('dNone');
-}
-
-
-function singupCoverPassword(){
+function singupRevealPassword(){
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.add('dNone');
     document.getElementById('passwordVisibility').classList.remove('dNone');  
@@ -167,7 +159,7 @@ function singupCoverPassword(){
 }
 
 
-function signupRevealPassword(){
+function signupCoverPassword(){
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.remove('dNone');
     document.getElementById('passwordVisibility').classList.add('dNone');
@@ -181,27 +173,19 @@ function confirmationVisibilityLock(id){
         const idName = identifiers[index];
         if(idName == id){
             if(index == 0){
-                signupChangeLockSymbolConfirmation(); //check here to fix Symbol behavior-Problem
+                signupRevealConfirmation();
             }
             else if(index == 1){
-                signupCoverConfirmation();
-            }else{
                 signupRevealConfirmation();
+            }else{
+                signupCoverConfirmation();
             }
         }
     }
 }
 
 
-function signupChangeLockSymbolConfirmation(){
-    //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
-    document.getElementById('confirmationLock').classList.add('dNone');
-    document.getElementById('confirmationVisibilityOff').classList.remove('dNone');
-    document.getElementById('confirmationVisibility').classList.add('dNone');
-}
-
-
-function signupCoverConfirmation(){
+function signupRevealConfirmation(){
     document.getElementById('confirmationLock').classList.add('dNone');
     document.getElementById('confirmationVisibilityOff').classList.add('dNone');
     document.getElementById('confirmationVisibility').classList.remove('dNone');
@@ -209,7 +193,7 @@ function signupCoverConfirmation(){
 }
 
 
-function signupRevealConfirmation(){
+function signupCoverConfirmation(){
     document.getElementById('confirmationLock').classList.add('dNone');
     document.getElementById('confirmationVisibilityOff').classList.remove('dNone');
     document.getElementById('confirmationVisibility').classList.add('dNone');

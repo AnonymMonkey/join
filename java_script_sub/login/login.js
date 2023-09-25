@@ -6,16 +6,7 @@ mail: test@test2.de   pw: test2
 */
 
 let isChecked = false;
-/*
-const urlParams = new URLSearchParams(window.location.search)
-const msg = urlParams.get('msg');
 
-if(msg) {
-    msgbox.innerHTML = msg;
-}else{
-    //display none auf message id
-}
-*/
 
 let users = [];
 
@@ -50,7 +41,7 @@ function login(){
     loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
     if(user){
-        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login`;
+        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
     else{
         showMsgBoxInvalidPassword();
@@ -127,19 +118,19 @@ function passwordVisibilityLock(id){
         const idName = identifiers[index];
         if(idName == id){
             if(index == 0){
-                changeLockSymbol(); //check here to fix Symbol behavior-Problem
+                revealPassword();
             }
             else if(index == 1){
-                coverPassword();
-            }else{
                 revealPassword();
+            }else{
+                coverPassword();
             }
         }
     }
 }
 
 
-function revealPassword(){
+function coverPassword(){
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.remove('dNone');
     document.getElementById('passwordVisibility').classList.add('dNone');     
@@ -147,19 +138,11 @@ function revealPassword(){
 }
 
 
-function coverPassword(){
+function revealPassword(){
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.add('dNone');
     document.getElementById('passwordVisibility').classList.remove('dNone');  
     document.getElementById('loginPassword').type = 'text';
-}
-
-
-function changeLockSymbol(){
-    //only  works the first time "passwordLock" is hit TODO reveal lock with another function...
-    document.getElementById('passwordLock').classList.add('dNone');
-    document.getElementById('passwordVisibilityOff').classList.remove('dNone');
-    document.getElementById('passwordVisibility').classList.add('dNone');
 }
 
 

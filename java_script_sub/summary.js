@@ -4,8 +4,12 @@ let amountUrgent;
 let amountInBoard;
 let amountInProgress;
 let amountAwaitingFeedback;
-let urgentDueDate;
+
 let todos = [];
+
+let urgentDueDates = [];
+
+let urgentDueDate;
 
 
 async function renderSummary(){
@@ -61,9 +65,17 @@ function getAmountUrgent(){
     for (let index = 0; index < todos.length; index++) {
         if(todos[index].prio == 'Urgent'){
             amountUrgent++
+            
+            //urgentDueDates.push(todos[index].duedate);
+            
+            //Backup
             urgentDueDate = todos[index].duedate;
         }
     }
+}
+
+function getDueDate(){
+
 }
 
 

@@ -1,29 +1,32 @@
 let showMenu = false;
 
-const guest = false; //Switch to identify Guest-Login
+let guest; //Switch to identify Guest-Login
 
 const urlParams = new URLSearchParams(window.location.search)
 const msg = urlParams.get('msg');
 
-/*
-if(msg && document.readyState == "complete") {
-     //document.getElementById('headerInitials').textContent = 'G';
-     document.getElementById('quickAddTask').classList.add('isActiveColor');
+const login = urlParams.get('login');
 
+
+function identifyGuest(){
     
-    //msgbox.innerHTML = msg;
-}else{
-    document.getElementById('headerInitials').innerHTML = /*html`
-    <span class="headerInitials">SM</span>
-    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="28" cy="28" r="26.5" stroke="#2A3647" stroke-width="3"/>
-    </svg>
-    `;
-    //display none auf message id
+        if(msg == 'guest'){
+            document.getElementById('headerInitials').textContent = 'G';
+            guest = true;
+        }else if(login == 'true'){
+            document.getElementById('headerInitials').textContent = 'SM';
+            guest = false;
+        }
+        else{
+            document.getElementById('headerInitials').textContent = 'G';
+            guest = true; 
+        }
+    
 }
-*/
+
 
 function adjustQuicklinkBG(){
+    identifyGuest();
     if(msg) {
         switch (msg) {
             case 'summary':
@@ -46,11 +49,6 @@ function adjustQuicklinkBG(){
                 addBgToQuickSummary();
             break;
         }
-        
-        document.getElementById('headerInitials').textContent = 'G';
-
-    }else{
-        document.getElementById('headerInitials').textContent = 'SM';
     }
 }
 
@@ -67,7 +65,22 @@ function showSubmenu(){
 }
 
 
+function logOut(){
+    window.open("http://127.0.0.1:5500/index.html", "_self");
+}
+
+
 function openSelectedQuicklink(id){
+    if(guest){
+        openGuestQuicklinks(id);
+    }
+    else{
+        openLoginQuicklinks(id);
+    }
+}
+
+//hier checken!!
+function openGuestQuicklinks(id){
     if(id=='quickSummary'){
         window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary", "_self");
     }
@@ -75,10 +88,26 @@ function openSelectedQuicklink(id){
         window.open("http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask", "_self");
     }
     if(id=='quickBoard'){
-        window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board&", "_self");
     }
     if(id=='quickContacts'){
-        window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&", "_self");
+    }
+}
+
+
+function openLoginQuicklinks(id){
+    if(id=='quickSummary'){
+        window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary&login=true", "_self");
+    }
+    if(id=='quickAddTask'){
+        window.open("http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask&login=true", "_self");
+    }
+    if(id=='quickBoard'){
+        window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board&login=true", "_self");
+    }
+    if(id=='quickContacts'){
+        window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&login=true", "_self");
     }
 }
 
