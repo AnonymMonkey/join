@@ -74,7 +74,7 @@ async function moveTo(status) {
   let id = getTaskIndex(currentDraggedElement);
   tasks[id]['status'] = status;
   await setItem('tasks', JSON.stringify(tasks));
-  init();
+  updateHTML();
 }
 
 function addHighlight(status) {
@@ -209,7 +209,7 @@ function insertTasks() {
       ],
       member: [0, 1, 4],
       category: 1,
-      duedate: '2023-05-10',
+      duedate: 1699138800000,
     },
     {
       id: 8,
@@ -220,18 +220,18 @@ function insertTasks() {
       subtasks: [],
       member: [1],
       category: 0,
-      duedate: '2023-05-01',
+      duedate: 1704495600000,
     },
     {
       id: 22,
       title: 'Daily Kochwelt Recipe',
       description: 'Implement daily recipe and portion calculator...',
       status: 'todo',
-      prio: 'Low',
+      prio: 'Urgent',
       subtasks: [],
       member: [2, 3],
       category: 1,
-      duedate: '2023-05-01',
+      duedate: 1701385200000,
     },
     {
       id: 5,
@@ -258,7 +258,7 @@ function insertTasks() {
       ],
       member: [0],
       category: 0,
-      duedate: '2023-05-01',
+      duedate: 1700002800000,
     }
   ];
   setItem('tasks', xtasks);

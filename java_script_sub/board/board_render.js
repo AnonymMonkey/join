@@ -85,6 +85,9 @@ function generateOverlayAddTask(status) {
 }
 
 function generateOverlayContent(element) {
+  
+  console.log(element);
+  
   content = document.getElementById('overlayTaskContent');
   content.innerHTML = '';
   // console.log(tasks[element]);
