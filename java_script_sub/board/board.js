@@ -71,9 +71,13 @@ function allowDrop(ev) {
 }
 
 async function moveTo(status) {
+
+  console.log(status);
+  console.log(currentDraggedElement);
+  console.log(tasks[currentDraggedElement]['status']);
   tasks[currentDraggedElement]['status'] = status;
   await setItem('tasks', JSON.stringify(tasks));
-  updateHTML();
+  init();
 }
 
 function addHighlight(status) {

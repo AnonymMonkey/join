@@ -95,6 +95,10 @@
   border-radius: 50%;
 }
 
+.btn_search:active {
+  color: #28abe2;
+}
+
 .add_task {
   width: auto;
   height: 48px;
