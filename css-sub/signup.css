@@ -7,8 +7,6 @@ body{
     background: #F6F7F8;  
 }
 
-/*STAYS*/
-/*TODO Animation */
 .logoTopLeft{
     width: 100.034px;
     height: 121.966px;
@@ -35,10 +33,12 @@ body{
     /* shadoe backlog box */
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04); 
 
+    width: 600px;
+
     /*Fixation*/
     position: fixed;
     top: 197px;
-    left: 421px;
+    /*left: 421px;*/
     bottom: 140px;
     right: 421px;
 }
@@ -52,7 +52,7 @@ body{
 
     position: fixed;
     top: 261px;
-    left: 469px;
+    /*left: 469px;*/
     bottom: 731px;
     right: 939px;
 }
@@ -65,7 +65,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 261px;
-    left: 469px;
+    /*left: 469px;*/
     bottom: 731px;
     right: 939px;
 }
@@ -73,6 +73,9 @@ body{
 .arrowBack:hover{
     transform: scale(1.1);
 }
+
+
+
 
 .checkboxBG:hover{
     background-color: #F6F7F8;
@@ -85,10 +88,12 @@ body{
     gap: 16px; 
     color: #000000;
 
+    width: 315px;
+
     /*Fixation*/
     position: fixed;
     top: 245px;
-    left: 562.5px;
+    /*left: 562.5px;*/
     bottom: 690px;
     right: 562.5px;
 }
@@ -116,6 +121,55 @@ body{
 }
 
 
+
+
+
+/*Slide in von signupsuccessfull funktioniert nicht ?? */
+
+
+.signupOverlay-menu {
+    
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    
+    left: 50%;
+    top: 0%;
+    
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+  
+    /* move out of the screen, this need for mobile phones
+    an extra div around the whole side with overflow-x:hidden
+    and position: relative
+    */
+    /*transform: translateX(-50%);*/
+   
+    transition: all 2500ms ease-in; /*Schnelligkeit in Sekunden*/
+}
+
+
+
+/* move to the screen  add with the function showMenu*/ 
+.show-overlay-menu_test {
+    /*erster Parameter X-Achse zweiter Parameter Y-Achse */
+    transform: translatex(-50%);
+}
+
+.sucessimg{
+    width: 200px;
+    height: 100px;
+}
+
+
+
+
+
 .inputsSignUp{
     display: flex;
     flex-direction: column;
@@ -125,7 +179,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 366px;
-    left: 509px;
+    /*left: 509px;*/
     bottom: 372px;
     right: 509px;
 }
@@ -190,12 +244,11 @@ input:not(:placeholder-shown){
     color: black;
 }
 
-/*Fine till here*/
 
 .signupMsgBox{
     position: fixed;
     top: 640px;
-    left: 510px;
+    /*left: 510px;*/
     bottom: 393.5px;
     right: 750px;
 
@@ -213,13 +266,15 @@ input:not(:placeholder-shown){
     gap: 16px;
     align-self: stretch; 
 
+    width: 280px;
+
     /*Fixation*/
     position: fixed;
     top: 668px;
-    left: 560x;
+    /*left: 560px;*/
     bottom: 332px;
-    right: 560px
-    /*left 604.5 */
+    right: 540px;
+     
 }
 
 .settingsSignUpSpan{
@@ -252,10 +307,12 @@ input:not(:placeholder-shown){
     align-items: flex-start;
     gap: 35px;
     
+    width: 78px;
+
     /*Fixation*/
     position: fixed;
     top: 724px;
-    left: 657px;
+    /*left: 657px;*/
     bottom: 245px;
     right: 657px
 }
@@ -275,17 +332,18 @@ input:not(:placeholder-shown){
 }
 
 
-/*STAYS*/
+
 .legalPrivacy{
     display: inline-flex;
     justify-content: center;
     align-items: flex-start;
     gap: 16px; 
+    width: 246px;
 
     /*Fixation*/
     position: fixed;
     top: 900px;
-    left: 597px;
+    /*left: 597px;*/
     bottom: 40px;
     right: 597px;
 }

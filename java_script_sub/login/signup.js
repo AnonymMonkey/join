@@ -23,12 +23,35 @@ async function registerUser(){
     if(password == confirmation){
         pushUser(name, surname, email);
         await setItem('users', JSON.stringify(users));
+        showSuccessIMG();
+        setTimeout(10000);
         window.location.href = 'http://127.0.0.1:5500/index.html?userregistered';
     }
     else{
         showMsgBoxInvalidConfirmation();
     }
 }
+
+
+function testfunction(){
+    showSuccessIMG();
+    //setTimeout(testcall(), 5000);
+    
+
+}
+
+function testcall(){
+    window.location.href = 'http://127.0.0.1:5500/index.html?userregistered';
+}
+
+function showSuccessIMG(){
+    document.getElementById('bodySignup').classList.add('dNone');
+    document.getElementById('signupSuccess').classList.remove('dNone');
+    document.getElementById('signupSuccess').classList.add('show-overlay-menu_test');
+    
+    
+}
+
 
 
 async function pushUser(name, surname, email){
@@ -49,6 +72,8 @@ async function loadUsers(){
         console.error('Loading error:', e);
     }
 }
+
+
 
 
 function showMsgBoxInvalidConfirmation(){

@@ -24,7 +24,7 @@
 
       <img class="logoTopLeft" src="/assets/img/login/logo_dark.png" alt="">
 
-        <div class="signUp">
+        <div id="bodySignup" class="signUp ">
             
             <div class="arrowBackground clickable" onclick="openLogin()">
                 <svg class="arrowBack" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,13 +38,16 @@
                 <img src="../assets/img/login/vector_blue_underline.png">
             </div>
 
+
+
+
             <form onsubmit="registerUser(); return false">
 
                 <div class="inputsSignUp">
                     <div class="inputsDecoration" id="decoSignupName">
                         <div class="inputs">
                             <input onfocus="changeBorderOnFocus('signupName')" id="signupName" type="text" placeholder="Name" required>
-                            <img src="../assets/img/login/person.png">
+                            <img onclick="testfunction()" src="../assets/img/login/person.png">
                         </div>
                     </div>
     
@@ -120,6 +123,16 @@
         <button class="legalPrivacyButton">Legal notice</button>
       </div>
     </div>
+
+    <!--Overlay -->
+    <div>
+        <div id="signupSuccess"  class="signupOverlay-menu dNone">
+        
+            <img class="sucessimg" src="../assets/img/login/signe_up_successfull.png">
+            
+        </div>
+    </div>
+
 
     <script>
       includeHTML();

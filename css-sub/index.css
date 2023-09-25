@@ -1,3 +1,8 @@
+
+:root {
+    --radius: calc(10 * 4.5deg);
+}
+
 body{
     margin: 0;
 }
@@ -6,6 +11,56 @@ body{
     height: 1024px;
     background: #F6F7F8;  
 }
+
+
+.logoBig{
+    width: 202px;
+    height: 244px;
+    
+
+
+  
+}
+
+
+/*
+.overlay-bigLogo {
+    
+    position: relative;
+    left: 435px;
+    top: 140px;
+
+    
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  
+    /* move out of the screen, this need for mobile phones
+    an extra div around the whole side with overflow-x:hidden
+    and position: relative
+    
+    transform: scale(0.5) translate(-100%, -100%) ;
+    
+   
+    transition: all 1500ms ease-in; /*Schnelligkeit in Sekunden
+}
+
+
+
+/* move to the screen  add with the function showMenu
+.show-overlay-menu_test {
+    /*erster Parameter X-Achse zweiter Parameter Y-Achse 
+    /*transform: translatex(-50%, -50%);
+}
+
+
+*/
+
+
+
+
+
+
 
 .logIn{
     display: inline-flex;
@@ -19,10 +74,12 @@ body{
     /* shadoe backlog box */
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04); 
 
+    width: 675px;
+
     /*Fixation*/
     position: fixed;
     top: 265.5px;
-    left: 394px;
+    /*left: 394px;*/
     bottom: 200px;
     right: 394px;
 }
@@ -33,10 +90,12 @@ body{
     align-items: center;
     gap: 35px; 
 
+    width: 279px;
+
     /*Fixation*/
     position: fixed;
     top: 67px;
-    left: 1039px;
+    
     bottom: 908px;
     right: 122px;
 }
@@ -64,7 +123,7 @@ body{
 
 
 
-/*TODO Animation */
+
 .logoTopLeft{
     width: 100.034px;
     height: 121.966px;
@@ -85,10 +144,12 @@ body{
     gap: 16px; 
     color: #000000;
 
+    width: 315px;
+
     /*Fixation*/
     position: fixed;
     top: 313.5px;
-    left: 562.5px;
+    /*left: 562.5px;*/
     bottom: 621.5px;
     right: 562.5px;
 }
@@ -125,7 +186,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 434.5px;
-    left: 509px;
+    /*left: 509px;*/
     bottom: 393.5px;
     right: 509px;
 
@@ -142,7 +203,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 434.5px;
-    left: 509px;
+    /*left: 509px;*/
     bottom: 437.5px;
     right: 509px;
 }
@@ -215,10 +276,10 @@ input:not(:placeholder-shown){
     align-items: center;
     align-self: stretch;
 
-   
+   /*Fixation*/
     position: fixed;
     top: 606.5px;
-    left: 548px;
+    /*left: 548px;*/
     bottom: 393.5px;
     right: 750px
 }
@@ -226,7 +287,7 @@ input:not(:placeholder-shown){
 .loginMsgBox{
     position: fixed;
     top: 570px;
-    left: 510px;
+    /*left: 510px;*/
     bottom: 393.5px;
     right: 750px;
 
@@ -241,10 +302,12 @@ input:not(:placeholder-shown){
     align-items: center;
     gap: 8px; 
     color: black;
-    
+    width: 142px;
+
+
     position: fixed;
     top: 606.5px;
-    left: 548px;
+    /*left: 548px;*/
     bottom: 393.5px;
     right: 750px
 }
@@ -268,11 +331,12 @@ input:not(:placeholder-shown){
     justify-content: center;
     align-items: flex-start;
     gap: 35px;
-    
+    width: 322px;
+
     /*Fixation*/
     position: fixed;
     top: 662.5px;
-    left: 559px;
+    /*left: 559px;*/
     bottom: 313.5px;
     right: 559px
 }
@@ -321,11 +385,12 @@ input:not(:placeholder-shown){
     justify-content: center;
     align-items: flex-start;
     gap: 16px; 
+    width: 246px;
 
     /*Fixation*/
     position: fixed;
     top: 900px;
-    left: 597px;
+    /*left: 597px;*/
     bottom: 40px;
     right: 597px;
 }
