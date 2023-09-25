@@ -71,11 +71,8 @@ function allowDrop(ev) {
 }
 
 async function moveTo(status) {
-
-  console.log(status);
-  console.log(currentDraggedElement);
-  console.log(tasks[currentDraggedElement]['status']);
-  tasks[currentDraggedElement]['status'] = status;
+  let id = getTaskIndex(currentDraggedElement);
+  tasks[id]['status'] = status;
   await setItem('tasks', JSON.stringify(tasks));
   init();
 }
@@ -88,19 +85,11 @@ function addHighlight(status) {
   // Array zum Speichern der ausgeschlossenen Elemente erstellen
   let excludedElements = [];
 
-  // Überprüfen Sie jedes placeholderCard-Element
   matches.forEach(function (placeholderItem) {
-    // Überprüfen Sie, ob das placeholderCard-Element ein Kind des "todo" Containers ist
     if (!excludeContainer.contains(placeholderItem)) {
-      // Wenn es kein Kind des "todo" Containers ist, fügen Sie es zu den ausgeschlossenen Elementen hinzu
-      //excludedElements.push(card);
       placeholderItem.classList.add('highlight');
     }
   });
-
-  // matches.forEach((placeholderItem) => {
-  //   placeholderItem.classList.add('highlight');
-  // });
 }
 
 function removeHighlight() {
@@ -188,8 +177,6 @@ function getTaskIndex(searchId) {
   return tasks.findIndex(item => item.id === searchId);
 }
 
-//[{"id": 0, "title": "Kochwelt Page & Recipe Recommender", "description": "Build start page with recipe recommendation.", "status": "inProgress", "prio": "Medium", "subtasks": [{"subid": 0, "subtitle": "Implement Recipe Recommendation", "substatus": "open"}, {"subid": 1, "subtitle": "Start Page Layout", "substatus": "done"}], "member": [0, 1, 4], "category": 1, "duedate": "2023-05-10"}, {"id": 1, "title": "HTML Base Template Creation", "description": "Create reusable HTML base templates...", "status": "todo", "prio": "Low", "subtasks": [], "member": [1], "category": 0, "duedate": "2023-05-01"}, {"id": 2, "title": "Daily Kochwelt Recipe", "description": "Implement daily recipe and portion calculator...", "status": "done", "prio": "Low", "subtasks": [], "member": [2, 3], "category": 1, "duedate": "2023-05-01"}, {"id": 3, "title": "CSS Architecture Planning", "description": "Define CSS naming conventions and structure...", "status": "awaitFeedback", "prio": "Urgent", "subtasks": [{"subid": 0, "subtitle": "Establish CSS Methodology", "substatus": "done"}, {"subid": 1, "subtitle": "Setup Base Styles", "substatus": "open"}, {"subid": 2, "subtitle": "Do something", "substatus": "open"}], "member": [0], "category": 0, "duedate": "2023-05-01"}]
-
 async function deleteTask(searchId) {  
   let taskIndex = getTaskIndex(searchId);  
   if (taskIndex !== -1) {    
@@ -203,7 +190,7 @@ async function deleteTask(searchId) {
 function insertTasks() {
   let xtasks = [
     {
-      id: 0,
+      id: 14,
       title: 'Kochwelt Page & Recipe Recommender',
       description: 'Build start page with recipe recommendation.',
       status: 'todo',
@@ -225,7 +212,7 @@ function insertTasks() {
       duedate: '2023-05-10',
     },
     {
-      id: 1,
+      id: 8,
       title: 'HTML Base Template Creation',
       description: 'Create reusable HTML base templates...',
       status: 'awaitFeedback',
@@ -236,7 +223,7 @@ function insertTasks() {
       duedate: '2023-05-01',
     },
     {
-      id: 2,
+      id: 22,
       title: 'Daily Kochwelt Recipe',
       description: 'Implement daily recipe and portion calculator...',
       status: 'todo',
@@ -247,7 +234,7 @@ function insertTasks() {
       duedate: '2023-05-01',
     },
     {
-      id: 3,
+      id: 5,
       title: 'CSS Architecture Planning',
       description: 'Define CSS naming conventions and structure...',
       status: 'done',
