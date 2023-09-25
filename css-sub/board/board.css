@@ -1,3 +1,7 @@
+@import url('task_dialog.css');
+@import url('addTask_dialog.css');
+@import url('add_task.css');
+
 .pointer {
   cursor: pointer;
 }
