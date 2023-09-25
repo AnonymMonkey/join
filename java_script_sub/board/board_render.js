@@ -85,39 +85,35 @@ function generateOverlayAddTask(status) {
 }
 
 function generateOverlayContent(element) {
-  
-  console.log(element);
-  
+   
+  let id = getTaskIndex(element);
   content = document.getElementById('overlayTaskContent');
-  content.innerHTML = '';
-  // console.log(tasks[element]);
+  content.innerHTML = '';  
 
   content.innerHTML = /*html*/ `
   <div class="frame203_task">                   
-    <div class="board_card_task" style="background: ${
-      taskCategory[tasks[element]['category']]['bgColor']
-    }">
+    <div class="board_card_task" style="background: ${taskCategory[tasks[id]['category']]['bgColor']}">
       <span class="board_card_label_task">${
-        taskCategory[tasks[element]['category']]['title']
+        taskCategory[tasks[id]['category']]['title']
       }</span>
     </div>  
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
     </div>
-      <span class="frame119_title_task">${tasks[element]['title']}</span>
+      <span class="frame119_title_task">${tasks[id]['title']}</span>
       <span class="frame119_content_task">${
-        tasks[element]['description']
+        tasks[id]['description']
       }</span>
       
     <div class="frame179">      
       <div class="frame179_text">Due date:</div>
-      <div class="frame179_date">${tasks[element]['duedate']}</div>
+      <div class="frame179_date">${tasks[id]['duedate']}</div>
     </div>
 
     <div class="frame178">
       <div class="frame178_text">Priority:</div>
-      <div class="frame178_content">${tasks[element]['prio']}</div>    
+      <div class="frame178_content">${tasks[id]['prio']}</div>    
       <div class="frame178_icon">
-        <img src="../assets/img/add-task/${tasks[element]['prio']}.svg" alt="">
+        <img src="../assets/img/add-task/${tasks[id]['prio']}.svg" alt="">
       </div>
     </div>
    
@@ -165,7 +161,7 @@ function generateOverlayContent(element) {
     </div>
 
     <div class="frame20">      
-      <div class="delete-task pointer" onclick="deleteTask(${tasks[element]['id']})">
+      <div class="delete-task pointer" onclick="deleteTask(${element})">
       <img class="delete-icon" src="../assets/img/board/delete.svg">
         <div class="delete-text">Delete</div>     
       </div> 
