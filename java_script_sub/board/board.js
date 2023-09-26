@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let contactsStefan = [];
+let contacts = [];
 let tasks = [];
 let taskCategory = [];
 let progressHTML = '';
@@ -129,18 +129,21 @@ function taskProgress(element) {
   }
 }
 
-function assignedTo(element) {
+function assignedTo() {
   let pixelLeft = 0;
-  // console.log(element['id'] + " member " + element['member']);
-  // get all contacts from remote storage where member of this task
-  generateProfileBadges('AM', '#FFA800', pixelLeft);
-  generateProfileBadges('SJ', '#4589FF', 8);
-  pixelLeft = pixelLeft + 8;
+
+  for (let i = 0; i < contacts.length; i++) {
+    let contactTask = contacts[i];
+    let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+    let contactColor = contactTask['register_entry'][0]['contact_color'];
+    generateProfileBadges(contactInitials, contactColor, pixelLeft);
+    pixelLeft = pixelLeft + 8;    
+  }
 }
 
 async function loadContacts() {
   try {
-    contactsStefan = JSON.parse(await getItem('contacts'));
+    contacts = JSON.parse(await getItem('contacts'));
   } catch (e) {
     console.error('Loading error:', e);
   }

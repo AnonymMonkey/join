@@ -72,17 +72,25 @@ function getAmountUrgent(){
     }
 }
 
-function getDueDate(){
+function getDueDate(date){
     //Get nearest Date from Array
     let nearestDate =  Math.min.apply(Math, urgentDueDates)
-    
-    //Convert DateNumber to String
-    const dueDate = new Date(nearestDate);
+    let dueDate;
+    //Convert DateNumber to String    
+    if(date){
+        dueDate = new Date(date);
+    }
+    else{
+        dueDate = new Date(nearestDate);
+    }
+
     let currentday = String(dueDate.getDate()).padStart(2, '0');
     let currentMonth = String(dueDate.getMonth()+1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
     let urgentDate = `${currentday}-${currentMonth}-${currentYear}`; 
+    let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;
     urgentDueDate = urgentDate;
+    return formattedDate;
 }
 
 

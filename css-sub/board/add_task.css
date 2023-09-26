@@ -2,7 +2,7 @@
   cursor: pointer;
 }
 
-.requiredField{
+.requiredField {
   color: #fe8190;
 }
 
@@ -22,10 +22,11 @@
   width: 440px;
   height: 376px;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   gap: 16px;
-  background-color: aqua;
+  top: 174px;
+  left: 74px;
+  position: absolute;
 }
 
 .vector4 {
@@ -34,6 +35,11 @@
   width: 0.001px;
   height: 424px;
   flex-shrink: 0;
+  top: 174px;
+  left: 562.25px;
+  position: absolute;
+  border: 1px;
+  transform: rotate(-0deg);
 }
 
 .frame39 {
@@ -45,6 +51,9 @@
   align-items: flex-start;
   gap: 24px;
   background-color: orange;
+  top: 174px;
+  left: 610.25px;
+  position: absolute;
 }
 
 .frame40 {
@@ -58,11 +67,17 @@
   font-size: 61px;
   font-style: normal;
   font-weight: 700;
-  line-height: 120%; /* 73.2px */  
+  line-height: 120%; /* 73.2px */
+}
+
+#temporaryStatus{
+  top: 64px;
+  left: 400px;
+  position: absolute;
+  background-color: greenyellow;
 }
 
 .task_title {
-  background-color: green;
   display: flex;
   width: 440px;
   flex-direction: column;
@@ -80,8 +95,7 @@
   line-height: 120%; /* 24px */
 }
 
-.task_description {
-  background-color: brown;
+.task_description {  
   display: flex;
   width: 440px;
   flex-direction: column;
@@ -116,8 +130,8 @@
   gap: 10px;
   align-self: stretch;
   border-radius: 10px;
-border: 1px solid var(--Style, #D1D1D1);
-background: #FFF;
+  border: 1px solid var(--Style, #d1d1d1);
+  background: #fff;
 }
 
 .frame17_required {
@@ -133,12 +147,18 @@ background: #FFF;
 }
 
 .task_assigned_to {
-  background-color: purple;
+  background-color: white;  
 }
 
-.frame27 {
+.frame35 {
   display: flex;
   justify-content: flex-end;
+  width: 334px;
+  height: 56px;
+  top: 750px;
+  left: 716.25px;
+  position: absolute;
+  gap: 4px;
 }
 
 .frame203 {
