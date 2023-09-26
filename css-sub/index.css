@@ -12,11 +12,9 @@ body{
     background: #F6F7F8;  
 }
 
-
 .logoBig{
     width: 202px;
     height: 244px;
-
 }
 
 
@@ -81,7 +79,6 @@ body{
     right: 394px;
 }
 
-
 .signUp{
     display: inline-flex;
     align-items: center;
@@ -111,15 +108,11 @@ body{
     fill: #29ABE2; 
 }
 
-
 .signupHover:hover svg{
     transform: scale(1.02);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
 }
-
-
-
 
 .logoTopLeft{
     width: 100.034px;
@@ -140,7 +133,6 @@ body{
     align-items: center;
     gap: 16px; 
     color: #000000;
-
     width: 315px;
 
     /*Fixation*/
@@ -188,7 +180,6 @@ body{
     right: 509px;
 
 }
-
 
 .inputsLogin{
     display: flex;
@@ -249,7 +240,6 @@ body{
     
 }
 
-
 input:focus {
     outline: none;
 }
@@ -258,13 +248,11 @@ input:not(:placeholder-shown){
     color: black;
 }
 
-
 .inputs img{
     width: 24px;
     height: 24px;
     flex-shrink: 0; 
 }
-
 
 .settingsLogin{
     display: flex;
@@ -299,7 +287,6 @@ input:not(:placeholder-shown){
     gap: 8px; 
     color: black;
     width: 142px;
-
 
     position: fixed;
     top: 606.5px;
@@ -336,7 +323,6 @@ input:not(:placeholder-shown){
     bottom: 313.5px;
     right: 559px
 }
-
 
 .buttonsLogin img{
     display: flex;

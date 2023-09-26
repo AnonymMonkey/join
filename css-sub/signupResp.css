@@ -1,0 +1,266 @@
+@media(max-width: 1440px){
+
+    .signUp{
+        left: auto;
+    }
+
+    .arrowBackground{
+        left: auto;
+    }
+
+    .arrowBack{
+        left: auto;
+    }
+
+    .headlineSignUp{
+        left: auto;
+    }
+
+    .inputsSignUp{
+        left: auto;
+    }
+
+    .signupMsgBox{
+        position: fixed;
+        top: 640px;
+        left: auto;
+        bottom: 393.5px;
+        right: 750px;
+    
+        font-size: 12px;
+        width: 350px; 
+        color: red;
+    }
+
+    .settingsSignUp{
+        position: fixed;
+        top: 668px;
+        left: auto;
+        bottom: 332px;
+        right: 600px;
+    }
+
+    .buttonsSignUp{
+        /*Fixation*/
+        position: fixed;
+        top: 724px;
+        left: auto;
+        bottom: 245px;
+        right: 705px;
+    }
+
+    .legalPrivacy{
+        left: auto;
+    }
+}
+
+@media(max-width: 1050px){
+    .signUp{
+        left: 16px;
+    }
+
+    .arrowBackground{
+        left: 56px;
+    }
+
+    .arrowBack{
+        left: 56px;
+    }
+
+    .headlineSignUp{
+        left: 127.5px;
+    }
+
+    .inputsSignUp{
+        left: 40px;
+    }
+
+    .signupMsgBox{
+        position: fixed;
+        top: 640px;
+        left: auto;
+        bottom: 393.5px;
+        right: 750px;
+    
+        font-size: 12px;
+        width: 350px; 
+        color: red;
+    }
+
+    .settingsSignUp{
+        left: 70.5px;
+    }
+
+    .buttonsSignUp{
+        left: 124px;
+    }
+
+    .legalPrivacy{
+        left: 91px;
+    }
+}
+
+@media(max-width: 630px){
+
+}
+
+@media(max-width: 450px){
+    .logoTopLeft{
+        width: 78px;
+        height: 64px;
+    
+        /*Fixation*/
+        position: fixed;
+        top: 37px;
+        left: 38px;
+        bottom: 811px;
+        right: 326px;
+    }
+
+    .signUp{
+        display: flex;
+        width: 396px;
+        height: 620px;
+        padding: 32px 0px;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;  
+    
+        border-radius: 30px;
+        background: var(--white, #FFF);
+        /* shadoe backlog box */
+        box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04); 
+        
+        /*Fixation*/
+        position: fixed;
+        top: 166px;
+        left: 16px;
+        bottom: 166px;
+        right: 16px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        position: fixed;
+        top: 225.5px;
+        left: 56px;
+        bottom: 688.5px;
+        right: 340px;
+    }
+
+    .arrowBack{
+        /*Fixation*/
+        position: fixed;
+        top: 225.5px;
+        left: 56px;
+        bottom: 688.5px;
+        right: 340px;
+    }
+
+    .headlineSignUp{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px; 
+        color: #000000;
+    
+        width: 200px;
+    
+        /*Fixation*/
+        position: fixed;
+        top: 197.5px;
+        left: 127.5px;
+        bottom: 656.5px;
+        right: 127.5px;
+    }
+
+    .inputsSignUp{
+        display: flex;
+        width: 364px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px; 
+        
+        /*Fixation*/
+        position: fixed;
+        top: 320.5px;
+        left: 40px;
+        bottom: 336.5px;
+        right: 32px;
+    }
+
+    .inputsDecoration{
+        width: 350px;
+    }
+
+    .inputs{
+        width: 320px;
+    }
+
+
+    .signupMsgBox{
+        position: fixed;
+        top: 300px;
+        left: 32px;
+        bottom: 300px;
+        right: 32px;
+    
+        font-size: 12px;
+        width: 350px; 
+        color: red;
+    }
+
+    .settingsSignUp{
+        display: flex;
+        padding: 0px 33px 0px 39px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 16px;
+        align-self: stretch; 
+    
+        width: 300px;
+        height: 24px; 
+    
+        /*Fixation*/
+        position: fixed;
+        top: 630.5px;
+        left: 70.5px;
+        bottom: 280.5px;
+        right: 98.5px;
+    }
+
+    .buttonsSignUp{
+        display: flex;
+        width: 180px;
+        height: 51px;
+        padding: 4px 0px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; 
+    
+        /*Fixation*/
+        position: fixed;
+        top: 695.5px;
+        left: 124px;
+        bottom: 197.5px;
+        right: 124px
+    }
+
+    .legalPrivacy{
+        display: inline-flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 16px; 
+        width: 246px;
+    
+        /*Fixation*/
+        position: fixed;
+        top: 885px;
+        left: 91px;
+        bottom: 22px;
+        right: 91px;
+    }
+}

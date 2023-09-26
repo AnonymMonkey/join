@@ -1,4 +1,3 @@
-
 @media(max-width: 1440px){
     .logIn{
         left: auto;
@@ -39,6 +38,11 @@
     .legalPrivacy{
         left: auto;
     }
+
+    .loginMsgBox{
+        left: auto;
+        right: 578px;
+    }
 }
 
 
@@ -47,9 +51,6 @@
         left: 80px;
     }
     
-
-
-
     .headlineLogIn{
         /*Fixation*/
         position: fixed;
@@ -85,7 +86,7 @@
     .loginMsgBox{
         position: fixed;
         top: 570px;
-        left: 50px;
+        left: 225px;
         bottom: 393.5px;
         right: 750px;
     }
@@ -116,8 +117,6 @@
         bottom: 40px;
         right: 597px;
     }
-
-
 }
 
 @media(max-width: 900px){
@@ -132,7 +131,6 @@
         width: 64px;
         height: 78.031px; 
 
-    
         /*Fixation*/
         position: fixed;
         top: 37px;
@@ -141,21 +139,10 @@
         right: 326px;
     }
     
-    
     .logIn{
-        display: flex;
         width: 396px;
         height: 520px;
-        padding: 32px 0px;
-        flex-direction: column;
-        align-items: center;
-        gap: 32px; 
-        
-        border-radius: 30px;
-        background: var(--white, #FFF);
-        /* shadoe backlog box */
-        box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04); 
-    
+
         /*Fixation*/
         position: fixed;
         top: 206px;
@@ -163,7 +150,6 @@
         bottom: 206px;
         right: 200px;
     }
-    
     
     .headlineLogIn{
         /*Fixation*/
@@ -175,13 +161,6 @@
     }
 
     .loginOverview{ 
-        display: flex;
-        width: 364px;
-        height: 152px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px; 
-
         /*Fixation*/
         position: fixed;
         top: 341.5px;
@@ -215,25 +194,20 @@
         bottom: 392.5px;
         right: 69px;
         padding: 0;
-
-      
     }
 
     .loginMsgBox{
         position: fixed;
-        top: 509.5px;
+        top: 500.5px;
         left: auto;
         bottom: 392.5px;
-        
+        right: 215px;
     }
 
     .rememberMe{
-        display: flex;
         width: 170px;
-        padding: 0px 16px;
         align-items: flex-start;
         gap: 16px; 
-
         position: fixed;
         top: 525.5px;
         left: auto;
@@ -242,15 +216,10 @@
     }
     
     .buttonsLogin{
-        display: flex;
         flex-direction: column;
         width: 180px;
         height: 51px;
-        padding: 4px 0px;
-        justify-content: center;
-        align-items: center;
         gap: 10px; 
-
         /*Fixation*/
         position: fixed;
         top: 620.5px;
@@ -283,11 +252,6 @@
     }
 
     .legalPrivacy{
-        display: inline-flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 16px; 
-            
         /*Fixation*/
         position: fixed;
         top: 869px;
@@ -296,6 +260,7 @@
         right: 290px;
     }
 }
+
 
 @media(max-width: 630px){
         
@@ -308,7 +273,6 @@
         right: 326px;
     }
     
-    
     .logIn{
         /*Fixation*/
         position: fixed;
@@ -317,7 +281,6 @@
         bottom: 206px;
         right: 200px;
     }
-    
     
     .headlineLogIn{
         /*Fixation*/
@@ -346,7 +309,6 @@
         right: 220px;
     }
 
-
     .settingsLogin{
        /*Fixation*/
         position: fixed;
@@ -359,8 +321,8 @@
 
     .loginMsgBox{
         position: fixed;
-        top: 509.5px;
-        left: 60px;
+        top: 500.5px;
+        left: 65px;
         bottom: 392.5px;
     }
 
@@ -397,42 +359,12 @@
         bottom: 22px;
         right: 290px;
     }
-
-
 }
-
 
 
 @media(max-width: 450px){
     
-    .logoTopLeft{
-        width: 64px;
-        height: 78.031px; 
-
-    
-        /*Fixation*/
-        position: fixed;
-        top: 37px;
-        left: 38px;
-        bottom: 810.97px;
-        right: 326px;
-    }
-    
-    
     .logIn{
-        display: flex;
-        width: 396px;
-        height: 520px;
-        padding: 32px 0px;
-        flex-direction: column;
-        align-items: center;
-        gap: 32px; 
-        
-        border-radius: 30px;
-        background: var(--white, #FFF);
-        /* shadoe backlog box */
-        box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04); 
-    
         /*Fixation*/
         position: fixed;
         top: 206px;
@@ -440,7 +372,6 @@
         bottom: 206px;
         right: 16px;
     }
-    
     
     .headlineLogIn{
         /*Fixation*/
@@ -452,13 +383,6 @@
     }
 
     .loginOverview{ 
-        display: flex;
-        width: 364px;
-        height: 152px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px; 
-
         /*Fixation*/
         position: fixed;
         top: 341.5px;
@@ -476,14 +400,6 @@
         right: 32px;
     }
 
-    .inputsDecoration{
-        width: 350px;
-    }
-
-    .inputs{
-        width: 300px;
-    }
-
     .settingsLogin{
        /*Fixation*/
         position: fixed;
@@ -492,26 +408,16 @@
         bottom: 392.5px;
         right: 69px;
         padding: 0;
-
-      
     }
 
     .loginMsgBox{
         position: fixed;
-        top: 509.5px;
-        left: 32px;
+        top: 500.5px;
+        left: 36px;
         bottom: 392.5px;
-        
     }
 
     .rememberMe{
-        display: flex;
-        width: 170px;
-        padding: 0px 16px;
-      
-        align-items: flex-start;
-        gap: 16px; 
-
         position: fixed;
         top: 525.5px;
         left: 32px;
@@ -520,15 +426,6 @@
     }
     
     .buttonsLogin{
-        display: flex;
-        flex-direction: column;
-        width: 180px;
-        height: 51px;
-        padding: 4px 0px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px; 
-
         /*Fixation*/
         position: fixed;
         top: 620.5px;
@@ -536,21 +433,6 @@
         bottom: 237.5px;
         right: 124px
     }
-
-    /*
-    .svgLogin{
-        width: 177px;
-    }
-    .submitButton svg{
-        width: 177px;
-        
-    }
-
-    .submitButton svg rect{
-        width: 177px;
-        
-    }
-    */
 
     .signUp{    
         position: fixed;
@@ -561,11 +443,6 @@
     }
 
     .legalPrivacy{
-        display: inline-flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 16px; 
-            
         /*Fixation*/
         position: fixed;
         top: 869px;
@@ -574,5 +451,3 @@
         right: 91px;
     }
 }
-
-

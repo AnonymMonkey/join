@@ -1,6 +1,7 @@
 body{
     margin: 0;
 }
+
 .container{
     width: 1440px;
     height: 1024px;
@@ -14,7 +15,7 @@ body{
 
     /*Fixation*/
     position: fixed;
-    top: 80px;
+    top: 30px;
     left: 77px;
     bottom: 822.03px;
     right: 1262.97px;
@@ -38,7 +39,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 197px;
-    /*left: 421px;*/
+    left: 421px;
     bottom: 140px;
     right: 421px;
 }
@@ -52,7 +53,7 @@ body{
 
     position: fixed;
     top: 261px;
-    /*left: 469px;*/
+    left: 469px;
     bottom: 731px;
     right: 939px;
 }
@@ -65,7 +66,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 261px;
-    /*left: 469px;*/
+    left: 469px;
     bottom: 731px;
     right: 939px;
 }
@@ -93,7 +94,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 245px;
-    /*left: 562.5px;*/
+    left: 562.5px;
     bottom: 690px;
     right: 562.5px;
 }
@@ -179,7 +180,7 @@ body{
     /*Fixation*/
     position: fixed;
     top: 366px;
-    /*left: 509px;*/
+    left: 509px;
     bottom: 372px;
     right: 509px;
 }
@@ -248,7 +249,7 @@ input:not(:placeholder-shown){
 .signupMsgBox{
     position: fixed;
     top: 640px;
-    /*left: 510px;*/
+    left: 510px;
     bottom: 393.5px;
     right: 750px;
 
@@ -271,7 +272,7 @@ input:not(:placeholder-shown){
     /*Fixation*/
     position: fixed;
     top: 668px;
-    /*left: 560px;*/
+    left: 560px;
     bottom: 332px;
     right: 540px;
      
@@ -312,7 +313,7 @@ input:not(:placeholder-shown){
     /*Fixation*/
     position: fixed;
     top: 724px;
-    /*left: 657px;*/
+    left: 657px;
     bottom: 245px;
     right: 657px
 }
@@ -343,7 +344,7 @@ input:not(:placeholder-shown){
     /*Fixation*/
     position: fixed;
     top: 900px;
-    /*left: 597px;*/
+    left: 597px;
     bottom: 40px;
     right: 597px;
 }
