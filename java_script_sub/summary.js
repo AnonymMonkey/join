@@ -65,17 +65,33 @@ function getAmountUrgent(){
     for (let index = 0; index < todos.length; index++) {
         if(todos[index].prio == 'Urgent'){
             amountUrgent++
-            
-            //urgentDueDates.push(todos[index].duedate);
-            
-            //Backup
-            urgentDueDate = todos[index].duedate;
+            let dateInSeconds = todos[index].duedate;
+            urgentDueDates.push(dateInSeconds);
         }
     }
+    getDueDate();
 }
 
 function getDueDate(){
+    //Get nearest Date from Array
+    let nearestDate =  Math.min.apply(Math, urgentDueDates)
+    
+    //Convert DateNumber to String
+    const dueDate = new Date(nearestDate);
+    let currentday = String(dueDate.getDate()).padStart(2, '0');
+    let currentMonth = String(dueDate.getMonth()+1).padStart(2, '0');
+    let currentYear = String(dueDate.getFullYear());
+    let urgentDate = `${currentday}-${currentMonth}-${currentYear}`; 
+    
+    
 
+    /* Get Hours
+    let today = new Date()
+    let hours = today.getHours();
+    console.log(hours);
+    */
+
+    urgentDueDate = urgentDate;
 }
 
 
