@@ -246,6 +246,7 @@ input::-webkit-inner-spin-button {
   align-items: flex-end;
   gap: 8px;
   align-self: stretch;
+  margin-bottom: 32px;
 }
 
 .frame215_text {
@@ -273,7 +274,7 @@ input::-webkit-inner-spin-button {
 }
 
 .subtasks-check:hover {
-  background-color: #e1e1e1;
+  background-color: rgb(232, 229, 229);
   border-radius: 8px;
 }
 
