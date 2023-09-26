@@ -74,21 +74,6 @@ function generatePlaceholer(name) {
   ).innerHTML += `<div class="placeholderCard"></div>`;
 }
 
-function generateOverlayAddTask(status) {  
-  openAddTaskOverlay();
-  content = document.getElementById('overlayAddTaskContent');
-  content.innerHTML = '';
-  content.innerHTML = /*html*/ `
-    <div class="frame203">                   
-      <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">      
-    </div>
-
-    <!-- Overlay -->
-    <div>Status: ${status}</div>
-    
-    `;
-}
-
 function generateOverlayContent(element) {
    
   let id = getTaskIndex(element);
@@ -177,4 +162,15 @@ function generateOverlayContent(element) {
       </div>
     </div>
   `;
+}
+
+function generateOverlayAddTask(status) {  
+  openAddTaskOverlay();
+  content = document.getElementById('overlayAddTaskContent');
+  content.innerHTML = '';
+  content.innerHTML = /*html*/ `
+    <div class="frame203">                   
+      <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">      
+    </div>    
+    `;
 }
