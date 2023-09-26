@@ -4,15 +4,11 @@ let amountUrgent;
 let amountInBoard;
 let amountInProgress;
 let amountAwaitingFeedback;
-
 let todos = [];
-
 let urgentDueDates = [];
-
 let urgentDueDate;
-
 let currentGreeting;
-
+let currentUser;
 
 async function renderSummary(){
     includeHTML();
@@ -23,7 +19,9 @@ async function renderSummary(){
     getAmountUrgent();
     getAmountInProgress();
     getAmountAwaitingFeedback();
+    getDueDate();
     getCurrentGreeting();
+    getLoginType();
     getHTMLTemplateforSummary();
     adjustQuicklinkBG();
 }
@@ -72,7 +70,6 @@ function getAmountUrgent(){
             urgentDueDates.push(dateInSeconds);
         }
     }
-    getDueDate();
 }
 
 function getDueDate(){
@@ -112,7 +109,6 @@ function getAmountAwaitingFeedback(){
 function getCurrentGreeting(){
     /* Get Hours */
     let hours = new Date().getHours();
-    currentGreeting;
 
     if(hours >= 18  && hours <= 5 ){
         currentGreeting = 'Good evening,';
@@ -122,6 +118,16 @@ function getCurrentGreeting(){
     }
     else{
         currentGreeting = 'Good afternoon,';
+    }
+}
+
+
+function getLoginType(){
+    if(login){
+        currentUser = 'Sophia Müller';
+    }
+    else{
+        currentUser = " ";
     }
 }
 
@@ -168,7 +174,6 @@ function getHTMLTemplateforSummary(){
 
     document.getElementById('greeting').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
-        <span class="spanName">Sofia Müller</span>
+        <span class="spanName">${currentUser}</span>
     `;
-
 }
