@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let contactsStefan = [];
+let contacts = [];
 let tasks = [];
 let taskCategory = [];
 let progressHTML = '';
@@ -129,13 +129,15 @@ function taskProgress(element) {
   }
 }
 
-function assignedTo(element) {
+function assignedTo() {
   let pixelLeft = 0;
-  // console.log(element['id'] + " member " + element['member']);
-  // get all contacts from remote storage where member of this task
-  generateProfileBadges('AM', '#FFA800', pixelLeft);
-  generateProfileBadges('SJ', '#4589FF', 8);
-  pixelLeft = pixelLeft + 8;
+
+  for (let i = 0; i < contacts.length; i++) {
+    let contactTask = contacts[i];
+    console.log(contactTask['contact_initials']);
+    generateProfileBadges(contactTask['register_entry'][0]['contact_initials'], contactTask['register_entry'][0]['contact_color'], pixelLeft);
+    pixelLeft = pixelLeft + 8;    
+  }
 }
 
 async function loadContacts() {
