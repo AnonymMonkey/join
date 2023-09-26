@@ -129,15 +129,22 @@ function taskProgress(element) {
   }
 }
 
-function assignedTo() {
+function assignedTo(task) {
   let pixelLeft = 0;
 
   for (let i = 0; i < contacts.length; i++) {
+    
     let contactTask = contacts[i];
-    let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-    let contactColor = contactTask['register_entry'][0]['contact_color'];
-    generateProfileBadges(contactInitials, contactColor, pixelLeft);
-    pixelLeft = pixelLeft + 8;    
+    let contactId = contactTask['register_entry'][0]['contact_ID'];
+
+    if (task['member'].includes(contactId)) {      
+      
+      let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+      let contactColor = contactTask['register_entry'][0]['contact_color'];
+      
+      generateProfileBadges(contactInitials, contactColor, pixelLeft);
+      pixelLeft = pixelLeft + 8;
+    }    
   }
 }
 
@@ -210,7 +217,7 @@ function insertTasks() {
           substatus: 'done',
         },
       ],
-      member: [0, 1, 4],
+      member: [7660, 378],
       category: 1,
       duedate: 1699138800000,
     },
@@ -232,7 +239,7 @@ function insertTasks() {
       status: 'todo',
       prio: 'Urgent',
       subtasks: [],
-      member: [2, 3],
+      member: [378, 6339],
       category: 1,
       duedate: 1701385200000,
     },
@@ -259,7 +266,7 @@ function insertTasks() {
           substatus: 'open',
         },
       ],
-      member: [0],
+      member: [6529],
       category: 0,
       duedate: 1700002800000,
     }

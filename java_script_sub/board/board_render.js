@@ -27,12 +27,13 @@ function generateTasksHTML(element) {
       <span class="frame114_content">${element['description']}</span>
     </div>  
     ${progressHTML}
-    <div class="frame139">
-      ${badgeHTML}      
+    <div class="frameX">
+      <div class="frame139">
+        ${badgeHTML}
       </div>
-    </div>
-    <div class="priority_symbol">
-      <img src="../assets/img/add-task/${element['prio']}.svg" alt="">
+      <div class="priority_symbol">
+        <img src="../assets/img/add-task/${element['prio']}.svg" alt="">
+      </div>
     </div>
   </div>
   `;
@@ -55,13 +56,14 @@ function generateProgressHTML(
 function generateProfileBadges(initials, badgeColor, pixelLeft) {
   return (badgeHTML += /*html*/ `
     <div class="frame217">
-    <div style="left: -${pixelLeft}px" class="profile_badge">
-        <div class="group9">
-          <div class="group9_ellipse">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="15.5" fill="${badgeColor}" stroke="white"/>          
-            </svg>        
-          <div class="group9_text">${initials}</div>
+      <div style="left: -${pixelLeft}px" class="profile_badge">
+          <div class="group9">
+            <div class="group9_ellipse">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="15.5" fill="${badgeColor}" stroke="white"/>          
+              </svg>        
+              <div class="group9_text">${initials}</div>
+          </div>
         </div>
       </div>
     </div>

@@ -321,12 +321,18 @@
   line-height: 120%; /* 14.4px */
 }
 
-.frame139 {
+.frameX{
   display: flex;
   justify-content: space-between;
+  align-self: stretch;
+}
+
+.frame139 {
+  display: flex;
+  /* justify-content: space-between;*/
   align-items: center;
   align-self: stretch;
-  width: 100%;
+  /* width: 100%;*/
   height: 32px;
 }
 
