@@ -53,7 +53,7 @@
                     </g>
                   </svg>
                 </div>
-                <button class="add_task pointer" onclick="generateOverlayAddTask()">Add task <img src="../assets/img/board/add.svg"></button>                
+                <button class="add_task pointer" onclick="generateOverlayAddTask('todo')">Add task <img src="../assets/img/board/add.svg"></button>                
               </div>
             </div>
           </div>
@@ -81,6 +81,7 @@
       <div id="overlay-content-addTask" class="overlay-content-addTask d-flex">
         
         <div id="overlayAddTaskContent"></div>
+        <div id="header" w3-include-html="../assets/templates/task_form.html"></div>
 
       </div>
     </div>

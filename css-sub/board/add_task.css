@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.requiredField{
+  color: #fe8190;
+}
+
 .addtask_frame {
   padding-left: calc(328px - 232px);
   padding-top: calc(206px - 96px);
@@ -44,13 +48,17 @@
 }
 
 .frame40 {
+  top: 64px;
+  left: 74px;
+  gap: 1px;
+  position: absolute;
   color: #000;
   /* Version 2/t1 */
   font-family: Inter;
   font-size: 61px;
   font-style: normal;
   font-weight: 700;
-  line-height: 120%; /* 73.2px */
+  line-height: 120%; /* 73.2px */  
 }
 
 .task_title {
