@@ -78,7 +78,6 @@
 }
 
 .task_title {
-  background-color: green;
   display: flex;
   width: 440px;
   flex-direction: column;
@@ -96,8 +95,7 @@
   line-height: 120%; /* 24px */
 }
 
-.task_description {
-  background-color: brown;
+.task_description {  
   display: flex;
   width: 440px;
   flex-direction: column;
@@ -149,7 +147,7 @@
 }
 
 .task_assigned_to {
-  background-color: purple;
+  background-color: white;  
 }
 
 .frame35 {
