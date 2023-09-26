@@ -11,6 +11,8 @@ let urgentDueDates = [];
 
 let urgentDueDate;
 
+let currentGreeting;
+
 
 async function renderSummary(){
     includeHTML();
@@ -21,6 +23,7 @@ async function renderSummary(){
     getAmountUrgent();
     getAmountInProgress();
     getAmountAwaitingFeedback();
+    getCurrentGreeting();
     getHTMLTemplateforSummary();
     adjustQuicklinkBG();
 }
@@ -82,15 +85,6 @@ function getDueDate(){
     let currentMonth = String(dueDate.getMonth()+1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
     let urgentDate = `${currentday}-${currentMonth}-${currentYear}`; 
-    
-    
-
-    /* Get Hours
-    let today = new Date()
-    let hours = today.getHours();
-    console.log(hours);
-    */
-
     urgentDueDate = urgentDate;
 }
 
@@ -111,6 +105,23 @@ function getAmountAwaitingFeedback(){
         if(todos[index].status == 'awaitFeedback'){
             amountAwaitingFeedback++
         }
+    }
+}
+
+
+function getCurrentGreeting(){
+    /* Get Hours */
+    let hours = new Date().getHours();
+    currentGreeting;
+
+    if(hours >= 18  && hours <= 5 ){
+        currentGreeting = 'Good evening,';
+    }
+    else if(hours >= 6  && hours <= 11){
+        currentGreeting = 'Good morning,';
+    }
+    else{
+        currentGreeting = 'Good afternoon,';
     }
 }
 
@@ -154,4 +165,10 @@ function getHTMLTemplateforSummary(){
         <span class="tasksSpan">Awaiting</span>
         <span class="tasksSpan">Feedback</span>
     `;
+
+    document.getElementById('greeting').innerHTML = /*html*/`
+        <span class="spanGreeting">${currentGreeting}</span>
+        <span class="spanName">Sofia Müller</span>
+    `;
+
 }
