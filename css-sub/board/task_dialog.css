@@ -204,8 +204,7 @@ input::-webkit-inner-spin-button {
   gap: 16px;
 }
 
-.profile-badge {
-  background-color: #1fd7c1;
+.profile-badge {  
   width: 42px;
   height: 42px;
   border-radius: 45px;

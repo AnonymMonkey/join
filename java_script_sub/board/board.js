@@ -131,22 +131,41 @@ function taskProgress(element) {
 
 function assignedTo(task) {
   let pixelLeft = 0;
+  
+  for (let i = 0; i < contacts.length; i++) {
+    
+    let contactTask = contacts[i];
+    let contactId = contactTask['register_entry'][0]['contact_ID'];
+
+    if(task['member'].includes(contactId)) {      
+      
+      let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+      let contactColor = contactTask['register_entry'][0]['contact_color'];
+      let contactName = contactTask['register_entry'][0]['contact_name'];
+      
+      generateProfileBadges(contactInitials, contactColor, pixelLeft);      
+      pixelLeft = pixelLeft + 8;
+    }
+  }
+}
+
+function assignedToTask(task) {  
 
   for (let i = 0; i < contacts.length; i++) {
     
     let contactTask = contacts[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
-    if (task['member'].includes(contactId)) {      
-      
+    if(tasks[task]['member'].includes(contactId)) {      
       let contactInitials = contactTask['register_entry'][0]['contact_initials'];
       let contactColor = contactTask['register_entry'][0]['contact_color'];
+      let contactName = contactTask['register_entry'][0]['contact_name'];
       
-      generateProfileBadges(contactInitials, contactColor, pixelLeft);
-      pixelLeft = pixelLeft + 8;
-    }    
+      generateProfileBadgesTask(contactInitials, contactColor, contactName);      
+    }
   }
 }
+
 
 async function loadContacts() {
   try {
