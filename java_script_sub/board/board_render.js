@@ -77,6 +77,8 @@ function generatePlaceholer(name) {
 function generateOverlayContent(element) {
    
   let id = getTaskIndex(element);
+  let dueDate = getDueDate(tasks[id]['duedate']);  
+
   content = document.getElementById('overlayTaskContent');
   content.innerHTML = '';  
 
@@ -96,7 +98,7 @@ function generateOverlayContent(element) {
       
     <div class="frame179">      
       <div class="frame179_text">Due date:</div>
-      <div class="frame179_date">${tasks[id]['duedate']}</div>
+      <div class="frame179_date">${dueDate}</div>
     </div>
 
     <div class="frame178">

@@ -134,15 +134,16 @@ function assignedTo() {
 
   for (let i = 0; i < contacts.length; i++) {
     let contactTask = contacts[i];
-    console.log(contactTask['contact_initials']);
-    generateProfileBadges(contactTask['register_entry'][0]['contact_initials'], contactTask['register_entry'][0]['contact_color'], pixelLeft);
+    let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+    let contactColor = contactTask['register_entry'][0]['contact_color'];
+    generateProfileBadges(contactInitials, contactColor, pixelLeft);
     pixelLeft = pixelLeft + 8;    
   }
 }
 
 async function loadContacts() {
   try {
-    contactsStefan = JSON.parse(await getItem('contacts'));
+    contacts = JSON.parse(await getItem('contacts'));
   } catch (e) {
     console.error('Loading error:', e);
   }
