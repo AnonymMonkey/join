@@ -136,8 +136,13 @@ function generateOverlayContent(element) {
       <div id="frame204" class="frame204">
         
         <div class="subtasks-check">          
-          <img class="subtasks-checkbutton" src="../assets/img/login/checkbox_checked.png" alt="">
-          <div class="subtasks-title">y</div>
+          <img id="subid0" class="subtasks-checkbutton pointer" src="../assets/img/login/checkbox_checked.png" alt="">
+          <div class="subtasks-title">Text</div>
+        </div>
+
+        <div class="subtasks-check">          
+          <img id="subid1" class="subtasks-checkbutton pointer" src="../assets/img/login/checkbox_checked.png" alt="">
+          <div class="subtasks-title">Text</div>
         </div>        
 
       </div>

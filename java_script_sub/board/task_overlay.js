@@ -31,4 +31,5 @@ function closeTaskOverlay() {
         overlayBg.classList.add("d-none");
         overlayContent.classList.remove("slideOut");
     }
+    updateHTML();
 }

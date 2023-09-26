@@ -111,6 +111,11 @@ input::-webkit-inner-spin-button {
   right: 48px;
 }
 
+.close-button:hover {
+  background-color: rgb(232, 229, 229);
+  border-radius: 50%;
+}
+
 .frame119_title_task {
   width: 100%;
   height: auto;

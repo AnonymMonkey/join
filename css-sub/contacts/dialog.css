@@ -270,3 +270,8 @@ input::-webkit-inner-spin-button {
     top: 48px;
     right: 48px;
 }
+
+.close-button:hover {
+    background-color: rgb(232, 229, 229);
+    border-radius: 50%;
+}
