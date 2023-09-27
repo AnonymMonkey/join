@@ -1,22 +1,35 @@
-<div class="addtask_frame">
   <div class="frame40">Add Task</div><div id="temporaryStatus"></div>
+  <!-- form start -->
   <div class="addtask_content">
     <div class="frame219">
       <div class="task_title">
-        <div class="task_title_text">Title<span class="requiredField">*</span></div>
+        <div class="task_title_text">Title<sup class="requiredField">*</sup></div>
         <div class="frame203">
-          <input required type="text" placeholder="Enter a title" class="frame14">
-          <div class="frame14_required">This field is required</div>
+          <div class="frame14">
+            <input required type="text" placeholder="Enter a title" class="frame14_text pointer">
+          </div>
+          <div class="requiredField d-none">This field is required</div>
         </div>
       </div>
       <div class="task_description">
         <div class="task_description_text">Description</div>
         <div class="frame207">
-          <textarea required type="text" placeholder="Enter a Description" class="frame17"></textarea>
-          <div class="frame17_required">This field is required</div>
+          <div id="frame17" class="pointer">
+            <textarea required type="text" placeholder="Enter a Description" class="frame17_text pointer"></textarea>
+          </div>
+          <div class="requiredField d-none">This field is required</div>
         </div>
       </div>
-      <div class="task_assigned_to">Assigned To</div>
+      <div class="task_assigned_to">
+        <div class="task_assigned_to_text">
+          Assigned To
+        </div>
+        <div class="frame74 pointer">
+          <select name="frame74_select" id="frame74_select">
+            <option value="" selected>Select contacts to assign</option>
+          </select>
+        </div>
+      </div>
     </div>
     <div class="vector4">
       <svg
@@ -35,13 +48,15 @@
     </div>
     <div class="frame39">y</div>
   </div>
+  <!-- form end -->
   <div class="frame35">
     <div class="frame27">
       <button class="secondary pointer">Clear</button>
-      <button class="primary_check_button pointer">Create Task</button>
+      <button class="primary_check_button pointer">Create Task
+        <img src="../assets/img/add-task/check.svg">
+      </button>
     </div>
   </div>
   <div class="requiredInfo">
-    <span class="requiredField">*</span>This field is required
+    <sup class="requiredField">*</sup>This field is required
   </div>
-</div>

@@ -167,9 +167,7 @@ function generateOverlayAddTask(status) {
   content = document.getElementById('overlayAddTaskContent');
   content.innerHTML = '';
   content.innerHTML = /*html*/ `
-    <div class="frame203">                   
-      <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">      
-    </div>    
+    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">        
     `;
   /**  temporary handing over: status */
   document.getElementById('temporaryStatus').innerHTML = `Status: ${status}`;
