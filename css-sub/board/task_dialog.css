@@ -111,6 +111,11 @@ input::-webkit-inner-spin-button {
   right: 48px;
 }
 
+.close-button:hover {
+  background-color: rgb(232, 229, 229);
+  border-radius: 50%;
+}
+
 .frame119_title_task {
   width: 100%;
   height: auto;
@@ -204,8 +209,7 @@ input::-webkit-inner-spin-button {
   gap: 16px;
 }
 
-.profile-badge {
-  background-color: #1fd7c1;
+.profile-badge {  
   width: 42px;
   height: 42px;
   border-radius: 45px;
@@ -242,6 +246,7 @@ input::-webkit-inner-spin-button {
   align-items: flex-end;
   gap: 8px;
   align-self: stretch;
+  margin-bottom: 32px;
 }
 
 .frame215_text {
@@ -269,7 +274,7 @@ input::-webkit-inner-spin-button {
 }
 
 .subtasks-check:hover {
-  background-color: #e1e1e1;
+  background-color: rgb(232, 229, 229);
   border-radius: 8px;
 }
 

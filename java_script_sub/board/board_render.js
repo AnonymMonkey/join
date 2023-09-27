@@ -1,6 +1,7 @@
 function generateTasksHTML(element) {
   progressHTML = '';
   badgeHTML = '';
+  badgeHTMLTask = '';
   taskProgress(element);
   assignedTo(element);
   let status = element['status'];
@@ -27,12 +28,13 @@ function generateTasksHTML(element) {
       <span class="frame114_content">${element['description']}</span>
     </div>  
     ${progressHTML}
-    <div class="frame139">
-      ${badgeHTML}      
+    <div class="frameX">
+      <div class="frame139">
+        ${badgeHTML}
       </div>
-    </div>
-    <div class="priority_symbol">
-      <img src="../assets/img/add-task/${element['prio']}.svg" alt="">
+      <div class="priority_symbol">
+        <img src="../assets/img/add-task/${element['prio']}.svg" alt="">
+      </div>
     </div>
   </div>
   `;
@@ -55,16 +57,29 @@ function generateProgressHTML(
 function generateProfileBadges(initials, badgeColor, pixelLeft) {
   return (badgeHTML += /*html*/ `
     <div class="frame217">
-    <div style="left: -${pixelLeft}px" class="profile_badge">
-        <div class="group9">
-          <div class="group9_ellipse">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="15.5" fill="${badgeColor}" stroke="white"/>          
-            </svg>        
-          <div class="group9_text">${initials}</div>
+      <div style="left: -${pixelLeft}px" class="profile_badge">
+          <div class="group9">
+            <div class="group9_ellipse">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="15.5" fill="${badgeColor}" stroke="white"/>          
+              </svg>        
+              <div class="group9_text">${initials}</div>
+          </div>
         </div>
       </div>
     </div>
+  `);
+}
+
+function generateProfileBadgesTask(initials, badgeColor, name) {
+  return (badgeHTMLTask += /*html*/ `
+  <div class="task-contactlist-contact">
+    <div class="frame191">
+      <div style="background-color: ${badgeColor};" class="profile-badge">${initials}</div>
+      <div class="profile-name">${name}</div>
+    </div>
+    <div class="check-button">x</div>
+  </div>
   `);
 }
 
@@ -75,16 +90,20 @@ function generatePlaceholer(name) {
 }
 
 function generateOverlayContent(element) {
-   
   let id = getTaskIndex(element);
-  let dueDate = getDueDate(tasks[id]['duedate']);  
+  let dueDate = getDueDate(tasks[id]['duedate']);
 
   content = document.getElementById('overlayTaskContent');
-  content.innerHTML = '';  
+  content.innerHTML = '';
+  badgeHTMLTask = '';
+
+  assignedToTask(id);
 
   content.innerHTML = /*html*/ `
   <div class="frame203_task">                   
-    <div class="board_card_task" style="background: ${taskCategory[tasks[id]['category']]['bgColor']}">
+    <div class="board_card_task" style="background: ${
+      taskCategory[tasks[id]['category']]['bgColor']
+    }">
       <span class="board_card_label_task">${
         taskCategory[tasks[id]['category']]['title']
       }</span>
@@ -92,9 +111,7 @@ function generateOverlayContent(element) {
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
     </div>
       <span class="frame119_title_task">${tasks[id]['title']}</span>
-      <span class="frame119_content_task">${
-        tasks[id]['description']
-      }</span>
+      <span class="frame119_content_task">${tasks[id]['description']}</span>
       
     <div class="frame179">      
       <div class="frame179_text">Due date:</div>
@@ -111,42 +128,21 @@ function generateOverlayContent(element) {
    
     <div class="frame214">
       <div class="frame214_text">Assigned To:</div>  
-      <div id="task-contactlist" class="task-contactlist">        
-        
-        <div class="task-contactlist-contact">
-          <div class="frame191">
-            <div class="profile-badge">EM</div>
-            <div class="profile-name">Emmanuel Mauer</div>
-          </div>
-          <div class="check-button">x</div>
-        </div>
-
-        <div class="task-contactlist-contact">
-          <div class="frame191">
-            <div class="profile-badge">MB</div>
-            <div class="profile-name">Marcel Bauer</div>
-          </div>
-          <div class="check-button">x</div>
-        </div>
-
-        <div class="task-contactlist-contact">
-          <div class="frame191">
-            <div class="profile-badge">AM</div>
-            <div class="profile-name">Anton Mayer</div>
-          </div>
-          <div class="check-button">x</div>
-        </div>
-
-      </div>
+      <div class="task-contactlist">${badgeHTMLTask}</div>
     </div>
 
     <div class="frame215">
       <div class="frame215_text">Subtasks</div>
       <div id="frame204" class="frame204">
         
-        <div class="subtasks-check">
-          <div class="subtasks-checkbutton">x</div>        
-          <div class="subtasks-title">y</div>
+        <div class="subtasks-check">          
+          <img id="subid0" class="subtasks-checkbutton pointer" src="../assets/img/login/checkbox_checked.png" alt="">
+          <div class="subtasks-title">Text</div>
+        </div>
+
+        <div class="subtasks-check">          
+          <img id="subid1" class="subtasks-checkbutton pointer" src="../assets/img/login/checkbox_checked.png" alt="">
+          <div class="subtasks-title">Text</div>
         </div>        
 
       </div>
@@ -166,7 +162,7 @@ function generateOverlayContent(element) {
   `;
 }
 
-function generateOverlayAddTask(status) {  
+function generateOverlayAddTask(status) {
   openAddTaskOverlay();
   content = document.getElementById('overlayAddTaskContent');
   content.innerHTML = '';
