@@ -1,62 +1,110 @@
-  <div class="frame40">Add Task</div><div id="temporaryStatus"></div>
-  <!-- form start -->
-  <div class="addtask_content">
-    <div class="frame219">
-      <div class="task_title">
-        <div class="task_title_text">Title<sup class="requiredField">*</sup></div>
-        <div class="frame203">
-          <div class="frame14">
-            <input required type="text" placeholder="Enter a title" class="frame14_text pointer">
-          </div>
-          <div class="requiredField d-none">This field is required</div>
-        </div>
+<div class="frame40">Add Task</div>
+<div id="temporaryStatus"></div>
+<!-- form start -->
+<div class="addtask_content">
+  <div class="frame219">
+    <div class="task_title">
+      <div class="task_title_text">
+        Title<sup class="requiredAsterisk">*</sup>
       </div>
-      <div class="task_description">
-        <div class="task_description_text">Description</div>
-        <div class="frame207">
-          <div id="frame17" class="pointer">
-            <textarea required type="text" placeholder="Enter a Description" class="frame17_text pointer"></textarea>
-          </div>
-          <div class="requiredField d-none">This field is required</div>
+      <div class="frame203">
+        <div class="frame14">
+          <input
+            required
+            type="text"
+            placeholder="Enter a title"
+            class="frame14_text pointer"
+          />
         </div>
-      </div>
-      <div class="task_assigned_to">
-        <div class="task_assigned_to_text">
-          Assigned To
-        </div>
-        <div class="frame74 pointer">
-          <select name="frame74_select" id="frame74_select">
-            <option value="" selected>Select contacts to assign</option>
-          </select>
-        </div>
+        <div class="requiredField d-none">This field is required</div>
       </div>
     </div>
-    <div class="vector4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="2"
-        height="426"
-        viewBox="0 0 2 426"
-        fill="none"
-      >
-        <path
-          d="M1.24805 1L1.24854 425"
-          stroke="#D1D1D1"
-          stroke-linecap="round"
-        />
-      </svg>
+    <div class="task_description">
+      <div class="task_description_text">Description</div>
+      <div class="frame207">
+        <div id="frame17" class="pointer">
+          <textarea
+            required
+            type="text"
+            placeholder="Enter a Description"
+            class="frame17_text pointer"
+          ></textarea>
+        </div>
+        <div class="requiredField d-none">This field is required</div>
+      </div>
     </div>
-    <div class="frame39">y</div>
+    <div class="task_assigned_to">
+      <div class="task_assigned_to_text">Assigned To</div>
+      <div class="frame74 pointer">
+        <select required name="frame74_select" id="frame74_select">
+          <option value="" selected>Select contacts to assign</option>
+        </select>
+      </div>
+    </div>
   </div>
-  <!-- form end -->
-  <div class="frame35">
-    <div class="frame27">
-      <button class="secondary pointer">Clear</button>
-      <button class="primary_check_button pointer">Create Task
-        <img src="../assets/img/add-task/check.svg">
+  <div class="vector4">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="2"
+      height="426"
+      viewBox="0 0 2 426"
+      fill="none"
+    >
+      <path
+        d="M1.24805 1L1.24854 425"
+        stroke="#D1D1D1"
+        stroke-linecap="round"
+      />
+    </svg>
+  </div>
+
+  <div class="frame39">
+    <div class="framedue">
+    <div class="frame39_duedate">
+      Due date<sup class="requiredAsterisk">*</sup>
+    </div>
+    <div class="frame211">
+      <input
+        id="addtask-duedate"
+        placeholder="dd/mm/yyyy"
+        type="date"
+        min="2023-10-04"
+        max="2024-04-20"
+        required
+        class="frame14 pointer"
+      />
+      <div class="requiredField d-none">This field is required</div>
+    </div>
+  </div>
+
+  <div class="frame28">
+    <div class="frame28_text">Prio</div>
+    <div class="priority">
+      <button class="priority_frame14">
+        <div class="priority_frame14_text">Urgent</div>
+        <img class="priority_frame14_icon" src="../img/add-task/urgent.svg" alt="" />
+      </button>
+      <button class="priority_frame25">
+        <div class="priority_frame25_text">Medium</div>
+        <img class="priority_frame25_icon" src="../img/add-task/medium.svg" alt="" />
+      </button>
+      <button class="priority_frame26">
+        <div class="priority_frame26_text">Low</div>
+        <img class="priority_frame26_icon" src="../img/add-task/low.svg" alt="" />
       </button>
     </div>
   </div>
-  <div class="requiredInfo">
-    <sup class="requiredField">*</sup>This field is required
+</div>
+<!-- form end -->
+<div class="frame35">
+  <div class="frame27">
+    <button class="secondary pointer">Clear</button>
+    <button class="primary_check_button pointer">
+      Create Task
+      <img src="../assets/img/add-task/check.svg" />
+    </button>
   </div>
+</div>
+<div class="requiredInfo">
+  <sup class="requiredAsterisk">*</sup>This field is required
+</div>
