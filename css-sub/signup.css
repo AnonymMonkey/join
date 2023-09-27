@@ -344,7 +344,7 @@ input:not(:placeholder-shown){
     /*Fixation*/
     position: fixed;
     top: 900px;
-    left: 597px;
+    left: 595px;
     bottom: 40px;
     right: 597px;
 }
