@@ -81,7 +81,6 @@
 }
 
 
-
 /*header*/
 .header {
     display: flex;
@@ -93,8 +92,6 @@
     background: #FFF;
     /* Barra superior */
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
-    
-   
 }
 
 .headerSpan{
@@ -108,50 +105,34 @@
     text-wrap: nowrap;  
 }
 
+
+
+
 .headerSymbols{
     display: flex;
     align-items: center;
     gap: 16px; 
 
     /*Fixation*/
-    position: fixed;
+    position: absolute;
     top: 20px;
-    left: 1296px;
-    bottom: 948px;
-    right: 40px;
-    
+    left: auto;
+    right: 0px; 
 }
 
 .headerHelp{
+    display: inline-flex;
     
     /*Fixation*/
-    position: fixed;
-    top: 32px;
-    left: 1296px;
-    bottom: 960px;
-    right: 40px;
+    position: absolute;
+    top: 20px;
+    left: auto;
+
+    right: 105px;
 }
 
 .headerHelp:hover{
     transform: scale(1.2);
-}
-
-.headerInitialsBG{
-    width: 56px;
-    height: 56px;
-    flex-shrink: 0;
-    border-radius: 32px;
-    
-    /*Fixation*/
-    position: fixed;
-    top: 20px;
-    left: 1344px;
-    bottom: 948px;
-    right: 40px;
-}
-
-.headerInitialsBG:hover{
-    background: #F6F7F8;
 }
 
 .headerInitials{
@@ -163,14 +144,34 @@
     font-size: 24px;
    
     /*Fixation*/
-    position: fixed;
-    top: 32px;
-    left: 1355px;
-    bottom: 966px;
-    right: 59.19px;
-
-    
+    position: absolute;
+    top: 12px;
+    left: auto;
+    right: 19px;   
 }
+
+.headerInitialsBG{
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    
+    /*Fixation*/
+    position: absolute;
+    top: 0px;
+    left: auto;
+    bottom: 948px;
+    right: 40px;
+}
+
+.headerInitialsBG:hover{
+    background: #F6F7F8;
+}
+
+
+
+
+
 
 .subMenu{
     display: inline-flex;
@@ -213,12 +214,9 @@
 .subMenuSpanContainer span:hover{
     background-color: #2A3D59;
     cursor: pointer;
-    
 }
 
-
 /*generics*/
-
 .clickable {
     cursor: pointer;
 }
@@ -226,4 +224,5 @@
 .dNone{
     display: none;
 }
+
 
