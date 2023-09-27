@@ -6,6 +6,14 @@
   color: #fe8190;
 }
 
+.requiredInfo {
+  position: absolute;
+  width: 170px;
+  height: 27px;
+  top: 779px;
+  left: 74px;
+}
+
 .addtask_frame {
   padding-left: calc(328px - 232px);
   padding-top: calc(206px - 96px);
@@ -70,7 +78,7 @@
   line-height: 120%; /* 73.2px */
 }
 
-#temporaryStatus{
+#temporaryStatus {
   top: 64px;
   left: 400px;
   position: absolute;
@@ -95,7 +103,7 @@
   line-height: 120%; /* 24px */
 }
 
-.task_description {  
+.task_description {
   display: flex;
   width: 440px;
   flex-direction: column;
@@ -147,7 +155,7 @@
 }
 
 .task_assigned_to {
-  background-color: white;  
+  background-color: white;
 }
 
 .frame35 {
@@ -159,6 +167,12 @@
   left: 716.25px;
   position: absolute;
   gap: 4px;
+}
+
+.frame27 {
+  width: 334px;
+  height: 56px;
+  gap: 25px;
 }
 
 .frame203 {

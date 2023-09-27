@@ -8,7 +8,10 @@ const generatedColors = new Set();
 // CREATE CONTACT ||||||||||||||||||||||||||||||||||||||||||| //
 
 async function createContact() {
-    /* debugger */
+    var nameIsValid = checkName();
+    if (!nameIsValid) {
+        return;
+    }
     create_btn.disable = true;
     await getValues();
     await saveData();
@@ -87,32 +90,15 @@ async function loadFromStorage(key, data) {
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // CREATE REGISTER |||||||||||||||||||||||||||||||||||||||||| //
 
-function createRegister() {
+async function createRegister() {
     let register = elementByID('register');
     register.innerHTML = createRegisterEntry();
 }
 
 function createRegisterEntry() {
-    createRegisterCategory();
     createRegisterInfo();
 }
 
-function createRegisterCategory() {
-    let register = elementByID('register');
-    let categoryHTML = ""; // Erstellen Sie ein temporäres HTML-Template
-
-    for (let i = 0; i < categories.length; i++) {
-        let contactCategory = categories[i];
-        categoryHTML += /* html */`
-            <div id="category_${contactCategory}">
-                <div class="contact-letter">${contactCategory}</div>
-            </div>
-            <img src="../assets/img/contacts/cutline2.svg">
-        `;
-    }
-
-    register.innerHTML = categoryHTML;
-}
 
 function createRegisterInfo() {
     let register = elementByID('register');
@@ -124,16 +110,25 @@ function createRegisterInfo() {
             return firstLetter === category;
         });
 
+        infoHTML += `
+            <div id="category_${category}">
+                <div class="contact-letter">${category}</div>
+            </div>
+            <img src="../assets/img/contacts/cutline2.svg">
+        `;
+
         for (let contact of categoryContacts) {
             let registerEntry = contact['register_entry'][0];
             let name = registerEntry['contact_name'];
             let mail = registerEntry['contact_mail'];
+            let phone = registerEntry['contact_phone'];
+            let initials = registerEntry['contact_initials'];
             let ID = registerEntry['contact_ID'];
             let color = registerEntry['contact_color'];
 
             let contactHTML = `
-                <div id="contactID_${ID}" class="contact-info pointer">
-                    <div id="contactLettersID_${ID}" class="first-letters"></div>
+                <div onclick="${showContact(name, mail, phone, initials, color)}" id="contactID_${ID}" class="contact-info pointer">
+                    <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
                     <div>
                         <div class="contact-info-name">${name}</div>
                         <div class="contact-info-mail">${mail}</div>
@@ -142,12 +137,12 @@ function createRegisterInfo() {
             `;
 
             infoHTML += contactHTML;
-            contactFirstLettersBG(ID, color);
         }
     }
 
     register.innerHTML = infoHTML;
 }
+
 
 
 
@@ -163,19 +158,14 @@ function getContactFirstLetters() {
     return initials;
 }
 
-function contactFirstLettersBG(ID, color, registerEntry) {
-    let element = elementByID(`contactLettersID_${ID}`);
+function contactFirstLettersBG(color) {
+    var rgb = hexToRgb(color);
 
-    if (element) {
-        element.style.backgroundColor = color;
-    } else {
-        console.error(`Element with ID contactLettersID_${ID} not found.`);
-    }
+    var backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+
+    return `style="background-color: ${backgroundColor};"`;
 }
 
-function contactInitials(ID, color, registerEntry) {
-    contactFirstLettersBG(ID, color, registerEntry);
-}
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // RESET & DELETE ||||||||||||||||||||||||||||||||||||||||||| //
