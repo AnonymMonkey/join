@@ -51,7 +51,7 @@
         align-items: flex-start;
         gap: 15px; 
         width: 90%;
-   
+        color: white;
         
         position: absolute;
         left: 10px;
@@ -68,6 +68,10 @@
         padding: 8px 56px;
         justify-content: center;
         gap: 8px; 
+    }
+
+    .addTaskSpan{
+        width: 60px;
     }
 }
 

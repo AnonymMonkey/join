@@ -24,6 +24,19 @@ function identifyGuest(){
     
 }
 
+function showHelp(){
+    window.open("http://127.0.0.1:5500/html-sub/help.html", "_self");
+}
+
+function showLegal(){
+    window.open("http://127.0.0.1:5500/html-sub/legal_notice.html", "_self");
+}
+
+function showPrivacy(){
+    window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html", "_self");
+
+}
+
 
 function adjustQuicklinkBG(){
     identifyGuest();

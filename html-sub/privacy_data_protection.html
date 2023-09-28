@@ -6,23 +6,44 @@
 
     <script src="../java_script_sub/w3_include.js"></script>
     <script src="../script.js"></script>
+    <script src="../java_script_sub/header.js"></script>
+    <script src="../java_script_sub/storage.js"></script>
+    <script src="../java_script_sub/summary.js"></script>
+    <script src="../java_script_sub/privacy.js"></script>
 
     <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css-sub/headerSidebar.css" />
+    <link rel="stylesheet" href="../css-sub/headerSidebarResp.css" />
+    <link rel="stylesheet" href="../css-sub/privacy.css" />
 
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
 
     <title>Join</title>
   </head>
 
-  <body onload="include()">
-    <div class="container">      
-      <div class="header" w3-include-html="../assets/templates/desktop_header.html"></div>
-      <div class="main">
-        <div class="menu" w3-include-html="../assets/templates/desktop_menu.html"></div>
-        
-        <!-- insert content and own style from here -->
+  <body onload="privacyInit()">
+    <div class="mainContainer column">      
+      <div id="header" w3-include-html="../assets/templates/header.html"></div>
 
-      </div>
+      <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
+
+      <div class="content">
+        <!-- insert content and own style from here -->
+        <h1 class="headlineBig">Privacy Policy</h1>
+        
+        <h1 class="headlineMid">Subtitle</h1>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est aspernatur sunt expedita
+           accusantium earum. Illum deserunt sint quos beatae accusantium debitis repellendus 
+           recusandae unde quibusdam, velit sapiente harum in quam?
+        </p>
+
+        <h1 class="headlineMid">Subtitle</h1>
+        <p class="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est aspernatur sunt expedita
+           accusantium earum. Illum deserunt sint quos beatae accusantium debitis repellendus 
+           recusandae unde quibusdam, velit sapiente harum in quam?
+        </p>
       </div>
     </div>
     

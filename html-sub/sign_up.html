@@ -8,6 +8,7 @@
     <script src="../java_script_sub/storage.js"></script>
     <script src="../script.js"></script>
     <script src="../java_script_sub/login/signup.js"></script>
+    <script src="../java_script_sub/help_functions.js"></script>
     
     
     <link rel="stylesheet" href="../style.css" />
@@ -21,7 +22,7 @@
   </head>
 
   <body onload="includeHTML(); loadUsers()">
-    <div>      
+    <div class="content">      
 
       <img class="logoTopLeft" src="/assets/img/login/logo_dark.png" alt="">
 
@@ -48,7 +49,7 @@
                     <div class="inputsDecoration" id="decoSignupName">
                         <div class="inputs">
                             <input onfocus="changeBorderOnFocus('signupName')" id="signupName" type="text" placeholder="Name" required>
-                            <img onclick="testfunction()" src="../assets/img/login/person.png">
+                            <img onclick="openSignUpOverlay()" src="../assets/img/login/person.png">
                         </div>
                     </div>
     
@@ -119,21 +120,27 @@
         </div>
 
 
-      <div class="legalPrivacy">
+      <div id="signupLegalPrivacy" class="legalPrivacy">
         <button class="legalPrivacyButton">Privacy Policy</button>
         <button class="legalPrivacyButton">Legal notice</button>
       </div>
     </div>
 
-    <!--Overlay -->
-    <div>
-        <div id="signupSuccess"  class="signupOverlay-menu dNone">
-        
-            <img class="sucessimg" src="../assets/img/login/signe_up_successfull.png">
-            
-        </div>
-    </div>
+    
+    <!-- overlay signup -->
+     <!-- overlay addtask -->
+     <div id="overlay-bg-addTask" class="overlay-bg-addTask dNone">    
+        <div id="overlay-content-addTask" class="overlay-content-addTask d-flex">
+          
+          <!-- <div id="overlayAddTaskContent"> -->
 
+            <img class="sucsessimg" id="overlayAddTaskContent" src="../assets/img/login/signed_up_successfull.png" alt="">
+
+         <!-- </div> -->
+          
+  
+        </div>
+      </div>
 
     <script>
       includeHTML();

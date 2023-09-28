@@ -33,25 +33,41 @@ async function registerUser(){
 }
 
 
-function testfunction(){
-    showSuccessIMG();
-    //setTimeout(testcall(), 5000);
+function openSignUpOverlay() {
+    //added following 2 lines
+    let signup = elementByID("bodySignup");
+    let legal = elementByID("signupLegalPrivacy");
     
+    let overlayBg = elementByID("overlay-bg-addTask");
+    let overlayContent = elementByID("overlay-content-addTask");
+    
+    //added following 2 lines
+    legal.classList.add("dNone");
+    signup.classList.add("dNone");
+    
+
+    overlayContent.classList.remove("slideOut");
+
+    overlayBg.classList.add("d-flex");
+    overlayBg.classList.remove("dNone");
+
+    overlayContent.classList.add("slide-in");
+    overlayContent.style.right = "0";
+
+    overlayContent.addEventListener("animationend", onAnimationEnd);
+
+    function onAnimationEnd() {
+        overlayContent.removeEventListener("animationend", onAnimationEnd);
+        overlayBg.classList.remove("dNone");        
+    }  
+    setTimeout(openSuccessfullRegistered, 1500);
 
 }
 
-function testcall(){
-    window.location.href = 'http://127.0.0.1:5500/index.html?userregistered';
-}
 
-function showSuccessIMG(){
-    document.getElementById('bodySignup').classList.add('dNone');
-    document.getElementById('signupSuccess').classList.remove('dNone');
-    document.getElementById('signupSuccess').classList.add('show-overlay-menu_test');
-    
-    
+function openSuccessfullRegistered(){
+    window.location.href = 'http://127.0.0.1:5500/index.html?msg=userregistered';
 }
-
 
 
 async function pushUser(name, surname, email){
@@ -72,8 +88,6 @@ async function loadUsers(){
         console.error('Loading error:', e);
     }
 }
-
-
 
 
 function showMsgBoxInvalidConfirmation(){

@@ -495,3 +495,21 @@
         right: 552px
     }
 }
+
+@media(max-width: 450px){
+    .content{
+        transform: scale(0.9);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+@media(max-width: 400px){
+    .content{
+        transform: scale(0.8);
+        position: absolute;
+        left: 0px;
+        top: -50px;
+    }
+}

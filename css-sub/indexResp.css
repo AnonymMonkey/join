@@ -451,3 +451,22 @@
         right: 91px;
     }
 }
+
+@media(max-width: 430px){
+    .content{
+        transform: scale(0.7);
+        position: fixed;
+        left: 10px;
+        top: -70px;
+    }
+
+    .signUp{    
+        position: fixed;
+        top: 800px;
+        left: 70px;
+        bottom: 99px;
+        right: 66px;
+    }
+
+
+}

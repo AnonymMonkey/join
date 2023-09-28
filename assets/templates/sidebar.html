@@ -24,10 +24,10 @@
     </div>
     
     <div class="legal">
-        <div class="legalSpan quicklinks clickable">
+        <div onclick="showPrivacy()" class="legalSpan quicklinks clickable">
             <a>Privacy Policy</a>
         </div>
-        <div class="legalSpan quicklinks clickable">
+        <div onclick="showLegal()" class="legalSpan quicklinks clickable">
             <a>Legal notice</a>
         </div> 
     </div>
@@ -46,7 +46,7 @@
         </div>
         <div onclick="openSelectedQuicklink('quickAddTask')" id="quickAddTask" class="clickable quicklinksSpan hoverBG">
             <img src="../assets/img/summary/addTask_menu.svg" alt="">
-            <a>Add Task</a>
+            <a class="addTaskSpan">Add Task</a>
         </div>
         <div onclick="openSelectedQuicklink('quickContacts')" id="quickContacts" class="clickable quicklinksSpan hoverBG">
             <img src="../assets/img/summary/contacts_menu.svg" alt="">

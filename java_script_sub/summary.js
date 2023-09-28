@@ -119,13 +119,13 @@ function getCurrentGreeting(){
     let hours = new Date().getHours();
 
     if(hours >= 18  && hours <= 5 ){
-        currentGreeting = 'Good evening,';
+        currentGreeting = 'Good evening!';
     }
     else if(hours >= 6  && hours <= 11){
-        currentGreeting = 'Good morning,';
+        currentGreeting = 'Good morning!';
     }
     else{
-        currentGreeting = 'Good afternoon,';
+        currentGreeting = 'Good afternoon!';
     }
 }
 
