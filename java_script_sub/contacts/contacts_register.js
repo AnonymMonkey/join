@@ -104,7 +104,7 @@ function createRegisterInfo() {
     let register = elementByID('register');
     let infoHTML = "";
 
-    for (let category of categories) {
+    for (let category of categories.sort()) {
         let categoryContacts = contacts.filter(contact => {
             let firstLetter = contact['register_entry'][0]['contact_name'][0].toUpperCase();
             return firstLetter === category;
@@ -127,7 +127,7 @@ function createRegisterInfo() {
             let color = registerEntry['contact_color'];
 
             let contactHTML = `
-                <div onclick="${showContact(name, mail, phone, initials, color)}" id="contactID_${ID}" class="contact-info pointer">
+                <div onclick="showContact('${name}', '${mail}', ${phone}, '${initials}', '${color}')" id="contactID_${ID}" class="contact-info pointer">
                     <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
                     <div>
                         <div class="contact-info-name">${name}</div>
