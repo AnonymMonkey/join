@@ -25,6 +25,7 @@
     flex-direction: column;
     align-items: center;
 
+    overflow-y: auto;
     background: var(--white, #FFF);
 }
 
@@ -77,6 +78,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 8px;
+    font-size: 20px;
     align-self: stretch;
 }
 
@@ -197,7 +199,7 @@
     line-height: 120%;
 }
 
-.show-contact div {
+.show-contact-h1-sub {
     color: #2A3647;
 
     font-size: 27px;
@@ -213,34 +215,57 @@
     gap: 21px;
     width: auto;
     height: auto;
+    left: 518px;
+    top: 215px;
+    position: absolute;
 }
 
 .contact-headline {
     display: flex;
     align-items: center;
+    width: 461px;
+    height: 120px;
     gap: 54px;
 }
 
-.contact-headline div:first-child {
+.contact-headline-initials {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    width: 120px;
+    height: 120px;
 
     border-radius: 70px;
     border: 3px solid var(--white, #FFF);
     background: #FFF;
 
-    /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
-.contact-headline div:last-child {
+.contact-headline-initials div:first-child {
+    display: flex;
+    width: 80px;
+    height: 28.571px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+
+    color: #FFF;
+    text-align: center;
+
+    font-size: 47px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+/* .contact-headline div:last-child {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-}
+} */
 
 .contact-name {
     color: #000;
@@ -253,13 +278,32 @@
 
 .contact-buttons {
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
 }
 
-.contact-buttons div {
+.contact-button {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+
+.contact-button:hover {
+    cursor: pointer;
+}
+
+.contact-button div {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.contact-button img {
+    width: 24px;
+    height: 24px;
 }
 
 .contact-show-info {
@@ -271,7 +315,6 @@
 
     color: #000;
 
-    font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
