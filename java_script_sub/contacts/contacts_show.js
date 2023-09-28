@@ -1,17 +1,20 @@
 function showContact(name, mail, phone, initials, color) {
     let show = elementByID('show_contact')
+    /* debugger */
     show.innerHTML = "";
     show.innerHTML += /* html */`
     <div class="contact-headline">
-        <div ${contactFirstLettersBG(color)}>${initials}</div>
+        <div class="contact-headline-initials" ${contactFirstLettersBG(color)}>
+            <div>${initials}</div>
+        </div>
         <div>
             <div class="contact-name">${name}</div>
             <div class="contact-buttons">
-                <div>
+                <div class="contact-button">
                     <img src="../assets/img/contacts/edit.svg">
                     <div>Edit</div>
                 </div>
-                <div>
+                <div class="contact-button">
                     <img src="../assets/img/contacts/delete.svg">
                     <div>Delete</div>
                 </div>
@@ -28,4 +31,5 @@ function showContact(name, mail, phone, initials, color) {
         <div class="text-black">${phone}</div>
     </div>
     `;
+    return
 }
