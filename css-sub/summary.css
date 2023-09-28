@@ -49,6 +49,10 @@ body{
     right: 795px;
 }
 
+.headlineVectorMobile{
+    display: none;
+}
+
 .headlineSpan{
     color: #2A3647;
     /* Version 2/t5 */
@@ -185,6 +189,15 @@ body{
     gap: 18px; 
 }
 
+.redArrowsMobile{
+    display: none;
+}
+
+.vectorGreyMobile{
+    display: none;
+}
+
+
 .deadlineSection{
     display: flex;
     flex-direction: column;
@@ -319,3 +332,21 @@ body{
 .flex{
     display: flex;
 }
+
+.penMobile{
+    display: none;
+}
+
+.penDesktop{
+    display: flex;
+}
+
+.checkmarkMobile{
+    display: none;
+}
+
+.checkmarkDesktop{
+    display: flex;
+}
+
+
