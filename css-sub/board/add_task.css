@@ -440,8 +440,24 @@ input {
   color: var(--Style, #d1d1d1);
 }
 
-input[type='date']::-webkit-calendar-picker-indicator {
-  content: url(../../assets/img/add-task/calendar.svg);
+/* Chrome und Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Firefox */
+input[type="date"] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+/* Edge */
+input[type="date"]::-ms-clear {
+  display: none;
+}
+
+input[type='date'] {
+  background: url(../../assets/img/add-task/calendar.svg) no-repeat 395px center;
 }
 
 select {
@@ -451,8 +467,7 @@ select {
 
 textarea {
   resize: none;
-  padding: 18px 16px;
-  background-size: 18.9px 18.9px;
+  padding: 18px 16px;  
   background: url(../../assets/img/add-task/recurso.png) no-repeat right bottom;
 }
 
@@ -619,25 +634,28 @@ textarea {
   border-radius: 10px;
   gap: 10px;  
   border: 1px solid #d1d1d1;
+  display: flex;
 }
 
-.frame14_subtask:focus-within{
+.frame14_subtask:focus-within {
   border: 2px solid #5fc0e9 !important;
-}
-
-#frame14_subtask_text {  
-    width: 398px;
-    height: 24px;
-    font-family: Inter;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-    border: none;
+  
 }
 
 #frame14_subtask_text {
-  background: url(../../assets/img/add-task/plus.svg) no-repeat right
-    center;
+  position: relative;
+  width: 398px;
+  height: 24px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  border: none;  
+  background: url(../../assets/img/add-task/plus.svg) no-repeat 377px center;
+}
+
+#frame14_subtask_text:focus {
+  background: none; /* Hintergrund beim Fokus entfernen */
 }
