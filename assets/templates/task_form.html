@@ -83,29 +83,29 @@
       <div class="frame28_text">Prio</div>
       <div class="priority">
         
-        <div id="frame24" class="urgent">
+        <div id="frame24" class="urgent pointer" onclick="selectedRadioButton('Urgent', 'frame24')">
           <input type="radio" id="Urgent" name="prio" class="radio-urgent pointer" required/>          
           <label class="pointer" for="Urgent">
-            Urgent
-            <img src="../assets/img/add-task/Urgent.svg" alt="" class="pointer">          
-          </label>
+            Urgent            
+            <img src="../assets/img/add-task/Urgent.svg" alt="" id="imgUrgent" class="pointer">
+          </label>          
         </div>
-
-        <div id="frame25" class="medium">
+      
+        <div id="frame25" class="medium pointer" onclick="selectedRadioButton('Medium', 'frame25')">
           <input type="radio" id="Medium" name="prio" class="radio-medium pointer" />
           <label class="pointer" for="Medium">
             Medium
-            <img src="../assets/img/add-task/Medium.svg" alt="" class="pointer">
-          </label>
-        </div>     
-
-        <div id="frame26" class="low">
+            <img src="../assets/img/add-task/Medium.svg" alt="" id="imgMedium" class="pointer">            
+          </label>          
+        </div>    
+        
+        <div id="frame26" class="low pointer" onclick="selectedRadioButton('Low', 'frame26')">
           <input type="radio" id="Low" name="prio" class="radio-low pointer" />
           <label class="pointer" for="Low">
             Low
-            <img src="../assets/img/add-task/Low.svg" alt="" class="pointer">
+            <img src="../assets/img/add-task/Low.svg" alt="" id="imgLow" class="pointer">
           </label>
-        </div>
+        </div>        
 
       </div>
     </div>
