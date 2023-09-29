@@ -487,6 +487,11 @@ textarea {
   gap: 16px;
 }
 
+/* HIDE RADIO */
+.priority [type='radio'] {
+  appearance: none;
+}
+
 .urgent,
 .medium,
 .low {
@@ -507,16 +512,99 @@ textarea {
   box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.4);
 }
 
-/* HIDE RADIO */
-/* .priority [type='radio'] {
-  appearance: none;
-} */
 
-.urgent input[type="radio"]:checked + label {  
-  background-color: green;
-}
 /* 
-.urgent input[type="radio"]:checked + label img {
-  
-  background-color: blue;
-} */
+
+background-color: red;
+    color: white;
+    font-weight: 600;
+    box-shadow: none; */
+
+.category {
+  display: flex;
+  width: 440px;
+  height: 80px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  top: 232px;
+  position: absolute;
+}
+
+.category_text {
+  color: var(--version-2-main-color, #2a3647);
+
+  /* Version 2/t6 */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 24px */
+}
+
+.frame74:focus-within,
+.frame74:focus {
+  border: 2px solid #5fc0e9 !important;
+}
+
+#category_select {
+  width: 440px;
+  height: 24px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+}
+
+.subtasks {
+  display: flex;
+  flex-direction: column;
+  width: 440px;
+  height: 80px;
+  top: 336px;
+  gap: 8px;
+  position: absolute;
+}
+.subtasks_text {
+  color: #2a3647;
+  width: 88px;
+  height: 24px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.frame14_subtask {
+  width: 440px;
+  height: 48px;
+  padding: 12px 21px;
+  border-radius: 10px;
+  gap: 10px;  
+  border: 1px solid #d1d1d1;
+}
+
+.frame14_subtask:focus-within{
+  border: 2px solid #5fc0e9 !important;
+}
+
+#frame14_subtask_text {  
+    width: 398px;
+    height: 24px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    border: none;
+}
+
+#frame14_subtask_text {
+  background: url(../../assets/img/add-task/plus.svg) no-repeat right
+    center;
+}

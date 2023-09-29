@@ -83,23 +83,23 @@
       <div class="frame28_text">Prio</div>
       <div class="priority">
         
-        <div class="urgent" onclick="selectedRadioButton('Urgent')">
-          <input type="radio" id="Urgent" name="prio" class="radio-urgent pointer" required/>
+        <div id="frame24" class="urgent">
+          <input type="radio" id="Urgent" name="prio" class="radio-urgent pointer" required/>          
           <label class="pointer" for="Urgent">
             Urgent
-            <img src="../assets/img/add-task/Urgent.svg" alt="" class="pointer">
+            <img src="../assets/img/add-task/Urgent.svg" alt="" class="pointer">          
           </label>
         </div>
 
-        <div class="medium" onclick="selectedRadioButton('Medium')">
+        <div id="frame25" class="medium">
           <input type="radio" id="Medium" name="prio" class="radio-medium pointer" />
           <label class="pointer" for="Medium">
             Medium
             <img src="../assets/img/add-task/Medium.svg" alt="" class="pointer">
           </label>
-        </div>
+        </div>     
 
-        <div class="low" onclick="selectedRadioButton('Low')">
+        <div id="frame26" class="low">
           <input type="radio" id="Low" name="prio" class="radio-low pointer" />
           <label class="pointer" for="Low">
             Low
@@ -109,6 +109,32 @@
 
       </div>
     </div>
+
+    <div class="category">
+      <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
+      <div class="frame74 pointer">
+        <select required name="category_select" id="category_select">
+          <option value="" selected>Select task category</option>
+          <option value="0">Technical Task</option>
+          <option value="1">User Story</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="subtasks">
+      <div class="subtasks_text">Subtasks</div>
+      <div class="frame14_subtask">
+        <input
+          required
+          type="text"
+          placeholder="Add new subtask"
+          class="pointer"
+          id="frame14_subtask_text"
+        />
+      </div>
+    </div>
+
+
   </div>
   <!-- form end -->
   <div class="frame35">
