@@ -29,6 +29,7 @@
 
 
 .text{
+    
     align-self: stretch; 
     color: var(--black, #000);
     /* Version 2/body */
@@ -42,14 +43,45 @@
 /* */
 .content{
     display: flex;
-    width: 1014px;
+    max-width: clamp(350px, 100%, 1140px);
+    
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px; 
-
-    overflow-y: auto;
+    gap: 24px;
+    overflow-y: auto; 
+    
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    
+    /*fixation*/
+    position: fixed;
+    left: 300px;
+    right: 200px;
+  
 }
+
 
 .counts{
     display: flex;
+    gap: 35px;
 }
+
+.countsNumbers{
+    color: var(--black, #000);
+    font-family: Inter;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 32.4px */ 
+}
+
+.textHighlight{
+    color: var(--Ligth-blue, #29ABE2);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
+}
+

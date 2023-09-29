@@ -26,7 +26,7 @@
 
     .settingsSignUp{
         left: auto;
-        right: 600px;
+        right: 550px;
     }
 
     .buttonsSignUp{
@@ -37,6 +37,8 @@
     .legalPrivacy{
         left: auto;
     }
+
+
 }
 
 @media(max-width: 1040px){
@@ -66,7 +68,7 @@
     }
 
     .settingsSignUp{
-        left: 150px;
+        left: 180px;
     }
 
     .buttonsSignUp{
@@ -200,6 +202,20 @@
         left: auto;
         bottom: 280.5px;
         right: 170px;
+    }
+
+    #signupCheckboxUnchecked{
+        display: flex;
+        position: absolute;
+        top: -4px;
+        left: 6px;
+    }
+    
+    #signupCheckboxChecked{
+        
+        position: absolute;
+        top: -4px;
+        left: 6px;
     }
 
     .buttonsSignUp{

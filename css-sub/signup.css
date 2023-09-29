@@ -290,19 +290,35 @@ input:not(:placeholder-shown){
     gap: 16px;
     align-self: stretch; 
 
-    width: 280px;
+    width: 300px;
 
     /*Fixation*/
     position: fixed;
     top: 668px;
-    left: 560px;
+    left: 590px;
     bottom: 332px;
     right: 540px;
      
 }
 
-.settingsSignUpSpan{
+#signupCheckboxUnchecked{
+    display: flex;
+    position: absolute;
+    top: -15px;
+    left: 6px;
+}
+
+#signupCheckboxChecked{
     
+    position: absolute;
+    top: -15px;
+    left: 6px;
+}
+
+
+
+.settingsSignUpSpan{
+    width: 200px;
     color: #29ABE2;
     cursor: pointer; 
 }

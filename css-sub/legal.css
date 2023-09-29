@@ -39,21 +39,30 @@
 /* */
 .content{
     display: flex;
-    text-wrap: wrap;
+    max-width: clamp(350px, 100%, 1140px);
     
-    right: 98px;
     
-
-
     flex-direction: column;
     align-items: flex-start;
     gap: 24px; 
-
     overflow-y: auto;
 
+    padding-right: 100px;
+    padding-bottom: 100px;
+    padding-top: 100px;
 
+        /*fixation*/
+        position: fixed;
+        left: 300px;
+        right: 200px;
 }
 
-.counts{
-    display: flex;
+
+.textHighlight{
+    color: var(--Ligth-blue, #29ABE2);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
 }

@@ -1,5 +1,5 @@
 
-@media(max-width: 880px){
+@media(max-width: 910px){
     /*Header*/
     .headerLogo{
         display: flex;
@@ -71,7 +71,7 @@
     }
 
     .addTaskSpan{
-        width: 60px;
+        width: 80px;
     }
 }
 

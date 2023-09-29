@@ -1,10 +1,10 @@
-@media(max-width: 1160px){
+@media(max-width: 1170px){
     .greetingSection{
         display: none;
     }
 }
 
-@media(max-width: 960px){
+@media(max-width: 990px){
     .headlineSection{    
         /*Fixation*/
         position: fixed;
@@ -29,7 +29,7 @@
         top: 213px;
         left: auto;
         bottom: 745px;
-        right: 312px;
+        right: 343px;
     }
 
     .headlineSpan{        
@@ -38,7 +38,7 @@
         top: 226.5px;
         left: auto;
         bottom: 765.5px;
-        right: 17px;
+        right: 14px;
     }
 
     .mediumCardSection{
@@ -47,7 +47,7 @@
         top: 335px;
         left: auto;
         bottom: 521px;
-        right: 71px;
+        right: 100px;
     }
 
     .cardLarge{
@@ -56,7 +56,7 @@
         top: 531.5px;
         left: auto;
         bottom: 324.5px;
-        right: 71px;
+        right: 100px;
     }
 
     .smallCardSection{
@@ -65,35 +65,51 @@
         top: 727px;
         left: auto;
         bottom: 127px;
-        right: 71px;
+        right: 100px;
     }
 }
 
-@media(max-width: 880px){
+@media(max-width: 910px){
     .headlineSummary{
+        color: #000;
+        font-family: Inter;
+        font-size: 47px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%; /* 56.4px */
+        
         /*Fixation*/
         position: fixed;
         top: 130px;
         left: auto;
-        right: 500px;
+        right: 520px;
     }
 
     .headlineVector{
         /*Fixation*/
         position: fixed;
-        top: 140px;
+        top: 130px;
         left: auto;
         bottom: 745px;
-        right: 450px;
+        right: 495px;
     }
 
     .headlineSpan{        
+        color: #2A3647;
+        /* Version 2/t6 */
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 24px */ 
+        text-wrap: nowrap; 
+        
         /*Fixation*/
         position: fixed;
-        top: 155px;
+        top: 150px;
         left: auto;
         bottom: 765.5px;
-        right: 160px;
+        right: 250px;
     }
 
     .mediumCardSection{
@@ -102,7 +118,7 @@
         top: 240px;
         left: auto;
         bottom: 521px;
-        right: 180px;
+        right: 190px;
     }
 
     .cardLarge{
@@ -111,7 +127,7 @@
         top: 440px;
         left: auto;
         bottom: 324.5px;
-        right: 180px;
+        right: 190px;
     }
 
     .smallCardSection{
@@ -120,25 +136,27 @@
         top: 640px;
         left: auto;
         bottom: 127px;
-        right: 180px;
+        right: 190px;
     }
 }
 
 
-@media(max-width: 780px){
+
+
+@media(max-width: 775px){
     .headlineSummary{
         /*Fixation*/
         position: fixed;
         top: 130px;
-        left: 25px;
+        left: 35px;
         right: auto;
     }
 
     .headlineVector{
         /*Fixation*/
         position: fixed;
-        top: 140px;
-        left: 327px;
+        top: 130px;
+        left: 280px;
         bottom: 745px;
         right: auto;
     }
@@ -146,8 +164,8 @@
     .headlineSpan{        
         /*Fixation*/
         position: fixed;
-        top: 155px;
-        left: 353px;
+        top: 150px;
+        left: 300px;
         bottom: 765.5px;
         right: auto;
     }
@@ -180,8 +198,8 @@
     }
 }
 
-/*Everything for mobile in 640px */
-@media(max-width: 640px){
+/*Everything for mobile in 670px */
+@media(max-width: 630px){
 
     .penMobile{
         display: flex;
@@ -210,7 +228,7 @@
         top: 230px;
         left: auto;
         bottom: 745px;
-        right: auto;
+        right: 400px;
     }
     
     .headlineSummary{
@@ -225,8 +243,8 @@
         position: fixed;
         top: 128px;
         left: auto;
-        bottom: 742;
-        right: 310px;
+        bottom: 742px;
+        right: 280px;
     }
     
 
@@ -246,7 +264,7 @@
         top: 192px;
         left: auto;
         bottom: 710px;
-        right: 310px;
+        right: 270px;
     }
     
     /*Section 2*/
@@ -301,7 +319,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: 120%; /* 16.8px */
-        width: 50px; 
+        width: 60px; 
     }
     
     
@@ -367,7 +385,7 @@
         font-style: normal;
         font-weight: 700;
         line-height: 120%; /* 19.2px */
-        width: 80px; 
+        width: 100px; 
     }
     
     .dateTextSpan{
@@ -377,7 +395,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: 120%; /* 16.8px */
-        width: 115px;  
+        width: 130px;  
     }
     
     

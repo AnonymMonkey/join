@@ -196,6 +196,8 @@
         padding: 0;
     }
 
+
+
     .loginMsgBox{
         position: fixed;
         top: 500.5px;
@@ -212,7 +214,21 @@
         top: 525.5px;
         left: auto;
         bottom: 392.5px;
-        right: 400px;
+        right: 390px;
+    }
+
+
+    #loginCheckboxUnchecked{
+        display: flex;
+        position: absolute;
+        top: -5px;
+        left: 0px;
+    }
+    
+    #loginCheckboxChecked{
+        position: absolute;
+        top: -5px;
+        left: 0px;
     }
     
     .buttonsLogin{
@@ -329,7 +345,7 @@
     .rememberMe{
         position: fixed;
         top: 525.5px;
-        left: 60px;
+        left: 75px;
         bottom: 392.5px;
         right: 400px;
     }
@@ -420,7 +436,7 @@
     .rememberMe{
         position: fixed;
         top: 525.5px;
-        left: 32px;
+        left: 50px;
         bottom: 392.5px;
         right: 69px;
     }

@@ -305,6 +305,19 @@ input:not(:placeholder-shown){
     line-height: 120%; /* 19.2px */
 }
 
+#loginCheckboxUnchecked{
+    display: flex;
+    position: absolute;
+    top: -14px;
+    left: -15px;
+}
+
+#loginCheckboxChecked{
+    position: absolute;
+    top: -14px;
+    left: -15px;
+}
+
 .checkboxBG:hover{
     background-color: #F6F7F8;
 }
