@@ -130,9 +130,11 @@
           placeholder="Add new subtask"
           class="pointer"
           id="frame14_subtask_text"
+          onfocus="showSubtaskActions()"
+          onblur="hideSubtaskActions()"
         />        
-        <img class="d-none" src="../assets/img/add-task/cancel.svg" alt="">
-        <img class="d-none" src="../assets/img/add-task/plus.svg" alt="">
+        <img id="cancelSubtaskInput" class="d-none" src="../assets/img/add-task/cancel.svg" alt="">
+        <img id="addSubtaskInput" class="d-none" src="../assets/img/add-task/check_black.svg" alt="">
       </div>
     </div>
 

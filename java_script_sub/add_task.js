@@ -1,7 +1,7 @@
-// async function init() {
-//   await includeHTML();
-//   adjustQuicklinkBG();
-// }
+async function initAddTasks() {
+   await includeHTML();
+   adjustQuicklinkBG();
+}
 
 function selectedRadioButton(prio, frameName) {
   let image = `img${prio}`;  
@@ -17,6 +17,16 @@ function selectedRadioButton(prio, frameName) {
   radio.checked = true;
   frame.classList.add(`${frameName}_selected`);
   document.getElementById(image).src = `../assets/img/add-task/${prio}_white.svg`;
+}
+
+function showSubtaskActions() {
+  document.getElementById('cancelSubtaskInput').classList.remove('d-none');
+  document.getElementById('addSubtaskInput').classList.remove('d-none');
+}
+
+function hideSubtaskActions() {
+  document.getElementById('cancelSubtaskInput').classList.add('d-none');
+  document.getElementById('addSubtaskInput').classList.add('d-none');
 }
 
 function addNewTask() {
