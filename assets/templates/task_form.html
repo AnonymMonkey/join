@@ -65,58 +65,62 @@
       <div class="frame39_duedate">
         Due date<sup class="requiredAsterisk">*</sup>
       </div>
-    <div class="frame211">
-      <input
-        id="addtask-duedate"
-        placeholder="dd/mm/yyyy"
-        type="date"
-        min="2023-10-04"
-        max="2024-04-20"
-        required
-        class="frame14 pointer"
-      />
-      <div class="requiredField d-none">This field is required</div>
+      <div class="frame211">
+        <input
+          id="addtask-duedate"
+          placeholder="dd/mm/yyyy"
+          type="date"
+          min="2023-10-04"
+          max="2024-04-20"
+          required
+          class="frame14 pointer"
+        />
+        <div class="requiredField d-none">This field is required</div>
+      </div>
     </div>
-  </div>  
 
-  <div class="frame28">
-    <div class="frame28_text">Prio</div>
-    <div class="priority">
-      
-      <div class="frame24 pointer">
-        <label class="pointer" for="Urgent">Urgent          
-          <input class="pointer" type="radio" id="Urgent" name="prio" value="Urgent" required />
-          <img src="../assets/img/add-task/Urgent.svg" alt="">
-        </label>
-      </div>
+    <div class="frame28">
+      <div class="frame28_text">Prio</div>
+      <div class="priority">
+        
+        <div class="urgent" onclick="selectedRadioButton('Urgent')">
+          <input type="radio" id="Urgent" name="prio" class="radio-urgent pointer" required/>
+          <label class="pointer" for="Urgent">
+            Urgent
+            <img src="../assets/img/add-task/Urgent.svg" alt="" class="pointer">
+          </label>
+        </div>
 
-      <div class="frame25 pointer">
-        <label class="pointer" for="Medium">Medium
-          <input class="pointer" type="radio" id="Medium" name="prio" value="Medium" />
-          <img src="../assets/img/add-task/Medium.svg" alt="">
-        </label>
-      </div>
+        <div class="medium" onclick="selectedRadioButton('Medium')">
+          <input type="radio" id="Medium" name="prio" class="radio-medium pointer" />
+          <label class="pointer" for="Medium">
+            Medium
+            <img src="../assets/img/add-task/Medium.svg" alt="" class="pointer">
+          </label>
+        </div>
 
-      <div class="frame26 pointer">
-        <label class="pointer" for="Low">Low
-          <input class="pointer" type="radio" id="Low" name="prio" value="Low" />
-          <img src="../assets/img/add-task/Low.svg" alt="">
-        </label>
+        <div class="low" onclick="selectedRadioButton('Low')">
+          <input type="radio" id="Low" name="prio" class="radio-low pointer" />
+          <label class="pointer" for="Low">
+            Low
+            <img src="../assets/img/add-task/Low.svg" alt="" class="pointer">
+          </label>
+        </div>
+
       </div>
-    
     </div>
   </div>
-</div>
-<!-- form end -->
-<div class="frame35">
-  <div class="frame27">
-    <button class="secondary pointer">Clear</button>
-    <button class="primary_check_button pointer">
-      Create Task
-      <img src="../assets/img/add-task/check.svg" />
-    </button>
+  <!-- form end -->
+  <div class="frame35">
+    <div class="frame27">
+      <button class="secondary pointer">Clear</button>
+      <button class="primary_check_button pointer">
+        Create Task
+        <img src="../assets/img/add-task/check.svg" />
+      </button>
+    </div>
   </div>
-</div>
-<div class="requiredInfo">
-  <sup class="requiredAsterisk">*</sup>This field is required
+  <div class="requiredInfo">
+    <sup class="requiredAsterisk">*</sup>This field is required
+  </div>
 </div>

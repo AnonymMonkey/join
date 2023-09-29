@@ -487,9 +487,9 @@ textarea {
   gap: 16px;
 }
 
-.frame24,
-.frame25,
-.frame26 {
+.urgent,
+.medium,
+.low {
   display: flex;
   padding: 16px 10px;
   justify-content: center;
@@ -497,73 +497,26 @@ textarea {
   gap: 8px;
   flex: 1 0 0;
   border-radius: 10px;
-  background: var(--white, #fff);
+  background-color: #ffffff;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
-.frame24 input,
-.frame25 input,
-.frame26 input {
-  width: 100%;
-  height: auto;
-}
-
-.frame24:hover,
-.frame25:hover,
-.frame26:hover {
+.urgent:hover,
+.medium:hover,
+.low:hover {
   box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.4);
 }
 
 /* HIDE RADIO */
-.priority [type='radio'] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-  filter: none;
-}
+/* .priority [type='radio'] {
+  appearance: none;
+} */
 
-/* IMAGE STYLES */
-.priority [type='radio'] + img {
-  cursor: pointer;  
+.urgent input[type="radio"]:checked + label {  
+  background-color: green;
 }
-
-input[type="radio"]:not(:checked) + img {
-  filter: none;
-}
-
-.priority [type='radio']:checked + img {
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
-    contrast(100%);
-}
-
-.frame24:active,
-.frame24:focus,
-.frame24:focus-within,
-.frame25:active,
-.frame25:focus,
-.frame25:focus-within,
-.frame26:active,
-.frame26:focus,
-.frame26:focus-within {
-  color: #ffffff;
-  box-shadow: none;
-}
-
-.frame24:active,
-.frame24:focus,
-.frame24:focus-within {
-  background-color: #ff3d00;
-}
-
-.frame25:active,
-.frame25:focus,
-.frame25:focus-within {
-  background-color: #ffa800;
-}
-
-.frame26:active,
-.frame26:focus,
-.frame26:focus-within {
-  background-color: #7ae229;
-}
+/* 
+.urgent input[type="radio"]:checked + label img {
+  
+  background-color: blue;
+} */
