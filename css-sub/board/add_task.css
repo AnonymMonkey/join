@@ -80,10 +80,6 @@ select {
   right: 48px;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
 .requiredField {
   color: #ff8190;
   width: 119px;
@@ -226,7 +222,6 @@ select {
   display: flex;
   width: 440px;
   height: 120px;
-  padding: 18px 16px;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
@@ -237,23 +232,14 @@ select {
   font-size: 20px;
 }
 
-textarea {
-  resize: none;
-}
-
-.frame17_text {
+#frame17_text {
   font-family: Inter;
-  width: 400px;
-  height: 82px;
+  width: 434px;
+  height: 115px;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   border: none;
-}
-
-.frame17_recurso {
-  width: 18.9px;
-  height: 18.9px;
 }
 
 .task_assigned_to {
@@ -267,7 +253,7 @@ textarea {
 }
 
 .task_assigned_to_text {
-  width: 112px;
+  width: 150px;
   height: 24px;
   font-family: Inter;
   font-size: 20px;
@@ -314,7 +300,7 @@ textarea {
   border: 1px solid #d1d1d1;
 }
 
-.frame14_text {
+#frame14_text {
   width: 398px;
   height: 24px;
   font-family: Inter;
@@ -326,8 +312,8 @@ textarea {
   border: none;
 }
 
-.frame14_text:focus-within,
-.frame17_text:focus-within,
+#frame14_text:focus-within,
+#frame17_text:focus-within,
 .frame211:focus-within,
 select,
 input {
@@ -391,18 +377,29 @@ input {
   width: 440px;
   height: 376px;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   gap: 24px;
   top: 174px;
   left: 610.25px;
   position: absolute;
 }
 
-.frame39_duedate {
+.framedue {
   width: 440px;
   height: 96px;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
+  color: #2a3647;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 24px */
+}
+
+.frame39_duedate {
   color: #2a3647;
   font-family: Inter;
   font-size: 20px;
@@ -417,6 +414,9 @@ input {
   align-items: flex-start;
   gap: 4px;
   align-self: stretch;
+  width: 440px;
+  height: 64px;
+  color: #d1d1d1;
 }
 
 .frame14 {
@@ -434,7 +434,6 @@ input {
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 24px */
-  background-color: red;
 }
 
 .frame14::placeholder {
@@ -450,6 +449,13 @@ select {
     center;
 }
 
+textarea {
+  resize: none;
+  padding: 18px 16px;
+  background-size: 18.9px 18.9px;
+  background: url(../../assets/img/add-task/recurso.png) no-repeat right bottom;
+}
+
 .frame28 {
   display: flex;
   flex-direction: column;
@@ -459,27 +465,105 @@ select {
   height: 88px;
   top: 120px;
   position: absolute;
-  
 }
-/* .frame28_text {
+
+.frame28_text {
+  width: 440px;
+  height: 24px;
+  align-self: stretch;
+  color: #000000;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 24px */
 }
+
 .priority {
+  display: flex;
+  width: 440px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
-.priority_frame14 {
+
+.frame24,
+.frame25,
+.frame26 {
+  display: flex;
+  padding: 16px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
+  border-radius: 10px;
+  background: var(--white, #fff);
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
-.priority_frame14_text {
+
+.frame24 input,
+.frame25 input,
+.frame26 input {
+  width: 100%;
+  height: auto;
 }
-.priority_frame14_icon {
+
+.frame24:hover,
+.frame25:hover,
+.frame26:hover {
+  box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.4);
 }
-.priority_frame25 {
+
+/* HIDE RADIO */
+.priority [type='radio'] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  filter: none;
 }
-.priority_frame25_text {
+
+/* IMAGE STYLES */
+.priority [type='radio'] + img {
+  cursor: pointer;  
 }
-.priority_frame25_icon {
+
+input[type="radio"]:not(:checked) + img {
+  filter: none;
 }
-.priority_frame26 {
+
+.priority [type='radio']:checked + img {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%)
+    contrast(100%);
 }
-.priority_frame26_text {
+
+.frame24:active,
+.frame24:focus,
+.frame24:focus-within,
+.frame25:active,
+.frame25:focus,
+.frame25:focus-within,
+.frame26:active,
+.frame26:focus,
+.frame26:focus-within {
+  color: #ffffff;
+  box-shadow: none;
 }
-.priority_frame26_icon {
-} */
+
+.frame24:active,
+.frame24:focus,
+.frame24:focus-within {
+  background-color: #ff3d00;
+}
+
+.frame25:active,
+.frame25:focus,
+.frame25:focus-within {
+  background-color: #ffa800;
+}
+
+.frame26:active,
+.frame26:focus,
+.frame26:focus-within {
+  background-color: #7ae229;
+}

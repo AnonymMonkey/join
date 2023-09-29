@@ -13,7 +13,8 @@
             required
             type="text"
             placeholder="Enter a title"
-            class="frame14_text pointer"
+            class="pointer"
+            id="frame14_text"
           />
         </div>
         <div class="requiredField d-none">This field is required</div>
@@ -27,7 +28,8 @@
             required
             type="text"
             placeholder="Enter a Description"
-            class="frame17_text pointer"
+            class="pointer"
+            id="frame17_text"
           ></textarea>
         </div>
         <div class="requiredField d-none">This field is required</div>
@@ -60,9 +62,9 @@
 
   <div class="frame39">
     <div class="framedue">
-    <div class="frame39_duedate">
-      Due date<sup class="requiredAsterisk">*</sup>
-    </div>
+      <div class="frame39_duedate">
+        Due date<sup class="requiredAsterisk">*</sup>
+      </div>
     <div class="frame211">
       <input
         id="addtask-duedate"
@@ -75,23 +77,33 @@
       />
       <div class="requiredField d-none">This field is required</div>
     </div>
-  </div>
+  </div>  
 
   <div class="frame28">
     <div class="frame28_text">Prio</div>
     <div class="priority">
-      <button class="priority_frame14">
-        <div class="priority_frame14_text">Urgent</div>
-        <img class="priority_frame14_icon" src="../img/add-task/urgent.svg" alt="" />
-      </button>
-      <button class="priority_frame25">
-        <div class="priority_frame25_text">Medium</div>
-        <img class="priority_frame25_icon" src="../img/add-task/medium.svg" alt="" />
-      </button>
-      <button class="priority_frame26">
-        <div class="priority_frame26_text">Low</div>
-        <img class="priority_frame26_icon" src="../img/add-task/low.svg" alt="" />
-      </button>
+      
+      <div class="frame24 pointer">
+        <label class="pointer" for="Urgent">Urgent          
+          <input class="pointer" type="radio" id="Urgent" name="prio" value="Urgent" required />
+          <img src="../assets/img/add-task/Urgent.svg" alt="">
+        </label>
+      </div>
+
+      <div class="frame25 pointer">
+        <label class="pointer" for="Medium">Medium
+          <input class="pointer" type="radio" id="Medium" name="prio" value="Medium" />
+          <img src="../assets/img/add-task/Medium.svg" alt="">
+        </label>
+      </div>
+
+      <div class="frame26 pointer">
+        <label class="pointer" for="Low">Low
+          <input class="pointer" type="radio" id="Low" name="prio" value="Low" />
+          <img src="../assets/img/add-task/Low.svg" alt="">
+        </label>
+      </div>
+    
     </div>
   </div>
 </div>
