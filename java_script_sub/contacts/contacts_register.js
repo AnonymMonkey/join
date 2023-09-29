@@ -127,7 +127,7 @@ function createRegisterInfo() {
             let color = registerEntry['contact_color'];
 
             let contactHTML = `
-                <div onclick="showContact('${name}', '${mail}', ${phone}, '${initials}', '${color}')" id="contactID_${ID}" class="contact-info pointer">
+                <div onclick="showContact('${name}', '${mail}', ${phone}, '${initials}', '${color}', ${ID})" id="contactID_${ID}" class="contact-info pointer">
                     <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
                     <div>
                         <div class="contact-info-name">${name}</div>
