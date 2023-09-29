@@ -127,6 +127,13 @@
 
 @media(max-width: 800px){
         
+    .startLogo{
+        position: absolute;
+        top: 25%;
+        left: 35%;
+    }
+    
+    
     .logoTopLeft{
         width: 64px;
         height: 78.031px; 
@@ -244,20 +251,15 @@
         right: 300px;
     }
 
-    /*
-    .svgLogin{
-        width: 177px;
+    .mobileLogin{
+        display: flex;
     }
-    .submitButton svg{
-        width: 177px;
-        
+    
+    .desktopLogin{
+        display: none;
     }
+ 
 
-    .submitButton svg rect{
-        width: 177px;
-        
-    }
-    */
 
     .signUp{    
         position: fixed;
@@ -279,7 +281,13 @@
 
 
 @media(max-width: 630px){
-        
+     
+    .startLogo{
+        position: absolute;
+        top: 25%;
+        left: 25%;
+    }
+
     .logoTopLeft{
         /*Fixation*/
         position: fixed;
@@ -379,7 +387,13 @@
 
 
 @media(max-width: 450px){
-    
+    .startLogo{
+        position: absolute;
+        top: 25%;
+        left: 15%;
+    }
+
+
     .logIn{
         /*Fixation*/
         position: fixed;

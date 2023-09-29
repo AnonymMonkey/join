@@ -10,6 +10,8 @@ let isChecked = false;
 
 let users = [];
 
+let deviceWidth;
+
 
 function changeCheckbox(){
     if(isChecked){
@@ -153,4 +155,50 @@ function guestLogin(){
 
 function openSignUp(){
     window.location.href = 'http://127.0.0.1:5500/html-sub/sign_up.html';
+}
+
+function loadStartScreen(){
+    getDeviceWidth();
+    if(deviceWidth <= 800){
+        setTimeout(setMobileScreen, 1000);
+    }
+    else{
+        setTimeout(setDesktopScreen, 1000);
+    }
+    
+
+}
+
+function setMobileScreen(){
+    document.getElementById('startScreen').classList.remove('desktopScreen')
+    document.getElementById('startScreen').classList.add('mobileScreen')
+    
+    document.getElementById('startScreen').classList.add('elementToFadeInAndOut')
+    
+    document.getElementById('logoScreen').classList.remove('logoScreen')
+    
+    
+
+    document.getElementById('startLogo').classList.add('dNone');
+    document.getElementById('indexContent').classList.remove('dNone')
+    document.getElementById('logoScreen').classList.add('normalScreen')
+    
+}
+
+
+function setDesktopScreen(){
+    setTimeout(animateLogo, 4000);
+    document.getElementById('startScreen').classList.add('elementToFadeInAndOut')
+    document.getElementById('indexContent').classList.remove('dNone')
+    document.getElementById('startLogo').classList.add('dNone');
+}
+
+function animateLogo(){
+    document.getElementById('startLogo').classList.remove('startLogo2');
+    document.getElementById('startLogo').classList.add('animation');
+}
+
+
+function getDeviceWidth(){
+    deviceWidth = window.innerWidth;
 }

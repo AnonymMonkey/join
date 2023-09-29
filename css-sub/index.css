@@ -18,38 +18,63 @@ body{
 }
 
 
-/*
-.overlay-bigLogo {
-    
-    position: relative;
-    left: 435px;
-    top: 140px;
-
-    
+/*Animation */
+.desktopScreen{
+    background-color: #F6F7F8;
+    opacity: 0;
     z-index: 10;
-    display: flex;
-    flex-direction: column;
-  
-    /* move out of the screen, this need for mobile phones
-    an extra div around the whole side with overflow-x:hidden
-    and position: relative
-    
-    transform: scale(0.5) translate(-100%, -100%) ;
-    
-   
-    transition: all 1500ms ease-in; /*Schnelligkeit in Sekunden
+    width: 100%;
+    height: 100vh;
 }
 
-
-
-/* move to the screen  add with the function showMenu
-.show-overlay-menu_test {
-    /*erster Parameter X-Achse zweiter Parameter Y-Achse 
-    /*transform: translatex(-50%, -50%);
+.mobileScreen{
+    background-color: #F6F7F8;
+    opacity: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
 }
 
+/*
+.logoScreen{
+    width: 100%;
+    height: 100vh;
+    background-color: #2A3D59;
+}
 
+.normalScreen{
+    width: 100%;
+    height: 100vh;
+    background-color: #F6F7F8;
+}
 */
+
+.elementToFadeInAndOut {
+    opacity: 1;
+    animation: fade 3s linear;
+}
+
+
+@keyframes fade {
+
+  0%,100% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+.startLogo{
+    
+    position: absolute;
+    top: 25%;
+    left: 40%;
+}
+
+.animation{
+    /*transform: translate(-100%, -50%) rotate(300deg);*/
+    /*transition: 5s ease-out;*/
+    
+    transform: translateX(800px);
+    transition: all 500ms ease-in-out;
+}
 
 
 
@@ -350,6 +375,15 @@ input:not(:placeholder-shown){
     border: none;
     
 }
+
+.mobileLogin{
+    display: none;
+}
+
+.desktopLogin{
+    display: flex;
+}
+
 
 .svgLogin:hover rect{
     fill: #29ABE2;

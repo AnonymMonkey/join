@@ -70,6 +70,24 @@
 }
 
 @media(max-width: 910px){
+    
+    .spanGreeting{
+        /*Fixation*/
+        position: absolute;
+        top: 350px;
+        left: 20px;
+        width: 1000px;
+    }
+
+    .spanName{
+        /*Fixation*/
+        position: absolute;
+        top: 350px;
+        left: 0px;
+        width: 1000px;
+    }
+    
+    
     .headlineSummary{
         color: #000;
         font-family: Inter;
