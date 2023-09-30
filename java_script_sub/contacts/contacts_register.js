@@ -8,7 +8,7 @@ const generatedColors = new Set();
 // CREATE CONTACT ||||||||||||||||||||||||||||||||||||||||||| //
 
 async function createContact() {
-    var nameIsValid = checkName();
+    let nameIsValid = checkName();
     if (!nameIsValid) {
         return;
     }
@@ -18,7 +18,7 @@ async function createContact() {
     resetContactsForm();
     await loadData();
     createRegister();
-    closeAddContactOverlay();
+    closeContactOverlay();
     contactsInit();
 }
 

@@ -1,0 +1,25 @@
+createContact() auslösung bei closeDialog wegen onsubmit funktion
+Daten des aktuellen kontakts ändern, bei save button
+
+bei aktivem show contact hintergrund aktiv änderung in der liste
+
+falls mehrere kontakte (scrollbar) rechten bereich sticky
+
+animation für show_contact öffnen und schließen (löschen auch)
+animation für kontakt erstellt und geändert
+
+form validation telefon min length
+
+abfrage ob man den contact wirklich löschen will
+
+responsiv machen
+
+
+FÜR MEETING
+
+Header dropdown menü oben rechts
+header sticky
+
+add task nur für zukünftige datum
+
+account daten kontakt bei contacts dabei

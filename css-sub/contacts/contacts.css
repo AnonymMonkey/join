@@ -240,7 +240,7 @@
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
-.contact-headline-initials div:first-child {
+.contact-headline-initials-font {
     display: flex;
     width: 80px;
     height: 28.571px;

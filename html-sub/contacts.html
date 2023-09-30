@@ -14,6 +14,7 @@
     <script src="../java_script_sub/contacts/contacts_register.js"></script>
     <script src="../java_script_sub/contacts/contacts_form.js"></script>
     <script src="../java_script_sub/contacts/contacts_show.js"></script>
+    <script src="../java_script_sub/contacts/contacts_add.js"></script>
     <script src="../java_script_sub/contacts/contacts_edit.js"></script>
     <script src="../java_script_sub/contacts/contacts_delete.js"></script>
     <script src="../java_script_sub/header.js"></script>
@@ -40,7 +41,7 @@
             <section class="contact-register d-flex">
                 <div class="scrollbar"></div>
                 <div class="contact-inner-register column">
-                    <button onclick="openAddContactOverlay()" class="pointer">Add new contact
+                    <button onclick="addContact()" class="pointer">Add new contact
                         <img src="../assets/img/contacts/person_add.svg">
                     </button>
                     <div id="register" class="contact-register-entry"></div>
@@ -60,7 +61,7 @@
 
                 <div id="overlay-content" class="overlay-content d-flex">
                     <img src="../assets/img/contacts/close.svg" class="close-button pointer"
-                        onclick="closeAddContactOverlay()">
+                        onclick="closeContactOverlay()">
                     <section class="overlay-left">
                         <img src="../assets/img/logo_light.png">
                         <h1 id="overlay_title">Add contact</h1>
@@ -87,7 +88,7 @@
                                 </div>
                             </div>
                             <div class="buttons">
-                                <button onclick="closeAddContactOverlay()">Cancel<svg width="25" height="24"
+                                <button onclick="closeContactOverlay()">Cancel<svg width="25" height="24"
                                         viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M12.2495 12.0001L17.4925 17.2431M7.00653 17.2431L12.2495 12.0001L7.00653 17.2431ZM17.4925 6.75708L12.2485 12.0001L17.4925 6.75708ZM12.2485 12.0001L7.00653 6.75708L12.2485 12.0001Z"

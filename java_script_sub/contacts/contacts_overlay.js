@@ -2,15 +2,6 @@ function openAddContactOverlay() {
     let overlayBg = elementByID("overlay-bg");
     let overlayContent = elementByID("overlay-content");
 
-    let overlayTitle = elementByID("overlay_title");
-    let overlayTitleSub = elementByID("overlay_title_sub");
-    let overlayInitials = elementByID("overlay_initials");
-    let createButton = elementByID("create_btn");
-
-    let overlayName = elementByID("contact_name");
-    let overlayMail = elementByID("contact_mail");
-    let overlayPhone = elementByID("contact_phone");
-
     overlayContent.classList.remove("slideOut");
 
     overlayBg.classList.add("d-flex");
@@ -27,7 +18,7 @@ function openAddContactOverlay() {
     }
 }
 
-function closeAddContactOverlay() {
+function closeContactOverlay() {
     let overlayBg = elementByID("overlay-bg");
     let overlayContent = elementByID("overlay-content");
 
