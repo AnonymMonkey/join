@@ -298,6 +298,7 @@ select {
   border-radius: 10px;
   gap: 10px;
   border: 1px solid #d1d1d1;
+  background: #ffffff;
 }
 
 #frame14_text {
@@ -419,7 +420,7 @@ input {
   color: #d1d1d1;
 }
 
-.frame14 {
+.frame14due {
   display: flex;
   padding: 12px 16px;
   justify-content: space-between;
@@ -436,29 +437,29 @@ input {
   line-height: 120%; /* 24px */
 }
 
-.frame14::placeholder {
+.frame14due::placeholder {
   color: var(--Style, #d1d1d1);
 }
 
 /* Chrome und Safari */
-input[type="date"]::-webkit-calendar-picker-indicator {
+/* input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-/* Firefox */
+/* Firefox
 input[type="date"] {
   appearance: none;
   -moz-appearance: textfield;
 }
 
 /* Edge */
-input[type="date"]::-ms-clear {
+/* input[type="date"]::-ms-clear {
   display: none;
-}
+} 
 
 input[type='date'] {
   background: url(../../assets/img/add-task/calendar.svg) no-repeat 395px center;
-}
+} */
 
 select {
   background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right

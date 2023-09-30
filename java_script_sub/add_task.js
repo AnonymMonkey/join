@@ -3,20 +3,21 @@ async function initAddTasks() {
    adjustQuicklinkBG();
 }
 
-function selectedRadioButton(prio, frameName) {
-  let image = `img${prio}`;  
-  let radio = document.getElementById(prio);
-  let frame = document.getElementById(frameName);
+function invalid(fieldName) {
+  alert('invalid field' + fieldName);
+  document.getElementById(`${fieldName}`).classList.add('error');
+}
 
-  document.getElementById('frame24').classList.remove('frame24_selected');
-  document.getElementById('frame25').classList.remove('frame25_selected');
-  document.getElementById('frame26').classList.remove('frame26_selected');
-  document.getElementById('imgUrgent').src = `../assets/img/add-task/Urgent.svg`;
-  document.getElementById('imgMedium').src = `../assets/img/add-task/Medium.svg`;
-  document.getElementById('imgLow').src = `../assets/img/add-task/Low.svg`;
-  radio.checked = true;
-  frame.classList.add(`${frameName}_selected`);
-  document.getElementById(image).src = `../assets/img/add-task/${prio}_white.svg`;
+function selectedRadioButton(prio, frameName) {
+  let frames = ['frame24', 'frame25', 'frame26'];
+  let images = { Urgent: 'imgUrgent', Medium: 'imgMedium', Low: 'imgLow' };
+  frames.forEach(frame => document.getElementById(frame).classList.remove(`${frame}_selected`));
+  Object.keys(images).forEach(key => document.getElementById(images[key]).src = `../assets/img/add-task/${key}.svg`);
+  
+  document.getElementById(prio).checked = true;
+  document.getElementById(frameName).classList.add(`${frameName}_selected`);
+  document.getElementById(`img${prio}`).src = `../assets/img/add-task/${prio}_white.svg`;  
+  document.getElementById('prioResult').innerHTML = prio;  
 }
 
 function showSubtaskActions() {
@@ -30,15 +31,20 @@ function hideSubtaskActions() {
 }
 
 function addNewTask() {
+  
+  let duedate = document.getElementById('addtask-duedate').value;
+  alert(duedate);
+  return;
+  
   let id = 555;
-  let title = 'titel hier';
-  let description = 'taskbeschreibung';
-  let status = 'todo';
-  let prio = 'Medium';
+  let title = document.getElementById('frame14_text').value;  
+  let description = document.getElementById('frame17_text').value;    
+  let status = document.getElementById('temporaryStatus').innerHTML;  
+  let prio = document.getElementById('prioResult').innerHTML;
   //let subtasks = "";
   let member = [6339];
-  let category = 1;
-  let duedate = 1699138800000;
+  let category = document.getElementById('category_select').value;  
+  let xduedate = 1699138800000;
 
   let newTask = {
     id: id,
