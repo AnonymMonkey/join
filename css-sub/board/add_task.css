@@ -337,6 +337,7 @@ input {
   display: flex;
   justify-content: space-between;
   border: 1px solid #d1d1d1;
+  background-color: #ffffff;
 }
 
 #frame74_select {
@@ -636,6 +637,7 @@ textarea {
   gap: 10px;  
   border: 1px solid #d1d1d1;
   display: flex;
+  background-color: #ffffff;
 }
 
 .frame14_subtask:focus-within {

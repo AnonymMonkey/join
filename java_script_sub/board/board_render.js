@@ -77,8 +77,7 @@ function generateProfileBadgesTask(initials, badgeColor, name) {
     <div class="frame191">
       <div style="background-color: ${badgeColor};" class="profile-badge">${initials}</div>
       <div class="profile-name">${name}</div>
-    </div>
-    <div class="check-button">x</div>
+    </div>    
   </div>
   `);
 }

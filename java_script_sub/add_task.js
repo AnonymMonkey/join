@@ -1,6 +1,21 @@
 async function initAddTasks() {
-   await includeHTML();
-   adjustQuicklinkBG();
+  await loadTasks();
+  await loadTaskCategory();
+  await includeHTML();
+  adjustQuicklinkBG();
+  setDateRange();
+}
+
+function setDateRange() {
+  let no_of_years = 1;
+  let year = new Date().getFullYear();  
+  let maxyear = new Date().getFullYear() + no_of_years;
+  let month = ("0" + (new Date().getMonth() + 1)).slice(-2);
+  let date = ("0" + new Date().getDate()).slice(-2);
+  let today = year + "-" + month + "-" + date;
+  let maxdate = maxyear + "-" + month + "-" + date;
+  document.getElementById('addtask-duedate').min = today;
+  document.getElementById('addtask-duedate').max = maxdate;
 }
 
 function invalid(fieldName) {
@@ -30,13 +45,19 @@ function hideSubtaskActions() {
   document.getElementById('addSubtaskInput').classList.add('d-none');
 }
 
-function addNewTask() {
+function getNextFreeTaskId(){
+  let allIds = tasks.map(task => task.id);
+  let nextFreeId = Math.max(...allIds) + 1;  
+  return nextFreeId;
+}
+
+async function addNewTask() {
   
-  let duedate = document.getElementById('addtask-duedate').value;
-  alert(duedate);
-  return;
+  // nextFreeId = getNextFreeTaskId();
+  // alert(nextFreeId);
+  // return;
   
-  let id = 555;
+  let id = getNextFreeTaskId();
   let title = document.getElementById('frame14_text').value;  
   let description = document.getElementById('frame17_text').value;    
   let status = document.getElementById('temporaryStatus').innerHTML;  
@@ -44,33 +65,38 @@ function addNewTask() {
   //let subtasks = "";
   let member = [6339];
   let category = document.getElementById('category_select').value;  
-  let xduedate = 1699138800000;
-
+  let duedate = document.getElementById('addtask-duedate').value;    
+  let formattedTaskDate = new Date(duedate).getTime();
+  
   let newTask = {
-    id: id,
-    title: title,
-    description: description,
-    status: status,
-    prio: prio,
-    subtasks: [
+    'id': id,
+    'title': title,
+    'description': description,
+    'status': status,
+    'prio': prio,
+    'subtasks': [
       {
-        subid: 0,
-        subtitle: 'Implement Recipe Recommendation',
-        substatus: 'open',
+        'subid': 0,
+        'subtitle': 'Implement Recipe Recommendation',
+        'substatus': 'open',
       },
       {
-        subid: 1,
-        subtitle: 'Start Page Layout',
-        substatus: 'done',
+        'subid': 1,
+        'subtitle': 'Start Page Layout',
+        'substatus': 'done',
       },
     ],
-    member: member,
-    category: category,
-    duedate: duedate,
+    'member': member,
+    'category': category,
+    'duedate': formattedTaskDate,
   };
 
   tasks.push(newTask);
-  setItem('tasks', tasks);
-  // close overlay
-  // aktualisieren mit updateHtml()?
+  await setItem('tasks', tasks);  
+  closeAddTaskOverlay();  
+
+
+  // Info dass neuer Task gespeichert wurde!
+
+  openSelectedQuicklink('quickBoard');
 }

@@ -17,8 +17,7 @@
             placeholder="Enter a title"
             class="pointer"
             minlength="4"
-            id="frame14_text"
-            oninvalid="invalid('frame14')"
+            id="frame14_text"            
           />
         </div>        
         <label class="requiredField d-none" for="frame14_text">This field is required</label>
@@ -34,8 +33,7 @@
             placeholder="Enter a Description"
             minlength="4"
             class="pointer"
-            id="frame17_text"
-            oninvalid="invalid('frame17_text')"            
+            id="frame17_text"            
           ></textarea>
         </div>
         <div class="requiredField d-none">This field is required</div>
@@ -120,9 +118,12 @@
       <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
       <div class="frame74 pointer">
         <select required name="category_select" id="category_select">
-          <option value="" selected>Select task category</option>
-          <option value="0">Technical Task</option>
-          <option value="1">User Story</option>
+          <option value="">Select task category</option>
+          <option value="0">HTML + CSS</option>
+          <option value="1">JavaScript</option>
+          <option value="2">Team</option>
+          <option value="3">Meeting</option>
+          <option value="4">Angular</option>
         </select>
       </div>
     </div>

@@ -11,12 +11,45 @@ async function init() {
   await includeHTML();
   updateHTML();
   adjustQuicklinkBG();
+  setDateRange();
 }
 
-function updateHTML(search) {
-  let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
-  let longText = [
-    'No tasks To do',
+function insertCategories() {
+  
+  let xtaskCategory = [
+    {
+      id: 0,
+      title: 'HTML + CSS',
+      bgColor: '#1dd7c1',
+    },
+    {
+      id: 1,
+      title: 'JavaScript',
+      bgColor: '#d5996e',
+    },
+    {
+      id: 2,
+      title: 'Team',
+      bgColor: '#ff3d00',
+    },
+    {
+      id: 3,
+      title: 'Meeting',
+      bgColor: '#1b5e00',
+    },
+    {
+      id: 4,
+      title: 'Angular',
+      bgColor: '#5f2562',
+    },
+  ];
+  setItem('taskCategory', xtaskCategory);
+}
+  
+  function updateHTML(search) {
+    let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
+    let longText = [
+      'No tasks To do',
     'No tasks in progress',
     'No await feedback',
     'No tasks done',
@@ -199,7 +232,7 @@ async function deleteTask(searchId) {
   let taskIndex = getTaskIndex(searchId);  
   if (taskIndex !== -1) {    
     tasks.splice(taskIndex, 1);
-    closeTaskOverlay();    
+    closeTaskOverlay();
     await setItem('tasks', tasks);
     init();
   }  

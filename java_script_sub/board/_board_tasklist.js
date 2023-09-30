@@ -10,13 +10,28 @@
 let taskCategory = [
   {
     id: 0,
-    title: 'Technical Task',
+    title: 'HTML + CSS',
     bgColor: '#1dd7c1',
   },
   {
     id: 1,
-    title: 'User Story',
+    title: 'JavaScript',
     bgColor: '#0837ff',
+  },
+  {
+    id: 2,
+    title: 'Team',
+    bgColor: '#ff3d00',
+  },
+  {
+    id: 3,
+    title: 'Meeting',
+    bgColor: '#1b5e00',
+  },
+  {
+    id: 4,
+    title: 'Angular',
+    bgColor: '#5f2562',
   },
 ];
 
