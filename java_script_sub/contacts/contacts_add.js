@@ -1,5 +1,5 @@
 function addContact() {
-    openAddContactOverlay();
+    openContactOverlay();
 
     let overlayTitle = elementByID("overlay_title");
     let overlayTitleSub = elementByID("overlay_title_sub");

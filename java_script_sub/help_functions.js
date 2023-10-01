@@ -54,3 +54,16 @@ function hexToRgb(hex) {
         b: b
     };
 }
+
+// Event-Handler für Kontakt-Klicks
+document.querySelectorAll('.contact-info').forEach(contact => {
+    contact.addEventListener('click', function () {
+        // Entferne die "selected" Klasse von allen Kontakten
+        document.querySelectorAll('.contact-info').forEach(otherContact => {
+            otherContact.classList.remove('selected');
+        });
+
+        // Füge die "selected" Klasse zum ausgewählten Kontakt hinzu
+        this.classList.add('selected');
+    });
+});

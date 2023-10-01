@@ -1,8 +1,33 @@
+let selectedContact = null;
+
 function showContact(name, mail, phone, initials, color, ID) {
+
+    const contactElements = document.querySelectorAll('.contact-info');
+    contactElements.forEach(contactElement => {
+        contactElement.classList.remove('active');
+    });
+
+    const selectedContactElement = document.querySelector(`[data-contact-id="contactID_${ID}"]`);
+    selectedContactElement.classList.add('active');
+
+    selectedContact = {
+        name,
+        mail,
+        phone,
+        initials,
+        color,
+        ID
+    };
+
     let show = elementByID('show_contact')
-    /* debugger */
-    show.innerHTML = "";
-    show.innerHTML += /* html */`
+
+    show.style.right = '-65vw';
+
+    setTimeout(function () {
+        show.style.right = '0';
+
+        show.innerHTML = "";
+        show.innerHTML += /* html */`
     <div class="contact-headline">
         <div class="contact-headline-initials" ${contactFirstLettersBG(color)}>
             <div class="contact-headline-initials-font">${initials}</div>
@@ -45,5 +70,8 @@ function showContact(name, mail, phone, initials, color, ID) {
         <div class="text-black">${phone}</div>
     </div>
     `;
-    return
+
+    }, 200);
+
 }
+

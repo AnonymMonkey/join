@@ -3,14 +3,14 @@ Daten des aktuellen kontakts ändern, bei save button
 
 bei aktivem show contact hintergrund aktiv änderung in der liste
 
-falls mehrere kontakte (scrollbar) rechten bereich sticky
-
-animation für show_contact öffnen und schließen (löschen auch)
+///// animation für show_contact öffnen und schließen (löschen auch) 
 animation für kontakt erstellt und geändert
 
 form validation telefon min length
 
 abfrage ob man den contact wirklich löschen will
+
+Clean Code --- HTML Template JS --- CSS Dateien --- JSDOC
 
 responsiv machen
 
@@ -19,6 +19,8 @@ FÜR MEETING
 
 Header dropdown menü oben rechts
 header sticky
+
+sidemenu links und unten aktiv setzen bei auswahl
 
 add task nur für zukünftige datum
 

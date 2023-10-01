@@ -1,4 +1,4 @@
-function openAddContactOverlay() {
+function openContactOverlay() {
     let overlayBg = elementByID("overlay-bg");
     let overlayContent = elementByID("overlay-content");
 
@@ -8,7 +8,6 @@ function openAddContactOverlay() {
     overlayBg.classList.remove("d-none");
 
     overlayContent.classList.add("slide-in");
-    overlayContent.style.right = "0";
 
     overlayContent.addEventListener("animationend", onAnimationEnd);
 

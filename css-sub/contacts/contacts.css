@@ -118,20 +118,22 @@
     background: var(--Boton-gradient, linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%));
 }
 
-.contact-info:active {
+.contact-info.active {
     border-radius: 10px;
     background: var(--version-2-main-color, #2A3647);
-    color: var(--white, #FFF);
 }
 
-
-.contact-info-name:first-child {
+.contact-info-name {
     color: #000;
 
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
+}
+
+.contact-info.active .contact-info-name {
+    color: var(--white, #FFF);
 }
 
 .contact-info-mail {
@@ -215,6 +217,9 @@
     gap: 21px;
     width: auto;
     height: auto;
+    position: relative;
+
+    transition: right 0.1s ease-in-out;
 }
 
 .contact-headline {
@@ -256,13 +261,6 @@
     font-weight: 500;
     line-height: 120%;
 }
-
-/* .contact-headline div:last-child {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-} */
 
 .contact-name {
     color: #000;
