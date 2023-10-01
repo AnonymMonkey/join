@@ -1,5 +1,7 @@
 div button close overlay visualisieren
+
 Daten des aktuellen kontakts ändern, bei save button
+--- contacts[0]["register_entry"][0]['contact_name'] = "Simon2"
 
 ///// bei aktivem show contact hintergrund aktiv änderung in der liste
 

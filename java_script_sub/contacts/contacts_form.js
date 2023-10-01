@@ -1,6 +1,6 @@
 function checkName() {
-    var nameInput = document.getElementById("contact_name").value;
-    var namenParts = nameInput.split(" ");
+    let nameInput = elementByID("contact_name").value;
+    let namenParts = nameInput.split(" ");
 
     if (namenParts.length !== 2) {
         alert("Bitte geben Sie genau zwei Namen mit Leerzeichen dazwischen ein.");

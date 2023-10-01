@@ -141,7 +141,7 @@ input::-webkit-inner-spin-button {
     margin-left: 72px;
 }
 
-.overlay-right form div:first-child {
+.overlay-right-form {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -202,7 +202,7 @@ input::-webkit-inner-spin-button {
     gap: 24px;
 }
 
-.buttons button:first-child {
+.buttons-cancel {
     display: flex;
     padding: 16px;
     justify-content: center;
@@ -222,7 +222,7 @@ input::-webkit-inner-spin-button {
     line-height: 120%;
 }
 
-.buttons button:first-child:hover {
+.buttons-cancel:hover {
     border-radius: 10px;
     border: 2px solid var(--Ligth-blue, #29ABE2);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
