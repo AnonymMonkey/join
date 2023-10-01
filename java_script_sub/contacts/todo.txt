@@ -1,7 +1,7 @@
-createContact() auslösung bei closeDialog wegen onsubmit funktion
+div button close overlay visualisieren
 Daten des aktuellen kontakts ändern, bei save button
 
-bei aktivem show contact hintergrund aktiv änderung in der liste
+///// bei aktivem show contact hintergrund aktiv änderung in der liste
 
 ///// animation für show_contact öffnen und schließen (löschen auch) 
 animation für kontakt erstellt und geändert
@@ -17,11 +17,8 @@ responsiv machen
 
 FÜR MEETING
 
-Header dropdown menü oben rechts
 header sticky
 
 sidemenu links und unten aktiv setzen bei auswahl
-
-add task nur für zukünftige datum
 
 account daten kontakt bei contacts dabei

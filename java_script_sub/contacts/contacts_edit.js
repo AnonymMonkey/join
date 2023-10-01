@@ -1,5 +1,5 @@
 function editContact(name, mail, phone, initials, color) {
-    openAddContactOverlay();
+    openContactOverlay();
 
     let overlayTitle = elementByID("overlay_title");
     let overlayTitleSub = elementByID("overlay_title_sub");

@@ -60,6 +60,7 @@ button {
 
 body {
   background: #F6F7F8;
+  overflow: hidden;
 }
 
 .container {
@@ -109,7 +110,7 @@ body {
   width: calc(100% - 232px);
   height: calc(100vh - 96px);
   position: absolute;
-  
+
 }
 
 .h {
