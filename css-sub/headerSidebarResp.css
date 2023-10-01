@@ -40,9 +40,9 @@
     
         /* nuevo */
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-        position: relative;
         z-index: 1;
-        top: 739px;
+        position: absolute;
+        bottom: 0px;
     }
 
     .quicklinks {
@@ -78,62 +78,21 @@
 
 @media(max-width: 840px){
     .quicklinks {
-        width: 85%;
-    }
-}
-
-@media(max-width: 800px){
-    .quicklinks {
-        width: 80%;
-    }
-}
-
-@media(max-width: 700px){
-    .quicklinks {
-        width: 85%;
-    }
-}
-
-@media(max-width: 660px){
-    .quicklinks {
-        width: 90%;
+        width: clamp(320px 100%, 840px);
     }
 }
 
 
-@media(max-width: 640px){
-    /*sidebar*/
-    .sidebarMobile{
-        display: flex;
-        width: 100%;
-        
-        padding: 64px 0px;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
 
-        background: #2A3647;
-    
-        /* nuevo */
-        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-        position: relative;
-        z-index: 1;
-        position: absolute;
-        top: 835px;
-        bottom: 0px;
-        
-    }
+
+@media(max-width: 642px){
+
 
     .headerHelp{
         display: none;
     }
 
     .quicklinks {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        
-        
         position: absolute;
         left: 20px;
         bottom: 3px;
@@ -161,6 +120,48 @@
 
 }
 
+@media(max-width: 390px){
+    
+    .sidebarMobile{
+        position: absolute;
+        bottom: -24px;
+    }
+    
+    
+    .quicklinks {
+        position: absolute;
+        left: 20px;
+        bottom: 3px;
+        right: 10px;
+        
+    }
+
+    .quicklinks {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 5px; 
+        width: 90%;
+        color: white;
+    }
+
+    
+    .quicklinksSpan{
+        display: flex;
+        width: 85px;
+        height: 120px;
+        padding: 15px 0px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0; 
+        border-radius: 8px;
+         
+        
+    }
+
+}
 
 
 

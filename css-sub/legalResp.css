@@ -2,13 +2,15 @@
     .content{
         display: flex;
 
+        
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
         overflow-y: auto; 
-
+        
         padding-right: 100px;
         padding-bottom: 200px;
+       
         padding-top: 50px;
         
         /*fixation*/
@@ -26,13 +28,28 @@
         position: fixed;
         left: auto;
         
-        right: 100px;
+        right: 160px;
         overflow-y: scroll;  
     }
 }
 
 
-@media(max-width: 642px){
+
+@media(max-width: 680px){
+    .content{
+        /*fixation*/
+        position: fixed;
+        left: 16px;
+        right: 0px;  
+
+        width: clamp(320px, 100%, 500px );
+        overflow-y: scroll; 
+    }
+}
+
+
+
+@media(max-width: 640px){
     .content{
         width: clamp(320px, 100%, 500px );
         /*fixation*/
@@ -44,7 +61,7 @@
 }
 
 
-@media(max-width: 520px){
+@media(max-width:520px){
     .content{
         /*fixation*/
         position: fixed;
