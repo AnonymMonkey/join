@@ -23,15 +23,12 @@ async function registerUser(){
     if(password == confirmation){
         pushUser(name, surname, email);
         await setItem('users', JSON.stringify(users));
-        showSuccessIMG();
-        setTimeout(10000);
-        window.location.href = 'http://127.0.0.1:5500/index.html?userregistered';
+        openSignUpOverlay();
     }
     else{
         showMsgBoxInvalidConfirmation();
     }
 }
-
 
 function openSignUpOverlay() {
     //added following 2 lines
@@ -70,7 +67,7 @@ function openSuccessfullRegistered(){
 }
 
 
-async function pushUser(name, surname, email){
+async function pushUser(name, surname, email, password){
     await loadUsers();
     users.push({
         name: name,
