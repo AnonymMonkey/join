@@ -18,9 +18,24 @@ function setDateRange() {
   document.getElementById('addtask-duedate').max = maxdate;
 }
 
-function invalid(fieldName) {
-  alert('invalid field' + fieldName);
-  document.getElementById(`${fieldName}`).classList.add('error');
+function invalid(fieldName, labelField) {  
+  document.getElementById(`${fieldName}`).classList.add('error');  
+  document.getElementById(labelField).classList.remove('d-none');
+}
+
+function valid(fieldName, labelField) {  
+  document.getElementById(`${fieldName}`).classList.remove('error');  
+  document.getElementById(labelField).classList.add('d-none');
+}
+
+function validateField(inputField, errorField, labelField){  
+  if(document.getElementById(inputField).value === ''){
+    invalid(errorField, labelField);
+  }
+  else
+  {
+    valid(errorField, labelField);
+  }
 }
 
 function selectedRadioButton(prio, frameName) {
