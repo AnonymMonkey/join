@@ -1,3 +1,5 @@
+let substatus = [];
+
 async function initAddTasks() {
   await loadTasks();
   await loadTaskCategory();
@@ -135,14 +137,10 @@ async function addNewTask() {
   closeAddTaskOverlay();
 
   // Info dass neuer Task gespeichert wurde!
-
   openSelectedQuicklink('quickBoard');
 }
 
-let subtasks = ['Putzen', 'Aufräumen', 'Bügeln'];
-
 function addSubtask() {
-  console.log('fired');
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < subtasks.length; i++) {
@@ -158,9 +156,9 @@ function addnewSubtask() {
     subtasks.push(newSubtask);
     document.getElementById('frame14_subtask_text').value = '';
     addSubtask();
-  } else {
-    alert('Mehr hinzufügen nicht möglich!');
-    document.getElementById('frame14_subtask_text').value = '';
+  } else {    
+    document.getElementById('frame14_subtask').classList.add('error');
+    document.getElementById('frame14_subtask_label').classList.remove('d-none');
   }
 }
 
