@@ -2,7 +2,7 @@
 <div class="d-none" id="temporaryStatus">todo</div>
 <div class="d-none" id="prioResult"></div>
 <!-- form start -->
-<form onsubmit="addNewTask(); return false;">  
+<form id="addTaskInputForm" onsubmit="addNewTask(); return false;"> 
 <div class="addtask_content">
   <div class="frame219">
     <div class="task_title">
@@ -134,18 +134,25 @@
 
     <div class="subtasks">
       <div class="subtasks_text">Subtasks</div>
-      <div class="frame14_subtask">
+      <div class="frame14_subtask" onblur="hideSubtaskActions()">
         <input
           required
           type="text"
           placeholder="Add new subtask"
           class="pointer"
-          id="frame14_subtask_text"
+          id="frame14_subtask_text"          
           onfocus="showSubtaskActions()"
-          onblur="hideSubtaskActions()"
-        />        
-        <img id="cancelSubtaskInput" class="d-none" src="../assets/img/add-task/cancel.svg" alt="">
-        <img id="addSubtaskInput" class="d-none" src="../assets/img/add-task/check_black.svg" alt="">
+          />        
+          <!-- onblur="hideSubtaskActions()"           -->
+        <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer" src="../assets/img/add-task/cancel.svg" alt="">
+        <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer" src="../assets/img/add-task/check_black.svg" alt="">
+      </div>
+      <div>
+        <ul id="subtasklist">
+          <li>first item</li>
+          <li>second item</li>
+          <li>third item</li>
+        </ul>
       </div>
     </div>
 

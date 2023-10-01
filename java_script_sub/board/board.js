@@ -12,6 +12,7 @@ async function init() {
   updateHTML();
   adjustQuicklinkBG();
   setDateRange();
+  addSubtask();
 }
 
 function insertCategories() {

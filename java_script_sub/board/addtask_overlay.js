@@ -19,6 +19,7 @@ function openAddTaskOverlay() {
 }
 
 function closeAddTaskOverlay() {
+    resetForm();
     let overlayBg = elementByID("overlay-bg-addTask");
     let overlayContent = elementByID("overlay-content-addTask");
 
