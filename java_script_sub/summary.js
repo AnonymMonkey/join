@@ -11,6 +11,8 @@ let currentGreeting;
 let currentUser;
 let deviceWidth;
 
+let greeting = false;
+
 async function renderSummary(){
     getDeviceWidth();
     if(deviceWidth <= 910){
@@ -64,6 +66,23 @@ async function renderDesktopContent(){
     getHTMLTemplateforSummary();
     adjustQuicklinkBG();
 }
+
+
+function getCurrentGreeting(){
+    /* Get Hours */
+    let hours = new Date().getHours();
+
+    if(hours >= 18  && hours <= 5 ){
+        currentGreeting = 'Good evening!';
+    }
+    else if(hours >= 6  && hours <= 11){
+        currentGreeting = 'Good morning!';
+    }
+    else{
+        currentGreeting = 'Good afternoon!';
+    }
+}
+
 
 async function greetingGuest(){
     document.getElementById('content').innerHTML = /*html*/`
@@ -172,20 +191,7 @@ function getAmountAwaitingFeedback(){
 }
 
 
-function getCurrentGreeting(){
-    /* Get Hours */
-    let hours = new Date().getHours();
 
-    if(hours >= 18  && hours <= 5 ){
-        currentGreeting = 'Good evening!';
-    }
-    else if(hours >= 6  && hours <= 11){
-        currentGreeting = 'Good morning!';
-    }
-    else{
-        currentGreeting = 'Good afternoon!';
-    }
-}
 
 
 function getLoginType(){

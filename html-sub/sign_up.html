@@ -88,7 +88,7 @@
                         <img id="signupCheckboxUnchecked" onclick="changeCheckbox()" class="clickable transform checkboxBG" src="/assets/img/login/checkbox_unchecked.png" alt="">
                         <img id="signupCheckboxChecked" onclick="changeCheckbox()" class="dNone clickable transform checkboxBG" src="/assets/img/login/checkbox_checked.png" alt="">
                         <span >I accept the</span>
-                        <span class="settingsSignUpSpan transform">Privacy policy</span>
+                        <span onclick="openPrivacy()" class="settingsSignUpSpan transform">Privacy policy</span>
                     </div>
                 </div>
 
@@ -121,8 +121,8 @@
 
 
       <div id="signupLegalPrivacy" class="legalPrivacy">
-        <button class="legalPrivacyButton">Privacy Policy</button>
-        <button class="legalPrivacyButton">Legal notice</button>
+        <button onclick="openLegal()" class="legalPrivacyButton">Privacy Policy</button>
+        <button onclick="openPrivacy()" class="legalPrivacyButton">Legal notice</button>
       </div>
     </div>
 

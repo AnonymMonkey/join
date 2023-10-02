@@ -1,40 +1,33 @@
 let showMenu = false;
-
-let guest; //Switch to identify Guest-Login
-
+let guest;
 const urlParams = new URLSearchParams(window.location.search)
 const msg = urlParams.get('msg');
-
 const login = urlParams.get('login');
+let users = [];
 
-
-function identifyGuest(){
-    
-        if(msg == 'guest'){
-            document.getElementById('headerInitials').textContent = 'G';
-            guest = true;
-        }else if(login == 'true'){
-            document.getElementById('headerInitials').textContent = 'SM';
-            guest = false;
-        }
-        else{
-            document.getElementById('headerInitials').textContent = 'G';
-            guest = true; 
-        }
-    
-}
 
 function showHelp(){
     window.open("http://127.0.0.1:5500/html-sub/help.html", "_self");
 }
 
+
 function showLegal(){
     window.open("http://127.0.0.1:5500/html-sub/legal_notice.html", "_self");
 }
 
+
+function showLegalExternal(){
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
+}
+
+
 function showPrivacy(){
     window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html", "_self");
+}
 
+
+function showPrivacyExternal(){
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
 }
 
 
@@ -44,24 +37,44 @@ function adjustQuicklinkBG(){
         switch (msg) {
             case 'summary':
                 addBgToQuickSummary();
+                addBgToQuickSummaryResp();
             break;
         
             case 'addtask':
                 addBgToQuickAddTask();
+                addBgToQuickAddTaskResp();
             break;
 
             case 'board':
                 addBgToQuickBoard();
+                addBgToQuickBoardResp();
             break;
 
             case 'contacts':
                 addBgToQuickContacts();
+                addBgToQuickContactsResp();
             break;
 
             default:
                 addBgToQuickSummary();
+                addBgToQuickSummaryResp();
             break;
         }
+    }
+}
+
+function identifyGuest(){
+    
+    if(msg == 'guest'){
+        document.getElementById('headerInitials').textContent = 'G';
+        guest = true;
+    }else if(login == 'true'){
+        document.getElementById('headerInitials').textContent = 'SM';
+        guest = false;
+    }
+    else{
+        document.getElementById('headerInitials').textContent = 'G';
+        guest = true; 
     }
 }
 
@@ -174,6 +187,58 @@ function addBgToQuickContacts(){
     document.getElementById('quickAddTask').classList.add('hoverBG');
     document.getElementById('quickBoard').classList.add('hoverBG');
     document.getElementById('quickContacts').classList.remove('hoverBG');
+}
+
+/*BG Responsive */
+function addBgToQuickSummaryResp(){
+    document.getElementById('respQuickSummary').classList.add('isActiveColor');
+    document.getElementById('respQuickAddTask').classList.remove('isActiveColor');
+    document.getElementById('respQuickBoard').classList.remove('isActiveColor');
+    document.getElementById('respQuickContacts').classList.remove('isActiveColor');
+
+    document.getElementById('respQuickSummary').classList.remove('hoverBG');
+    document.getElementById('respQuickAddTask').classList.add('hoverBG');
+    document.getElementById('respQuickBoard').classList.add('hoverBG');
+    document.getElementById('respQuickContacts').classList.add('hoverBG');
+}
+
+
+function addBgToQuickAddTaskResp(){
+    document.getElementById('respQuickSummary').classList.remove('isActiveColor');
+    document.getElementById('respQuickAddTask').classList.add('isActiveColor');
+    document.getElementById('respQuickBoard').classList.remove('isActiveColor');
+    document.getElementById('respQuickContacts').classList.remove('isActiveColor');
+
+    document.getElementById('respQuickSummary').classList.add('hoverBG');
+    document.getElementById('respQuickAddTask').classList.remove('hoverBG');
+    document.getElementById('respQuickBoard').classList.add('hoverBG');
+    document.getElementById('respQuickContacts').classList.add('hoverBG');
+}
+
+
+function addBgToQuickBoardResp(){
+    document.getElementById('respQuickSummary').classList.remove('isActiveColor');
+    document.getElementById('respQuickAddTask').classList.remove('isActiveColor');
+    document.getElementById('respQuickBoard').classList.add('isActiveColor');
+    document.getElementById('respQuickContacts').classList.remove('isActiveColor');
+
+    document.getElementById('respQuickSummary').classList.add('hoverBG');
+    document.getElementById('respQuickAddTask').classList.add('hoverBG');
+    document.getElementById('respQuickBoard').classList.remove('hoverBG');
+    document.getElementById('respQuickContacts').classList.add('hoverBG');
+}
+
+
+function addBgToQuickContactsResp(){
+    document.getElementById('respQuickSummary').classList.remove('isActiveColor');
+    document.getElementById('respQuickAddTask').classList.remove('isActiveColor');
+    document.getElementById('respQuickBoard').classList.remove('isActiveColor');
+    document.getElementById('respQuickContacts').classList.add('isActiveColor');
+    
+    document.getElementById('respQuickSummary').classList.add('hoverBG');
+    document.getElementById('respQuickAddTask').classList.add('hoverBG');
+    document.getElementById('respQuickBoard').classList.add('hoverBG');
+    document.getElementById('respQuickContacts').classList.remove('hoverBG');
 }
 
 

@@ -20,6 +20,7 @@
     /*Sidebar*/
     .sidebar{
         display: none;
+        /*visibility: collapse;*/
     }
 
     .sidebarMobile{

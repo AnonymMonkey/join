@@ -1,3 +1,28 @@
+@media(max-width: 1440px){
+    .arrowBack{
+        /*Fixation*/
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        
+    
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px
+    }
+}
+
 @media(max-width: 910px){
     .content{
         display: flex;
@@ -18,6 +43,29 @@
         left: 130px;
         right: 100px;  
     }
+
+    .arrowBack{
+        /*Fixation*/
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 170px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        
+    
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 170px;
+    }
 }
 
 
@@ -30,6 +78,14 @@
         
         right: 160px;
         overflow-y: scroll;  
+    }
+
+    .arrowBack{
+        right: 230px;
+    }
+
+    .arrowBackground{
+        right: 230px;
     }
 }
 
@@ -45,6 +101,29 @@
         width: clamp(320px, 100%, 500px );
         overflow-y: scroll; 
     }
+
+    .arrowBack{
+        /*Fixation*/
+        position: fixed;
+        top: 228px;
+        left: 420px;
+        bottom: 764px;
+        right: auto;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        
+    
+        position: fixed;
+        top: 228px;
+        left: 420px;
+        bottom: 764px;
+        right: auto;
+    }
 }
 
 
@@ -58,6 +137,29 @@
         right: 0px;
         overflow-y: scroll;  
     }
+
+    .arrowBack{
+        /*Fixation*/
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        
+    
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px;
+    }
 }
 
 
@@ -70,5 +172,32 @@
 
         width: clamp(320px, 100%, 500px );
         overflow-y: scroll; 
+    }
+
+
+}
+
+@media(max-width:430px){
+    .arrowBack{
+        /*Fixation*/
+        position: fixed;
+        top: 228px;
+        left: 300px;
+        bottom: 764px;
+        right: 100px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        
+    
+        position: fixed;
+        top: 228px;
+        left: 300px;
+        bottom: 764px;
+        right: 100px;
     }
 }

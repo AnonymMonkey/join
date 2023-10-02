@@ -85,3 +85,37 @@
     line-height: 120%; 
 }
 
+.clickable{
+    cursor: pointer;
+}
+
+.arrowBackground{
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    
+
+    position: fixed;
+    top: 228px;
+    left: 1309px;
+    bottom: 764px;
+    right: 98.5px;
+}
+
+.arrowBackground:hover{
+    background: #ededee;
+}
+
+.arrowBack{
+    /*Fixation*/
+    position: fixed;
+    top: 228px;
+    left: 1309px;
+    bottom: 764px;
+    right: 98.5px;
+}
+
+.arrowBack:hover{
+    transform: scale(1.1);
+}

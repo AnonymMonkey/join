@@ -21,16 +21,16 @@ async function registerUser(){
     let confirmation = document.getElementById('signupConfirmation').value;
 
     if(password == confirmation){
-        pushUser(name, surname, email);
+        pushUser(name, surname, email, password);
         await setItem('users', JSON.stringify(users));
-        openSignUpOverlay();
+        await openSignUpOverlay();
     }
     else{
         showMsgBoxInvalidConfirmation();
     }
 }
 
-function openSignUpOverlay() {
+async function openSignUpOverlay() {
     //added following 2 lines
     let signup = elementByID("bodySignup");
     let legal = elementByID("signupLegalPrivacy");
@@ -58,7 +58,6 @@ function openSignUpOverlay() {
         overlayBg.classList.remove("dNone");        
     }  
     setTimeout(openSuccessfullRegistered, 1500);
-
 }
 
 
@@ -68,13 +67,13 @@ function openSuccessfullRegistered(){
 
 
 async function pushUser(name, surname, email, password){
-    await loadUsers();
     users.push({
         name: name,
         surname: surname,
         email: email,
         password: password,
     });
+
 }
 
 
@@ -239,4 +238,14 @@ function signupCoverConfirmation(){
 
 function openLogin(){
     window.location.href = 'http://127.0.0.1:5500/index.html';
+}
+
+
+function openPrivacy(){
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
+}
+
+
+function openLegal(){
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
 }

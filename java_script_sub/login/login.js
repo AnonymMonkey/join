@@ -10,8 +10,11 @@ let isChecked = false;
 
 let users = [];
 
+let activeUser;
+
 let deviceWidth;
 
+let loginData = [];
 
 function changeCheckbox(){
     if(isChecked){
@@ -40,14 +43,48 @@ function loginCheckboxOn(){
 function login(){
     let email = document.getElementById('loginEmail').value;
     let password = document.getElementById('loginPassword').value;
+    checkRememberMe(email, password);
     loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
     if(user){
+        
+        activeUser = user.name;
+        /*
+        activeUser.push({
+            name: user.name
+        });
+        */
+        
         window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
     else{
         showMsgBoxInvalidPassword();
     };
+}
+
+
+
+
+
+
+
+function checkRememberMe(email, password){
+    if(isChecked){
+        pushLoginData(email, password)
+    }
+    else{
+        localStorage.removeItem('loginData');
+    }
+}
+
+
+function pushLoginData(email, password){
+    loginData = [];
+    loginData.push({
+        email: email,
+        password: password,
+    })
+    saveToLocalStorage();
 }
 
 
@@ -157,6 +194,7 @@ function openSignUp(){
     window.location.href = 'http://127.0.0.1:5500/html-sub/sign_up.html';
 }
 
+
 function loadStartScreen(){
     getDeviceWidth();
     if(deviceWidth <= 800){
@@ -165,24 +203,20 @@ function loadStartScreen(){
     else{
         setTimeout(setDesktopScreen, 1000);
     }
-    
-
+    loadFromLocalStorage();
 }
+
 
 function setMobileScreen(){
     document.getElementById('startScreen').classList.remove('desktopScreen')
     document.getElementById('startScreen').classList.add('mobileScreen')
     
     document.getElementById('startScreen').classList.add('elementToFadeInAndOut')
-    
     document.getElementById('logoScreen').classList.remove('logoScreen')
     
-    
-
     document.getElementById('startLogo').classList.add('dNone');
     document.getElementById('indexContent').classList.remove('dNone')
     document.getElementById('logoScreen').classList.add('normalScreen')
-    
 }
 
 
@@ -201,4 +235,32 @@ function animateLogo(){
 
 function getDeviceWidth(){
     deviceWidth = window.innerWidth;
+}
+
+
+function openLegal(){
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
+}
+
+
+function openPrivacy(){
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
+}
+
+
+function saveToLocalStorage(){
+    let loginDataAsText = JSON.stringify(loginData);
+    localStorage.setItem('loginData', loginDataAsText);
+}
+
+
+function loadFromLocalStorage(){
+    let loginDataAsText = localStorage.getItem('loginData');
+    if(loginDataAsText){
+        loginData = JSON.parse(loginDataAsText);
+        document.getElementById('loginEmail').value = loginData[0].email;
+        document.getElementById('loginPassword').value = loginData[0].password;
+        document.getElementById('loginCheckboxUnchecked').classList.add('dNone');
+        document.getElementById('loginCheckboxChecked').classList.remove('dNone');
+    }
 }
