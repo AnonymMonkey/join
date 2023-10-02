@@ -80,6 +80,11 @@ select {
   right: 48px;
 }
 
+.button-hover:hover {
+  background-color: rgb(232, 229, 229);
+  border-radius: 50%;
+}
+
 .requiredField {
   color: #ff8190;
   width: 200px;
@@ -276,7 +281,8 @@ select {
 }
 
 .frame27 {
-  width: 334px;
+  display: flex;
+  width: 350px;
   height: 56px;
   gap: 25px;
 }
@@ -353,8 +359,8 @@ input {
 }
 
 .primary_check_button {
-  width: auto;
-  height: 48px;
+  width: 200px;
+  height: 56px;
   background-color: var(--bg-button);
   border: 1px solid var(--bg-button);
   border-radius: 10px;
@@ -365,6 +371,7 @@ input {
   color: var(--text-btn);
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: 4px;
 }
 
@@ -469,7 +476,7 @@ select {
 
 textarea {
   resize: none;
-  padding: 18px 16px;  
+  padding: 18px 16px;
   background: url(../../assets/img/add-task/recurso.png) no-repeat right bottom;
 }
 
@@ -520,16 +527,16 @@ textarea {
   flex: 1 0 0;
   border-radius: 10px;
   background-color: #ffffff;
-  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);  
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 #frame24,
 #frame25,
 #frame26 {
- width: 106px;
- display: flex;
- justify-content: center;
- align-items: center; 
+  width: 106px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .urgent:hover,
@@ -538,36 +545,38 @@ textarea {
   box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.4);
 }
 
+#imgUrgent {
+  color: #ff3d00;
+}
+#imgMedium {
+  color: #ffa800;
+}
+#imgLow {
+  color: #7ae229;
+}
 
-#imgUrgent{
-  color: #FF3D00;  
-}
-#imgMedium{
-  color: #FFA800;
-}
-#imgLow{
-  color: #7AE229;
-}
-
-.frame24_selected{
-  background-color: #FF3D00;
+.frame24_selected {
+  background-color: #ff3d00;
   color: white;
   font-weight: 600;
   box-shadow: none;
+  pointer-events: none;
 }
 
-.frame25_selected{
-  background-color: #FFA800;
+.frame25_selected {
+  background-color: #ffa800;
   color: white;
   font-weight: 600;
   box-shadow: none;
+  pointer-events: none;
 }
 
-.frame26_selected{
-  background-color: #7AE229;
+.frame26_selected {
+  background-color: #7ae229;
   color: white;
   font-weight: 600;
   box-shadow: none;
+  pointer-events: none;
 }
 
 .category {
@@ -598,7 +607,7 @@ textarea {
 }
 
 #category_select {
-  width: 440px;
+  width: 400px;
   height: 24px;
   font-family: Inter;
   font-size: 20px;
@@ -634,7 +643,7 @@ textarea {
   height: 48px;
   padding: 12px 21px;
   border-radius: 10px;
-  gap: 10px;  
+  gap: 10px;
   border: 1px solid #d1d1d1;
   display: flex;
   background-color: #ffffff;
@@ -642,7 +651,6 @@ textarea {
 
 .frame14_subtask:focus-within {
   border: 2px solid #5fc0e9 !important;
-  
 }
 
 #frame14_subtask_text {
@@ -655,10 +663,26 @@ textarea {
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-  border: none;  
+  border: none;
   background: url(../../assets/img/add-task/plus.svg) no-repeat 377px center;
 }
 
 #frame14_subtask_text:focus {
   background: none; /* Hintergrund beim Fokus entfernen */
+}
+
+#subtasklist {
+  padding-left: 48px;
+}
+
+.secondary {  
+  width: 126px;
+  height: 56px;
+  padding: 16px;  
+  gap: 4px;
+  border-radius: 10px;
+  border: 1px solid #2a3647;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

@@ -17,6 +17,7 @@
             placeholder="Enter a title"
             class="pointer"
             minlength="4"
+            maxlength="30"
             id="frame14_text"
             onblur="validateField('frame14_text', 'frame14', 'frame14_label')"
           />
@@ -33,6 +34,7 @@
             type="text"
             placeholder="Enter a Description"
             minlength="4"
+            maxlength="70"
             class="pointer"
             id="frame17_text"
             onblur="validateField('frame17_text', 'frame17', 'frame17_label')"           
@@ -135,16 +137,16 @@
     <div class="subtasks">
       <div class="subtasks_text">Subtasks</div>
       <div id="frame14_subtask" class="frame14_subtask" onblur="hideSubtaskActions()">
-        <input
-          required
+        <input          
           type="text"
           placeholder="Add new subtask"
           class="pointer"
+          maxlength="30"          
           id="frame14_subtask_text"          
           onfocus="showSubtaskActions()"
           />          
-          <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer" src="../assets/img/add-task/cancel.svg" alt="">
-          <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer" src="../assets/img/add-task/check_black.svg" alt="">
+          <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover" src="../assets/img/add-task/cancel.svg" alt="">
+          <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer button-hover" src="../assets/img/add-task/check_black.svg" alt="">
         </div>
         <label id="frame14_subtask_label" class="requiredField d-none" for="frame14_subtask_text">Maximum number reached</label>
       <div>
@@ -162,7 +164,8 @@
   <!-- form end -->
   <div class="frame35">
     <div class="frame27">
-      <button class="secondary pointer">Clear</button>
+      <div id="addTaskClear" class="secondary pointer" onclick="closeAddTaskOverlay()">Clear</div>
+      <div id="addTaskClose" class="secondary pointer d-none" onclick="closeAddTaskOverlay()">Cancel</div>
       <button class="primary_check_button pointer">
         Create Task
         <img src="../assets/img/add-task/check.svg" />
