@@ -35,6 +35,79 @@
   /* Progressbar*/
 }
 
+
+/* Pfeil nach oben als Hintergrundbild */
+.custom-scrollbar::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url('./assets/img/contacts/scroll_up.svg');
+  background-size: contain;
+  /* Größe des Hintergrundbildes anpassen */
+  background-repeat: no-repeat;
+  /* Wiederholung des Hintergrundbilds deaktivieren */
+}
+
+/* Pfeil nach unten als Hintergrundbild */
+.custom-scrollbar::-webkit-scrollbar-button:vertical:increment {
+  background-image: url('./assets/img/contacts/scroll_down.svg');
+  background-size: contain;
+  /* Größe des Hintergrundbildes anpassen */
+  background-repeat: no-repeat;
+  /* Wiederholung des Hintergrundbilds deaktivieren */
+}
+
+/* Standard-Pfeile ausblenden */
+.custom-scrollbar::-webkit-scrollbar-button:vertical {
+  display: none;
+}
+
+/* Pfeil am Anfang des Scrollbalkens */
+.custom-scrollbar::-webkit-scrollbar-button:start {
+  display: none;
+  /* Standard-Pfeil ausblenden */
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:start::before {
+  content: "";
+  /* Leeres Pseudo-Element, um den Standard-Pfeil zu verbergen */
+}
+
+/* Pfeil am Ende des Scrollbalkens */
+.custom-scrollbar::-webkit-scrollbar-button:end {
+  display: none;
+  /* Standard-Pfeil ausblenden */
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:end::before {
+  content: "";
+  /* Leeres Pseudo-Element, um den Standard-Pfeil zu verbergen */
+}
+
+/* Pfeil für den Horizontal-Scrollbar (wenn erforderlich) */
+.custom-scrollbar::-webkit-scrollbar-button:horizontal {
+  display: none;
+  /* Standard-Pfeil ausblenden */
+}
+
+.custom-scrollbar::-webkit-scrollbar-button:horizontal::before {
+  content: "";
+  /* Leeres Pseudo-Element, um den Standard-Pfeil zu verbergen */
+}
+
+/* Beispiel für eine individuelle Scrollbar für ein Element mit der Klasse "custom-scrollbar" */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #A8A8A8;
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #787878;
+}
+
+
+
 /** use cases
 /*
 body { background-color: var(--bg-default); }

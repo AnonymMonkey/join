@@ -1,20 +1,13 @@
-div button close overlay visualisieren
-
-Daten des aktuellen kontakts ändern, bei save button
---- contacts[0]["register_entry"][0]['contact_name'] = "Simon2"
-
-///// bei aktivem show contact hintergrund aktiv änderung in der liste
-
-///// animation für show_contact öffnen und schließen (löschen auch) 
-animation für kontakt erstellt und geändert
-
-form validation telefon min length
-
-abfrage ob man den contact wirklich löschen will
-
 Clean Code --- HTML Template JS --- CSS Dateien --- JSDOC
 
+scrollbar hübsch machen - Pfeile
+
+dialog overlay schließen wenn man außerhalb clickt
+
 responsiv machen
+
+
+
 
 
 FÜR MEETING

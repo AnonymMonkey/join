@@ -267,8 +267,8 @@ input::-webkit-inner-spin-button {
 
 .close-button {
     position: absolute;
-    top: 48px;
-    right: 48px;
+    top: 20px;
+    right: 20px;
 }
 
 .close-button:hover {

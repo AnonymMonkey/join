@@ -1,7 +1,6 @@
-function editContact(name, mail, phone, initials, color, ID) {
+async function editContact(name, mail, phone, initials, color, ID) {
     openContactOverlay();
-
-    let pos = contacts[getIndexOf(ID)]['register_entry'][0];
+    let pos = getIndexOfJson(ID);
 
     let overlayTitle = elementByID("overlay_title");
     let overlayTitleSub = elementByID("overlay_title_sub");
@@ -14,7 +13,6 @@ function editContact(name, mail, phone, initials, color, ID) {
 
     overlayTitle.innerHTML = "Edit contact";
 
-    /*  */
     createButton.innerHTML = "Save <img src='../assets/img/contacts/check.svg'>";
     overlayTitleSub.innerHTML = "";
     overlayInitials.classList.remove('person-bg');
@@ -22,14 +20,17 @@ function editContact(name, mail, phone, initials, color, ID) {
     overlayInitials.classList.add('contact-headline-initials-font');
     overlayInitials.innerHTML = initials;
     overlayInitials.style = `background-color: ${color}`;
+
     overlayName.value = name;
     overlayMail.value = mail;
     overlayPhone.value = phone;
 
     onsubmit.onsubmit = null;
 
-    createButton.onclick = function () {
-        changeContactData(pos);
+    createButton.onclick = async function (event) {
+        event.preventDefault();
+        changeContactData(pos, color, ID);
+
     };
 
 }
@@ -39,20 +40,25 @@ function getIndexOf(ID) {
     return position;
 }
 
-async function changeContactData(pos) {
+async function changeContactData(pos, color, ID) {
     let nameIsValid = checkName();
     if (!nameIsValid) {
         return;
     }
-    debugger
     pos['contact_name'] = contact_name.value;
     pos['contact_mail'] = contact_mail.value;
     pos['contact_phone'] = contact_phone.value;
-    pos['contact_color'] = randomColor();
     pos['contact_initials'] = getContactFirstLetters();
 
     await saveData();
     await loadData();
-
+    createRegisterEntry();
+    showContact(pos['contact_name'], pos['contact_mail'], pos['contact_phone'], pos['contact_initials'], color, ID);
     closeContactOverlay();
+    smallAnimatedLabel("Contact succesfully edited");
+}
+
+function getIndexOfJson(ID) {
+    let pos = contacts[getIndexOf(ID)]['register_entry'][0];
+    return pos;
 }

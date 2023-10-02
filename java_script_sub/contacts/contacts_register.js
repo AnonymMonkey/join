@@ -17,9 +17,12 @@ async function createContact() {
     await saveData();
     resetContactsForm();
     await loadData();
-    createRegister();
+    createRegisterEntry();
+
     closeContactOverlay();
+    smallAnimatedLabel("Contact succesfully created");
     contactsInit();
+    showContact(getLastJsonObjectID());
 }
 
 
@@ -46,7 +49,7 @@ function getJSON_Entry() {
             {
                 'contact_name': contact_name.value,
                 'contact_mail': contact_mail.value,
-                'contact_phone': contact_phone.value,
+                'contact_phone': `${contact_phone.value}`,
                 'contact_color': randomColor(),
                 'contact_initials': getContactFirstLetters(),
                 'contact_ID': randomID(),
@@ -121,13 +124,12 @@ function createRegisterInfo() {
             let registerEntry = contact['register_entry'][0];
             let name = registerEntry['contact_name'];
             let mail = registerEntry['contact_mail'];
-            let phone = registerEntry['contact_phone'];
             let initials = registerEntry['contact_initials'];
             let ID = registerEntry['contact_ID'];
             let color = registerEntry['contact_color'];
 
             let contactHTML = `
-                <div onclick="showContact('${name}', '${mail}', ${phone}, '${initials}', '${color}', ${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
+                <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
                     <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
                     <div>
                         <div class="contact-info-name">${name}</div>

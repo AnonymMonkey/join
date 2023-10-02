@@ -1,6 +1,17 @@
 let selectedContact = null;
 
-function showContact(name, mail, phone, initials, color, ID) {
+function showContact(ID) {
+    if (window.innerWidth <= 768) {
+        /*         const element = document.querySelector(`[data-contact-id="contactID_${ID}"]`);
+                element.classList.add('d-none'); */
+    }
+
+    let name = getIndexOfJson(ID)['contact_name'];
+    let mail = getIndexOfJson(ID)['contact_mail'];
+    let phone = getIndexOfJson(ID)['contact_phone'];
+    let initials = getIndexOfJson(ID)['contact_initials'];
+    let color = getIndexOfJson(ID)['contact_color'];
+
 
     const contactElements = document.querySelectorAll('.contact-info');
     contactElements.forEach(contactElement => {
@@ -35,7 +46,7 @@ function showContact(name, mail, phone, initials, color, ID) {
         <div>
             <div class="contact-name">${name}</div>
             <div class="contact-buttons">
-                <div onclick="editContact('${name}', '${mail}', ${phone}, '${initials}', '${color}', ${ID})" class="contact-button">
+                <div onclick="editContact('${name}', '${mail}', '${phone}', '${initials}', '${color}', ${ID})" class="contact-button">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0_84566_2385" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                             <rect width="24" height="24" fill="#2A3647"/>
@@ -75,3 +86,17 @@ function showContact(name, mail, phone, initials, color, ID) {
 
 }
 
+function getLastJsonObject() {
+    const keysArray = Object.keys(contacts);
+    const lastKey = keysArray[keysArray.length - 1];
+    const lastValue = contacts[lastKey];
+
+    return lastValue;
+
+}
+
+function getLastJsonObjectID() {
+    let lastObject = getLastJsonObject();
+    let lastObjectID = lastObject['register_entry'][0]['contact_ID'];
+    return lastObjectID;
+}

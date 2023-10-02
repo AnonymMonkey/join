@@ -21,9 +21,8 @@
 
 .contact-inner-register {
     display: inline-flex;
-    padding: 32px 24px;
+    padding: 32px 44px;
     flex-direction: column;
-    align-items: center;
 
     overflow-y: auto;
     background: var(--white, #FFF);
@@ -61,13 +60,18 @@
     background: #091931;
 }
 
+.contact-register-entry {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .contact-register-entry img {
     display: flex;
     padding: 8px 0px;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
-    align-self: stretch;
+    width: 100%;
 }
 
 
@@ -113,6 +117,10 @@
     background: #FFF;
 }
 
+.contact-info div:last-child {
+    overflow: hidden;
+}
+
 .contact-info:hover {
     border-radius: 10px;
     background: var(--Boton-gradient, linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%));
@@ -143,26 +151,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-}
-
-.scrollbar {
-    width: 24px;
-    height: 100%;
-    /* 928px */
-    flex-shrink: 0;
-    gap: 10px;
-    align-items: center;
-    padding: 32.5px 0;
-}
-
-.scrollbar img {
-    width: 10px;
-    height: 4px;
-    flex-shrink: 0;
-}
-
-.scrollbar img:nth-child(2) {
-    height: 53px;
 }
 
 .d-flex {
