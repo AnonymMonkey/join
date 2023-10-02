@@ -6,45 +6,13 @@ let progressHTML = '';
 
 async function init() {
   await loadTasks();
-  await loadTaskCategory();
+  await loadTaskCategory();  
   await loadContacts();
   await includeHTML();
   updateHTML();
   adjustQuicklinkBG();
   setDateRange();
   addSubtask();
-}
-
-function insertCategories() {
-  
-  let xtaskCategory = [
-    {
-      id: 0,
-      title: 'HTML + CSS',
-      bgColor: '#1dd7c1',
-    },
-    {
-      id: 1,
-      title: 'JavaScript',
-      bgColor: '#d5996e',
-    },
-    {
-      id: 2,
-      title: 'Team',
-      bgColor: '#ff3d00',
-    },
-    {
-      id: 3,
-      title: 'Meeting',
-      bgColor: '#1b5e00',
-    },
-    {
-      id: 4,
-      title: 'Angular',
-      bgColor: '#5f2562',
-    },
-  ];
-  setItem('taskCategory', xtaskCategory);
 }
   
   function updateHTML(search) {
@@ -112,12 +80,8 @@ async function moveTo(status) {
 }
 
 function addHighlight(status) {
-  let matches = document.querySelectorAll('div.placeholderCard');
-  // Element mit der ID "todo" auswählen
-  let excludeContainer = document.getElementById(status);
-
-  // Array zum Speichern der ausgeschlossenen Elemente erstellen
-  let excludedElements = [];
+  let matches = document.querySelectorAll('div.placeholderCard');  
+  let excludeContainer = document.getElementById(status);  
 
   matches.forEach(function (placeholderItem) {
     if (!excludeContainer.contains(placeholderItem)) {
@@ -147,12 +111,10 @@ function filterTasks() {
   updateHTML(search);
 }
 
-function taskProgress(element) {
-  // Counter for completed Subtasks
+function taskProgress(element) {  
   let doneSubtaskCount = 0;
   let allSubtaskCount = element['subtasks'].length;
   if (element['subtasks'] && allSubtaskCount > 0) {
-    // Check, if subtasks aren´t empty
     for (const subtask of element['subtasks']) {
       if (subtask['substatus'] === 'done') {
         doneSubtaskCount++;
@@ -199,7 +161,6 @@ function assignedToTask(task) {
     }
   }
 }
-
 
 async function loadContacts() {
   try {

@@ -1,4 +1,4 @@
-let substatus = [];
+let subtasks = [];
 
 async function initAddTasks() {
   await loadTasks();
@@ -163,6 +163,8 @@ function addnewSubtask() {
 }
 
 function deleteSubtask(id) {
+  document.getElementById('frame14_subtask_label').classList.add('d-none');
+  document.getElementById('frame14_subtask').classList.remove('error');
   subtasks.splice(id, 1);
   addSubtask();
 }
