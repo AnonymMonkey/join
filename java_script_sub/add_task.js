@@ -1,4 +1,4 @@
-let subtasks = [];
+let newSubtasks = [];
 
 async function initAddTasks() {
   await loadTasks();
@@ -10,6 +10,8 @@ async function initAddTasks() {
 }
 
 function resetForm() {
+  newSubtasks = [];
+  addSubtask();
   document.getElementById('addTaskInputForm').reset();
   document.getElementById('temporaryStatus').innerHTML = '';
   document.getElementById('prioResult').innerHTML = '';
@@ -19,10 +21,8 @@ function resetForm() {
   document.getElementById('frame24').classList.remove('frame24_selected');
   document.getElementById('frame25').classList.remove('frame25_selected');
   document.getElementById('frame26').classList.remove('frame26_selected');
-  document.getElementById('imgUrgent').src =
-    '../assets/img/add-task/Urgent.svg';
-  document.getElementById('imgMedium').src =
-    '../assets/img/add-task/Medium.svg';
+  document.getElementById('imgUrgent').src = '../assets/img/add-task/Urgent.svg';
+  document.getElementById('imgMedium').src = '../assets/img/add-task/Medium.svg';
   document.getElementById('imgLow').src = '../assets/img/add-task/Low.svg';
 }
 
@@ -93,6 +93,12 @@ function getNextFreeTaskId() {
   return nextFreeId;
 }
 
+function getNextFreeSubtaskId() {
+  let allSubtaskIds = newSubtasks.map((subtask) => subtask.subid);
+  let nextFreeId = Math.max(...allSubtaskIds) + 1;
+  return nextFreeId;
+}
+
 async function addNewTask() {
   // nextFreeId = getNextFreeTaskId();
   // alert(nextFreeId);
@@ -103,7 +109,7 @@ async function addNewTask() {
   let description = document.getElementById('frame17_text').value;
   let status = document.getElementById('temporaryStatus').innerHTML;
   let prio = document.getElementById('prioResult').innerHTML;
-  //let subtasks = "";
+  let addTaskSubtasks = newSubtasks;
   let member = [6339];
   let category = document.getElementById('category_select').value;
   let duedate = document.getElementById('addtask-duedate').value;
@@ -115,18 +121,7 @@ async function addNewTask() {
     description: description,
     status: status,
     prio: prio,
-    subtasks: [
-      {
-        subid: 0,
-        subtitle: 'Implement Recipe Recommendation',
-        substatus: 'open',
-      },
-      {
-        subid: 1,
-        subtitle: 'Start Page Layout',
-        substatus: 'done',
-      },
-    ],
+    subtasks: addTaskSubtasks,
     member: member,
     category: category,
     duedate: formattedTaskDate,
@@ -136,24 +131,30 @@ async function addNewTask() {
   await setItem('tasks', tasks);
   closeAddTaskOverlay();
 
-  // Info dass neuer Task gespeichert wurde!
+  //TODO - Info dass neuer Task gespeichert wurde!
   openSelectedQuicklink('quickBoard');
 }
 
 function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
-  for (let i = 0; i < subtasks.length; i++) {
+  for (let i = 0; i < newSubtasks.length; i++) {
     list.innerHTML += `
-      <li>${subtasks[i]} <a href="#" onclick="deleteSubtask(${i})">X</a></li>
+      <li>${newSubtasks[i].subtitle} <a href="#" onclick="deleteSubtask(${i})">X</a></li>
       `;
   }
 }
 
 function addnewSubtask() {
-  if (subtasks.length < 5) {
-    let newSubtask = document.getElementById('frame14_subtask_text').value;
-    subtasks.push(newSubtask);
+  nextSubId = getNextFreeSubtaskId();
+  console.log(nextSubId);
+  if (newSubtasks.length < 5) {
+    let newSubtask = {    
+      subid: nextSubId,
+      subtitle: document.getElementById('frame14_subtask_text').value,
+      substatus: 'open',
+    }
+    newSubtasks.push(newSubtask);
     document.getElementById('frame14_subtask_text').value = '';
     addSubtask();
   } else {    
@@ -165,7 +166,7 @@ function addnewSubtask() {
 function deleteSubtask(id) {
   document.getElementById('frame14_subtask_label').classList.add('d-none');
   document.getElementById('frame14_subtask').classList.remove('error');
-  subtasks.splice(id, 1);
+  newSubtasks.splice(id, 1);
   addSubtask();
 }
 

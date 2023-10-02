@@ -62,6 +62,7 @@
   align-items: center;
   flex: 1 0 0;
   height: 32px;
+  width: 100%;
   border: none;
   font-size: 20px;
 }
