@@ -140,15 +140,25 @@ async function addNewTask() {
   closeAddTaskOverlay();
 
   //TODO - Info dass neuer Task gespeichert wurde!
+  // dazu die Funktion von Andino nutzen
+  //smallAnimatedLabel('Task added to board <img src="../assets/img/summary/board.svg">');
+  // die Funktion ohne Bild funktioniert auch noch nicht
+  await smallAnimatedLabel('Task added to board');
   openSelectedQuicklink('quickBoard');
 }
 
+//TODO - Stefan - bin dabei die Funktion umzusetzen
 function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < newSubtasks.length; i++) {
     list.innerHTML += `
-      <li>${newSubtasks[i].subtitle} <a href="#" onclick="deleteSubtask(${i})">X</a></li>
+      <li>${newSubtasks[i].subtitle}       
+      <a class="" href="#" onclick="deleteSubtask(${i})">X</a>
+      <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover" src="../assets/img/add-task/cancel.svg" alt="">
+      <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png" alt="">f
+      <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer button-hover" src="../assets/img/add-task/check_black.svg" alt="">
+      </li>
       `;
   }
 }
