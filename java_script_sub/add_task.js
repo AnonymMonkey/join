@@ -24,6 +24,8 @@ function resetForm() {
   document.getElementById('imgUrgent').src = '../assets/img/add-task/urgent.svg';
   document.getElementById('imgMedium').src = '../assets/img/add-task/medium.svg';
   document.getElementById('imgLow').src = '../assets/img/add-task/low.svg';
+  document.getElementById('frame74').classList.remove('error');
+  document.getElementById('category_select_label').classList.add('d-none');
 }
 
 function setDateRange() {
@@ -167,16 +169,21 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
 }
 
 //TODO - Stefan - bin dabei die Funktion umzusetzen
+// es fehlt noch die Möglichkeit den Wert zu editieren.
 function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < newSubtasks.length; i++) {
     list.innerHTML += `
-      <li>${newSubtasks[i].subtitle}       
-      <a class="" href="#" onclick="deleteSubtask(${i})">X</a>
-      <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover" src="../assets/img/add-task/cancel.svg" alt="">
-      <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png" alt="">f
-      <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer button-hover" src="../assets/img/add-task/check_black.svg" alt="">
+      <li>
+      <div>&bull; 
+      ${newSubtasks[i].subtitle}       
+      </div>      
+      <div>
+        <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="pointer button-hover" src="../assets/img/board/edit.svg" alt="">
+        <img id="subtask-vector" src="../assets/img/add-task/vector.png" alt="">
+        <img id="addSubtaskInput" onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg" alt="">
+      </div>
       </li>
       `;
   }
