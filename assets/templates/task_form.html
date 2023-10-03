@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="task_description">
-      <div class="task_description_text">Description</div>
+      <div class="task_description_text">Description<sup class="requiredAsterisk">*</sup></div>
       <div class="frame207">
         <div id="frame17" class="pointer">
           <textarea  
@@ -89,7 +89,7 @@
     </div>
 
     <div class="frame28">
-      <div class="frame28_text">Prio</div>
+      <div class="frame28_text">Prio<sup class="requiredAsterisk">*</sup></div>
       <div id="priority" class="priority">
         
         <div id="frame24" class="urgent pointer" onclick="selectedRadioButton('Urgent', 'frame24')">
@@ -117,6 +117,7 @@
         </div>        
 
       </div>
+      <label id="priority_label" class="requiredField d-none" for="priority">This field is required</label>
     </div>
 
     <div class="category">
@@ -135,15 +136,15 @@
     </div>
 
     <div class="subtasks">
-      <div class="subtasks_text">Subtasks</div>
-      <div id="frame14_subtask" class="frame14_subtask" onblur="hideSubtaskActions()">
+      <div class="subtasks_text">Subtasks</div>      
+      <div id="frame14_subtask" class="frame14_subtask" onblur="subtaskActions()">      
         <input          
           type="text"
           placeholder="Add new subtask"
           class="pointer"
           maxlength="30"          
           id="frame14_subtask_text"          
-          onfocus="showSubtaskActions()"
+          onfocus="subtaskActions('show')"
           />          
           <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover" src="../assets/img/add-task/cancel.svg" alt="">
           <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png" alt="">
@@ -161,8 +162,9 @@
   <!-- form end -->
   <div class="frame35">
     <div class="frame27">
-      <div id="addTaskClear" class="secondary pointer" onclick="resetForm()">Clear</div>      
-      <div id="addTaskClose" class="secondary pointer d-none" onclick="closeAddTaskOverlay()">Cancel</div>
+      <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">Clear <img src="../assets/img/add-task/cancel.svg"/>
+      </div>      
+      <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">Cancel <img src="../assets/img/add-task/cancel.svg" /></div>
       <button class="primary_check_button pointer" onclick="validation()">
         Create Task
         <img src="../assets/img/add-task/check.svg" />

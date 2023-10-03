@@ -92,6 +92,7 @@ function generatePlaceholer(name) {
 function generateOverlayContent(element) {
   let id = getTaskIndex(element);
   let dueDate = getDueDate(tasks[id]['duedate']);
+  let prioIcon = tasks[id]['prio'].toLowerCase();
 
   content = document.getElementById('overlayTaskContent');
   content.innerHTML = '';
@@ -122,7 +123,7 @@ function generateOverlayContent(element) {
       <div class="frame178_text">Priority:</div>
       <div class="frame178_content">${tasks[id]['prio']}</div>    
       <div class="frame178_icon">
-        <img src="../assets/img/add-task/${tasks[id]['prio']}.svg" alt="">
+        <img src="../assets/img/add-task/${prioIcon}.svg" alt="">
       </div>
     </div>
    
@@ -170,4 +171,6 @@ function generateOverlayAddTask(status) {
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">        
     `;  
   document.getElementById('temporaryStatus').innerHTML = `${status}`;
+  document.getElementById('addTaskClear').classList.add('d-none');
+  document.getElementById('addTaskCancel').classList.remove('d-none');
 }

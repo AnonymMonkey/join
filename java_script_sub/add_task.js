@@ -21,9 +21,9 @@ function resetForm() {
   document.getElementById('frame24').classList.remove('frame24_selected');
   document.getElementById('frame25').classList.remove('frame25_selected');
   document.getElementById('frame26').classList.remove('frame26_selected');
-  document.getElementById('imgUrgent').src = '../assets/img/add-task/Urgent.svg';
-  document.getElementById('imgMedium').src = '../assets/img/add-task/Medium.svg';
-  document.getElementById('imgLow').src = '../assets/img/add-task/Low.svg';
+  document.getElementById('imgUrgent').src = '../assets/img/add-task/urgent.svg';
+  document.getElementById('imgMedium').src = '../assets/img/add-task/medium.svg';
+  document.getElementById('imgLow').src = '../assets/img/add-task/low.svg';
 }
 
 function setDateRange() {
@@ -59,34 +59,26 @@ function validateField(inputField, errorField, labelField) {
 function selectedRadioButton(prio, frameName) {
   let frames = ['frame24', 'frame25', 'frame26'];
   let images = { Urgent: 'imgUrgent', Medium: 'imgMedium', Low: 'imgLow' };
-  frames.forEach((frame) =>
-    document.getElementById(frame).classList.remove(`${frame}_selected`),
-  );
-  Object.keys(images).forEach(
-    (key) =>
-      (document.getElementById(
-        images[key],
-      ).src = `../assets/img/add-task/${key}.svg`),
-  );
+  frames.forEach((frame) => document.getElementById(frame).classList.remove(`${frame}_selected`),);
+  Object.keys(images).forEach((key) =>(document.getElementById(images[key],).src = `../assets/img/add-task/${key.toLowerCase()}.svg`),  );
   document.getElementById('priority').classList.remove('error');
+  document.getElementById('priority_label').classList.add('d-none');
   document.getElementById(prio).checked = true;
   document.getElementById(frameName).classList.add(`${frameName}_selected`);
-  document.getElementById(
-    `img${prio}`,
-  ).src = `../assets/img/add-task/${prio}_white.svg`;
+  document.getElementById(`img${prio}`,).src = `../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
   document.getElementById('prioResult').innerHTML = prio;
 }
 
-function showSubtaskActions() {
-  document.getElementById('clearSubtaskInput').classList.remove('d-none');
-  document.getElementById('addSubtaskInput').classList.remove('d-none');
-  document.getElementById('subtask-vector').classList.remove('d-none');
-}
-
-function hideSubtaskActions() {
-  document.getElementById('clearSubtaskInput').classList.add('d-none');
-  document.getElementById('addSubtaskInput').classList.add('d-none');
-  document.getElementById('subtask-vector').classList.add('d-none');
+function subtaskActions(view) {
+  if(view == 'show'){
+    document.getElementById('clearSubtaskInput').classList.remove('d-none');
+    document.getElementById('addSubtaskInput').classList.remove('d-none');
+    document.getElementById('subtask-vector').classList.remove('d-none');
+  } else {
+    document.getElementById('clearSubtaskInput').classList.add('d-none');
+    document.getElementById('addSubtaskInput').classList.add('d-none');  
+    document.getElementById('subtask-vector').classList.add('d-none');
+  }
 }
 
 function getNextFreeTaskId() {
@@ -113,20 +105,25 @@ function validation() {
 
   if(prioResult === ''){      
     document.getElementById('priority').classList.add('error');
+    document.getElementById('priority_label').classList.remove('d-none');
     return;
+  }
+  else{
+    document.getElementById('priority').classList.remove('error');
+    document.getElementById('priority_label').classList.add('d-none');
   }
 
   if(category === ''){      
     document.getElementById('frame74').classList.add('error');
     return;
   }
+  else
+  {
+    document.getElementById('frame74').classList.remove('error');    
+  }
 }
 
-async function addNewTask() {
-  // nextFreeId = getNextFreeTaskId();
-  // alert(nextFreeId);
-  // return; stefan
-
+async function addNewTask(origin) {
   let status = document.getElementById('temporaryStatus').innerHTML;
   let category = document.getElementById('category_select').value;
   let id = getNextFreeTaskId();
@@ -138,6 +135,21 @@ async function addNewTask() {
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
 
+  await createTask(id, title, description, status, prio, addTaskSubtasks, member, category, formattedTaskDate);
+  
+  //TODO - Info dass neuer Task gespeichert wurde!
+  // dazu die Funktion von Andino nutzen
+  //smallAnimatedLabel('Task added to board <img src="../assets/img/summary/board.svg">');
+  // die Funktion ohne Bild funktioniert auch noch nicht
+  await smallAnimatedLabel('Task added to board');
+  
+  if(origin){
+    closeAddTaskOverlay();
+  }
+  openSelectedQuicklink('quickBoard');
+}
+
+async function createTask(id, title, description, status, prio, addTaskSubtasks, member, category, formattedTaskDate) {
   let newTask = {
     id: id,
     title: title,
@@ -152,14 +164,6 @@ async function addNewTask() {
 
   tasks.push(newTask);
   await setItem('tasks', tasks);
-  closeAddTaskOverlay();
-
-  //TODO - Info dass neuer Task gespeichert wurde!
-  // dazu die Funktion von Andino nutzen
-  //smallAnimatedLabel('Task added to board <img src="../assets/img/summary/board.svg">');
-  // die Funktion ohne Bild funktioniert auch noch nicht
-  await smallAnimatedLabel('Task added to board');
-  openSelectedQuicklink('quickBoard');
 }
 
 //TODO - Stefan - bin dabei die Funktion umzusetzen

@@ -132,14 +132,13 @@
 }
 
 .column_title {
-  width: 100%;
-  height: 24px;
-  top: 200.5px;
-  position: absolute;
+  width: 25%;    
   display: flex;
   padding: 0px 64px;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;  
+  flex-direction: column;
+  gap: 8px;
 }
 
 .column_title img:hover {
@@ -166,7 +165,7 @@
 
 .board_distribution {
   width: 100%;      
-  padding: 10px 64px 0 64px;
+  padding: 10px 40px 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -184,7 +183,6 @@
   flex-direction: column;
   align-items: flex-start;    
   gap: 24px;
-  align-self: stretch; 
 }
 
 .no_tasks_feedback {
