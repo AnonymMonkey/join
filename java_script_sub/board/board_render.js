@@ -132,6 +132,13 @@ function generateOverlayContent(element) {
       <div class="task-contactlist">${badgeHTMLTask}</div>
     </div>
 
+    <!-- //TODO - Hier fehlt noch die Auflistung der Subtasks, wenn es welche gibt 
+      Dann müssen die Stati von open zu done geändert werden (subid )
+      Beispiel 
+      tasks[2].subtasks[0].substatus = open // 1. Subtask
+      tasks[2].subtasks[1].substatus = done // 2. Subtask
+  -->
+
     <div class="frame215">
       <div class="frame215_text">Subtasks</div>
       <div id="frame204" class="frame204">
