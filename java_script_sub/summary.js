@@ -13,6 +13,7 @@ let deviceWidth;
 
 let greeting = false;
 
+
 async function renderSummary(){
     getDeviceWidth();
     if(deviceWidth <= 910){
@@ -32,6 +33,7 @@ async function renderSummary(){
         renderDesktopContent();
     }
 }
+
 
 async function renderMobileContent(){
     includeHTML();
@@ -149,6 +151,7 @@ function getAmountUrgent(){
     }
 }
 
+
 function getDueDate(date){
     //Get nearest Date from Array
     let nearestDate =  Math.min.apply(Math, urgentDueDates)
@@ -191,9 +194,6 @@ function getAmountAwaitingFeedback(){
 }
 
 
-
-
-
 function getLoginType(){
     if(login){
         currentUser = 'Sophia Müller';
@@ -203,11 +203,11 @@ function getLoginType(){
     }
 }
 
+
 /*Get Mobile Greeting */
 function getDeviceWidth(){
     deviceWidth = window.innerWidth;
 }
-
 
 
 async function getHTMLTemplateforSummary(){

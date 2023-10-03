@@ -6,29 +6,7 @@ const login = urlParams.get('login');
 let users = [];
 
 
-function showHelp(){
-    window.open("http://127.0.0.1:5500/html-sub/help.html", "_self");
-}
 
-
-function showLegal(){
-    window.open("http://127.0.0.1:5500/html-sub/legal_notice.html", "_self");
-}
-
-
-function showLegalExternal(){
-    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
-}
-
-
-function showPrivacy(){
-    window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html", "_self");
-}
-
-
-function showPrivacyExternal(){
-    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
-}
 
 
 function adjustQuicklinkBG(){
@@ -92,7 +70,7 @@ function showSubmenu(){
 
 
 function logOut(){
-    window.open("http://127.0.0.1:5500/index.html", "_self");
+    window.open("http://gruppe-697.developerakademie.net/index.html", "_self");
 }
 
 
@@ -105,35 +83,64 @@ function openSelectedQuicklink(id){
     }
 }
 
+
+function showLegalExternal(){
+    window.open('http://gruppe-697.developerakademie.net/html-sub/legal_notice_external.html', '_blank');
+}
+
+function showPrivacyExternal(){
+    window.open('http://gruppe-697.developerakademie.net/html-sub/privacy_data_protection_external.html', '_blank');
+}
+
+
+
 //hier checken!!
 function openGuestQuicklinks(id){
     if(id=='quickSummary'){
-        window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/summary.html?msg=summary", "_self");
     }
     if(id=='quickAddTask'){
-        window.open("http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/add_task.html?msg=addtask", "_self");
     }
     if(id=='quickBoard'){
-        window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board&", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/board.html?msg=board", "_self");
     }
     if(id=='quickContacts'){
-        window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/contacts.html?msg=contacts", "_self");
+    }
+    if(id=='privacy'){
+        window.open("http://gruppe-697.developerakademie.net/html-sub/privacy_data_protection.html", "_self");
+    }
+    if(id=='legal'){
+        window.open("http://gruppe-697.developerakademie.net/html-sub/legal_notice.html", "_self");
+    }
+    if(id=='help'){
+        window.open("http://gruppe-697.developerakademie.net/html-sub/help.html", "_self");
     }
 }
 
 
 function openLoginQuicklinks(id){
     if(id=='quickSummary'){
-        window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary&login=true", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/summary.html?msg=summary&login=true", "_self");
     }
     if(id=='quickAddTask'){
-        window.open("http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask&login=true", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/add_task.html?msg=addtask&login=true", "_self");
     }
     if(id=='quickBoard'){
-        window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board&login=true", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/board.html?msg=board&login=true", "_self");
     }
     if(id=='quickContacts'){
-        window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&login=true", "_self");
+        window.open("http://gruppe-697.developerakademie.net/html-sub/contacts.html?msg=contacts&login=true", "_self");
+    }
+    if(id=='privacy'){
+        window.open("http://gruppe-697.developerakademie.net/html-sub/privacy_data_protection.html?login=true", "_self");
+    }
+    if(id=='legal'){
+        window.open("http://gruppe-697.developerakademie.net/html-sub/legal_notice.html?login=true", "_self");
+    }
+    if(id=='help'){
+        window.open("http://gruppe-697.developerakademie.net/html-sub/help.html?login=true", "_self");
     }
 }
 
@@ -243,5 +250,5 @@ function addBgToQuickContactsResp(){
 
 
 function openBoard(){
-    window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board", "_self");
+    window.open("http://gruppe-697.developerakademie.net/html-sub/board.html?msg=board", "_self");
 }

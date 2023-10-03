@@ -6,7 +6,7 @@
     </div>
 
     <div class="headerSymbols">
-        <img onclick="showHelp()" class="headerHelp clickable" src="../assets/img/summary/help.svg" alt="">
+        <img onclick="openSelectedQuicklink('help')" class="headerHelp clickable" src="../assets/img/summary/help.svg" alt="">
         
         <div onclick="showSubmenu()" class="headerInitialsBG clickable">
             <span id="headerInitials" class="headerInitials"></span>
@@ -18,10 +18,10 @@
 
     <div class="subMenu dNone" id="subMenu">
         <div class="subMenuSpanContainer">
-            <span onclick="showLegal()">Legal Notice</span>
+            <span onclick="openSelectedQuicklink('legal')">Legal Notice</span>
         </div>
         <div class="subMenuSpanContainer">
-            <span onclick="showPrivacy()">Privacy Policy</span>
+            <span onclick="openSelectedQuicklink('privacy')">Privacy Policy</span>
         </div>
         <div onclick="logOut()" class="subMenuSpanContainer">
             <span>Log out</span>

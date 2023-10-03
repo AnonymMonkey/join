@@ -62,7 +62,7 @@ async function openSignUpOverlay() {
 
 
 function openSuccessfullRegistered(){
-    window.location.href = 'http://127.0.0.1:5500/index.html?msg=userregistered';
+    window.location.href = 'http://gruppe-697.developerakademie.net/index.html?msg=userregistered';
 }
 
 
@@ -237,15 +237,15 @@ function signupCoverConfirmation(){
 
 
 function openLogin(){
-    window.location.href = 'http://127.0.0.1:5500/index.html';
+    window.location.href = 'http://gruppe-697.developerakademie.net/index.html';
 }
 
 
 function openPrivacy(){
-    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
+    window.open('http://gruppe-697.developerakademie.net/html-sub/privacy_data_protection_external.html', '_blank');
 }
 
 
 function openLegal(){
-    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
+    window.open('http://gruppe-697.developerakademie.net/html-sub/legal_notice_external.html', '_blank');
 }
