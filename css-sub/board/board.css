@@ -1,6 +1,6 @@
 @import url('task_dialog.css');
 @import url('add_task.css');
-/* @import url('../animations.css'); */
+@import url('../animations.css');
 
 
 .pointer {
@@ -216,8 +216,8 @@
 
 .placeholderCard{
   display: flex;
-  width: 252px;
-  height: 230px;
+  width: 252px !important;
+  height: 230px !important;
   padding: 16px;
   flex-direction: column;
   justify-content: center;
