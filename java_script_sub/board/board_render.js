@@ -4,6 +4,7 @@ function generateTasksHTML(element) {
   badgeHTMLTask = '';
   taskProgress(element);
   assignedTo(element);
+  let prioIcon = element['prio'].toLowerCase();
   let status = element['status'];
   return /*html*/ `
   <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${
@@ -33,7 +34,7 @@ function generateTasksHTML(element) {
         ${badgeHTML}
       </div>
       <div class="priority_symbol">
-        <img src="../assets/img/add-task/${element['prio']}.svg" alt="">
+        <img src="../assets/img/add-task/${prioIcon}.svg" alt="">
       </div>
     </div>
   </div>

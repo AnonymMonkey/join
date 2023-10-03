@@ -68,7 +68,7 @@ function selectedRadioButton(prio, frameName) {
         images[key],
       ).src = `../assets/img/add-task/${key}.svg`),
   );
-
+  document.getElementById('priority').classList.remove('error');
   document.getElementById(prio).checked = true;
   document.getElementById(frameName).classList.add(`${frameName}_selected`);
   document.getElementById(
@@ -107,19 +107,34 @@ function getNextFreeSubtaskId() {
     return nextFreeId;  
 }
 
+function validation() {
+  let prioResult = document.getElementById('prioResult').innerHTML;
+  let category = document.getElementById('category_select').value;
+
+  if(prioResult === ''){      
+    document.getElementById('priority').classList.add('error');
+    return;
+  }
+
+  if(category === ''){      
+    document.getElementById('frame74').classList.add('error');
+    return;
+  }
+}
+
 async function addNewTask() {
   // nextFreeId = getNextFreeTaskId();
   // alert(nextFreeId);
-  // return;
+  // return; stefan
 
+  let status = document.getElementById('temporaryStatus').innerHTML;
+  let category = document.getElementById('category_select').value;
   let id = getNextFreeTaskId();
   let title = document.getElementById('frame14_text').value;
-  let description = document.getElementById('frame17_text').value;
-  let status = document.getElementById('temporaryStatus').innerHTML;
+  let description = document.getElementById('frame17_text').value;  
   let prio = document.getElementById('prioResult').innerHTML;
   let addTaskSubtasks = newSubtasks;
   let member = [6339];
-  let category = document.getElementById('category_select').value;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
 
@@ -164,8 +179,7 @@ function addSubtask() {
 }
 
 function addnewSubtask() {
-  nextSubId = getNextFreeSubtaskId();
-  console.log(nextSubId);
+  nextSubId = getNextFreeSubtaskId();  
   if (newSubtasks.length < 5) {
     let newSubtask = {    
       subid: nextSubId,
