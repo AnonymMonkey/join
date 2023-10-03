@@ -80,23 +80,31 @@ function selectedRadioButton(prio, frameName) {
 function showSubtaskActions() {
   document.getElementById('clearSubtaskInput').classList.remove('d-none');
   document.getElementById('addSubtaskInput').classList.remove('d-none');
+  document.getElementById('subtask-vector').classList.remove('d-none');
 }
 
 function hideSubtaskActions() {
   document.getElementById('clearSubtaskInput').classList.add('d-none');
   document.getElementById('addSubtaskInput').classList.add('d-none');
+  document.getElementById('subtask-vector').classList.add('d-none');
 }
 
 function getNextFreeTaskId() {
+  if (tasks.length === 0) {
+    return 0;
+  }
   let allIds = tasks.map((task) => task.id);
   let nextFreeId = Math.max(...allIds) + 1;
   return nextFreeId;
 }
 
 function getNextFreeSubtaskId() {
-  let allSubtaskIds = newSubtasks.map((subtask) => subtask.subid);
-  let nextFreeId = Math.max(...allSubtaskIds) + 1;
-  return nextFreeId;
+  if (newSubtasks.length === 0) {
+      return 0;
+  }
+    let allSubtaskIds = newSubtasks.map((subtask) => subtask.subid);
+    let nextFreeId = Math.max(...allSubtaskIds) + 1;
+    return nextFreeId;  
 }
 
 async function addNewTask() {

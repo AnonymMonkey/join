@@ -146,15 +146,12 @@
           onfocus="showSubtaskActions()"
           />          
           <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover" src="../assets/img/add-task/cancel.svg" alt="">
+          <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png" alt="">
           <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer button-hover" src="../assets/img/add-task/check_black.svg" alt="">
         </div>
         <label id="frame14_subtask_label" class="requiredField d-none" for="frame14_subtask_text">Maximum number reached</label>
       <div>
-        <ul id="subtasklist">
-          <li>first item</li>
-          <li>second item</li>
-          <li>third item</li>
-        </ul>
+        <ul id="subtasklist"></ul>
       </div>
     </div>
 
@@ -164,7 +161,7 @@
   <!-- form end -->
   <div class="frame35">
     <div class="frame27">
-      <div id="addTaskClear" class="secondary pointer" onclick="resetForm()">Clear</div>
+      <div id="addTaskClear" class="secondary pointer" onclick="resetForm()">Clear</div>      
       <div id="addTaskClose" class="secondary pointer d-none" onclick="closeAddTaskOverlay()">Cancel</div>
       <button class="primary_check_button pointer">
         Create Task
