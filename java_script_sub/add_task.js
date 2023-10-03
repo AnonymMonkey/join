@@ -6,7 +6,7 @@ async function initAddTasks() {
   await includeHTML();
   adjustQuicklinkBG();
   setDateRange();
-  addSubtasks();
+  addSubtask();
 }
 
 function resetForm() {
