@@ -1,6 +1,12 @@
-async function editContact(name, mail, phone, initials, color, ID) {
+async function editContact(ID) {
     openContactOverlay();
     let pos = getIndexOfJson(ID);
+
+    let name = getIndexOfJson(ID)['contact_name'];
+    let mail = getIndexOfJson(ID)['contact_mail'];
+    let phone = getIndexOfJson(ID)['contact_phone'];
+    let initials = getIndexOfJson(ID)['contact_initials'];
+    let color = getIndexOfJson(ID)['contact_color'];
 
     let overlayTitle = elementByID("overlay_title");
     let overlayTitleSub = elementByID("overlay_title_sub");
@@ -29,7 +35,7 @@ async function editContact(name, mail, phone, initials, color, ID) {
 
     createButton.onclick = async function (event) {
         event.preventDefault();
-        changeContactData(pos, color, ID);
+        changeContactData(pos, ID);
 
     };
 
@@ -40,7 +46,7 @@ function getIndexOf(ID) {
     return position;
 }
 
-async function changeContactData(pos, color, ID) {
+async function changeContactData(pos, ID) {
     let nameIsValid = checkName();
     if (!nameIsValid) {
         return;
@@ -53,7 +59,7 @@ async function changeContactData(pos, color, ID) {
     await saveData();
     await loadData();
     createRegisterEntry();
-    showContact(pos['contact_name'], pos['contact_mail'], pos['contact_phone'], pos['contact_initials'], color, ID);
+    showContact(ID);
     closeContactOverlay();
     smallAnimatedLabel("Contact succesfully edited");
 }

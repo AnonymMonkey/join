@@ -43,10 +43,6 @@ function getCategoryLetter() {
     }
 }
 
-
-smallAnimatedLabel("message")
-
-
 function getJSON_Entry() {
     contacts.push({
         'register_entry': [

@@ -1,12 +1,17 @@
 let newSubtasks = [];
 
 async function initAddTasks() {
+  debugger
   await loadTasks();
   await loadTaskCategory();
   await includeHTML();
   adjustQuicklinkBG();
   setDateRange();
+  debugger
   addSubtask();
+  debugger
+
+  userSelection();
 }
 
 function resetForm() {
@@ -62,7 +67,7 @@ function selectedRadioButton(prio, frameName) {
   let frames = ['frame24', 'frame25', 'frame26'];
   let images = { Urgent: 'imgUrgent', Medium: 'imgMedium', Low: 'imgLow' };
   frames.forEach((frame) => document.getElementById(frame).classList.remove(`${frame}_selected`),);
-  Object.keys(images).forEach((key) =>(document.getElementById(images[key],).src = `../assets/img/add-task/${key.toLowerCase()}.svg`),  );
+  Object.keys(images).forEach((key) => (document.getElementById(images[key],).src = `../assets/img/add-task/${key.toLowerCase()}.svg`),);
   document.getElementById('priority').classList.remove('error');
   document.getElementById('priority_label').classList.add('d-none');
   document.getElementById(prio).checked = true;
@@ -72,13 +77,13 @@ function selectedRadioButton(prio, frameName) {
 }
 
 function subtaskActions(view) {
-  if(view == 'show'){
+  if (view == 'show') {
     document.getElementById('clearSubtaskInput').classList.remove('d-none');
     document.getElementById('addSubtaskInput').classList.remove('d-none');
     document.getElementById('subtask-vector').classList.remove('d-none');
   } else {
     document.getElementById('clearSubtaskInput').classList.add('d-none');
-    document.getElementById('addSubtaskInput').classList.add('d-none');  
+    document.getElementById('addSubtaskInput').classList.add('d-none');
     document.getElementById('subtask-vector').classList.add('d-none');
   }
 }
@@ -94,34 +99,33 @@ function getNextFreeTaskId() {
 
 function getNextFreeSubtaskId() {
   if (newSubtasks.length === 0) {
-      return 0;
+    return 0;
   }
-    let allSubtaskIds = newSubtasks.map((subtask) => subtask.subid);
-    let nextFreeId = Math.max(...allSubtaskIds) + 1;
-    return nextFreeId;  
+  let allSubtaskIds = newSubtasks.map((subtask) => subtask.subid);
+  let nextFreeId = Math.max(...allSubtaskIds) + 1;
+  return nextFreeId;
 }
 
 function validation() {
   let prioResult = document.getElementById('prioResult').innerHTML;
   let category = document.getElementById('category_select').value;
 
-  if(prioResult === ''){      
+  if (prioResult === '') {
     document.getElementById('priority').classList.add('error');
     document.getElementById('priority_label').classList.remove('d-none');
     return;
   }
-  else{
+  else {
     document.getElementById('priority').classList.remove('error');
     document.getElementById('priority_label').classList.add('d-none');
   }
 
-  if(category === ''){      
+  if (category === '') {
     document.getElementById('frame74').classList.add('error');
     return;
   }
-  else
-  {
-    document.getElementById('frame74').classList.remove('error');    
+  else {
+    document.getElementById('frame74').classList.remove('error');
   }
 }
 
@@ -130,7 +134,7 @@ async function addNewTask(origin) {
   let category = document.getElementById('category_select').value;
   let id = getNextFreeTaskId();
   let title = document.getElementById('frame14_text').value;
-  let description = document.getElementById('frame17_text').value;  
+  let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
   let addTaskSubtasks = newSubtasks;
   let member = [6339];
@@ -138,14 +142,14 @@ async function addNewTask(origin) {
   let formattedTaskDate = new Date(duedate).getTime();
 
   await createTask(id, title, description, status, prio, addTaskSubtasks, member, category, formattedTaskDate);
-  
+
   //TODO - Info dass neuer Task gespeichert wurde!
   // dazu die Funktion von Andino nutzen
   //smallAnimatedLabel('Task added to board <img src="../assets/img/summary/board.svg">');
   // die Funktion ohne Bild funktioniert auch noch nicht
   await smallAnimatedLabel('Task added to board');
-  
-  if(origin){
+
+  if (origin) {
     closeAddTaskOverlay();
   }
   openSelectedQuicklink('quickBoard');
@@ -190,9 +194,9 @@ function addSubtask() {
 }
 
 function addnewSubtask() {
-  nextSubId = getNextFreeSubtaskId();  
+  nextSubId = getNextFreeSubtaskId();
   if (newSubtasks.length < 5) {
-    let newSubtask = {    
+    let newSubtask = {
       subid: nextSubId,
       subtitle: document.getElementById('frame14_subtask_text').value,
       substatus: 'open',
@@ -200,7 +204,7 @@ function addnewSubtask() {
     newSubtasks.push(newSubtask);
     document.getElementById('frame14_subtask_text').value = '';
     addSubtask();
-  } else {    
+  } else {
     document.getElementById('frame14_subtask').classList.add('error');
     document.getElementById('frame14_subtask_label').classList.remove('d-none');
   }
@@ -213,6 +217,6 @@ function deleteSubtask(id) {
   addSubtask();
 }
 
-function clearInput(field) {  
+function clearInput(field) {
   document.getElementById(field).value = '';
 }
