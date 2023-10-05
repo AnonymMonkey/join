@@ -1,34 +1,50 @@
-let contacts = [];
+let contactSelection = [];
 
 async function userSelection() {
-    debugger
     await loadContacts();
 
-    let selectElement = document.getElementById("frame74_select");
-    let option = document.createElement("option");
+    let select = document.getElementById("user_selection");
+    let selectOnClick = document.getElementById("frame74");
 
-    selectElement.innerHTML = '';
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i]['register_entry'][0];
+        let name = contact['contact_name'];
+        let initials = contact['contact_initials'];
+        let ID = contact['contact_ID'];
 
-    /*     for (let i = 0; i < contacts.length; i++) {
-            let contact = contacts[i]['register_entry'][0];
-            let name = contact['contact_name'];
-            let initials = contact['contact_initials'];
-            let ID = contact['contact_ID'];
-    
-            option.value = name;
-            option.textContent = name;
-            selectElement.appendChild(option);
-    
-            // Initialen hinzufügen
-            let initialsSpan = document.createElement("span");
-            initialsSpan.textContent = initials + " ";
-            selectElement.options[selectElement.options.length - 1].appendChild(initialsSpan);
-    
-            // Checkbox hinzufügen
-            let checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.name = "assigned_users";
-            checkbox.value = name;
-            selectElement.options[selectElement.options.length - 1].appendChild(checkbox);
-        } */
+
+        select.innerHTML += /* html */`
+        <div id="user_${ID}" onclick="checkContact(${ID})" class="flex">
+            <div>${initials}</div>
+            <div>${name}</div>
+            <div>
+                <img id="img_unchecked_${ID}" src="../assets/img/login/checkbox_unchecked.png">
+                <img id="img_checked_${ID}" class="d-none" src="../assets/img/add-task/checkbox_checked_white.svg">
+            </div>
+        </div>
+        `;
+    }
+    selectOnClick.onclick = "";
+    select.classList.remove('d-none');
+}
+
+function checkContact(ID) {
+    debugger
+    let user = `user_${ID}`;
+    contactSelection.push(user);
+    let userIndex = contactSelection.indexOf(user);
+
+    let imgUnChecked = elementByID(`img_unchecked_${ID}`);
+    let imgChecked = elementByID(`img_checked_${ID}`);
+
+    if (!userIndex == -1) {
+        imgUnChecked.classList.remove('d-none');
+        imgChecked.classList.add('d-none');
+    } else {
+        imgUnChecked.classList.add('d-none');
+        imgChecked.classList.remove('d-none');
+        contactSelection.splice(userIndex, 1);
+    }
+
+
 }

@@ -163,7 +163,8 @@ select {
   font-size: 61px;
   font-style: normal;
   font-weight: 700;
-  line-height: 120%; /* 73.2px */
+  line-height: 120%;
+  /* 73.2px */
 }
 
 #temporaryStatus {
@@ -188,7 +189,8 @@ select {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
+  /* 24px */
 }
 
 .task_description {
@@ -212,7 +214,8 @@ select {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
+  /* 24px */
 }
 
 .frame207 {
@@ -408,7 +411,8 @@ input {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
+  /* 24px */
 }
 
 .frame39_duedate {
@@ -417,7 +421,8 @@ input {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
+  /* 24px */
 }
 
 .frame211 {
@@ -445,7 +450,8 @@ input {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
+  /* 24px */
 }
 
 .frame14due::placeholder {
@@ -473,8 +479,7 @@ input[type='date'] {
 } */
 
 select {
-  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right
-    center;
+  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right center;
 }
 
 textarea {
@@ -503,7 +508,8 @@ textarea {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
+  /* 24px */
 }
 
 .priority {
@@ -551,9 +557,11 @@ textarea {
 #imgUrgent {
   color: #ff3d00;
 }
+
 #imgMedium {
   color: #ffa800;
 }
+
 #imgLow {
   color: #7ae229;
 }
@@ -601,7 +609,8 @@ textarea {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 24px */
+  line-height: 120%;
+  /* 24px */
 }
 
 .frame74:focus-within,
@@ -630,6 +639,7 @@ textarea {
   gap: 8px;
   position: absolute;
 }
+
 .subtasks_text {
   color: #2a3647;
   width: 88px;
@@ -641,6 +651,7 @@ textarea {
   letter-spacing: 0em;
   text-align: left;
 }
+
 .frame14_subtask {
   width: 440px;
   height: 48px;
@@ -671,23 +682,24 @@ textarea {
 }
 
 #frame14_subtask_text:focus {
-  background: none; /* Hintergrund beim Fokus entfernen */
+  background: none;
+  /* Hintergrund beim Fokus entfernen */
 }
 
 #subtasklist {
   gap: 10px;
 }
 
-#subtasklist li{
+#subtasklist li {
   padding-left: 24px;
-  display: flex;  
+  display: flex;
   align-items: center;
-  justify-content: space-between;  
+  justify-content: space-between;
   display: flex;
   padding-right: 24px;
 }
 
-#subtasklist li:hover{
+#subtasklist li:hover {
   background-color: rgb(232, 229, 229);
   border-radius: 10px;
 }
@@ -722,6 +734,6 @@ textarea {
   animation-duration: 100ms;
 }
 
-.buttons-cancel:hover img{
+.buttons-cancel:hover img {
   filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
 }

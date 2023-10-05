@@ -1,17 +1,14 @@
 let newSubtasks = [];
 
 async function initAddTasks() {
-  debugger
   await loadTasks();
   await loadTaskCategory();
   await includeHTML();
   adjustQuicklinkBG();
   setDateRange();
-  debugger
   addSubtask();
-  debugger
 
-  userSelection();
+  await userSelection();
 }
 
 function resetForm() {

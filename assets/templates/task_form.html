@@ -31,11 +31,17 @@
       <!-- //TODO - Andino: Hier sollte die Kontaktliste erscheinen -->
       <div class="task_assigned_to">
         <div class="task_assigned_to_text">Assigned To</div>
-        <div class="frame74 pointer">
-          <select name="frame74_select" id="frame74_select">
-            <option value="" selected>Select contacts to assign</option>
-          </select>
+        <div id="frame74" onclick="userSelection()" class="frame74 pointer">
+          <span>Select contacts to assign</span>
+          <svg width="10" height="4" viewBox="0 0 10 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="Vector 13" d="M10 0L5 4L0 0L10 0Z" fill="black" />
+          </svg>
         </div>
+        <div class="d-none" id="user_selection"></div>
+        <!--           <select name="frame74_select" id="frame74_select">
+            <option value="" selected>Select contacts to assign</option>
+          </select> -->
+
       </div>
       <!-- //TODO - Andino: Hier sollten die Badges der oben ausgewählten Kontakte erscheinen -->
     </div>
