@@ -37,7 +37,7 @@ function login(){
     let user = users.find(u => u.email == email && u.password == password);
     if(user){
         activeUser = user.name;
-        window.location.href = `http://gruppe-697.developerakademie.net/html-sub/summary.html?msg=login&login=true`;
+        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
     else{
         showMsgBoxInvalidPassword();
@@ -163,12 +163,12 @@ function revealPassword(){
 
 
 function guestLogin(){
-    window.location.href = 'http://gruppe-697.developerakademie.net/html-sub/summary.html?msg=guest';
+    window.location.href = 'http://127.0.0.1:5500/html-sub/summary.html?msg=guest';
 }
 
 
 function openSignUp(){
-    window.location.href = 'http://gruppe-697.developerakademie.net/html-sub/sign_up.html';
+    window.location.href = 'http://127.0.0.1:5500/html-sub/sign_up.html';
 }
 
 
@@ -216,12 +216,12 @@ function getDeviceWidth(){
 
 
 function openLegal(){
-    window.open('http://gruppe-697.developerakademie.net/html-sub/legal_notice_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
 }
 
 
 function openPrivacy(){
-    window.open('http://gruppe-697.developerakademie.net/html-sub/privacy_data_protection_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
 }
 
 

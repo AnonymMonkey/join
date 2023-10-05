@@ -1,14 +1,10 @@
 let isChecked = false;
-
 const urlParams = new URLSearchParams(window.location.search)
 const msg = urlParams.get('msg');
 
 if(msg) {
     msgbox.innerHTML = msg;
-}else{
-    //display none auf message id
 }
-
 
 let users = [];
 
@@ -19,16 +15,38 @@ async function registerUser(){
     let email = document.getElementById('signupEmail').value;
     let password = document.getElementById('signupPassword').value;
     let confirmation = document.getElementById('signupConfirmation').value;
-
-    if(password == confirmation){
-        pushUser(name, surname, email, password);
-        await setItem('users', JSON.stringify(users));
-        await openSignUpOverlay();
-    }
-    else{
-        showMsgBoxInvalidConfirmation();
-    }
+    if(checkName()){
+        if(password == confirmation){
+            pushUser(name, surname, email, password);
+            await setItem('users', JSON.stringify(users));
+            await openSignUpOverlay();
+        }
+        else{
+            showMsgBoxInvalidConfirmation();
+        }
+    };
 }
+
+
+function checkName() {
+    let nameInput = elementByID("signupName").value;
+    let namenParts = nameInput.split(" ");
+
+    if (namenParts.length !== 2) {
+        alert("Bitte geben Sie genau zwei Namen mit Leerzeichen dazwischen ein.");
+        return false;
+    }
+
+    for (var i = 0; i < namenParts.length; i++) {
+        if (namenParts[i][0] !== namenParts[i][0].toUpperCase()) {
+            alert("Die Namen sollten mit einem Großbuchstaben beginnen.");
+            return false;
+        }
+    }
+
+    return true;
+}
+
 
 async function openSignUpOverlay() {
     //added following 2 lines
@@ -62,7 +80,7 @@ async function openSignUpOverlay() {
 
 
 function openSuccessfullRegistered(){
-    window.location.href = 'http://gruppe-697.developerakademie.net/index.html?msg=userregistered';
+    window.location.href = 'http://127.0.0.1:5500/index.html?msg=userregistered';
 }
 
 
@@ -237,15 +255,15 @@ function signupCoverConfirmation(){
 
 
 function openLogin(){
-    window.location.href = 'http://gruppe-697.developerakademie.net/index.html';
+    window.location.href = 'http://127.0.0.1:5500/index.html';
 }
 
 
 function openPrivacy(){
-    window.open('http://gruppe-697.developerakademie.net/html-sub/privacy_data_protection_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
 }
 
 
 function openLegal(){
-    window.open('http://gruppe-697.developerakademie.net/html-sub/legal_notice_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
 }
