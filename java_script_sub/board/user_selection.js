@@ -29,7 +29,7 @@ async function userSelection() {
 }
 
 function checkContact(ID) {
-    debugger
+    /* debugger */
     let user = `user_${ID}`;
     contactSelection.push(user);
     let userIndex = contactSelection.indexOf(user);
