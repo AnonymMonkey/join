@@ -6,7 +6,7 @@ let progressHTML = '';
 
 async function init() {
   await loadTasks();
-  await loadTaskCategory();  
+  await loadTaskCategory();
   await loadContacts();
   await includeHTML();
   updateHTML();
@@ -14,11 +14,11 @@ async function init() {
   setDateRange();
   addSubtask();
 }
-  
-  function updateHTML(search) {
-    let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
-    let longText = [
-      'No tasks To do',
+
+function updateHTML(search) {
+  let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
+  let longText = [
+    'No tasks To do',
     'No tasks in progress',
     'No await feedback',
     'No tasks done',
@@ -26,11 +26,11 @@ async function init() {
 
   let filteredTasks = search
     ? tasks.filter(
-        (t) =>
-          statuses.includes(t['status']) &&
-          (t['title'].toLowerCase().includes(search) ||
-            t['description'].toLowerCase().includes(search)),
-      )
+      (t) =>
+        statuses.includes(t['status']) &&
+        (t['title'].toLowerCase().includes(search) ||
+          t['description'].toLowerCase().includes(search)),
+    )
     : tasks;
 
   statuses.forEach((status, index) => {
@@ -80,8 +80,8 @@ async function moveTo(status) {
 }
 
 function addHighlight(status) {
-  let matches = document.querySelectorAll('div.placeholderCard');  
-  let excludeContainer = document.getElementById(status);  
+  let matches = document.querySelectorAll('div.placeholderCard');
+  let excludeContainer = document.getElementById(status);
 
   matches.forEach(function (placeholderItem) {
     if (!excludeContainer.contains(placeholderItem)) {
@@ -111,7 +111,7 @@ function filterTasks() {
   updateHTML(search);
 }
 
-function taskProgress(element) {  
+function taskProgress(element) {
   let doneSubtaskCount = 0;
   let allSubtaskCount = element['subtasks'].length;
   if (element['subtasks'] && allSubtaskCount > 0) {
@@ -127,37 +127,37 @@ function taskProgress(element) {
 
 function assignedTo(task) {
   let pixelLeft = 0;
-  
+
   for (let i = 0; i < contacts.length; i++) {
-    
+
     let contactTask = contacts[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
-    if(task['member'].includes(contactId)) {      
-      
+    if (task['member'].includes(contactId)) {
+
       let contactInitials = contactTask['register_entry'][0]['contact_initials'];
       let contactColor = contactTask['register_entry'][0]['contact_color'];
       let contactName = contactTask['register_entry'][0]['contact_name'];
-      
-      generateProfileBadges(contactInitials, contactColor, pixelLeft);      
+
+      generateProfileBadges(contactInitials, contactColor, pixelLeft);
       pixelLeft = pixelLeft + 8;
     }
   }
 }
 
-function assignedToTask(task) {  
+function assignedToTask(task) {
 
   for (let i = 0; i < contacts.length; i++) {
-    
+
     let contactTask = contacts[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
-    if(tasks[task]['member'].includes(contactId)) {      
+    if (tasks[task]['member'].includes(contactId)) {
       let contactInitials = contactTask['register_entry'][0]['contact_initials'];
       let contactColor = contactTask['register_entry'][0]['contact_color'];
       let contactName = contactTask['register_entry'][0]['contact_name'];
-      
-      generateProfileBadgesTask(contactInitials, contactColor, contactName);      
+
+      generateProfileBadgesTask(contactInitials, contactColor, contactName);
     }
   }
 }
@@ -190,14 +190,14 @@ function getTaskIndex(searchId) {
   return tasks.findIndex(item => item.id === searchId);
 }
 
-async function deleteTask(searchId) {  
-  let taskIndex = getTaskIndex(searchId);  
-  if (taskIndex !== -1) {    
+async function deleteTask(searchId) {
+  let taskIndex = getTaskIndex(searchId);
+  if (taskIndex !== -1) {
     tasks.splice(taskIndex, 1);
     closeTaskOverlay();
     await setItem('tasks', tasks);
     init();
-  }  
+  }
 }
 
 function insertTasks() {
@@ -220,7 +220,7 @@ function insertTasks() {
           substatus: 'done',
         },
       ],
-      member: [6529,378],
+      member: [6529, 378],
       category: 1,
       duedate: 1699138800000,
     },
@@ -231,7 +231,7 @@ function insertTasks() {
       status: 'awaitFeedback',
       prio: 'Low',
       subtasks: [],
-      member: [378,6339,6529],
+      member: [378, 6339, 6529],
       category: 0,
       duedate: 1704495600000,
     },
