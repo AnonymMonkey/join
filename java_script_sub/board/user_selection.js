@@ -29,21 +29,20 @@ async function userSelection() {
 }
 
 function checkContact(ID) {
-    /* debugger */
+    /* debugger*/
     let user = `user_${ID}`;
-    contactSelection.push(user);
     let userIndex = contactSelection.indexOf(user);
-
     let imgUnChecked = elementByID(`img_unchecked_${ID}`);
     let imgChecked = elementByID(`img_checked_${ID}`);
 
-    if (!userIndex == -1) {
-        imgUnChecked.classList.remove('d-none');
-        imgChecked.classList.add('d-none');
-    } else {
+    if (userIndex == -1) {
+        contactSelection.push(user);
         imgUnChecked.classList.add('d-none');
         imgChecked.classList.remove('d-none');
+    } else {
         contactSelection.splice(userIndex, 1);
+        imgUnChecked.classList.remove('d-none');
+        imgChecked.classList.add('d-none');
     }
 
 
