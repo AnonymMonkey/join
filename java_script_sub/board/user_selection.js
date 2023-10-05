@@ -31,9 +31,7 @@ async function userSelection() {
 function checkContact(ID) {
    /* debugger*/
     let user = `user_${ID}`;
-    
     let userIndex = contactSelection.indexOf(user);
-
     let imgUnChecked = elementByID(`img_unchecked_${ID}`);
     let imgChecked = elementByID(`img_checked_${ID}`);
 
