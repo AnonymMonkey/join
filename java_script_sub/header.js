@@ -7,8 +7,6 @@ let users = [];
 
 
 
-
-
 function adjustQuicklinkBG(){
     identifyGuest();
     if(msg) {
@@ -40,6 +38,7 @@ function adjustQuicklinkBG(){
         }
     }
 }
+
 
 function identifyGuest(){
     
