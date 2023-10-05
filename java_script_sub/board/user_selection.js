@@ -10,16 +10,23 @@ async function userSelection() {
         let contact = contacts[i]['register_entry'][0];
         let name = contact['contact_name'];
         let initials = contact['contact_initials'];
+        let color = contact['contact_color'];
         let ID = contact['contact_ID'];
 
 
         select.innerHTML += /* html */`
-        <div id="user_${ID}" onclick="checkContact(${ID})" class="flex">
-            <div>${initials}</div>
-            <div>${name}</div>
+        <div id="user_${ID}" onclick="checkContact(${ID})" class="flex user">
+            <div class="user-left">
+                <div class="user-initials circle" style="background-color: ${color};">
+                    <div class="inner-circle">
+                        ${initials}
+                    </div>
+                </div>
+                <div class="user-name">${name}</div>
+            </div>
             <div>
-                <img id="img_unchecked_${ID}" src="../assets/img/login/checkbox_unchecked.png">
-                <img id="img_checked_${ID}" class="d-none" src="../assets/img/add-task/checkbox_checked_white.svg">
+                <img class="user-checkbox" id="img_unchecked_${ID}" src="../assets/img/login/checkbox_unchecked.png">
+                <img class="user-checkbox" id="img_checked_${ID}" class="d-none" src="../assets/img/add-task/checkbox_checked_white.svg">
             </div>
         </div>
         `;
@@ -30,19 +37,41 @@ async function userSelection() {
 
 function checkContact(ID) {
     /* debugger*/
-    let user = `user_${ID}`;
-    let userIndex = contactSelection.indexOf(user);
+    let selectedUser = elementByID('selected_user');
+    let userIndex = contactSelection.indexOf(ID);
     let imgUnChecked = elementByID(`img_unchecked_${ID}`);
     let imgChecked = elementByID(`img_checked_${ID}`);
 
+
+
     if (userIndex == -1) {
-        contactSelection.push(user);
+        contactSelection.push(ID);
         imgUnChecked.classList.add('d-none');
         imgChecked.classList.remove('d-none');
     } else {
         contactSelection.splice(userIndex, 1);
         imgUnChecked.classList.remove('d-none');
         imgChecked.classList.add('d-none');
+    }
+
+    selectedUser.innerHTML = "";
+    for (let i = 0; i < contactSelection.length; i++) {
+        const selection = contactSelection[i];
+
+        let initials = getIndexOfJson(selection)['contact_initials'];
+        let color = getIndexOfJson(selection)['contact_color'];
+
+
+        selectedUser.innerHTML += /* html */`
+        <div class="circle" id="user_inital_${selection}">
+            <div class="inner-circle">
+                ${initials}
+            </div>
+        </div>
+        `;
+
+        let userInitial = elementByID(`user_inital_${selection}`);
+        userInitial.style.cssText = `background-color: ${color}; z-index: ${i + 10}; margin-left: -10px;`;
     }
 
 

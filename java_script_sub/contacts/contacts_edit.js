@@ -41,11 +41,6 @@ async function editContact(ID) {
 
 }
 
-function getIndexOf(ID) {
-    let position = contacts.findIndex(entry => entry.register_entry[0].contact_ID === ID);
-    return position;
-}
-
 async function changeContactData(pos, ID) {
     let nameIsValid = checkName();
     if (!nameIsValid) {
@@ -62,9 +57,4 @@ async function changeContactData(pos, ID) {
     showContact(ID);
     closeContactOverlay();
     smallAnimatedLabel("Contact succesfully edited");
-}
-
-function getIndexOfJson(ID) {
-    let pos = contacts[getIndexOf(ID)]['register_entry'][0];
-    return pos;
 }

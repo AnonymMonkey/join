@@ -2,6 +2,7 @@ function elementByID(id) {
     return document.getElementById(id);
 }
 
+/*  */
 function randomColor() {
     let color;
 
@@ -48,4 +49,15 @@ function hexToRgb(hex) {
         g: g,
         b: b
     };
+}
+
+/* contacts help */
+function getIndexOf(ID) {
+    let position = contacts.findIndex(entry => entry.register_entry[0].contact_ID === ID);
+    return position;
+}
+
+function getIndexOfJson(ID) {
+    let pos = contacts[getIndexOf(ID)]['register_entry'][0];
+    return pos;
 }
