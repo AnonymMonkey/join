@@ -189,6 +189,16 @@ body{
     */
 }
 
+#indexContent{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 80px;
+}
+
+
 .headlineLogIn span{
     width: 315px; 
 
@@ -339,7 +349,7 @@ input:not(:placeholder-shown){
     width: 142px;
 
     position: fixed;
-    top: 62vh;
+    
     
     
     /*
@@ -360,18 +370,6 @@ input:not(:placeholder-shown){
     line-height: 120%; /* 19.2px */
 }
 
-#loginCheckboxUnchecked{
-    display: flex;
-    position: absolute;
-    top: -14px;
-    left: -15px;
-}
-
-#loginCheckboxChecked{
-    position: absolute;
-    top: -14px;
-    left: -15px;
-}
 
 .checkboxBG:hover{
     background-color: #F6F7F8;
@@ -379,17 +377,18 @@ input:not(:placeholder-shown){
 
 .buttonsLogin{
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    
     gap: 35px;
-    width: 322px;
+    width: 100%;
 
-    /*Fixation*/
+    /*Fixation
     
     position: fixed;
     top: 70vh;
     left: 30vw;
-    /*
+    
     top: 662.5px;
     left: 559px;
     bottom: 313.5px;
@@ -420,6 +419,15 @@ input:not(:placeholder-shown){
 }
 
 
+.svgLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 35px;
+    
+}
+
+
 .svgLogin:hover rect{
     fill: #29ABE2;
 }
@@ -447,20 +455,10 @@ input:not(:placeholder-shown){
 .legalPrivacy{
     display: inline-flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: 16px; 
-    width: 246px;
-
-    /*Fixation*/
+    gap: 16px;
+    width: 100%;
     position: fixed;
-    top: 90vh;
-    left: 29vw;
-    /*
-    top: 900px;
-    left: 597px;
-    bottom: 40px;
-    right: 597px;
-    */
+    bottom: 5vh;
 }
 
 .legalPrivacyButton{

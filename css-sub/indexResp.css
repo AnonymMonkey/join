@@ -147,51 +147,32 @@
         width: 64px;
         height: 78.031px; 
 
-        /*Fixation*/
-        position: fixed;
-        top: 37px;
-        left: 38px;
-        bottom: 810.97px;
-        right: 326px;
+
     }
     
     .logIn{
-        width: 396px;
-        height: 520px;
+        width: 450px;
+        height: 55%;
 
         /*Fixation*/
         position: fixed;
-        top: 206px;
-        left: auto;
-        bottom: 206px;
-        right: 200px;
+        top: 22vh;
+        left: 20vw;
+
     }
     
     .headlineLogIn{
         /*Fixation*/
-        position: fixed;
-        top: 237.5px;
-        left: auto;
-        bottom: 616.5px;
-        right: 240.5px;
+        top: 25vh;
     }
 
-    .loginOverview{ 
-        /*Fixation*/
-        position: fixed;
-        top: 341.5px;
-        left: auto;
-        bottom: 432.5px;
-        right: 32px;
-    }
+  
 
     .inputsLogin{
         /*Fixation*/
         position: fixed;
-        top: 360.5px;
-        left: auto;
-        bottom: 536.5px;
-        right: 220px;
+        top: 38vh;
+
     }
 
     .inputsDecoration{
@@ -202,15 +183,7 @@
         width: 300px;
     }
 
-    .settingsLogin{
-       /*Fixation*/
-        position: fixed;
-        top: 509.5px;
-        left: auto;
-        bottom: 392.5px;
-        right: 69px;
-        padding: 0;
-    }
+   
 
     .loginMsgBox{
         position: fixed;
@@ -222,40 +195,42 @@
 
     .rememberMe{
         width: 170px;
-        align-items: flex-start;
-        gap: 16px; 
-        position: fixed;
-        top: 525.5px;
-        left: auto;
-        bottom: 392.5px;
-        right: 390px;
     }
 
-
     #loginCheckboxUnchecked{
-        display: flex;
-        position: absolute;
+
         top: -5px;
         left: 0px;
     }
     
     #loginCheckboxChecked{
-        position: absolute;
+        
         top: -5px;
         left: 0px;
     }
     
+    
     .buttonsLogin{
+        display: flex;
         flex-direction: column;
-        width: 180px;
-        height: 51px;
-        gap: 10px; 
-        /*Fixation*/
+        align-items: center;
+        width: 50%;
+        
+        gap: 21px;
+        
+        
         position: fixed;
-        top: 620.5px;
-        left: auto;
-        bottom: 237.5px;
-        right: 300px;
+        top: 62vh;
+
+    }
+    
+
+    .svgLogin{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        
     }
 
     .mobileLogin{
@@ -269,24 +244,34 @@
 
 
     .signUp{    
+        display: inline-flex;
+        justify-content: center;
         position: fixed;
-        top: 740px;
-        left: auto;
-        bottom: 99px;
-        right: 250px;
+        bottom: 12vh;
+        left: 30vw;
     }
 
-    .legalPrivacy{
-        /*Fixation*/
-        position: fixed;
-        top: 869px;
-        left: auto;
-        bottom: 22px;
-        right: 290px;
+
+}
+
+@media(max-width: 630px){
+
+    #indexContent{
+        
+        transform: scale(0.8);
+        top: -0vh;
+        
+       
+      
+    }
+
+    .logIn{
+        left: 5vw;
     }
 }
 
 
+/*
 @media(max-width: 630px){
      
     .startLogo{
@@ -296,7 +281,7 @@
     }
 
     .logoTopLeft{
-        /*Fixation*/
+        
         position: fixed;
         top: 37px;
         left: 38px;
@@ -305,7 +290,7 @@
     }
     
     .logIn{
-        /*Fixation*/
+        
         position: fixed;
         top: 206px;
         left: 35px;
@@ -314,7 +299,7 @@
     }
     
     .headlineLogIn{
-        /*Fixation*/
+        
         position: fixed;
         top: 237.5px;
         left: 75px;
@@ -323,7 +308,7 @@
     }
 
     .loginOverview{ 
-        /*Fixation*/
+        
         position: fixed;
         top: 341.5px;
         left: 32px;
@@ -332,7 +317,7 @@
     }
 
     .inputsLogin{
-        /*Fixation*/
+        
         position: fixed;
         top: 360.5px;
         left: 60px;
@@ -341,7 +326,7 @@
     }
 
     .settingsLogin{
-       /*Fixation*/
+       
         position: fixed;
         top: 509.5px;
         left: 32px;
@@ -366,7 +351,7 @@
     }
     
     .buttonsLogin{
-        /*Fixation*/
+        
         position: fixed;
         top: 620.5px;
         left: 150px;
@@ -383,7 +368,7 @@
     }
 
     .legalPrivacy{
-        /*Fixation*/
+       
         position: fixed;
         top: 869px;
         left: 95px;
@@ -391,8 +376,9 @@
         right: 290px;
     }
 }
+*/
 
-
+/*
 @media(max-width: 450px){
     .startLogo{
         position: absolute;
@@ -402,7 +388,7 @@
 
 
     .logIn{
-        /*Fixation*/
+       
         position: fixed;
         top: 206px;
         left: 16px;
@@ -411,7 +397,7 @@
     }
     
     .headlineLogIn{
-        /*Fixation*/
+        
         position: fixed;
         top: 237.5px;
         left: 60px;
@@ -420,7 +406,7 @@
     }
 
     .loginOverview{ 
-        /*Fixation*/
+        
         position: fixed;
         top: 341.5px;
         left: 32px;
@@ -429,7 +415,7 @@
     }
 
     .inputsLogin{
-        /*Fixation*/
+        
         position: fixed;
         top: 360.5px;
         left: 32px;
@@ -438,7 +424,7 @@
     }
 
     .settingsLogin{
-       /*Fixation*/
+       
         position: fixed;
         top: 509.5px;
         left: 32px;
@@ -463,7 +449,7 @@
     }
     
     .buttonsLogin{
-        /*Fixation*/
+        
         position: fixed;
         top: 620.5px;
         left: 124px;
@@ -480,7 +466,7 @@
     }
 
     .legalPrivacy{
-        /*Fixation*/
+        
         position: fixed;
         top: 869px;
         left: 70px;
@@ -488,7 +474,10 @@
         right: 91px;
     }
 }
+*/
 
+
+/*
 @media(max-width: 430px){
     .content{
         transform: scale(0.7);
@@ -507,3 +496,4 @@
 
 
 }
+*/
