@@ -1,3 +1,5 @@
+
+/*
 @media(max-width: 1440px){
     .logIn{
         left: auto;
@@ -44,15 +46,16 @@
         right: 578px;
     }
 }
+*/
 
-
+/*
 @media(max-width: 1150px){
     .logIn{
         left: 80px;
     }
     
     .headlineLogIn{
-        /*Fixation*/
+        
         position: fixed;
         top: 313.5px;
         left: 272.5px;
@@ -66,7 +69,7 @@
     }
 
     .inputsLogin{
-        /*Fixation*/
+     
         position: fixed;
         top: 434.5px;
         left: 219px;
@@ -75,7 +78,7 @@
     }
 
     .settingsLogin{
-       /*Fixation*/
+       
         position: fixed;
         top: 606.5px;
         left: 120px;
@@ -101,7 +104,7 @@
 
     .buttonsLogin{
     
-        /*Fixation*/
+        
         position: fixed;
         top: 662.5px;
         left: 269px;
@@ -110,7 +113,7 @@
     }
 
     .legalPrivacy{
-        /*Fixation*/
+       
         position: fixed;
         top: 900px;
         left: 307px;
@@ -118,12 +121,19 @@
         right: 597px;
     }
 }
+*/
 
 @media(max-width: 900px){
-    .signUp{
-        left: 498px;
+    .logIn{
+
+        width: 500px;
+    
+
+        
     }
 }
+
+
 
 @media(max-width: 800px){
         
@@ -132,7 +142,6 @@
         top: 25%;
         left: 35%;
     }
-    
     
     .logoTopLeft{
         width: 64px;
@@ -202,8 +211,6 @@
         right: 69px;
         padding: 0;
     }
-
-
 
     .loginMsgBox{
         position: fixed;
