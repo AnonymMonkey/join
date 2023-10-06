@@ -160,14 +160,6 @@ function getContactFirstLetters() {
     return initials;
 }
 
-function contactFirstLettersBG(color) {
-    var rgb = hexToRgb(color);
-
-    var backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
-
-    return `style="background-color: ${backgroundColor};"`;
-}
-
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // RESET & DELETE ||||||||||||||||||||||||||||||||||||||||||| //

@@ -8,10 +8,10 @@ function randomColor() {
 
     do {
         color = Math.floor(Math.random() * 16777215).toString(16);
+        color = '#' + '0'.repeat(6 - color.length) + color; // Stellt sicher, dass color immer 6 Zeichen hat
     } while (generatedColors.has(color));
 
     generatedColors.add(color);
-    color = '#' + color;
     return color;
 }
 
@@ -40,9 +40,9 @@ function hexToRgb(hex) {
         }).join('');
     }
 
-    var r = parseInt(hex.slice(0, 2), 16);
-    var g = parseInt(hex.slice(2, 4), 16);
-    var b = parseInt(hex.slice(4, 6), 16);
+    let r = parseInt(hex.slice(0, 2), 16);
+    let g = parseInt(hex.slice(2, 4), 16);
+    let b = parseInt(hex.slice(4, 6), 16);
 
     return {
         r: r,
@@ -50,6 +50,15 @@ function hexToRgb(hex) {
         b: b
     };
 }
+
+function contactFirstLettersBG(color) {
+    let rgb = hexToRgb(color);
+
+    let backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+
+    return `style="background-color: ${backgroundColor};"`;
+}
+
 
 /* contacts help */
 function getIndexOf(ID) {
