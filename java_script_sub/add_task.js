@@ -6,14 +6,14 @@ async function initAddTasks() {
   await includeHTML();
   adjustQuicklinkBG();
   setDateRange();
-  addSubtask();
+  /* addSubtask(); */
 
-  await userSelection();
+  /*  await userSelection(); */
 }
 
 function resetForm() {
   newSubtasks = [];
-  addSubtask();
+  /* addSubtask(); */
   document.getElementById('addTaskInputForm').reset();
   document.getElementById('temporaryStatus').innerHTML = '';
   document.getElementById('prioResult').innerHTML = '';

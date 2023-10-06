@@ -33,16 +33,10 @@
         <div class="task_assigned_to_text">Assigned To</div>
         <div id="frame74" onclick="userSelection()" class="frame74 pointer">
           <span>Select contacts to assign</span>
-          <svg width="10" height="4" viewBox="0 0 10 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path id="Vector 13" d="M10 0L5 4L0 0L10 0Z" fill="black" />
-          </svg>
+          <img src="../../assets/img/add-task/arrow_drop_down.png">
         </div>
         <div class="d-none" id="user_selection"></div>
         <div id="selected_user" class="flex m-left-10"></div>
-        <!--           <select name="frame74_select" id="frame74_select">
-            <option value="" selected>Select contacts to assign</option>
-          </select> -->
-
       </div>
       <!-- //TODO - Andino: Hier sollten die Badges der oben ausgewählten Kontakte erscheinen -->
     </div>
@@ -93,7 +87,7 @@
           </div>
 
         </div>
-        <!-- <label id="priority_label" class="requiredField d-none" for="priority">This field is required</label> -->
+        <label id="priority_label" class="requiredField d-none" for="priority">This field is required</label>
       </div>
 
       <!-- //TODO - Hier sollte das Styling der Liste angepasst werden -->
@@ -120,10 +114,10 @@
           <input type="text" placeholder="Add new subtask" class="pointer" maxlength="30" id="frame14_subtask_text"
             onfocus="subtaskActions('show')" />
           <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover"
-            src="../assets/img/add-task/cancel.svg" alt="">
-          <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png" alt="">
+            src="../assets/img/add-task/cancel.svg">
+          <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png">
           <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer button-hover"
-            src="../assets/img/add-task/check_black.svg" alt="">
+            src="../assets/img/add-task/check_black.svg">
         </div>
         <label id="frame14_subtask_label" class="requiredField d-none" for="frame14_subtask_text">Maximum number
           reached</label>
@@ -131,19 +125,19 @@
           <ul id="subtasklist"></ul>
         </div>
       </div>
-
-
     </div>
   </div>
 </form>
 <!-- form end -->
 <div class="frame35">
   <div class="frame27">
-    <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">Clear <img
-        src="../assets/img/add-task/cancel.svg" />
+    <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">
+      Clear
+      <img src="../assets/img/add-task/cancel.svg" />
     </div>
-    <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">Cancel <img
-        src="../assets/img/add-task/cancel.svg" />
+    <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">
+      Cancel
+      <img src="../assets/img/add-task/cancel.svg" />
     </div>
     <button class="primary_check_button pointer" onclick="validation()">
       Create Task
