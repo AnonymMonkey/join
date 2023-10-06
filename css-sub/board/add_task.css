@@ -255,7 +255,7 @@ select {
 
 .task_assigned_to {
   width: 440px;
-  height: 80px;
+  height: 100%;
   top: 296px;
   display: flex;
   flex-direction: column;
