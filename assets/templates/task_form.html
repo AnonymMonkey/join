@@ -63,7 +63,7 @@
         <div id="priority" class="priority">
 
           <div id="frame24" class="urgent pointer" onclick="selectedRadioButton('Urgent', 'frame24')">
-            <input type="radio" value="Urgent" id="Urgent" name="prio" class="radio-urgent pointer" required />
+            <input type="radio" value="Urgent" id="Urgent" name="prio" class="radio-urgent pointer" required="required" />
             <label class="pointer" for="Urgent">
               Urgent
               <img src="../assets/img/add-task/urgent.svg" alt="" id="imgUrgent" class="pointer">
@@ -71,7 +71,7 @@
           </div>
 
           <div id="frame25" class="medium pointer" onclick="selectedRadioButton('Medium', 'frame25')">
-            <input type="radio" value="Medium" id="Medium" name="prio" class="radio-medium pointer" />
+            <input type="radio" value="Medium" id="Medium" name="prio" class="radio-medium pointer" required="required"/>
             <label class="pointer" for="Medium">
               Medium
               <img src="../assets/img/add-task/medium.svg" alt="" id="imgMedium" class="pointer">
@@ -79,7 +79,7 @@
           </div>
 
           <div id="frame26" class="low pointer" onclick="selectedRadioButton('Low', 'frame26')">
-            <input type="radio" value="Low" id="Low" name="prio" class="radio-low pointer" />
+            <input type="radio" value="Low" id="Low" name="prio" class="radio-low pointer" required="required"/>
             <label class="pointer" for="Low">
               Low
               <img src="../assets/img/add-task/low.svg" alt="" id="imgLow" class="pointer">
@@ -139,7 +139,7 @@
       Cancel
       <img src="../assets/img/add-task/cancel.svg" />
     </div>
-    <button class="primary_check_button pointer" onclick="validation()">
+    <button class="primary_check_button pointer" onclick="validation()">    
       Create Task
       <img src="../assets/img/add-task/check.svg" />
     </button>
