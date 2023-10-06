@@ -26,7 +26,8 @@ function resetForm() {
   document.getElementById('imgMedium').src = '../assets/img/add-task/medium.svg';
   document.getElementById('imgLow').src = '../assets/img/add-task/low.svg';
   document.getElementById('frame74').classList.remove('error');
-  document.getElementById('category_select_label').classList.add('d-none');
+  document.getElementById('category_select_label').classList.add('d-none');  
+  document.getElementById('subtaskEdit').classList.add('d-none');
 }
 
 function setDateRange() {
@@ -169,20 +170,21 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
 }
 
 //TODO - Stefan - bin dabei die Funktion umzusetzen
-// es fehlt noch die Möglichkeit den Wert zu editieren.
+  // es fehlt noch die Möglichkeit den Wert zu editieren
+  // die jeweiligen Aktionen sollen nur angezeigt werden bei einem Hover je LI-Element
 function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < newSubtasks.length; i++) {
     list.innerHTML += `
-      <li>
+      <li class="pointer" ondblclick="editSubtask(${i})">
       <div>&bull; 
-      ${newSubtasks[i].subtitle}       
+      ${newSubtasks[i].subtitle}
       </div>      
       <div>
-        <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="pointer button-hover" src="../assets/img/board/edit.svg" alt="">
-        <img id="subtask-vector" src="../assets/img/add-task/vector.png" alt="">
-        <img id="addSubtaskInput" onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg" alt="">
+        <img onclick="editSubtask(${i})" class="pointer button-hover" src="../assets/img/board/edit.svg">
+        <img class="subtask-vector" src="../assets/img/add-task/vector.png">
+        <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg">
       </div>
       </li>
       `;
@@ -212,6 +214,27 @@ function deleteSubtask(id) {
   newSubtasks.splice(id, 1);
   addSubtask();
 }
+
+function editSubtask(id) {  
+  let subtaskfield = document.getElementById('subtaskEditInput');
+  let subTaskActions = document.getElementById('subtaskEditActions');
+  document.getElementById('subtaskEdit').classList.remove('d-none');
+  subtaskfield.value = newSubtasks[id]['subtitle'];
+
+console.log(id);
+
+  subTaskActions.innerHTML = '';
+  subTaskActions.innerHTML = /*html*/`
+    <img class="pointer button-hover" src="../assets/img/board/delete.svg">
+    <img class="subtask-vector" src="../assets/img/add-task/vector.png">
+    <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../assets/img/add-task/check_black.svg">
+  `;
+}
+
+function updateSubtask(id) {
+  newSubtasks[id]['subtitle'] = document.getElementById('subtaskEditInput').value;
+}
+
 
 function clearInput(field) {
   document.getElementById(field).value = '';

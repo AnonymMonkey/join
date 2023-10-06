@@ -117,7 +117,7 @@ select {
   position: absolute;
   width: 170px;
   height: 27px;
-  top: 779px;
+  top: 800px;
   left: 74px;
 }
 
@@ -137,6 +137,10 @@ select {
   top: 174px;
   left: 74px;
   position: absolute;
+}
+
+input[type='date']::placeholder {
+  color: #d1d1d1;
 }
 
 .vector4 {
@@ -280,7 +284,7 @@ select {
   justify-content: flex-end;
   width: 334px;
   height: 56px;
-  top: 750px;
+  top: 780px;
   left: 716.25px;
   position: absolute;
   gap: 4px;
@@ -479,7 +483,8 @@ input[type='date'] {
 } */
 
 select {
-  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right center;
+  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right
+    center;
 }
 
 textarea {
@@ -657,7 +662,7 @@ textarea {
   height: 48px;
   padding: 12px 21px;
   border-radius: 10px;
-  gap: 10px;
+  gap: 5px;
   border: 1px solid #d1d1d1;
   display: flex;
   background-color: #ffffff;
@@ -704,6 +709,27 @@ textarea {
   border-radius: 10px;
 }
 
+#subtaskEdit {
+  width: 440px;
+  height: 32px;
+  padding: 4px 24px 4px 16px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #005dff;
+  display: flex;
+  justify-content: space-between;
+}
+
+#subtaskEditInput {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;  
+  height: 19px;
+  width: 314px;
+}
+
 .buttons-cancel {
   display: flex;
   padding: 16px;
@@ -712,8 +738,8 @@ textarea {
   gap: 4px;
   overflow: hidden;
   border-radius: 10px;
-  border: 1px solid var(--version-2-main-color, #2A3647);
-  color: var(--version-2-main-color, #2A3647);
+  border: 1px solid var(--version-2-main-color, #2a3647);
+  color: var(--version-2-main-color, #2a3647);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -722,10 +748,10 @@ textarea {
 
 .buttons-cancel:hover {
   border-radius: 10px;
-  border: 2px solid var(--Ligth-blue, #29ABE2);
+  border: 2px solid var(--Ligth-blue, #29abe2);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 15px;
-  color: var(--Ligth-blue, #29ABE2);
+  color: var(--Ligth-blue, #29abe2);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -735,5 +761,6 @@ textarea {
 }
 
 .buttons-cancel:hover img {
-  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
+  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg)
+    brightness(120%) contrast(90%);
 }
