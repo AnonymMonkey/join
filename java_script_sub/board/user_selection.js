@@ -1,38 +1,45 @@
-let contactSelection = [];
+let contactSelection = []
+let isOpen = false;
 
 async function userSelection() {
     await loadContacts();
 
     let select = document.getElementById("user_selection");
-    let selectOnClick = document.getElementById("frame74");
 
-    for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i]['register_entry'][0];
-        let name = contact['contact_name'];
-        let initials = contact['contact_initials'];
-        let color = contact['contact_color'];
-        let ID = contact['contact_ID'];
+    if (isOpen) {
+        select.classList.add('d-none');
+        isOpen = false;
+    } else {
+        select.innerHTML = "";
+        for (let i = 0; i < contacts.length; i++) {
+            let contact = contacts[i]['register_entry'][0];
+            let name = contact['contact_name'];
+            let initials = contact['contact_initials'];
+            let color = contact['contact_color'];
+            let ID = contact['contact_ID'];
 
-
-        select.innerHTML += /* html */`
-        <div id="user_${ID}" onclick="checkContact(${ID})" class="flex user">
-            <div class="user-left">
-                <div class="user-initials circle" style="background-color: ${color};">
-                    <div class="inner-circle">
-                        ${initials}
+            select.innerHTML += /* html */`
+            <div id="user_${ID}" onclick="checkContact(${ID})" class="flex user">
+                <div class="user-left">
+                    <div class="user-initials circle" style="background-color: ${color};">
+                        <div class="inner-circle">
+                            ${initials}
+                        </div>
                     </div>
+                    <div class="user-name">${name}</div>
                 </div>
-                <div class="user-name">${name}</div>
+                <div>
+                    <img class="user-checkbox" id="img_unchecked_${ID}" src="../assets/img/login/checkbox_unchecked.png">
+                    <img class="user-checkbox d-none" id="img_checked_${ID}" src="../assets/img/add-task/checkbox_checked_white.svg">
+                </div>
             </div>
-            <div>
-                <img class="user-checkbox" id="img_unchecked_${ID}" src="../assets/img/login/checkbox_unchecked.png">
-                <img class="user-checkbox" id="img_checked_${ID}" class="d-none" src="../assets/img/add-task/checkbox_checked_white.svg">
-            </div>
-        </div>
-        `;
+            `;
+        }
+        select.classList.remove('d-none');
+        isOpen = true;
     }
-    selectOnClick.onclick = "";
-    select.classList.remove('d-none');
+
+
 }
 
 function checkContact(ID) {
