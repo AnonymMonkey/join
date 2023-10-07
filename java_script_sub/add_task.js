@@ -85,51 +85,19 @@ function subtaskActions(view) {
   }
 }
 
-function getNextFreeTaskId() {
-  if (tasks.length === 0) {
+function getNextFreeId(items, idKey) {
+  if (items.length === 0) {
     return 0;
   }
-  let allIds = tasks.map((task) => task.id);
+  let allIds = items.map((item) => item[idKey]);
   let nextFreeId = Math.max(...allIds) + 1;
   return nextFreeId;
 }
 
-function getNextFreeSubtaskId() {
-  if (newSubtasks.length === 0) {
-    return 0;
-  }
-  let allSubtaskIds = newSubtasks.map((subtask) => subtask.subid);
-  let nextFreeId = Math.max(...allSubtaskIds) + 1;
-  return nextFreeId;
-}
-
-function validation() {
-  let prioResult = document.getElementById('prioResult').innerHTML;
-  let category = document.getElementById('category_select').value;
-
-  if (prioResult === '') {
-    document.getElementById('priority').classList.add('error');
-    document.getElementById('priority_label').classList.remove('d-none');
-    return;
-  }
-  else {
-    document.getElementById('priority').classList.remove('error');
-    document.getElementById('priority_label').classList.add('d-none');
-  }
-
-  if (category === '') {
-    document.getElementById('frame74').classList.add('error');
-    return;
-  }
-  else {
-    document.getElementById('frame74').classList.remove('error');
-  }
-}
-
 async function addNewTask(origin) {
   let status = document.getElementById('temporaryStatus').innerHTML;
-  let category = document.getElementById('category_select').value;
-  let id = getNextFreeTaskId();
+  let category = document.getElementById('category_select').value;  
+  let id = getNextFreeId(tasks, 'id');
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
@@ -169,9 +137,6 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
   await setItem('tasks', tasks);
 }
 
-//TODO - Stefan - bin dabei die Funktion umzusetzen
-  // es fehlt noch die Möglichkeit den Wert zu editieren
-  // die jeweiligen Aktionen sollen nur angezeigt werden bei einem Hover je LI-Element
 function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
@@ -191,8 +156,8 @@ function addSubtask() {
   }
 }
 
-function addnewSubtask() {
-  nextSubId = getNextFreeSubtaskId();
+function addnewSubtask() {  
+  let nextSubId = getNextFreeId(newSubtasks, 'subid');
   if (newSubtasks.length < 5) {
     let newSubtask = {
       subid: nextSubId,
