@@ -5,11 +5,13 @@ async function userSelection() {
     await loadContacts();
 
     let select = elementByID("user_selection");
+    let selectedUser = elementByID('selected_user');
     let selectBG = elementByID("user_selection-background");
 
     if (isOpen) {
         select.classList.add('d-none');
         selectBG.classList.add('d-none');
+        selectedUser.classList.remove('d-none');
         isOpen = false;
     } else {
         select.innerHTML = "";
@@ -26,6 +28,7 @@ async function userSelection() {
         select.innerHTML += userSelection_addContact_button();
         select.classList.remove('d-none');
         selectBG.classList.remove('d-none');
+        selectedUser.classList.add('d-none');
         isOpen = true;
     }
 }
