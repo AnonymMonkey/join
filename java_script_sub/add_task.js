@@ -134,11 +134,11 @@ async function addNewTask(origin) {
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
   let addTaskSubtasks = newSubtasks;
-  let member = [6339];
+  let allMember = contactSelection;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
 
-  await createTask(id, title, description, status, prio, addTaskSubtasks, member, category, formattedTaskDate);
+  await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);
 
   //TODO - Info dass neuer Task gespeichert wurde!
   // dazu die Funktion von Andino nutzen
@@ -152,7 +152,7 @@ async function addNewTask(origin) {
   openSelectedQuicklink('quickBoard');
 }
 
-async function createTask(id, title, description, status, prio, addTaskSubtasks, member, category, formattedTaskDate) {
+async function createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate) {
   let newTask = {
     id: id,
     title: title,
@@ -160,7 +160,7 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
     status: status,
     prio: prio,
     subtasks: addTaskSubtasks,
-    member: member,
+    member: allMember,
     category: category,
     duedate: formattedTaskDate,
   };
@@ -181,7 +181,7 @@ function addSubtask() {
       <div>&bull; 
       ${newSubtasks[i].subtitle}
       </div>      
-      <div>
+      <div class="subtaskActionPanel">
         <img onclick="editSubtask(${i})" class="pointer button-hover" src="../assets/img/board/edit.svg">
         <img class="subtask-vector" src="../assets/img/add-task/vector.png">
         <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg">
@@ -213,6 +213,7 @@ function deleteSubtask(id) {
   document.getElementById('frame14_subtask').classList.remove('error');
   newSubtasks.splice(id, 1);
   addSubtask();
+  hideEditSubtask();
 }
 
 function editSubtask(id) {  
@@ -220,12 +221,9 @@ function editSubtask(id) {
   let subTaskActions = document.getElementById('subtaskEditActions');
   document.getElementById('subtaskEdit').classList.remove('d-none');
   subtaskfield.value = newSubtasks[id]['subtitle'];
-
-console.log(id);
-
   subTaskActions.innerHTML = '';
   subTaskActions.innerHTML = /*html*/`
-    <img class="pointer button-hover" src="../assets/img/board/delete.svg">
+    <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../assets/img/board/delete.svg">
     <img class="subtask-vector" src="../assets/img/add-task/vector.png">
     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../assets/img/add-task/check_black.svg">
   `;
@@ -233,8 +231,16 @@ console.log(id);
 
 function updateSubtask(id) {
   newSubtasks[id]['subtitle'] = document.getElementById('subtaskEditInput').value;
+  addSubtask();
+  hideEditSubtask();
 }
 
+function hideEditSubtask() {
+  subtaskEditInput = document.getElementById('subtaskEditInput');
+  subtaskEditInput.value = '';
+  subtaskEdit = document.getElementById('subtaskEdit');
+  subtaskEdit.classList.add('d-none');
+}
 
 function clearInput(field) {
   document.getElementById(field).value = '';

@@ -514,7 +514,6 @@ textarea {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .priority {
@@ -525,9 +524,8 @@ textarea {
   gap: 16px;
 }
 
-/* HIDE RADIO */
-.priority [type='radio'] {
-  appearance: none;
+.priority [type='radio'] {  
+  opacity: 0;
 }
 
 .urgent,
@@ -707,6 +705,14 @@ textarea {
 #subtasklist li:hover {
   background-color: rgb(232, 229, 229);
   border-radius: 10px;
+}
+
+.subtaskActionPanel{
+  opacity: 0;
+}
+
+#subtasklist li:hover .subtaskActionPanel{
+  opacity: 1;
 }
 
 #subtaskEdit {

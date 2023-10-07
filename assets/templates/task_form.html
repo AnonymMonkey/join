@@ -131,24 +131,25 @@
       </div>
     </div>
   </div>
-</form>
-<!-- form end -->
-<div class="frame35">
-  <div class="frame27">
-    <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">
-      Clear
-      <img src="../assets/img/add-task/cancel.svg" />
+  <!-- form end -->
+  <div class="frame35">
+    <div class="frame27">
+      <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">
+        Clear
+        <img src="../assets/img/add-task/cancel.svg" />
+      </div>
+      <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">
+        Cancel
+        <img src="../assets/img/add-task/cancel.svg" />
+      </div>
+      <!-- <button type="submit" class="primary_check_button pointer" onclick="validation()">     -->
+      <button type="submit" class="primary_check_button pointer">    
+        Create Task
+        <img src="../assets/img/add-task/check.svg" />
+      </button>
     </div>
-    <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">
-      Cancel
-      <img src="../assets/img/add-task/cancel.svg" />
-    </div>
-    <button class="primary_check_button pointer" onclick="validation()">    
-      Create Task
-      <img src="../assets/img/add-task/check.svg" />
-    </button>
   </div>
-</div>
+</form>
 <div class="requiredInfo">
   <sup class="requiredAsterisk">*</sup>This field is required
 </div>
