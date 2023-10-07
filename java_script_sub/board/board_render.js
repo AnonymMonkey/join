@@ -98,7 +98,7 @@ function generateOverlayContent(element) {
   content.innerHTML = '';
   badgeHTMLTask = '';
 
-  assignedToTask(id);
+  assignedToTask(id);  
 
   content.innerHTML = /*html*/ `
   <div class="frame203_task">                   

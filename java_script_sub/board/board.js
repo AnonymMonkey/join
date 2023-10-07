@@ -200,79 +200,13 @@ async function deleteTask(searchId) {
   }
 }
 
-function insertTasks() {
-  let xtasks = [
-    {
-      id: 14,
-      title: 'Kochwelt Page & Recipe Recommender',
-      description: 'Build start page with recipe recommendation.',
-      status: 'todo',
-      prio: 'Medium',
-      subtasks: [
-        {
-          subid: 0,
-          subtitle: 'Implement Recipe Recommendation',
-          substatus: 'open',
-        },
-        {
-          subid: 1,
-          subtitle: 'Start Page Layout',
-          substatus: 'done',
-        },
-      ],
-      member: [6529, 378],
-      category: 1,
-      duedate: 1699138800000,
-    },
-    {
-      id: 8,
-      title: 'HTML Base Template Creation',
-      description: 'Create reusable HTML base templates...',
-      status: 'awaitFeedback',
-      prio: 'Low',
-      subtasks: [],
-      member: [378, 6339, 6529],
-      category: 0,
-      duedate: 1704495600000,
-    },
-    {
-      id: 22,
-      title: 'Daily Kochwelt Recipe',
-      description: 'Implement daily recipe and portion calculator...',
-      status: 'todo',
-      prio: 'Urgent',
-      subtasks: [],
-      member: [378, 6339],
-      category: 1,
-      duedate: 1701385200000,
-    },
-    {
-      id: 5,
-      title: 'CSS Architecture Planning',
-      description: 'Define CSS naming conventions and structure...',
-      status: 'done',
-      prio: 'Urgent',
-      subtasks: [
-        {
-          subid: 0,
-          subtitle: 'Establish CSS Methodology',
-          substatus: 'done',
-        },
-        {
-          subid: 1,
-          subtitle: 'Setup Base Styles',
-          substatus: 'open',
-        },
-        {
-          subid: 2,
-          subtitle: 'Do something',
-          substatus: 'open',
-        },
-      ],
-      member: [6529],
-      category: 0,
-      duedate: 1700002800000,
-    }
-  ];
-  setItem('tasks', xtasks);
+//TODO Stefan - Funktionen um außerhalb der Dialoge das Schließen zu erzwingen bzw. dieses zu unterbinden / not working
+function close() {
+  console.log('jetzt muss es zu');
 }
+
+function doNotClose(event) {
+  event.stopPropagation();
+}
+
+// onclick="previousImage(),doNotClose(event)"
