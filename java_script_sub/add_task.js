@@ -143,14 +143,14 @@ function addSubtask() {
   for (let i = 0; i < newSubtasks.length; i++) {
     list.innerHTML += `
       <li class="pointer" ondblclick="editSubtask(${i})">
-      <div>&bull; 
-      ${newSubtasks[i].subtitle}
-      </div>      
-      <div class="subtaskActionPanel">
-        <img onclick="editSubtask(${i})" class="pointer button-hover" src="../assets/img/board/edit.svg">
-        <img class="subtask-vector" src="../assets/img/add-task/vector.png">
-        <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg">
-      </div>
+        <div>&bull; 
+          ${newSubtasks[i].subtitle}
+        </div>      
+        <div class="subtaskActionPanel">
+          <img onclick="editSubtask(${i})" class="pointer button-hover" src="../assets/img/board/edit.svg">
+          <img class="subtask-vector" src="../assets/img/add-task/vector_dark.png">
+          <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg">
+        </div>
       </li>
       `;
   }
