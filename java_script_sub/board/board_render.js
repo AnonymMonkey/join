@@ -32,6 +32,7 @@ function generateTasksHTML(element) {
     <div class="frameX">
       <div class="frame139">
         ${badgeHTML}
+        <div name="memberRest"></div>
       </div>
       <div class="priority_symbol">
         <img src="../assets/img/add-task/${prioIcon}.svg" alt="">
@@ -64,12 +65,16 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <circle cx="16" cy="16" r="15.5" fill="${badgeColor}" stroke="white"/>          
               </svg>        
-              <div class="group9_text">${initials}</div>
+              <div class="group9_text">${initials}</div>              
           </div>
         </div>
       </div>
     </div>
   `);
+}
+
+function generateMemberRestBadges(rest) {  
+  document.getElementsByName('memberRest').innerHTML = ` +${rest}`;
 }
 
 function generateProfileBadgesTask(initials, badgeColor, name) {

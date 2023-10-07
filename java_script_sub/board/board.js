@@ -125,22 +125,30 @@ function taskProgress(element) {
   }
 }
 
-function assignedTo(task) {
+async function assignedTo(task) {
   let pixelLeft = 0;
-
+  let numberOfMembers = task['member'].length;  
+  let memberRest = 0;
   for (let i = 0; i < contacts.length; i++) {
 
     let contactTask = contacts[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
     if (task['member'].includes(contactId)) {
-
-      let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-      let contactColor = contactTask['register_entry'][0]['contact_color'];
-      let contactName = contactTask['register_entry'][0]['contact_name'];
-
-      generateProfileBadges(contactInitials, contactColor, pixelLeft);
-      pixelLeft = pixelLeft + 8;
+      if(i === 5)
+      {
+        memberRest = (numberOfMembers - 5);
+        await generateMemberRestBadges(memberRest);
+        return;
+      }
+      else {
+        let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+        let contactColor = contactTask['register_entry'][0]['contact_color'];
+        let contactName = contactTask['register_entry'][0]['contact_name'];
+  
+        await generateProfileBadges(contactInitials, contactColor, pixelLeft);
+        pixelLeft = pixelLeft + 8;
+      }      
     }
   }
 }
