@@ -75,8 +75,33 @@
     flex-shrink: 0;
 }
 
+#user_selection-background {
+    height: 20vh;
+    width: 100%;
+    background-color: #FFF;
+    border-radius: 10px;
+    height: calc(20vh + 48px);
+    position: relative;
+    top: -56px;
+    padding-top: 48px;
+    z-index: 0;
+}
+
 #user_selection {
     overflow-y: auto;
     height: 20vh;
     width: 100%;
+}
+
+.add-contact-button-area {
+    display: flex;
+    width: 100%;
+    padding: 8px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.w-100 {
+    width: 100% !important;
 }

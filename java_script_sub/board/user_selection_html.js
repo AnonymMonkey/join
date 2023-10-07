@@ -26,3 +26,14 @@ function user_selectedUser_html(selection, initials) {
         </div>
         `
 }
+
+function userSelection_addContact_button() {
+    return `
+    <div class="add-contact-button-area">
+        <div onclick="addContact()" class="pointer add-contact-button w-100">
+            <span>Add new contact</span>
+            <img src="../assets/img/contacts/person_add.svg">
+        </div>
+    </div>
+    `
+}
