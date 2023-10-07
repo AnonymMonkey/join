@@ -1,10 +1,10 @@
 let contactSelection = []
-let isOpen = false;
+let isOpen = true;
 
 async function userSelection() {
     await loadContacts();
 
-    let select = document.getElementById("user_selection");
+    let select = elementByID("user_selection");
 
     if (isOpen) {
         select.classList.add('d-none');
@@ -18,68 +18,65 @@ async function userSelection() {
             let color = contact['contact_color'];
             let ID = contact['contact_ID'];
 
-            select.innerHTML += /* html */`
-            <div id="user_${ID}" onclick="checkContact(${ID})" class="flex user">
-                <div class="user-left">
-                    <div class="user-initials circle" style="background-color: ${color};">
-                        <div class="inner-circle">
-                            ${initials}
-                        </div>
-                    </div>
-                    <div class="user-name">${name}</div>
-                </div>
-                <div>
-                    <img class="user-checkbox" id="img_unchecked_${ID}" src="../assets/img/login/checkbox_unchecked.png">
-                    <img class="user-checkbox d-none" id="img_checked_${ID}" src="../assets/img/add-task/checkbox_checked_white.svg">
-                </div>
-            </div>
-            `;
+            select.innerHTML += user_select_html(name, initials, color, ID);
+            hiddenBadge(ID);
         }
         select.classList.remove('d-none');
         isOpen = true;
     }
-
-
 }
 
-function checkContact(ID) {
-    /* debugger*/
+function createBadge(ID) {
     let selectedUser = elementByID('selected_user');
-    let userIndex = contactSelection.indexOf(ID);
-    let imgUnChecked = elementByID(`img_unchecked_${ID}`);
-    let imgChecked = elementByID(`img_checked_${ID}`);
-
-
-
-    if (userIndex == -1) {
-        contactSelection.push(ID);
-        imgUnChecked.classList.add('d-none');
-        imgChecked.classList.remove('d-none');
-    } else {
-        contactSelection.splice(userIndex, 1);
-        imgUnChecked.classList.remove('d-none');
-        imgChecked.classList.add('d-none');
-    }
-
+    checkBadge(ID);
     selectedUser.innerHTML = "";
     for (let i = 0; i < contactSelection.length; i++) {
-        const selection = contactSelection[i];
-
+        let selection = contactSelection[i];
         let initials = getIndexOfJson(selection)['contact_initials'];
         let color = getIndexOfJson(selection)['contact_color'];
 
-
-        selectedUser.innerHTML += /* html */`
-        <div class="circle" id="user_inital_${selection}">
-            <div class="inner-circle">
-                ${initials}
-            </div>
-        </div>
-        `;
+        selectedUser.innerHTML += user_selectedUser_html(selection, initials);
 
         let userInitial = elementByID(`user_inital_${selection}`);
-        userInitial.style.cssText = `background-color: ${color}; z-index: ${i + 10}; margin-left: -10px;`;
+        userInitial_style(userInitial, i, color);
     }
+}
 
+function checkBadge(ID) {
+    getBadge(ID);
+    hiddenBadge(ID);
+}
 
+function getBadge(ID) {
+    if (userIndex(ID) == -1) {
+        contactSelection.push(ID);
+    } else {
+        contactSelection.splice(userIndex(ID), 1);
+    }
+}
+
+function hiddenBadge(ID) {
+    if (userIndex(ID) == -1) {
+        uncheckedIMG(ID).classList.remove('d-none');
+        checkedIMG(ID).classList.add('d-none');
+    } else {
+        uncheckedIMG(ID).classList.add('d-none');
+        checkedIMG(ID).classList.remove('d-none');
+    }
+}
+
+function userInitial_style(userInitial, i, color) {
+    return userInitial.style.cssText = `background-color: ${color}; z-index: ${i + 10}; margin-left: -10px;`
+}
+
+function checkedIMG(ID) {
+    return elementByID(`img_checked_${ID}`)
+}
+
+function uncheckedIMG(ID) {
+    return elementByID(`img_unchecked_${ID}`)
+}
+
+function userIndex(ID) {
+    return contactSelection.indexOf(ID);
 }
