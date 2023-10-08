@@ -18,11 +18,11 @@ function resetForm() {
 
   // document.getElementById('temporaryStatus').innerHTML = '';
   // document.getElementById('prioResult').innerHTML = '';
-  
+
   // document.getElementById('Urgent').checked = false;
   // document.getElementById('Medium').checked = false;
   // document.getElementById('Low').checked = false;
-  
+
   // document.getElementById('frame24').classList.remove('frame24_selected');
   // document.getElementById('frame25').classList.remove('frame25_selected');
   // document.getElementById('frame26').classList.remove('frame26_selected');
@@ -30,9 +30,9 @@ function resetForm() {
   // document.getElementById('imgUrgent').src = '../assets/img/add-task/urgent.svg';
   // document.getElementById('imgMedium').src = '../assets/img/add-task/medium.svg';
   // document.getElementById('imgLow').src = '../assets/img/add-task/low.svg';
-  
+
   // document.getElementById('frame74').classList.remove('error');
-  
+
   // document.getElementById('category_select_label').classList.add('d-none');  
   // document.getElementById('subtaskEdit').classList.add('d-none');
 }
@@ -103,7 +103,7 @@ function getNextFreeId(items, idKey) {
 
 async function addNewTask(origin) {
   let status = document.getElementById('temporaryStatus').innerHTML;
-  let category = document.getElementById('category_select').value;  
+  let category = document.getElementById('category_select').value;
   let id = getNextFreeId(tasks, 'id');
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
@@ -163,7 +163,7 @@ function addSubtask() {
   }
 }
 
-function addnewSubtask() {  
+function addnewSubtask() {
   hideEditSubtask();
   let nextSubId = getNextFreeId(newSubtasks, 'subid');
   if (newSubtasks.length < 5) {
@@ -189,7 +189,7 @@ function deleteSubtask(id) {
   hideEditSubtask();
 }
 
-function editSubtask(id) {  
+function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
   document.getElementById('subtaskEdit').classList.remove('d-none');
