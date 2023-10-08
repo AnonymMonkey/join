@@ -31,8 +31,7 @@ function generateTasksHTML(element) {
     ${progressHTML}
     <div class="frameX">
       <div class="frame139">
-        ${badgeHTML}
-        <div name="memberRest"></div>
+        ${badgeHTML}        
       </div>
       <div class="priority_symbol">
         <img src="../assets/img/add-task/${prioIcon}.svg" alt="">
@@ -73,8 +72,8 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
   `);
 }
 
-function generateMemberRestBadges(rest) {  
-  document.getElementsByName('memberRest').innerHTML = ` +${rest}`;
+async function generateMemberRestBadges(rest) {
+  return (badgeHTML += /*html*/ `<div class="badgeRest">+${rest}</div>`);  
 }
 
 function generateProfileBadgesTask(initials, badgeColor, name) {

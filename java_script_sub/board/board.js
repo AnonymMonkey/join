@@ -134,10 +134,11 @@ async function assignedTo(task) {
     let contactTask = contacts[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
-    if (task['member'].includes(contactId)) {
-      if(i === 5)
+    if (task['member'].includes(contactId)) {      
+      if(i >= 5)
       {
         memberRest = (numberOfMembers - 5);
+        console.log(memberRest);
         await generateMemberRestBadges(memberRest);
         return;
       }
@@ -146,7 +147,7 @@ async function assignedTo(task) {
         let contactColor = contactTask['register_entry'][0]['contact_color'];
         let contactName = contactTask['register_entry'][0]['contact_name'];
   
-        await generateProfileBadges(contactInitials, contactColor, pixelLeft);
+        generateProfileBadges(contactInitials, contactColor, pixelLeft);
         pixelLeft = pixelLeft + 8;
       }      
     }
