@@ -138,7 +138,6 @@ async function assignedTo(task) {
       if(i >= 5)
       {
         memberRest = (numberOfMembers - 5);
-        console.log(memberRest);
         await generateMemberRestBadges(memberRest);
         return;
       }
