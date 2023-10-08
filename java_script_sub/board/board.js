@@ -137,7 +137,6 @@ async function assignedTo(task) {
     if (task['member'].includes(contactId)) {
       if (i >= 5) {
         memberRest = (numberOfMembers - 5);
-        console.log(memberRest);
         await generateMemberRestBadges(memberRest);
         return;
       }
