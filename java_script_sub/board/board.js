@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let contacts = [];
+let contactsTask = [];
 let tasks = [];
 let taskCategory = [];
 let progressHTML = '';
@@ -127,16 +127,15 @@ function taskProgress(element) {
 
 async function assignedTo(task) {
   let pixelLeft = 0;
-  let numberOfMembers = task['member'].length;  
+  let numberOfMembers = task['member'].length;
   let memberRest = 0;
-  for (let i = 0; i < contacts.length; i++) {
+  for (let i = 0; i < contactsTask.length; i++) {
 
-    let contactTask = contacts[i];
+    let contactTask = contactsTask[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
-    if (task['member'].includes(contactId)) {      
-      if(i >= 5)
-      {
+    if (task['member'].includes(contactId)) {
+      if (i >= 5) {
         memberRest = (numberOfMembers - 5);
         console.log(memberRest);
         await generateMemberRestBadges(memberRest);
@@ -146,19 +145,19 @@ async function assignedTo(task) {
         let contactInitials = contactTask['register_entry'][0]['contact_initials'];
         let contactColor = contactTask['register_entry'][0]['contact_color'];
         let contactName = contactTask['register_entry'][0]['contact_name'];
-  
+
         generateProfileBadges(contactInitials, contactColor, pixelLeft);
         pixelLeft = pixelLeft + 8;
-      }      
+      }
     }
   }
 }
 
 function assignedToTask(task) {
 
-  for (let i = 0; i < contacts.length; i++) {
+  for (let i = 0; i < contactsTask.length; i++) {
 
-    let contactTask = contacts[i];
+    let contactTask = contactsTask[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
     if (tasks[task]['member'].includes(contactId)) {
@@ -173,7 +172,7 @@ function assignedToTask(task) {
 
 async function loadContacts() {
   try {
-    contacts = JSON.parse(await getItem('contacts'));
+    contactsTask = JSON.parse(await getItem('contacts'));
   } catch (e) {
     console.error('Loading error:', e);
   }
