@@ -27,11 +27,11 @@ function updateHTML(search) {
 
   let filteredTasks = search
     ? tasks.filter(
-      (t) =>
-        statuses.includes(t['status']) &&
-        (t['title'].toLowerCase().includes(search) ||
-          t['description'].toLowerCase().includes(search)),
-    )
+        (t) =>
+          statuses.includes(t['status']) &&
+          (t['title'].toLowerCase().includes(search) ||
+            t['description'].toLowerCase().includes(search)),
+      )
     : tasks;
 
   statuses.forEach((status, index) => {
@@ -127,37 +127,32 @@ function taskProgress(element) {
 }
 
 async function assignedTo(task) {
-  let pixelLeft = 0;
-  let numberOfMembers = 0;  
+  let pixelLeft = 0;  
 
-for (let i = 0; i < contactsTask.length; i++) {
+  for (let i = 0; i < contactsTask.length; i++) {
     let contactTask = contactsTask[i];
     if (contactTask['register_entry'] && contactTask['register_entry'][0]) {
-        let contactId = contactTask['register_entry'][0]['contact_ID'];
-        
-        if (task && task['member'] && task['member'].includes(contactId)) {
-            numberOfMembers++;        
-            let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-            let contactColor = contactTask['register_entry'][0]['contact_color'];        
-            if (i == 5 || i == 10 || i == 15 ) {
-              pixelLeft = 0;
-            }
-            generateProfileBadges(contactInitials, contactColor, pixelLeft);
-            pixelLeft = pixelLeft + 8;
-        }
-    }    
+      let contactId = contactTask['register_entry'][0]['contact_ID'];
+
+      if (task && task['member'] && task['member'].includes(contactId)) {
+        let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+        let contactColor = contactTask['register_entry'][0]['contact_color'];        
+        pixelLeft = (i % 5 === 0) ? 0 : pixelLeft;
+        generateProfileBadges(contactInitials, contactColor, pixelLeft);
+        pixelLeft = pixelLeft + 8;
+      }
+    }
   }
 }
 
 function assignedToTask(task) {
-
   for (let i = 0; i < contactsTask.length; i++) {
-
     let contactTask = contactsTask[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
     if (tasks[task]['member'].includes(contactId)) {
-      let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+      let contactInitials =
+        contactTask['register_entry'][0]['contact_initials'];
       let contactColor = contactTask['register_entry'][0]['contact_color'];
       let contactName = contactTask['register_entry'][0]['contact_name'];
 
@@ -191,7 +186,7 @@ async function loadTaskCategory() {
 }
 
 function getTaskIndex(searchId) {
-  return tasks.findIndex(item => item.id === searchId);
+  return tasks.findIndex((item) => item.id === searchId);
 }
 
 async function deleteTask(searchId) {

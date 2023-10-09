@@ -268,13 +268,19 @@ input::-webkit-inner-spin-button {
 .subtasks-check:hover {
   background-color: rgb(232, 229, 229);
   border-radius: 8px;
+  transform: scale(1.005);
 }
 
 .subtasks-checkbutton {
   width: 24px;
   height: 24px;
   padding: 4px;
-  border-radius: 3px;
+  border-radius: 3px;  
+}
+
+.subtasks-checkbutton:hover {  
+  background-color: rgba(211, 208, 208, 0.954);
+  border-radius: 50%;  
 }
 
 .subtasks-title {
