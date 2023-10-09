@@ -8,16 +8,21 @@ let todos = [];
 let urgentDueDates = [];
 let urgentDueDate;
 let currentGreeting;
-let currentUser;
+
 let deviceWidth;
+let currentUser;
+let user;
+
 
 let greeting = false;
+
+
 
 
 async function renderSummary(){
     getDeviceWidth();
     if(deviceWidth <= 910){
-        getLoginType();
+        await getLoginType();
         if(login){
             getCurrentGreeting();
             greetingUser1();
@@ -39,7 +44,7 @@ async function renderMobileContent(){
     includeHTML();
     await loadTodos();
     getCurrentGreeting();
-    getLoginType();
+    await getLoginType();
     getAmountInBoard();
     getAmountTodos();
     getAmountDone();
@@ -57,7 +62,7 @@ async function renderDesktopContent(){
     includeHTML();
     await loadTodos();
     getCurrentGreeting();
-    getLoginType();
+    await getLoginType();
     getAmountInBoard();
     getAmountTodos();
     getAmountDone();
@@ -69,6 +74,22 @@ async function renderDesktopContent(){
     adjustQuicklinkBG();
 }
 
+
+function loadFromLocalStorage(){
+    activeUserMail = localStorage.getItem('activeUser');
+}
+
+
+async function getLoginType(){
+    if(login){
+        await loadUsers();
+        loadFromLocalStorage();
+        activeUserName = await setActiveUser();
+    }
+    else{
+        activeUserName = " ";
+    }
+}
 
 function getCurrentGreeting(){
     /* Get Hours */
@@ -101,7 +122,7 @@ async function greetingUser1(){
 
 async function greetingUser2(){
     document.getElementById('content').innerHTML = /*html*/`
-        <span class="spanName">${currentUser}</span>
+        <span class="spanName">${activeUserName}</span>
     `
 }
 
@@ -194,14 +215,7 @@ function getAmountAwaitingFeedback(){
 }
 
 
-function getLoginType(){
-    if(login){
-        currentUser = 'Sophia Müller';
-    }
-    else{
-        currentUser = " ";
-    }
-}
+
 
 
 /*Get Mobile Greeting */
@@ -252,7 +266,7 @@ async function getHTMLTemplateforSummary(){
 
     document.getElementById('greeting').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
-        <span class="spanName">${currentUser}</span>
+        <span class="spanName">${activeUserName}</span>
     `;
 }
 

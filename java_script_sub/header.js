@@ -6,6 +6,7 @@ const login = urlParams.get('login');
 let users = [];
 let activeUserMail;
 let activeUserInitials;
+let activeUserName;
 
 
 
@@ -61,11 +62,12 @@ async function loadUsers(){
 }
 
 
-function setActiveUser(){
+async function setActiveUser(){
     let user = users.find(u => u.email == activeUserMail);
     if(user){
         activeUserName = user.name; 
     }
+    return activeUserName
 }
 
 
