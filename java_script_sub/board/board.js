@@ -127,6 +127,7 @@ function taskProgress(element) {
 
 async function assignedTo(task) {
   let pixelLeft = 0;
+  /*TODO - Stefan prüfen ob die member noch in contacts vorhanden sind, sonst numberOfMembers -1 */   
   let numberOfMembers = task['member'].length;
   let memberRest = 0;
   for (let i = 0; i < contactsTask.length; i++) {

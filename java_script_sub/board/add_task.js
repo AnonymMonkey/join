@@ -27,9 +27,9 @@ function resetForm() {
   // document.getElementById('frame25').classList.remove('frame25_selected');
   // document.getElementById('frame26').classList.remove('frame26_selected');
 
-  // document.getElementById('imgUrgent').src = '../assets/img/add-task/urgent.svg';
-  // document.getElementById('imgMedium').src = '../assets/img/add-task/medium.svg';
-  // document.getElementById('imgLow').src = '../assets/img/add-task/low.svg';
+  // document.getElementById('imgUrgent').src = '../../assets/img/add-task/urgent.svg';
+  // document.getElementById('imgMedium').src = '../../assets/img/add-task/medium.svg';
+  // document.getElementById('imgLow').src = '../../assets/img/add-task/low.svg';
 
   // document.getElementById('frame74').classList.remove('error');
 
@@ -71,12 +71,12 @@ function selectedRadioButton(prio, frameName) {
   let frames = ['frame24', 'frame25', 'frame26'];
   let images = { Urgent: 'imgUrgent', Medium: 'imgMedium', Low: 'imgLow' };
   frames.forEach((frame) => document.getElementById(frame).classList.remove(`${frame}_selected`),);
-  Object.keys(images).forEach((key) => (document.getElementById(images[key],).src = `../assets/img/add-task/${key.toLowerCase()}.svg`),);
+  Object.keys(images).forEach((key) => (document.getElementById(images[key],).src = `../../assets/img/add-task/${key.toLowerCase()}.svg`),);
   document.getElementById('priority').classList.remove('error');
   document.getElementById('priority_label').classList.add('d-none');
   document.getElementById(prio).checked = true;
   document.getElementById(frameName).classList.add(`${frameName}_selected`);
-  document.getElementById(`img${prio}`,).src = `../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
+  document.getElementById(`img${prio}`,).src = `../../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
   document.getElementById('prioResult').innerHTML = prio;
 }
 
@@ -154,9 +154,9 @@ function addSubtask() {
           ${newSubtasks[i].subtitle}
         </div>      
         <div class="subtaskActionPanel">
-          <img onclick="editSubtask(${i})" class="pointer button-hover" src="../assets/img/board/edit.svg">
-          <img class="subtask-vector" src="../assets/img/add-task/vector_dark.png">
-          <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg">
+          <img onclick="editSubtask(${i})" class="pointer button-hover" src="../../assets/img/board/edit.svg">
+          <img class="subtask-vector" src="../../assets/img/add-task/vector_dark.png">
+          <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
         </div>
       </li>
       `;
@@ -196,9 +196,9 @@ function editSubtask(id) {
   subtaskfield.value = newSubtasks[id]['subtitle'];
   subTaskActions.innerHTML = '';
   subTaskActions.innerHTML = /*html*/`
-    <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../assets/img/board/delete.svg">
-    <img class="subtask-vector" src="../assets/img/add-task/vector.png">
-    <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../assets/img/add-task/check_black.svg">
+    <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
+    <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
+    <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
   `;
 }
 

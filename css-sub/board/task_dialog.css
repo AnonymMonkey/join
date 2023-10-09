@@ -190,8 +190,10 @@ input::-webkit-inner-spin-button {
   color: #2a3647;
 }
 
-.task-contactlist {
-  gap: 4px;
+.task-contactlist {  
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 220px;
 }
 
 .task-contactlist-contact {
