@@ -34,7 +34,7 @@ function generateTasksHTML(element) {
         ${badgeHTML}        
       </div>
       <div class="priority_symbol">
-        <img src="../assets/img/add-task/${prioIcon}.svg" alt="">
+        <img src="../assets/img/add-task/${prioIcon}.svg">
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
 }
 
 async function generateMemberRestBadges(rest) {
-  return (badgeHTML += /*html*/ `<div class="badgeRest">+${rest}</div>`);  
+  return (badgeHTML += /*html*/ `<div class="badgeRest">+${rest}</div>`);
 }
 
 function generateProfileBadgesTask(initials, badgeColor, name) {
@@ -101,9 +101,10 @@ function generateOverlayContent(element) {
   content = document.getElementById('overlayTaskContent');
   content.innerHTML = '';
   badgeHTMLTask = '';
+  subtaskHTML = '';
 
-  assignedToTask(id);  
-
+  assignedToTask(id);
+  generateSubtaskList(id);
   content.innerHTML = /*html*/ `
   <div class="frame203_task">                   
     <div class="board_card_task" style="background: ${
@@ -127,37 +128,18 @@ function generateOverlayContent(element) {
       <div class="frame178_text">Priority:</div>
       <div class="frame178_content">${tasks[id]['prio']}</div>    
       <div class="frame178_icon">
-        <img src="../assets/img/add-task/${prioIcon}.svg" alt="">
+        <img src="../assets/img/add-task/${prioIcon}.svg">
       </div>
     </div>
    
     <div class="frame214">
       <div class="frame214_text">Assigned To:</div>  
       <div class="task-contactlist">${badgeHTMLTask}</div>
-    </div>
-
-    <!-- //TODO - Hier fehlt noch die Auflistung der Subtasks, wenn es welche gibt 
-      Dann müssen die Stati von open zu done geändert werden (subid )
-      Beispiel 
-      tasks[2].subtasks[0].substatus = open // 1. Subtask
-      tasks[2].subtasks[1].substatus = done // 2. Subtask
-  -->
+    </div>    
 
     <div class="frame215">
       <div class="frame215_text">Subtasks</div>
-      <div id="frame204" class="frame204">
-        
-        <div class="subtasks-check">          
-          <img id="subid0" class="subtasks-checkbutton pointer" src="../assets/img/login/checkbox_checked.png" alt="">
-          <div class="subtasks-title">Text</div>
-        </div>
-
-        <div class="subtasks-check">          
-          <img id="subid1" class="subtasks-checkbutton pointer" src="../assets/img/login/checkbox_checked.png" alt="">
-          <div class="subtasks-title">Text</div>
-        </div>        
-
-      </div>
+      <div id="frame204" class="frame204">${subtaskHTML}</div>
     </div>
 
     <div class="frame20">      
@@ -180,8 +162,56 @@ function generateOverlayAddTask(status) {
   content.innerHTML = '';
   content.innerHTML = /*html*/ `
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">        
-    `;  
+    `;
   document.getElementById('temporaryStatus').innerHTML = `${status}`;
   document.getElementById('addTaskClear').classList.add('d-none');
   document.getElementById('addTaskCancel').classList.remove('d-none');
 }
+
+function generateSubtaskList(id) {
+  subtaskHTML = '';
+  let subtasks = tasks[id]['subtasks'];
+  for (let i = 0; i < subtasks.length; i++) {
+    let subtask = subtasks[i];     
+    generateSubtaskListStatus(id, subtask);
+  }
+}
+
+function generateSubtaskListStatus(id, subtask) {
+  let subStatus = '';
+  subStatus = subtask['substatus'];
+  let currentImg;
+  let newImg;
+  let newStatusText;
+  if(subStatus == 'open'){
+    currentImg = '../assets/img/login/checkbox_unchecked.png'
+    newImg = '../assets/img/login/checkbox_checked.png';
+    newStatusText = 'done';
+  } else {
+    currentImg = '../assets/img/login/checkbox_checked.png';
+    newImg = '../assets/img/login/checkbox_unchecked.png';
+    newStatusText = 'open';
+  }  
+  generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText);
+}
+
+function generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText) {  
+  return (subtaskHTML += /*html*/ `
+    <div class="subtasks-check pointer" onclick="changeSubtask(${id}, ${subtask['subid']}, '${newStatusText}', '${newImg}')">
+      <img id="${subtask['subid']}" class="subtasks-checkbutton" src="${currentImg}">      
+      <div class="subtasks-title">${subtask['subtitle']}</div>
+    </div>        
+  `);
+}
+
+async function changeSubtask(id, subtask, newStatusText, newImg){  
+  tasks[id]['subtasks'][subtask]['substatus'] = newStatusText;  
+  document.getElementById(subtask).src = `${newImg}`;
+  await setItem('tasks', tasks);    
+  //document.getElementById('frame204').innerHTML = `${subtaskHTML}`;
+  subtaskHTML = '';
+  //updateHTML();
+  //generateSubtaskListStatus(id, subtask);
+}
+
+  
