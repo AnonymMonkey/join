@@ -575,8 +575,9 @@ textarea {
 #frame25,
 #frame26 {
   width: 106px;
-  display: flex;
-  justify-content: center;
+  display: flex;  
+  position: relative;  
+  justify-content: flex-start;
   align-items: center;
 }
 
