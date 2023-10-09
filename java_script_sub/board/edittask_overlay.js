@@ -1,5 +1,11 @@
 function openEditTaskOverlay() {
     let overlayBg = elementByID("overlay-bg-editTask");
+    
+    if (overlayBg.clientWidth <= 2000) {
+        document.getElementById('defaultStyle').disabled = true;
+        document.getElementById('smallScreenStyle').disabled = false;
+    }
+
     let overlayContent = elementByID("overlay-content-editTask");
     overlayBg.classList.add("d-flex");
     overlayBg.classList.remove("d-none");
@@ -11,15 +17,8 @@ function openEditTaskOverlay() {
 function closeEditTaskOverlay() {    
     let overlayBg = elementByID("overlay-bg-editTask");
     let overlayContent = elementByID("overlay-content-editTask");
-
-    overlayContent.classList.add("slideOut");
-
-    overlayContent.addEventListener("animationend", onAnimationEnd);
-
-    function onAnimationEnd() {
-        overlayContent.removeEventListener("animationend", onAnimationEnd);
-        overlayBg.classList.remove("d-flex");
-        overlayBg.classList.add("d-none");
-        overlayContent.classList.remove("slideOut");
-    }
+    overlayBg.classList.remove("d-flex");
+    overlayBg.classList.add("d-none");    
+    document.getElementById('defaultStyle').disabled = false;
+    document.getElementById('smallScreenStyle').disabled = true;
 }
