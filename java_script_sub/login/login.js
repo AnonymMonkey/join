@@ -36,12 +36,18 @@ function login(){
     loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
     if(user){
-        activeUser = user.name;
+        activeUser = user.email;
+        saveToLocalStorage('activeUser', activeUser);
         window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
     else{
         showMsgBoxInvalidPassword();
     };
+}
+
+function saveToLocalStorage(key, value){
+    
+    localStorage.setItem(key, value);
 }
 
 
@@ -61,8 +67,11 @@ function pushLoginData(email, password){
         email: email,
         password: password,
     })
-    saveToLocalStorage();
+    saveToLocalStorage(loginData, 'loginData');
 }
+
+
+
 
 
 async function loadUsers(){
@@ -225,10 +234,7 @@ function openPrivacy(){
 }
 
 
-function saveToLocalStorage(){
-    let loginDataAsText = JSON.stringify(loginData);
-    localStorage.setItem('loginData', loginDataAsText);
-}
+
 
 
 function loadFromLocalStorage(){

@@ -125,12 +125,9 @@
 
 @media(max-width: 900px){
     .logIn{
-
         width: 500px;
-    
-
-        
     }
+
 }
 
 
@@ -164,6 +161,7 @@
     .headlineLogIn{
         /*Fixation*/
         top: 25vh;
+        width: 350px;
     }
 
   
@@ -183,7 +181,6 @@
         width: 300px;
     }
 
-   
 
     .loginMsgBox{
         position: fixed;
@@ -194,7 +191,9 @@
     }
 
     .rememberMe{
+        justify-content: flex-start;
         width: 170px;
+        
     }
 
     #loginCheckboxUnchecked{
@@ -204,24 +203,16 @@
     }
     
     #loginCheckboxChecked{
-        
         top: -5px;
         left: 0px;
     }
     
     
     .buttonsLogin{
-        display: flex;
         flex-direction: column;
         align-items: center;
-        width: 50%;
         
         gap: 21px;
-        
-        
-        position: fixed;
-        top: 62vh;
-
     }
     
 
@@ -243,12 +234,18 @@
  
 
 
-    .signUp{    
+    .signupMobile{
         display: inline-flex;
-        justify-content: center;
+        align-items: center;
+        gap: 35px; 
+        width: 279px;
         position: fixed;
-        bottom: 12vh;
-        left: 30vw;
+        bottom: 15vh;
+       
+    }
+
+    .signUp{
+        display: none;
     }
 
 
@@ -257,19 +254,149 @@
 @media(max-width: 630px){
 
     #indexContent{
-        
         transform: scale(0.8);
-        top: -0vh;
-        
-       
-      
+        top: 0vh;
     }
 
     .logIn{
         left: 5vw;
     }
+
+
 }
 
+@media(max-width: 500px){
+
+    #indexContent{  
+        transform: scale(0.6);
+        top: -7vh;
+        left: -10vw;
+    }
+}
+
+
+@media(max-width: 415px){
+    .logIn{
+        width: 450px;
+        height: 550px;
+
+        /*Fixation*/
+        position: fixed;
+        top: 22vh;
+        left: 8vw;
+    }
+
+    .inputsLogin{
+        /*Fixation*/
+        position: fixed;
+        top: 42vh;
+
+    }
+
+    .headlineLogIn{
+        /*Fixation*/
+        top: 26vh;
+        width: 350px;
+    }
+
+    .rememberMe{
+        width: 170px;
+    }
+
+    #loginCheckboxUnchecked{
+        top: -5px;
+        left: 0px;
+    }
+    
+    #loginCheckboxChecked{
+        top: -5px;
+        left: 0px;
+    }
+    
+    
+    .buttonsLogin{
+        flex-direction: column;
+        align-items: center;
+        
+        gap: 21px;
+    }
+    
+
+    .svgLogin{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        
+    }
+
+    .signupMobile{
+        position: fixed;
+        bottom: 7vh;
+    }
+
+
+    .legalPrivacy{
+        position: fixed;
+        bottom: 0vh;
+        
+    }
+}
+
+@media(max-width: 393px){
+    
+    .signupMobile{
+        position: fixed;
+        bottom: 0vh;
+       
+    }
+
+    .legalPrivacy{
+        position: fixed;
+        bottom: -10vh;
+    }
+}
+
+
+
+@media(max-width: 375px){
+    .logIn{
+        height: 500px;
+    }
+    
+    .signupMobile{
+        position: fixed;
+        bottom: -10vh;
+       
+    }
+
+    .headlineLogIn{
+        /*Fixation*/
+        top: 24vh;
+        width: 350px;
+    }
+
+    .legalPrivacy{
+        position: fixed;
+        bottom: -25vh;
+    }
+}
+
+
+
+@media(max-width: 360px){
+    
+    .signupMobile{
+        position: fixed;
+        bottom: -3vh;
+       
+    }
+
+    .legalPrivacy{
+        position: fixed;
+        bottom: -10vh;
+    }
+}
 
 /*
 @media(max-width: 630px){

@@ -37,9 +37,8 @@
     .legalPrivacy{
         left: auto;
     }
-
-
 }
+
 
 @media(max-width: 1040px){
     .signUp{
@@ -427,4 +426,47 @@
         bottom: 22px;
         right: 91px;
     }
+}
+
+
+@media(max-width: 415px){
+
+
+    .legalPrivacy{
+        /*Fixation*/
+        position: fixed;
+        top: 10vh;
+    }
+
+    .legalPrivacy{
+        /*Fixation*/
+        position: fixed;
+        top: 100vh;
+    }
+
+}
+
+
+@media(max-width: 375px){
+    .content{
+        transform: scale(0.7);
+    }
+
+    .legalPrivacy{
+        /*Fixation*/
+        position: fixed;
+        top: 130vh;
+    }
+
+}
+
+
+@media(max-width: 360px){
+    
+    .legalPrivacy{
+        /*Fixation*/
+        position: fixed;
+        top: 130vh;
+    }
+    
 }

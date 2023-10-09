@@ -150,6 +150,22 @@
     right: 21px;   
 }
 
+
+.headerInitialsLogin{
+    width: 17.614px;
+    height: 20px;
+    flex-shrink: 0; 
+    color: #29ABE2;
+    font-weight: bold;
+    font-size: 24px;
+   
+    /*Fixation*/
+    position: absolute;
+    top: 14px;
+    left: auto;
+    right: 30px;  
+}
+
 .headerInitialsBG{
     width: 56px;
     height: 56px;

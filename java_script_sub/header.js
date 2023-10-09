@@ -4,10 +4,17 @@ const urlParams = new URLSearchParams(window.location.search)
 const msg = urlParams.get('msg');
 const login = urlParams.get('login');
 let users = [];
+let activeUserMail;
+let activeUserInitials;
 
 
 
-function adjustQuicklinkBG(){
+async function adjustQuicklinkBG(){
+    
+    loadFromLocalStorage();
+    await loadUsers();
+    setActiveUser();
+    activeUserInitials = getActiveUserInitials();
     identifyGuest();
     if(msg) {
         switch (msg) {
@@ -40,17 +47,55 @@ function adjustQuicklinkBG(){
 }
 
 
+function loadFromLocalStorage(){
+    activeUserMail = localStorage.getItem('activeUser');
+}
+
+
+async function loadUsers(){
+    try {
+        users = JSON.parse(await getItem('users'));
+    } catch(e){
+        console.error('Loading error:', e);
+    }
+}
+
+
+function setActiveUser(){
+    let user = users.find(u => u.email == activeUserMail);
+    if(user){
+        activeUserName = user.name; 
+    }
+}
+
+
+function getActiveUserInitials() {
+    let name = activeUserName
+    let words = name.split(' ');
+
+    let firstInitial = words[0].charAt(0).toUpperCase();
+    let secondInitial = words[1].charAt(0).toUpperCase();
+
+    let initials = firstInitial + secondInitial;
+
+    return initials;
+}
+
+
 function identifyGuest(){
     
     if(msg == 'guest'){
         document.getElementById('headerInitials').textContent = 'G';
+        document.getElementById('headerInitialsLogin').classList.add('dNone');
         guest = true;
     }else if(login == 'true'){
-        document.getElementById('headerInitials').textContent = 'SM';
+        document.getElementById('headerInitialsLogin').textContent = activeUserInitials;
+        document.getElementById('headerInitials').classList.add('dNone');
         guest = false;
     }
     else{
         document.getElementById('headerInitials').textContent = 'G';
+        document.getElementById('headerInitialsLogin').classList.add('dNone')
         guest = true; 
     }
 }
