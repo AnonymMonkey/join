@@ -1,0 +1,9 @@
+// all_contacts.js
+import '../java_script_sub/contacts/contacts.js';
+import '../java_script_sub/contacts/contacts_overlay.js';
+import '../java_script_sub/contacts/contacts_register.js';
+import '../java_script_sub/contacts/contacts_form.js';
+import '../java_script_sub/contacts/contacts_show.js';
+import '../java_script_sub/contacts/contacts_add.js';
+import '../java_script_sub/contacts/contacts_edit.js';
+import '../java_script_sub/contacts/contacts_delete.js';

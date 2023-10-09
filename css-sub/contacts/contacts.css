@@ -28,7 +28,7 @@
     background: var(--white, #FFF);
 }
 
-.contact-register button {
+.add-contact-button {
     display: flex;
     width: 352px;
     padding: 12px 0px;
@@ -48,14 +48,14 @@
     line-height: 120%;
 }
 
-.contact-register button:hover {
+.add-contact-button:hover {
     border-radius: 10px;
     background: #29ABE2;
 
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.contact-register button:focus {
+.add-contact-button:focus {
     border-radius: 10px;
     background: #091931;
 }

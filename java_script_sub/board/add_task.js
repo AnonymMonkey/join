@@ -7,27 +7,54 @@ async function initAddTasks() {
   adjustQuicklinkBG();
   setDateRange();
   addSubtask();
-
+  await loadData();
   await userSelection();
 }
 
-function resetForm() {
-  newSubtasks = [];
-  addSubtask();
+function resetForm() {  
   document.getElementById('addTaskInputForm').reset();
-  document.getElementById('temporaryStatus').innerHTML = '';
-  document.getElementById('prioResult').innerHTML = '';
-  document.getElementById('Urgent').checked = false;
-  document.getElementById('Medium').checked = false;
-  document.getElementById('Low').checked = false;
+  resetArrays();
+  addSubtask();
+  resetRadioButtonClasses();    
+  resetInnerHTML();  
+  resetImages();
+  resetClassError();
+  resetRequiredFields();  
+}
+
+function resetArrays() {
+  newSubtasks = [];
+  contactSelection = [];
+}
+
+function resetRadioButtonClasses(){
   document.getElementById('frame24').classList.remove('frame24_selected');
   document.getElementById('frame25').classList.remove('frame25_selected');
   document.getElementById('frame26').classList.remove('frame26_selected');
-  document.getElementById('imgUrgent').src = '../assets/img/add-task/urgent.svg';
-  document.getElementById('imgMedium').src = '../assets/img/add-task/medium.svg';
-  document.getElementById('imgLow').src = '../assets/img/add-task/low.svg';
-  document.getElementById('frame74').classList.remove('error');
-  document.getElementById('category_select_label').classList.add('d-none');
+}
+
+function resetInnerHTML() {
+  document.getElementById('temporaryStatus').innerHTML = '';
+  document.getElementById('prioResult').innerHTML = '';
+  document.getElementById('selected_user').innerHTML = '';
+}
+
+function resetImages() {
+  document.getElementById('imgUrgent').src = '../../assets/img/add-task/urgent.svg';
+  document.getElementById('imgMedium').src = '../../assets/img/add-task/medium.svg';
+  document.getElementById('imgLow').src = '../../assets/img/add-task/low.svg';
+}
+
+function resetClassError() {
+  Array.from(document.querySelectorAll('.error')).forEach(
+    (el) => el.classList.remove('error')
+  );  
+}
+
+function resetRequiredFields() {
+  Array.from(document.querySelectorAll('.requiredField')).forEach(
+    (el) => el.classList.add('d-none')
+  );  
 }
 
 function setDateRange() {
@@ -64,12 +91,12 @@ function selectedRadioButton(prio, frameName) {
   let frames = ['frame24', 'frame25', 'frame26'];
   let images = { Urgent: 'imgUrgent', Medium: 'imgMedium', Low: 'imgLow' };
   frames.forEach((frame) => document.getElementById(frame).classList.remove(`${frame}_selected`),);
-  Object.keys(images).forEach((key) => (document.getElementById(images[key],).src = `../assets/img/add-task/${key.toLowerCase()}.svg`),);
+  Object.keys(images).forEach((key) => (document.getElementById(images[key],).src = `../../assets/img/add-task/${key.toLowerCase()}.svg`),);
   document.getElementById('priority').classList.remove('error');
   document.getElementById('priority_label').classList.add('d-none');
   document.getElementById(prio).checked = true;
   document.getElementById(frameName).classList.add(`${frameName}_selected`);
-  document.getElementById(`img${prio}`,).src = `../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
+  document.getElementById(`img${prio}`,).src = `../../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
   document.getElementById('prioResult').innerHTML = prio;
 }
 
@@ -85,60 +112,28 @@ function subtaskActions(view) {
   }
 }
 
-function getNextFreeTaskId() {
-  if (tasks.length === 0) {
+function getNextFreeId(items, idKey) {
+  if (items.length === 0) {
     return 0;
   }
-  let allIds = tasks.map((task) => task.id);
+  let allIds = items.map((item) => item[idKey]);
   let nextFreeId = Math.max(...allIds) + 1;
   return nextFreeId;
-}
-
-function getNextFreeSubtaskId() {
-  if (newSubtasks.length === 0) {
-    return 0;
-  }
-  let allSubtaskIds = newSubtasks.map((subtask) => subtask.subid);
-  let nextFreeId = Math.max(...allSubtaskIds) + 1;
-  return nextFreeId;
-}
-
-function validation() {
-  let prioResult = document.getElementById('prioResult').innerHTML;
-  let category = document.getElementById('category_select').value;
-
-  if (prioResult === '') {
-    document.getElementById('priority').classList.add('error');
-    document.getElementById('priority_label').classList.remove('d-none');
-    return;
-  }
-  else {
-    document.getElementById('priority').classList.remove('error');
-    document.getElementById('priority_label').classList.add('d-none');
-  }
-
-  if (category === '') {
-    document.getElementById('frame74').classList.add('error');
-    return;
-  }
-  else {
-    document.getElementById('frame74').classList.remove('error');
-  }
 }
 
 async function addNewTask(origin) {
   let status = document.getElementById('temporaryStatus').innerHTML;
   let category = document.getElementById('category_select').value;
-  let id = getNextFreeTaskId();
+  let id = getNextFreeId(tasks, 'id');
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
   let addTaskSubtasks = newSubtasks;
-  let member = [6339];
+  let allMember = contactSelection;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
 
-  await createTask(id, title, description, status, prio, addTaskSubtasks, member, category, formattedTaskDate);
+  await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);
 
   //TODO - Info dass neuer Task gespeichert wurde!
   // dazu die Funktion von Andino nutzen
@@ -152,7 +147,7 @@ async function addNewTask(origin) {
   openSelectedQuicklink('quickBoard');
 }
 
-async function createTask(id, title, description, status, prio, addTaskSubtasks, member, category, formattedTaskDate) {
+async function createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate) {
   let newTask = {
     id: id,
     title: title,
@@ -160,7 +155,7 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
     status: status,
     prio: prio,
     subtasks: addTaskSubtasks,
-    member: member,
+    member: allMember,
     category: category,
     duedate: formattedTaskDate,
   };
@@ -169,29 +164,28 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
   await setItem('tasks', tasks);
 }
 
-//TODO - Stefan - bin dabei die Funktion umzusetzen
-// es fehlt noch die Möglichkeit den Wert zu editieren.
 function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < newSubtasks.length; i++) {
     list.innerHTML += `
-      <li>
-      <div>&bull; 
-      ${newSubtasks[i].subtitle}       
-      </div>      
-      <div>
-        <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="pointer button-hover" src="../assets/img/board/edit.svg" alt="">
-        <img id="subtask-vector" src="../assets/img/add-task/vector.png" alt="">
-        <img id="addSubtaskInput" onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg" alt="">
-      </div>
+      <li class="pointer" ondblclick="editSubtask(${i})">
+        <div>&bull; 
+          ${newSubtasks[i].subtitle}
+        </div>      
+        <div class="subtaskActionPanel">
+          <img onclick="editSubtask(${i})" class="pointer button-hover" src="../../assets/img/board/edit.svg">
+          <img class="subtask-vector" src="../../assets/img/add-task/vector_dark.png">
+          <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
+        </div>
       </li>
       `;
   }
 }
 
 function addnewSubtask() {
-  nextSubId = getNextFreeSubtaskId();
+  hideEditSubtask();
+  let nextSubId = getNextFreeId(newSubtasks, 'subid');
   if (newSubtasks.length < 5) {
     let newSubtask = {
       subid: nextSubId,
@@ -212,8 +206,36 @@ function deleteSubtask(id) {
   document.getElementById('frame14_subtask').classList.remove('error');
   newSubtasks.splice(id, 1);
   addSubtask();
+  hideEditSubtask();
+}
+
+function editSubtask(id) {
+  let subtaskfield = document.getElementById('subtaskEditInput');
+  let subTaskActions = document.getElementById('subtaskEditActions');
+  document.getElementById('subtaskEdit').classList.remove('d-none');
+  subtaskfield.value = newSubtasks[id]['subtitle'];
+  subTaskActions.innerHTML = '';
+  subTaskActions.innerHTML = /*html*/`
+    <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
+    <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
+    <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
+  `;
+}
+
+function updateSubtask(id) {
+  newSubtasks[id]['subtitle'] = document.getElementById('subtaskEditInput').value;
+  addSubtask();
+  hideEditSubtask();
+}
+
+function hideEditSubtask() {
+  subtaskEditInput = document.getElementById('subtaskEditInput');
+  subtaskEditInput.value = '';
+  subtaskEdit = document.getElementById('subtaskEdit');
+  subtaskEdit.classList.add('d-none');
 }
 
 function clearInput(field) {
   document.getElementById(field).value = '';
+  hideEditSubtask();
 }

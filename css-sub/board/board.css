@@ -290,7 +290,7 @@
   display: flex;
   padding: 0px 8px 2px 0px;
   justify-content: center;  
-  gap: 11px;  
+  gap: 6px;  
   height: 16px;
 }
 
@@ -403,4 +403,15 @@
   position: absolute; /* Positioniere absolut innerhalb von .group9_ellipse */
   top: 9px; /* Oben ausrichten */
   left: 5px; /* Links ausrichten */
+}
+
+.badgeRest{
+  left: -26px;  
+  position: relative;
+  font-style: italic;
+  color: #000;
+  font-family: Inter;
+  font-size: 12px;  
+  font-weight: 400;
+  line-height: 120%;
 }

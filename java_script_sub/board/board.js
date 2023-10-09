@@ -1,5 +1,5 @@
 let currentDraggedElement;
-let contacts = [];
+let contactsTask = [];
 let tasks = [];
 let taskCategory = [];
 let progressHTML = '';
@@ -8,6 +8,7 @@ async function init() {
   await loadTasks();
   await loadTaskCategory();
   await loadContacts();
+  await loadData();
   await includeHTML();
   updateHTML();
   adjustQuicklinkBG();
@@ -125,31 +126,39 @@ function taskProgress(element) {
   }
 }
 
-function assignedTo(task) {
+async function assignedTo(task) {
   let pixelLeft = 0;
+  /*TODO - Stefan prüfen ob die member noch in contacts vorhanden sind, sonst numberOfMembers -1 */   
+  let numberOfMembers = task['member'].length;
+  let memberRest = 0;
+  for (let i = 0; i < contactsTask.length; i++) {
 
-  for (let i = 0; i < contacts.length; i++) {
-
-    let contactTask = contacts[i];
+    let contactTask = contactsTask[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
     if (task['member'].includes(contactId)) {
+      if (i >= 5) {
+        memberRest = (numberOfMembers - 5);
+        await generateMemberRestBadges(memberRest);
+        return;
+      }
+      else {
+        let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+        let contactColor = contactTask['register_entry'][0]['contact_color'];
+        let contactName = contactTask['register_entry'][0]['contact_name'];
 
-      let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-      let contactColor = contactTask['register_entry'][0]['contact_color'];
-      let contactName = contactTask['register_entry'][0]['contact_name'];
-
-      generateProfileBadges(contactInitials, contactColor, pixelLeft);
-      pixelLeft = pixelLeft + 8;
+        generateProfileBadges(contactInitials, contactColor, pixelLeft);
+        pixelLeft = pixelLeft + 8;
+      }
     }
   }
 }
 
 function assignedToTask(task) {
 
-  for (let i = 0; i < contacts.length; i++) {
+  for (let i = 0; i < contactsTask.length; i++) {
 
-    let contactTask = contacts[i];
+    let contactTask = contactsTask[i];
     let contactId = contactTask['register_entry'][0]['contact_ID'];
 
     if (tasks[task]['member'].includes(contactId)) {
@@ -164,7 +173,7 @@ function assignedToTask(task) {
 
 async function loadContacts() {
   try {
-    contacts = JSON.parse(await getItem('contacts'));
+    contactsTask = JSON.parse(await getItem('contacts'));
   } catch (e) {
     console.error('Loading error:', e);
   }
@@ -200,79 +209,13 @@ async function deleteTask(searchId) {
   }
 }
 
-function insertTasks() {
-  let xtasks = [
-    {
-      id: 14,
-      title: 'Kochwelt Page & Recipe Recommender',
-      description: 'Build start page with recipe recommendation.',
-      status: 'todo',
-      prio: 'Medium',
-      subtasks: [
-        {
-          subid: 0,
-          subtitle: 'Implement Recipe Recommendation',
-          substatus: 'open',
-        },
-        {
-          subid: 1,
-          subtitle: 'Start Page Layout',
-          substatus: 'done',
-        },
-      ],
-      member: [6529, 378],
-      category: 1,
-      duedate: 1699138800000,
-    },
-    {
-      id: 8,
-      title: 'HTML Base Template Creation',
-      description: 'Create reusable HTML base templates...',
-      status: 'awaitFeedback',
-      prio: 'Low',
-      subtasks: [],
-      member: [378, 6339, 6529],
-      category: 0,
-      duedate: 1704495600000,
-    },
-    {
-      id: 22,
-      title: 'Daily Kochwelt Recipe',
-      description: 'Implement daily recipe and portion calculator...',
-      status: 'todo',
-      prio: 'Urgent',
-      subtasks: [],
-      member: [378, 6339],
-      category: 1,
-      duedate: 1701385200000,
-    },
-    {
-      id: 5,
-      title: 'CSS Architecture Planning',
-      description: 'Define CSS naming conventions and structure...',
-      status: 'done',
-      prio: 'Urgent',
-      subtasks: [
-        {
-          subid: 0,
-          subtitle: 'Establish CSS Methodology',
-          substatus: 'done',
-        },
-        {
-          subid: 1,
-          subtitle: 'Setup Base Styles',
-          substatus: 'open',
-        },
-        {
-          subid: 2,
-          subtitle: 'Do something',
-          substatus: 'open',
-        },
-      ],
-      member: [6529],
-      category: 0,
-      duedate: 1700002800000,
-    }
-  ];
-  setItem('tasks', xtasks);
+//TODO Stefan - Funktionen um außerhalb der Dialoge das Schließen zu erzwingen bzw. dieses zu unterbinden / not working
+function close() {
+  console.log('jetzt muss es zu');
 }
+
+function doNotClose(event) {
+  event.stopPropagation();
+}
+
+// onclick="previousImage(),doNotClose(event)"

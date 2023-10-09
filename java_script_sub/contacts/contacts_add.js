@@ -21,8 +21,15 @@ function addContact() {
     overlayMail.value = "";
     overlayPhone.value = "";
 
-    onsubmit.onsubmit = function () {
-        createContact();
-        return false;
-    };
+    if (window.location.href.includes("contacts.html?msg=contacts")) {
+        onsubmit.onsubmit = function () {
+            createContact();
+            return false;
+        };
+    } else {
+        onsubmit.onsubmit = function () {
+            createContactLight();
+            return false;
+        };
+    }
 }

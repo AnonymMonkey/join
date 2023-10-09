@@ -1,5 +1,4 @@
 let contacts = [];
-let categories = [];
 
 const generatedIDs = new Set();
 const generatedColors = new Set();
@@ -25,11 +24,26 @@ async function createContact() {
     showContact(getLastJsonObjectID());
 }
 
+async function createContactLight() {
+    let nameIsValid = checkName();
+    if (!nameIsValid) {
+        return;
+    }
+    create_btn.disable = true;
+    await getValues();
+    await saveData();
+    resetContactsForm();
+    await loadData();
+
+    closeContactOverlay();
+    smallAnimatedLabel("Contact succesfully created");
+}
+
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // GET VALUES ||||||||||||||||||||||||||||||||||||||||||||||| //
 
-function getValues() {
+async function getValues() {
     getCategoryLetter();
     getJSON_Entry();
 }
