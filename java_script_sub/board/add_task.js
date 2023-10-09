@@ -7,34 +7,54 @@ async function initAddTasks() {
   adjustQuicklinkBG();
   setDateRange();
   addSubtask();
+  await loadData();
   await userSelection();
 }
 
-function resetForm() {
-  newSubtasks = [];
-  addSubtask();
+function resetForm() {  
   document.getElementById('addTaskInputForm').reset();
+  resetArrays();
+  addSubtask();
+  resetRadioButtonClasses();    
+  resetInnerHTML();  
+  resetImages();
+  resetClassError();
+  resetRequiredFields();  
+}
 
+function resetArrays() {
+  newSubtasks = [];
+  contactSelection = [];
+}
 
-  // document.getElementById('temporaryStatus').innerHTML = '';
-  // document.getElementById('prioResult').innerHTML = '';
+function resetRadioButtonClasses(){
+  document.getElementById('frame24').classList.remove('frame24_selected');
+  document.getElementById('frame25').classList.remove('frame25_selected');
+  document.getElementById('frame26').classList.remove('frame26_selected');
+}
 
-  // document.getElementById('Urgent').checked = false;
-  // document.getElementById('Medium').checked = false;
-  // document.getElementById('Low').checked = false;
+function resetInnerHTML() {
+  document.getElementById('temporaryStatus').innerHTML = '';
+  document.getElementById('prioResult').innerHTML = '';
+  document.getElementById('selected_user').innerHTML = '';
+}
 
-  // document.getElementById('frame24').classList.remove('frame24_selected');
-  // document.getElementById('frame25').classList.remove('frame25_selected');
-  // document.getElementById('frame26').classList.remove('frame26_selected');
+function resetImages() {
+  document.getElementById('imgUrgent').src = '../../assets/img/add-task/urgent.svg';
+  document.getElementById('imgMedium').src = '../../assets/img/add-task/medium.svg';
+  document.getElementById('imgLow').src = '../../assets/img/add-task/low.svg';
+}
 
-  // document.getElementById('imgUrgent').src = '../../assets/img/add-task/urgent.svg';
-  // document.getElementById('imgMedium').src = '../../assets/img/add-task/medium.svg';
-  // document.getElementById('imgLow').src = '../../assets/img/add-task/low.svg';
+function resetClassError() {
+  Array.from(document.querySelectorAll('.error')).forEach(
+    (el) => el.classList.remove('error')
+  );  
+}
 
-  // document.getElementById('frame74').classList.remove('error');
-
-  // document.getElementById('category_select_label').classList.add('d-none');  
-  // document.getElementById('subtaskEdit').classList.add('d-none');
+function resetRequiredFields() {
+  Array.from(document.querySelectorAll('.requiredField')).forEach(
+    (el) => el.classList.add('d-none')
+  );  
 }
 
 function setDateRange() {

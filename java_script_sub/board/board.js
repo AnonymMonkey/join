@@ -8,6 +8,7 @@ async function init() {
   await loadTasks();
   await loadTaskCategory();
   await loadContacts();
+  await loadData();
   await includeHTML();
   updateHTML();
   adjustQuicklinkBG();
