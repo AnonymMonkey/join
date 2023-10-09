@@ -128,29 +128,24 @@ function taskProgress(element) {
 
 async function assignedTo(task) {
   let pixelLeft = 0;
-  /*TODO - Stefan prüfen ob die member noch in contacts vorhanden sind, sonst numberOfMembers -1 */   
-  let numberOfMembers = task['member'].length;
-  let memberRest = 0;
-  for (let i = 0; i < contactsTask.length; i++) {
+  let numberOfMembers = 0;  
 
+for (let i = 0; i < contactsTask.length; i++) {
     let contactTask = contactsTask[i];
-    let contactId = contactTask['register_entry'][0]['contact_ID'];
-
-    if (task['member'].includes(contactId)) {
-      if (i >= 5) {
-        memberRest = (numberOfMembers - 5);
-        await generateMemberRestBadges(memberRest);
-        return;
-      }
-      else {
-        let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-        let contactColor = contactTask['register_entry'][0]['contact_color'];
-        let contactName = contactTask['register_entry'][0]['contact_name'];
-
-        generateProfileBadges(contactInitials, contactColor, pixelLeft);
-        pixelLeft = pixelLeft + 8;
-      }
-    }
+    if (contactTask['register_entry'] && contactTask['register_entry'][0]) {
+        let contactId = contactTask['register_entry'][0]['contact_ID'];
+        
+        if (task && task['member'] && task['member'].includes(contactId)) {
+            numberOfMembers++;        
+            let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+            let contactColor = contactTask['register_entry'][0]['contact_color'];        
+            if (i == 5 || i == 10 || i == 15 ) {
+              pixelLeft = 0;
+            }
+            generateProfileBadges(contactInitials, contactColor, pixelLeft);
+            pixelLeft = pixelLeft + 8;
+        }
+    }    
   }
 }
 

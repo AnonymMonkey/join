@@ -316,13 +316,12 @@
 }
 
 .frame114_progresstext {
-  color: #000;
-  /* Version 2/t7 */
+  color: #000;  
   font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 14.4px */
+  line-height: 120%;
 }
 
 .frameX{
@@ -335,7 +334,7 @@
   display: flex;  
   align-items: center;
   align-self: stretch;
-  height: 32px;
+  flex-wrap: wrap;
 }
 
 .frame217 {
