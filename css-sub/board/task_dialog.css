@@ -23,48 +23,40 @@ input::-webkit-inner-spin-button {
 
 .overlay-content {
   position: relative;
-  width: 525px;
-  /* height: 871px; */
+  width: 525px;  
   padding: 48px 40px;
   border-radius: 30px;
   gap: 24px;
   background-color: #fff;
   z-index: 6;
-  transition: right 0.3s ease;
-  /* Add transition */
+  transition: right 0.3s ease;  
 }
 
 .slide-in {
-  animation: slideIn 0.3s ease-in-out forwards;
-  /* 0.3s ist die Dauer der Animation */
+  animation: slideIn 0.3s ease-in-out forwards;  
 }
 
 .slideOut {
   animation: slideOut 0.3s ease-in-out forwards;
-  /* 0.3s ist die Dauer der Animation */
 }
 
 @keyframes slideIn {
   from {
     right: -100%;
-    /* Startposition: rechts außerhalb des Bildschirms */
   }
 
   to {
     right: 0;
-    /* Endposition: in die Mitte des Bildschirms */
   }
 }
 
 @keyframes slideOut {
   from {
     right: 0;
-    /* Startposition: in der Mitte des Bildschirms */
   }
 
   to {
     right: -100%;
-    /* Endposition: rechts außerhalb des Bildschirms */
   }
 }
 
