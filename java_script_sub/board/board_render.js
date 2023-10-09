@@ -172,7 +172,7 @@ function generateSubtaskList(id) {
   subtaskHTML = '';
   let subtasks = tasks[id]['subtasks'];
   for (let i = 0; i < subtasks.length; i++) {
-    let subtask = subtasks[i];     
+    let subtask = subtasks[i];    
     generateSubtaskListStatus(id, subtask);
   }
 }
@@ -197,7 +197,7 @@ function generateSubtaskListStatus(id, subtask) {
 
 function generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText) {  
   return (subtaskHTML += /*html*/ `
-    <div class="subtasks-check pointer" onclick="changeSubtask(${id}, ${subtask['subid']}, '${newStatusText}', '${newImg}')">
+    <div id="subtaskImage${subtask['subid']}" class="subtasks-check pointer" onclick="changeSubtask(${id}, ${subtask['subid']}, '${newStatusText}', '${newImg}')">
       <img id="${subtask['subid']}" class="subtasks-checkbutton" src="${currentImg}">      
       <div class="subtasks-title">${subtask['subtitle']}</div>
     </div>        
@@ -206,12 +206,8 @@ function generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText)
 
 async function changeSubtask(id, subtask, newStatusText, newImg){  
   tasks[id]['subtasks'][subtask]['substatus'] = newStatusText;  
-  document.getElementById(subtask).src = `${newImg}`;
-  await setItem('tasks', tasks);    
-  //document.getElementById('frame204').innerHTML = `${subtaskHTML}`;
-  subtaskHTML = '';
-  //updateHTML();
-  //generateSubtaskListStatus(id, subtask);
+  document.getElementById(subtask).src = `${newImg}`;  
+  await setItem('tasks', tasks);  
+  updateHTML();  
+  generateOverlayContent(tasks[id]['id']);
 }
-
-  
