@@ -79,14 +79,14 @@ select {
   right: 48px;
 }
 
-.button-hover{
+.button-hover {
   height: 25px;
   width: 25px;
 }
 
 .button-hover:hover {
   background-color: rgba(211, 208, 208, 0.954);
-  border-radius: 50%;  
+  border-radius: 50%;
   transform: scale(1.06);
 }
 
@@ -370,6 +370,32 @@ input {
   letter-spacing: 0em;
   text-align: left;
   color: #000000;
+}
+
+.arrow-dropdown {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #FFF;
+}
+
+.arrow-dropdown:hover {
+  background-color: #D9D9D9;
+}
+
+.search-contact {
+  width: 100%;
+}
+
+.search-contact::placeholder {
+  color: var(--black, #000);
+
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .primary_check_button {

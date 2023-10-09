@@ -1,14 +1,21 @@
-function smallAnimatedLabel(message) {
+function smallAnimatedLabel(message, imgSrc) {
     const timeout = 500;
 
     setTimeout(() => {
         const overlay = document.createElement("div");
         overlay.classList.add("small-overlay");
 
-        overlay.textContent = message;
+        overlay.appendChild(document.createTextNode(message));
+
+        if(imgSrc){
+            const img = document.createElement("img");
+            img.src = imgSrc;
+            overlay.appendChild(img);
+        }
 
         overlay.style.position = "fixed";
         overlay.style.right = "-50vw";
+        overlay.style.gap = "10px";
         overlay.style.transition = "all 0.3s ease-in-out";
         overlay.style.zIndex = "9999";
 

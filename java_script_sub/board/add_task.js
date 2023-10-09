@@ -134,12 +134,7 @@ async function addNewTask(origin) {
   let formattedTaskDate = new Date(duedate).getTime();
 
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);
-
-  //TODO - Info dass neuer Task gespeichert wurde!
-  // dazu die Funktion von Andino nutzen
-  //smallAnimatedLabel('Task added to board <img src="../assets/img/summary/board.svg">');
-  // die Funktion ohne Bild funktioniert auch noch nicht
-  await smallAnimatedLabel('Task added to board');
+  smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');
 
   if (origin) {
     closeAddTaskOverlay();

@@ -33,6 +33,12 @@ async function userSelection() {
     }
 }
 
+
+function searchContact() {
+
+}
+
+
 function createBadge(ID) {
     let selectedUser = elementByID('selected_user');
     checkBadge(ID);
