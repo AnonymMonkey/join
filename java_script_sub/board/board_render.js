@@ -72,10 +72,6 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
   `);
 }
 
-async function generateMemberRestBadges(rest) {
-  return (badgeHTML += /*html*/ `<div class="badgeRest">+${rest}</div>`);
-}
-
 function generateProfileBadgesTask(initials, badgeColor, name) {
   return (badgeHTMLTask += /*html*/ `
   <div class="task-contactlist-contact">
