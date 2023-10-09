@@ -144,7 +144,7 @@ function generateOverlayContent(element) {
         <div class="delete-text">Delete</div>     
       </div> 
       <div class="task-vector"></div>
-      <div class="edit-task pointer">
+      <div class="edit-task pointer" onclick="generateOverlayEditTask(${element})">
         <img class="edit-icon" src="../assets/img/board/edit.svg">
         <div class="edit-text">Edit</div>
       </div>
@@ -206,4 +206,13 @@ async function changeSubtask(id, subtask, newStatusText, newImg){
   await setItem('tasks', tasks);  
   updateHTML();  
   generateOverlayContent(tasks[id]['id']);
+}
+
+function generateOverlayEditTask(element) {
+  openEditTaskOverlay();
+  content = document.getElementById('overlayEditTaskContent');
+  content.innerHTML = '';
+  content.innerHTML = /*html*/ `
+    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeEditTaskOverlay()">
+  `;  
 }
