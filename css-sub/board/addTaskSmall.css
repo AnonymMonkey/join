@@ -1,11 +1,3 @@
-@import url('../animations.css');
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -16,7 +8,7 @@ select {
   display: none !important;
 }
 
-.overlay-bg-addTask {
+.overlay-bg-editTask {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -26,51 +18,33 @@ select {
   width: 100%;
   height: 100%;
   background-color: rgba(200, 200, 200, 0.5);
-  z-index: 5;
+  z-index: 10;
 }
 
-.overlay-content-addTask {
-  position: relative;
-  width: 1116px;
-  height: 870px;
+.overlay-content-editTask {
+  position: relative;  
+  width: 525px;  
+  height: 727px;  
   padding: 48px 40px;
   border-radius: 30px;
   gap: 24px;
-  background-color: #fff;
-  z-index: 6;
-  transition: right 0.3s ease;
+  background-color: #ffffff !important;
+  z-index: 11;
+  overflow: hidden;
 }
 
-.slide-in {
-  animation: slideIn 0.3s ease-in-out forwards;
+#overlayEditTaskContent {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  background-color: green;
 }
 
-.slideOut {
-  animation: slideOut 0.3s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-  from {
-    right: -100%;
-    /* Startposition: rechts außerhalb des Bildschirms */
-  }
-
-  to {
-    right: 0;
-    /* Endposition: in die Mitte des Bildschirms */
-  }
-}
-
-@keyframes slideOut {
-  from {
-    right: 0;
-    /* Startposition: in der Mitte des Bildschirms */
-  }
-
-  to {
-    right: -100%;
-    /* Endposition: rechts außerhalb des Bildschirms */
-  }
+#header{
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .close-button {
@@ -386,13 +360,6 @@ input {
 
 .search-contact {
   width: 100%;
-  color: var(--black, #000);
-
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
 }
 
 .search-contact::placeholder {
@@ -582,8 +549,8 @@ textarea {
 #frame25,
 #frame26 {
   width: 106px;
-  display: flex;
-  position: relative;
+  display: flex;  
+  position: relative;  
   justify-content: flex-start;
   align-items: center;
 }
@@ -806,3 +773,62 @@ textarea {
 .buttons-cancel:hover img {
   filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
 }
+
+  
+
+  #task_form{
+    display: flex;
+    flex-direction: column;    
+  }
+  .frame40{
+    font-size: 14px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  #addTaskInputForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+    overflow-y: auto;
+  }
+
+  .addtask_content{
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    position: relative;
+  }
+  
+  .frame219{
+    top: 0;
+    left: 0;
+    position: relative;
+  }
+
+  .vector4{
+    display: none;
+  }
+  
+  .frame39{
+    top: 0;
+    left: 0;
+    position: relative;
+  }
+
+  .frame35{
+    top: 0;
+    left: 0;
+    position: relative;
+  }
+
+  .requiredInfo{
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
