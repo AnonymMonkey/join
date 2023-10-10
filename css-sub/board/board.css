@@ -149,22 +149,28 @@
 .frame149,
 .frame137,
 .frame138 {
-  width: 252px;
-  height: 24px;
+  width: 254px;
+  height: 43px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0em;
   text-align: left;
-  position: relative;
+  position: sticky;
   color: #43526e;
+  background-color: #f5f7f8;
+  top: 0;
+  z-index: 8; 
+  box-shadow: 0px 0px 10px 3px #f5f7f8;
+  backdrop-filter: blur(20px);
 }
 
 .board_distribution {
   width: 100%;      
-  padding: 10px 40px 0 40px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
