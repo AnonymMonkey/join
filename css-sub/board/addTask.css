@@ -56,7 +56,7 @@ select {
 
 .overlay-content-editTask {
   position: relative;
-  width: 525px;  
+  width: 525px;
   padding: 48px 40px;
   border-radius: 30px;
   gap: 24px;
@@ -415,6 +415,13 @@ input {
 
 .search-contact {
   width: 100%;
+  color: var(--black, #000);
+
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .search-contact::placeholder {
@@ -604,8 +611,8 @@ textarea {
 #frame25,
 #frame26 {
   width: 106px;
-  display: flex;  
-  position: relative;  
+  display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: center;
 }

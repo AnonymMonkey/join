@@ -1,12 +1,37 @@
 let contactSelection = []
 let isOpen = true;
 
+document.addEventListener('click', function (event) {
+    let userSelectionFrame = document.getElementById('frame74');
+    let select = document.getElementById('user_selection');
+    let selectBG = elementByID("user_selection-background");
+    let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
+
+    if (!userSelectionFrame.contains(event.target) && !select.contains(event.target)) {
+        select.classList.add('d-none');
+        selectBG.classList.add('d-none');
+        arrowDropdown.classList.remove('open');
+    }
+});
+
 async function userSelection() {
     await loadContacts();
-
+    contacts.sort((a, b) => a.register_entry[0].contact_name.localeCompare(b.register_entry[0].contact_name));
     let select = elementByID("user_selection");
     let selectedUser = elementByID('selected_user');
     let selectBG = elementByID("user_selection-background");
+    let search = elementByID('search_contact');
+
+    let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
+
+    if (select.classList.contains('d-none')) {
+        select.classList.remove('d-none');
+        arrowDropdown.style.transform = 'rotate(360deg)';
+    } else {
+        select.classList.add('d-none');
+        selectBG.classList.add('d-none');
+        arrowDropdown.style.transform = 'rotate(180deg)';
+    }
 
     if (isOpen) {
         select.classList.add('d-none');
@@ -22,8 +47,12 @@ async function userSelection() {
             let color = contact['contact_color'];
             let ID = contact['contact_ID'];
 
-            select.innerHTML += user_select_html(name, initials, color, ID);
+            select.innerHTML += user_select_html(name, initials, color, ID, i);
             hiddenBadge(ID);
+            search.onkeyup = function (i) {
+                searchContact(i);
+            }
+
         }
         select.innerHTML += userSelection_addContact_button();
         select.classList.remove('d-none');
@@ -31,11 +60,23 @@ async function userSelection() {
         selectedUser.classList.add('d-none');
         isOpen = true;
     }
+
 }
 
 
 function searchContact() {
+    let searchContact = elementByID('search_contact').value.toLowerCase();
 
+    for (let i = 0; i < contacts.length; i++) {
+        let contact = contacts[i]['register_entry'][0]['contact_name'];
+        let userElement = elementByID(`user_element_${i}`);
+
+        if (contact.toLowerCase().includes(searchContact)) {
+            userElement.classList.remove('d-none');
+        } else {
+            userElement.classList.add('d-none');
+        }
+    }
 }
 
 
