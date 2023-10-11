@@ -9,6 +9,12 @@ select {
   display: none !important;
 }
 
+.close-button {
+  position: absolute;
+  top: 48px;
+  right: 48px;
+}
+
 .overlay-bg-editTask {
   position: fixed;
   display: flex;
@@ -31,27 +37,19 @@ select {
   gap: 24px;
   background-color: #ffffff !important;
   z-index: 11;
-  overflow: hidden;
 }
 
 #overlayEditTaskContent {
+  width: 100%;
+  height: 36px;
   gap: 24px;
   display: flex;
-  flex-direction: column;
-  background-color: green;
+  flex-direction: column;  
 }
 
 #header{
   display: flex;
-  flex-direction: column;
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-
-.close-button {
-  position: absolute;
-  top: 48px;
-  right: 48px;
+  flex-direction: column;  
 }
 
 .button-hover {
@@ -99,12 +97,6 @@ select {
   left: 74px;
 }
 
-.addtask_content {
-  display: flex;
-  height: 100%;
-  gap: 24px;
-}
-
 .frame219 {
   display: flex;
   width: 440px;
@@ -135,25 +127,7 @@ input[type='date']::placeholder {
 }
 
 .frame40 {
-  top: 64px;
-  left: 74px;
-  gap: 1px;
-  position: absolute;
-  color: #000;
-  /* Version 2/t1 */
-  font-family: Inter;
-  font-size: 61px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%;
-  /* 73.2px */
-}
-
-#temporaryStatus {
-  top: 64px;
-  left: 400px;
-  position: absolute;
-  background-color: greenyellow;
+  display: none;
 }
 
 .task_title {
@@ -722,8 +696,7 @@ textarea {
   padding: 16px;
   justify-content: center;
   align-items: center;
-  gap: 4px;
-  overflow: hidden;
+  gap: 4px;  
   border-radius: 10px;
   border: 1px solid var(--version-2-main-color, #2a3647);
   color: var(--version-2-main-color, #2a3647);
@@ -757,28 +730,19 @@ textarea {
     display: flex;
     flex-direction: column;    
   }
-  .frame40{
-    font-size: 14px;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-
+  
   #addTaskInputForm{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    height: 70vh;
-    overflow-y: auto;
+    align-items: center;    
   }
 
   .addtask_content{
     display: flex;
     flex-direction: column;
-    top: 0;
-    left: 0;
-    position: relative;
+    gap: 24px;
+    /* overflow-y: auto; */    
   }
   
   .frame219{

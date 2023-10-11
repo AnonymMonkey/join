@@ -14,6 +14,8 @@ async function init() {
   adjustQuicklinkBG();
   setDateRange();
   addSubtask();
+  document.getElementById('defaultStyle').disabled = false;
+  document.getElementById('smallScreenStyle').disabled = true;
 }
 
 function updateHTML(search) {

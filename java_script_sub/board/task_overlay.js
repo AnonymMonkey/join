@@ -1,7 +1,7 @@
 function openTaskOverlay() {
     let overlayBg = elementByID("overlay-bg");
     let overlayContent = elementByID("overlay-content");
-
+    
     overlayContent.classList.remove("slideOut");
 
     overlayBg.classList.add("d-flex");
