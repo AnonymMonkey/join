@@ -49,11 +49,13 @@ async function getValues() {
 }
 
 function getCategoryLetter() {
-    let name = contact_name.value;
-    let firstLetter = name[0].toUpperCase();
-
-    if (!categories.includes(firstLetter)) {
-        categories.push(firstLetter);
+    categories = [];
+    for (let i = 0; i < contacts.length; i++) {
+        let contactName = contacts[i]['register_entry'][0]['contact_name'];
+        let firstLetter = contactName[0].toUpperCase();
+        if (!categories.includes(firstLetter)) {
+            categories.push(firstLetter);
+        }
     }
 }
 

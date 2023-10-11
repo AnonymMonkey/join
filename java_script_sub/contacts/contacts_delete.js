@@ -1,12 +1,6 @@
 async function deleteContact(ID) {
     let showArea = elementByID('show_contact')
 
-    const confirmDelete = window.confirm('Sind Sie sicher, dass Sie diesen Kontakt löschen möchten?');
-
-    if (!confirmDelete) {
-        return;
-    }
-
     const indexToDelete = contacts.findIndex(contact => contact['register_entry'][0]['contact_ID'] === ID);
 
     if (indexToDelete !== -1) {

@@ -1,5 +1,5 @@
 function contacts_overlay_html() {
-    return `
+    return /* html */`
             <img src="../assets/img/contacts/close.svg" class="close-button pointer"
             onclick="closeContactOverlay()">
             <section class="overlay-left">
@@ -24,7 +24,7 @@ function contacts_overlay_html() {
                         </div>
                         <div class="place-img">
                             <input required type="tel" name="" id="contact_phone" placeholder="+491234567"
-                                pattern="\+(\d{2})(\d{7,})">
+                                pattern="\\+\\d{2}\\d{7,}">
                             <img src="../assets/img/contacts/call.svg">
                         </div>
                     </div>
