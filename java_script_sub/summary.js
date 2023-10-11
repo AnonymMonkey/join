@@ -87,7 +87,7 @@ async function getLoginType(){
         activeUserName = await setActiveUser();
     }
     else{
-        activeUserName = " ";
+        activeUserName = "undefined";
     }
 }
 

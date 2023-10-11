@@ -73,32 +73,41 @@ async function setActiveUser(){
 
 function getActiveUserInitials() {
     let name = activeUserName
-    let words = name.split(' ');
+    if(name != 'undefined' &&  name != undefined){
+        let words = name.split(' ');
 
-    let firstInitial = words[0].charAt(0).toUpperCase();
-    let secondInitial = words[1].charAt(0).toUpperCase();
-
-    let initials = firstInitial + secondInitial;
-
-    return initials;
+        let firstInitial = words[0].charAt(0).toUpperCase();
+        let secondInitial = words[1].charAt(0).toUpperCase();
+    
+        let initials = firstInitial + secondInitial;
+    
+        return initials;
+    }
+    
 }
 
 
 function identifyGuest(){
     
-    if(msg == 'guest'){
+    if(msg == 'guest'){ //first time User enters through GuestLoginButton
         document.getElementById('headerInitials').textContent = 'G';
         document.getElementById('headerInitialsLogin').classList.add('dNone');
+        activeUserInitials = "";
         guest = true;
-    }else if(login == 'true'){
+    }else if(login == 'true'){ //login=true only if user logged in
         document.getElementById('headerInitialsLogin').textContent = activeUserInitials;
         document.getElementById('headerInitials').classList.add('dNone');
         guest = false;
     }
+    //if user entered from different Site without Login or Guestlogin
+    else if(!msg){
+        window.open("http://127.0.0.1:5500/index.html", "_self");
+    }
+    //user moves from guestlogin to another site
     else{
         document.getElementById('headerInitials').textContent = 'G';
         document.getElementById('headerInitialsLogin').classList.add('dNone')
-        guest = true; 
+        guest = true;
     }
 }
 
@@ -116,6 +125,7 @@ function showSubmenu(){
 
 
 function logOut(){
+    
     window.open("http://127.0.0.1:5500/index.html", "_self");
 }
 
@@ -131,11 +141,11 @@ function openSelectedQuicklink(id){
 
 
 function showLegalExternal(){
-    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external?msg=legal.html', '_blank');
 }
 
 function showPrivacyExternal(){
-    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external?msg=privacy.html', '_blank');
 }
 
 
@@ -155,13 +165,13 @@ function openGuestQuicklinks(id){
         window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts", "_self");
     }
     if(id=='privacy'){
-        window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html?msg=privacy", "_self");
     }
     if(id=='legal'){
-        window.open("http://127.0.0.1:5500/html-sub/legal_notice.html", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/legal_notice.html?msg=legal", "_self");
     }
     if(id=='help'){
-        window.open("http://127.0.0.1:5500/html-sub/help.html", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/help.html?msg=help", "_self");
     }
 }
 
@@ -180,13 +190,13 @@ function openLoginQuicklinks(id){
         window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&login=true", "_self");
     }
     if(id=='privacy'){
-        window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html?login=true", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html?msg=privacy&login=true", "_self");
     }
     if(id=='legal'){
-        window.open("http://127.0.0.1:5500/html-sub/legal_notice.html?login=true", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/legal_notice.html?msg=legal&login=true", "_self");
     }
     if(id=='help'){
-        window.open("http://127.0.0.1:5500/html-sub/help.html?login=true", "_self");
+        window.open("http://127.0.0.1:5500/html-sub/help.html?msg=help&login=true", "_self");
     }
 }
 

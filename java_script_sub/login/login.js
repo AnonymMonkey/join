@@ -1,4 +1,3 @@
-
 let isChecked = false;
 let users = [];
 let activeUser;
@@ -37,7 +36,7 @@ function login(){
     let user = users.find(u => u.email == email && u.password == password);
     if(user){
         activeUser = user.email;
-        saveToLocalStorage('activeUser', activeUser);
+        saveUserToLocalStorage('activeUser', activeUser);
         window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
     else{
@@ -45,9 +44,15 @@ function login(){
     };
 }
 
-function saveToLocalStorage(key, value){
-    
+
+function saveUserToLocalStorage(key, value){
     localStorage.setItem(key, value);
+}
+
+
+function saveToLocalStorage(key, value){
+    let valueAsText = JSON.stringify(value)
+    localStorage.setItem(key, valueAsText);
 }
 
 
@@ -67,11 +72,8 @@ function pushLoginData(email, password){
         email: email,
         password: password,
     })
-    saveToLocalStorage(loginData, 'loginData');
+    saveToLocalStorage('loginData', loginData);
 }
-
-
-
 
 
 async function loadUsers(){
@@ -172,6 +174,7 @@ function revealPassword(){
 
 
 function guestLogin(){
+    localStorage.removeItem('activeUser');
     window.location.href = 'http://127.0.0.1:5500/html-sub/summary.html?msg=guest';
 }
 
@@ -225,15 +228,13 @@ function getDeviceWidth(){
 
 
 function openLegal(){
-    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html?msg=legal', '_blank');
 }
 
 
 function openPrivacy(){
-    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html?msg=privacy', '_blank');
 }
-
-
 
 
 
