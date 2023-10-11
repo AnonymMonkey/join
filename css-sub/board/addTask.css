@@ -118,9 +118,7 @@ select {
 
 .requiredInfo {
   position: absolute;
-  width: 170px;
-  height: 27px;
-  top: 800px;
+  bottom: 5vh;
   left: 74px;
 }
 
@@ -298,6 +296,8 @@ input[type='date']::placeholder {
   width: 350px;
   height: 56px;
   gap: 25px;
+  position: relative;
+  bottom: 5vh;
 }
 
 .frame203 {
