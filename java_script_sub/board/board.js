@@ -11,11 +11,11 @@ async function init() {
   await loadData();
   await includeHTML();
   updateHTML();
-  adjustQuicklinkBG();  
+  adjustQuicklinkBG();
   setStylesheet();
 }
 
-function setStylesheet() {  
+function setStylesheet() {
   document.getElementById('defaultStyle').disabled = false;
   document.getElementById('smallScreenStyle').disabled = true;
 }
@@ -131,23 +131,20 @@ function taskProgress(element) {
 }
 
 async function assignedTo(task) {
-  let pixelLeft = 0;  
+  let pixelLeft = 0;
+  let counterMember = 0;
+  for (let i = 0; i < task['member'].length; i++) {
+    const element = task['member'][i];
 
-  for (let i = 0; i < contactsTask.length; i++) {
-    let contactTask = contactsTask[i];
-    if (contactTask['register_entry'] && contactTask['register_entry'][0]) {
-      let contactId = contactTask['register_entry'][0]['contact_ID'];
-
-      if (task && task['member'] && task['member'].includes(contactId)) {
-
+    for (let j = 0; j < contactsTask.length; j++) {
+      let contactTask = contactsTask[j];
+      if (contactTask['register_entry'][0]['contact_ID'] === element) {
         let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-        let contactColor = contactTask['register_entry'][0]['contact_color'];        
-        
-        // falsche Positionierung hier
-        pixelLeft = (i % 5 === 0) ? 0 : pixelLeft;
-
+        let contactColor = contactTask['register_entry'][0]['contact_color'];
+        pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
         generateProfileBadges(contactInitials, contactColor, pixelLeft);
-        pixelLeft = pixelLeft + 8;        
+        pixelLeft = pixelLeft + 8;
+        counterMember++;
       }
     }
   }
