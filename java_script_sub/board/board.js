@@ -11,9 +11,11 @@ async function init() {
   await loadData();
   await includeHTML();
   updateHTML();
-  adjustQuicklinkBG();
-  setDateRange();
-  addSubtask();
+  adjustQuicklinkBG();  
+  setStylesheet();
+}
+
+function setStylesheet() {  
   document.getElementById('defaultStyle').disabled = false;
   document.getElementById('smallScreenStyle').disabled = true;
 }
@@ -137,11 +139,15 @@ async function assignedTo(task) {
       let contactId = contactTask['register_entry'][0]['contact_ID'];
 
       if (task && task['member'] && task['member'].includes(contactId)) {
+
         let contactInitials = contactTask['register_entry'][0]['contact_initials'];
         let contactColor = contactTask['register_entry'][0]['contact_color'];        
+        
+        // falsche Positionierung hier
         pixelLeft = (i % 5 === 0) ? 0 : pixelLeft;
+
         generateProfileBadges(contactInitials, contactColor, pixelLeft);
-        pixelLeft = pixelLeft + 8;
+        pixelLeft = pixelLeft + 8;        
       }
     }
   }

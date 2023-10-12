@@ -12,4 +12,6 @@ async function taskContainerRenderHTML(view, viewName) {
     </div>
     `;
     await includeHTML();
+    setDateRange();
+    addSubtask();
 }
