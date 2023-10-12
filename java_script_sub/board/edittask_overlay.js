@@ -1,4 +1,7 @@
-function openEditTaskOverlay() {
+async function openEditTaskOverlay() {
+    
+    await taskContainerRenderHTML('edit', 'Edit');
+
     let overlayBg = elementByID("overlay-bg-editTask");
 
     let overlayContent = elementByID("overlay-content-editTask");

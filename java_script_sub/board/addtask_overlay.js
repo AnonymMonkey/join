@@ -1,4 +1,7 @@
-function openAddTaskOverlay() {
+async function openAddTaskOverlay() {
+
+    await taskContainerRenderHTML('add', 'Add');
+
     let overlayBg = elementByID("overlay-bg-addTask");
     let overlayContent = elementByID("overlay-content-addTask");
 
