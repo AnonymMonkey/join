@@ -208,11 +208,12 @@ async function changeSubtask(id, subtask, newStatusText, newImg){
   generateOverlayContent(tasks[id]['id']);
 }
 
-function generateOverlayEditTask(element) {
-  openEditTaskOverlay();
+async function generateOverlayEditTask(element) {
+  await openEditTaskOverlay(element);
   content = document.getElementById('overlayEditTaskContent');
   content.innerHTML = '';
   content.innerHTML = /*html*/ `
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeEditTaskOverlay()">
   `;  
+  getTaskData();
 }

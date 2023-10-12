@@ -1,4 +1,4 @@
-async function openEditTaskOverlay() {
+async function openEditTaskOverlay(element) {
     
     await taskContainerRenderHTML('edit', 'Edit');
 
@@ -14,6 +14,7 @@ async function openEditTaskOverlay() {
     document.getElementById('overlay-bg').classList.add('d-none');
     
     overlayBg.classList.remove("d-none");
+    document.getElementById('currentTask').innerHTML = element;
 }
 
 function closeEditTaskOverlay() {    
