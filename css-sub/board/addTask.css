@@ -116,12 +116,6 @@ select {
   border: 1px solid #ff8190 !important;
 }
 
-.requiredInfo {
-  position: absolute;
-  bottom: 5vh;
-  left: 74px;
-}
-
 .addtask_content {
   display: flex;
   height: 100%;
@@ -284,10 +278,7 @@ input[type='date']::placeholder {
   display: flex;
   justify-content: flex-end;
   width: 334px;
-  height: 56px;
-  top: 780px;
-  left: 716.25px;
-  position: absolute;
+  height: 56px;  
   gap: 4px;
 }
 
@@ -376,11 +367,11 @@ input {
   height: 24px;
   flex-shrink: 0;
   border-radius: 50%;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .arrow-dropdown:hover {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
 .search-contact {
@@ -430,7 +421,6 @@ input {
 .frame39 {
   display: flex;
   width: 440px;
-  height: 376px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -498,28 +488,25 @@ input {
   color: var(--Style, #d1d1d1);
 }
 
-/* Chrome und Safari */
-/* input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
+form{
+  display: flex;
+  flex-direction: column;
 }
 
-/* Firefox
-input[type="date"] {
-  appearance: none;
-  -moz-appearance: textfield;
+.taskFormFooter {
+  width: 100%;  
+  z-index: 4;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+  bottom: 5vh;
 }
-
-/* Edge */
-/* input[type="date"]::-ms-clear {
-  display: none;
-} 
-
-input[type='date'] {
-  background: url(../../assets/img/add-task/calendar.svg) no-repeat 395px center;
-} */
 
 select {
-  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right center;
+  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right
+    center;
 }
 
 textarea {
@@ -717,7 +704,7 @@ textarea {
   letter-spacing: 0em;
   text-align: left;
   border: none;
-  background: url(../../assets/img/add-task/plus.svg) no-repeat 377px center;
+  /* background: url(../../assets/img/add-task/plus.svg) no-repeat right; */
 }
 
 #frame14_subtask_text:focus {
@@ -803,5 +790,6 @@ textarea {
 }
 
 .buttons-cancel:hover img {
-  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
+  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg)
+    brightness(120%) contrast(90%);
 }

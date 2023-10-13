@@ -1,4 +1,4 @@
-@media (max-width: 1400px) {
+@media (max-width: 1660px) {
 
   .content{    
     display: flex;
@@ -9,7 +9,8 @@
   #task_form{
     display: flex;
     justify-content: center;
-    flex-direction: column;    
+    flex-direction: column;
+    width: 85%;
   }
   .frame40{    
     position: relative;
@@ -32,12 +33,14 @@
     top: 0;
     left: 0;
     position: relative;
+    width: 100%;
   }
   
   .frame219{
     top: 0;
     left: 0;
     position: relative;
+    width: 100%;
   }
 
   .vector4{
@@ -48,20 +51,37 @@
     top: 0;
     left: 0;
     position: relative;
+    width: 100%;
   }
 
-  .frame35{
-    top: 0;
-    left: 0;
-    position: relative;
+  .task_title,
+  .frame203,
+  .frame14,
+  .frame14_text,
+  .task_description,
+  .frame207,
+  #frame17,
+  #frame17_text,
+  .task_assigned_to,
+  .frame74,
+  .framedue,
+  .frame211,
+  .frame28,
+  .priority,
+  .category,
+  .subtasks,
+  .frame14_subtask,
+  #frame14_subtask_text {
+    width: 100%;
   }
 
-  .requiredInfo{
-    position: relative;
-    top: 0;
-    left: 0;
+  label{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
   }
-
 }
 
 @media (max-width: 910px) {

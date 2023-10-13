@@ -105,10 +105,13 @@ function subtaskActions(view) {
     document.getElementById('clearSubtaskInput').classList.remove('d-none');
     document.getElementById('addSubtaskInput').classList.remove('d-none');
     document.getElementById('subtask-vector').classList.remove('d-none');
+    document.getElementById('plusSubtaskButton').classList.add('d-none');
+
   } else {
     document.getElementById('clearSubtaskInput').classList.add('d-none');
     document.getElementById('addSubtaskInput').classList.add('d-none');
     document.getElementById('subtask-vector').classList.add('d-none');
+    document.getElementById('plusSubtaskButton').classList.remove('d-none');
   }
 }
 
@@ -194,6 +197,7 @@ function addnewSubtask() {
     document.getElementById('frame14_subtask').classList.add('error');
     document.getElementById('frame14_subtask_label').classList.remove('d-none');
   }
+  subtaskActions();
 }
 
 function deleteSubtask(id) {
@@ -233,4 +237,5 @@ function hideEditSubtask() {
 function clearInput(field) {
   document.getElementById(field).value = '';
   hideEditSubtask();
+  subtaskActions();
 }

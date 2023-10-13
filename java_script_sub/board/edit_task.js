@@ -4,10 +4,10 @@ const FORM_FIELDS = {
   description: 'frame17_text',
   status: 'temporaryStatus',
   prio: 'prioResult',
-  subtasks: '',
-  member: '',
-  category: '',
-  duedate: '',
+  //subtasks: '',
+  //member: '',
+  //category: '',
+  //duedate: '',
 };
 
 function getTaskData() {
@@ -36,11 +36,10 @@ function getTaskValues(currentTask) {
 
 function setTaskValues(currentTask, key, keyValue) {
   let formId = FORM_FIELDS[key];
-  //console.log(formId + " neuer Wert: " + keyValue);
+  console.log(formId + " neuer Wert: " + keyValue);
   document.getElementById(formId).value = keyValue;
   // radiobuttons-funktion
-  //selectedRadioButton('Urgent', 'frame24');
-  
+  selectedRadioButton('Urgent', 'frame24');  
 }
 
 

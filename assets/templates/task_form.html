@@ -117,9 +117,11 @@
 
       <div class="subtasks">
         <div class="subtasks_text">Subtasks</div>
-        <div id="frame14_subtask" class="frame14_subtask" onblur="subtaskActions()">
+        <div id="frame14_subtask" class="frame14_subtask">
           <input type="text" placeholder="Add new subtask" class="pointer" maxlength="30" id="frame14_subtask_text"
             onfocus="subtaskActions('show')" />
+          <img id="plusSubtaskButton" onfocus="subtaskActions('show')" class="pointer button-hover"
+            src="../assets/img/add-task/plus.svg">  
           <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover"
             src="../assets/img/add-task/cancel.svg">
           <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png">
@@ -128,7 +130,6 @@
         </div>
         <label id="frame14_subtask_label" class="requiredField d-none" for="frame14_subtask_text">Maximum number
           reached</label>
-        <div>
           <ul id="subtasklist"></ul>
           <div id="subtaskEdit" class="d-none">
             <input type="text" maxlength="30" id="subtaskEditInput">
@@ -137,28 +138,31 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="frame35">
-    <div class="frame27">
-      <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">
-        Clear
-        <img src="../assets/img/add-task/cancel.svg" />
+    
+    <div class="taskFormFooter">
+      <div class="frame35">
+        <div class="frame27">
+          <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">
+            Clear
+            <img src="../assets/img/add-task/cancel.svg" />
+          </div>
+          <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">
+            Cancel
+            <img src="../assets/img/add-task/cancel.svg" />
+          </div>
+          <button type="submit" class="primary_check_button pointer">
+            Create Task
+            <img src="../assets/img/add-task/check.svg" />
+          </button>
+        </div>
       </div>
-      <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">
-        Cancel
-        <img src="../assets/img/add-task/cancel.svg" />
-      </div>
-      <button type="submit" class="primary_check_button pointer">
-        Create Task
-        <img src="../assets/img/add-task/check.svg" />
-      </button>
-    </div>
+      <div class="requiredInfo">
+        <sup class="requiredAsterisk">*</sup>This field is required
+      </div>    
   </div>
+  
 </form>
 <!-- form end -->
-<div class="requiredInfo">
-  <sup class="requiredAsterisk">*</sup>This field is required
-</div>
 
 <!-- overlay -->
 <div id="overlay-bg" class="overlay-bg d-none">
