@@ -35,7 +35,7 @@ async function renderSummary(){
             setTimeout(renderMobileContent, 2000);
         }
     }else{
-        renderDesktopContent();
+        renderDesktopContent(); 
     }
 }
 
@@ -188,9 +188,17 @@ function getDueDate(date){
     let currentday = String(dueDate.getDate()).padStart(2, '0');
     let currentMonth = String(dueDate.getMonth()+1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
-    let urgentDate = `${currentday}-${currentMonth}-${currentYear}`; 
     let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;
-    urgentDueDate = urgentDate;
+    
+
+    if(urgentDueDates > 0){
+        let urgentDate = `${currentday}-${currentMonth}-${currentYear}`;
+        urgentDueDate = urgentDate;
+    }
+    else{
+        urgentDueDate = 'No';
+    }
+
     return formattedDate;
 }
 
@@ -264,10 +272,18 @@ async function getHTMLTemplateforSummary(){
         <span class="tasksSpan">Feedback</span>
     `;
 
-    document.getElementById('greeting').innerHTML = /*html*/`
+    if(activeUserName == 'undefined'){
+        document.getElementById('greeting').innerHTML = /*html*/`
+        <span class="spanGreeting">${currentGreeting}</span>  
+    `;
+    }
+    else{
+        document.getElementById('greeting').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
         <span class="spanName">${activeUserName}</span>
     `;
+    }
+
 }
 
 async function getInitialHTMLTemplate(){

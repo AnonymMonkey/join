@@ -83,7 +83,6 @@ function getActiveUserInitials() {
     
         return initials;
     }
-    
 }
 
 
@@ -125,7 +124,7 @@ function showSubmenu(){
 
 
 function logOut(){
-    
+    localStorage.removeItem('loginData');
     window.open("http://127.0.0.1:5500/index.html", "_self");
 }
 
@@ -147,7 +146,6 @@ function showLegalExternal(){
 function showPrivacyExternal(){
     window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external?msg=privacy.html', '_blank');
 }
-
 
 
 //hier checken!!

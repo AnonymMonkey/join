@@ -28,11 +28,11 @@ function loginCheckboxOn(){
 }
 
 
-function login(){
+async function login(){
     let email = document.getElementById('loginEmail').value;
     let password = document.getElementById('loginPassword').value;
     checkRememberMe(email, password);
-    loadUsers();
+    await loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
     if(user){
         activeUser = user.email;
@@ -61,7 +61,7 @@ function checkRememberMe(email, password){
         pushLoginData(email, password)
     }
     else{
-        localStorage.removeItem('loginData');
+        /*localStorage.removeItem('loginData');*/
     }
 }
 
@@ -246,5 +246,6 @@ function loadFromLocalStorage(){
         document.getElementById('loginPassword').value = loginData[0].password;
         document.getElementById('loginCheckboxUnchecked').classList.add('dNone');
         document.getElementById('loginCheckboxChecked').classList.remove('dNone');
+        login();
     }
 }
