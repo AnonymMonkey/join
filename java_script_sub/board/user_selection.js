@@ -47,10 +47,11 @@ async function userSelection() {
             let color = contact['contact_color'];
             let ID = contact['contact_ID'];
 
-            select.innerHTML += user_select_html(name, initials, color, ID, i);
+            select.innerHTML += user_select_html(name, initials, color, ID);
             hiddenBadge(ID);
-            search.onkeyup = function (i) {
-                searchContact(i);
+            changeContactBG(ID);
+            search.onkeyup = function () {
+                searchContact();
             }
 
         }
@@ -68,17 +69,17 @@ function searchContact() {
     let searchContact = elementByID('search_contact').value.toLowerCase();
 
     for (let i = 0; i < contacts.length; i++) {
-        let contact = contacts[i]['register_entry'][0]['contact_name'];
-        let userElement = elementByID(`user_element_${i}`);
+        let contactName = contacts[i]['register_entry'][0]['contact_name'];
+        let contactID = contacts[i]['register_entry'][0]['contact_ID'];
+        let userElement = userElement(contactID);
 
-        if (contact.toLowerCase().includes(searchContact)) {
+        if (contactName.toLowerCase().includes(searchContact)) {
             userElement.classList.remove('d-none');
         } else {
             userElement.classList.add('d-none');
         }
     }
 }
-
 
 function createBadge(ID) {
     let selectedUser = elementByID('selected_user');
@@ -99,6 +100,7 @@ function createBadge(ID) {
 function checkBadge(ID) {
     getBadge(ID);
     hiddenBadge(ID);
+    changeContactBG(ID);
 }
 
 function getBadge(ID) {
@@ -119,6 +121,18 @@ function hiddenBadge(ID) {
     }
 }
 
+function changeContactBG(ID) {
+    /* debugger */
+    if (userIndex(ID) == -1) {
+        userElement(ID).classList.remove('user-active');
+        userName(ID).classList.remove('user-name-active');
+    } else {
+        userElement(ID).classList.add('user-active');
+        userName(ID).classList.add('user-name-active');
+    }
+
+}
+
 function userInitial_style(userInitial, i, color) {
     return userInitial.style.cssText = `background-color: ${color}; z-index: ${i + 10}; margin-left: -10px;`
 }
@@ -129,6 +143,14 @@ function checkedIMG(ID) {
 
 function uncheckedIMG(ID) {
     return elementByID(`img_unchecked_${ID}`)
+}
+
+function userElement(contactID) {
+    return elementByID(`user_element_${contactID}`)
+}
+
+function userName(contactID) {
+    return elementByID(`user_name_${contactID}`)
 }
 
 function userIndex(ID) {

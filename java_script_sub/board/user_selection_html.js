@@ -1,13 +1,13 @@
-function user_select_html(name, initials, color, ID, i) {
+function user_select_html(name, initials, color, ID) {
     return `
-    <div id="user_element_${i}" onclick="createBadge(${ID})" class="flex user">
+    <div id="user_element_${ID}" onclick="createBadge(${ID})" class="flex user">
         <div class="user-left">
             <div class="user-initials circle" style="background-color: ${color};">
                 <div class="inner-circle">
                     ${initials}
                 </div>
             </div>
-            <div id="user_name_${i}" class="user-name">${name}</div>
+            <div id="user_name_${ID}" class="user-name">${name}</div>
         </div>
         <div>
             <img class="user-checkbox" id="img_unchecked_${ID}" src="../assets/img/login/checkbox_unchecked.png">
