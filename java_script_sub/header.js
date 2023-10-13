@@ -9,7 +9,7 @@ let activeUserInitials;
 let activeUserName;
 
 
-
+//Funktion kürzen!!
 async function adjustQuicklinkBG(){
     
     loadFromLocalStorage();
@@ -85,9 +85,8 @@ function getActiveUserInitials() {
     }
 }
 
-
+//Funktion kürzen??
 function identifyGuest(){
-    
     if(msg == 'guest'){ //first time User enters through GuestLoginButton
         document.getElementById('headerInitials').textContent = 'G';
         document.getElementById('headerInitialsLogin').classList.add('dNone');
@@ -148,7 +147,7 @@ function showPrivacyExternal(){
 }
 
 
-//hier checken!!
+//Funktion kürzen??
 function openGuestQuicklinks(id){
     if(id=='quickSummary'){
         window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary", "_self");
@@ -173,7 +172,7 @@ function openGuestQuicklinks(id){
     }
 }
 
-
+//Funktion kürzen??
 function openLoginQuicklinks(id){
     if(id=='quickSummary'){
         window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary&login=true", "_self");

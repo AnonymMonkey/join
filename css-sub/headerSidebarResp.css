@@ -1,6 +1,4 @@
 @media(max-width: 910px){
-    /*Header*/
-    
     .header{
         padding: 20px 40px 20px 0px;
     }
@@ -13,22 +11,18 @@
     }
 
     .headerLogo{
-        /*Fixation*/
         position: absolute;
         top: 30px;
         left: 30px;
     }
 
-    /*Sidebar*/
     .sidebar{
-        display: none;
-        
+        display: none; 
     }
 
     .sidebarMobile{
         display: flex;
     }
-
 
     .sidebarMobile{
         display: flex;
@@ -76,13 +70,6 @@
 
     .addTaskSpan{
         width: 80px;
-    }
-}
-
-
-@media(max-width: 840px){
-    .quicklinks {
-        width: clamp(320px 100%, 840px);
     }
 }
 

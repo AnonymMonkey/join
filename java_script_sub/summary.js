@@ -18,7 +18,7 @@ let greeting = false;
 
 
 
-
+//Funktion kürzen??
 async function renderSummary(){
     getDeviceWidth();
     if(deviceWidth <= 910){
@@ -172,7 +172,7 @@ function getAmountUrgent(){
     }
 }
 
-
+//Funktion kürzen mit Stefan besprechen ob nicht zwei besser sind??
 function getDueDate(date){
     //Get nearest Date from Array
     let nearestDate =  Math.min.apply(Math, urgentDueDates)
@@ -223,15 +223,12 @@ function getAmountAwaitingFeedback(){
 }
 
 
-
-
-
-/*Get Mobile Greeting */
 function getDeviceWidth(){
     deviceWidth = window.innerWidth;
 }
 
 
+//Funktion kürzen??
 async function getHTMLTemplateforSummary(){
     //Amount To-do
     document.getElementById('summaryToDo').innerHTML = /*html*/`
@@ -286,6 +283,7 @@ async function getHTMLTemplateforSummary(){
 
 }
 
+//Funktion kürzen / auslagern
 async function getInitialHTMLTemplate(){
     document.getElementById('content').innerHTML = /*html*/`
                         <!-- insert content and own style from here -->
