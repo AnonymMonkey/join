@@ -1,4 +1,7 @@
-function openAddTaskOverlay() {
+async function openAddTaskOverlay() {
+
+    await taskContainerRenderHTML('add', 'Add');
+
     let overlayBg = elementByID("overlay-bg-addTask");
     let overlayContent = elementByID("overlay-content-addTask");
 
@@ -33,4 +36,7 @@ function closeAddTaskOverlay() {
         overlayBg.classList.add("d-none");
         overlayContent.classList.remove("slideOut");
     }
+
+    document.getElementById('taskContainer').innerHTML = '';
+    
 }

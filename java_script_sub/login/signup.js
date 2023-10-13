@@ -31,23 +31,21 @@ async function registerUser(){
 function checkName() {
     let nameInput = elementByID("signupName").value;
     let namenParts = nameInput.split(" ");
-
     if (namenParts.length !== 2) {
         alert("Bitte geben Sie genau zwei Namen mit Leerzeichen dazwischen ein.");
         return false;
     }
-
     for (var i = 0; i < namenParts.length; i++) {
         if (namenParts[i][0] !== namenParts[i][0].toUpperCase()) {
-            alert("Die Namen sollten mit einem Großbuchstaben beginnen.");
+            alert("Die Namen sollen mit einem Großbuchstaben beginnen.");
             return false;
         }
     }
-
     return true;
 }
 
 
+//Funktion kürzen//
 async function openSignUpOverlay() {
     //added following 2 lines
     let signup = elementByID("bodySignup");
@@ -91,7 +89,6 @@ async function pushUser(name, surname, email, password){
         email: email,
         password: password,
     });
-
 }
 
 

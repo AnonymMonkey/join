@@ -18,7 +18,7 @@ let greeting = false;
 
 
 
-
+//Funktion kürzen??
 async function renderSummary() {
     getDeviceWidth();
     if (deviceWidth <= 910) {
@@ -172,7 +172,7 @@ function getAmountUrgent() {
     }
 }
 
-
+//Funktion kürzen mit Stefan besprechen ob nicht zwei besser sind??
 function getDueDate(date) {
     //Get nearest Date from Array
     let nearestDate = Math.min.apply(Math, urgentDueDates)
@@ -188,9 +188,17 @@ function getDueDate(date) {
     let currentday = String(dueDate.getDate()).padStart(2, '0');
     let currentMonth = String(dueDate.getMonth() + 1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
-    let urgentDate = `${currentday}-${currentMonth}-${currentYear}`;
     let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;
-    urgentDueDate = urgentDate;
+
+
+    if (urgentDueDates > 0) {
+        let urgentDate = `${currentday}-${currentMonth}-${currentYear}`;
+        urgentDueDate = urgentDate;
+    }
+    else {
+        urgentDueDate = 'No';
+    }
+
     return formattedDate;
 }
 
@@ -215,15 +223,12 @@ function getAmountAwaitingFeedback() {
 }
 
 
-
-
-
-/*Get Mobile Greeting */
 function getDeviceWidth() {
     deviceWidth = window.innerWidth;
 }
 
 
+//Funktion kürzen??
 async function getHTMLTemplateforSummary() {
     //Amount To-do
     document.getElementById('summaryToDo').innerHTML = /*html*/`
@@ -264,12 +269,21 @@ async function getHTMLTemplateforSummary() {
         <span class="tasksSpan">Feedback</span>
     `;
 
-    document.getElementById('greeting').innerHTML = /*html*/`
+    if (activeUserName == 'undefined') {
+        document.getElementById('greeting').innerHTML = /*html*/`
+        <span class="spanGreeting">${currentGreeting}</span>  
+    `;
+    }
+    else {
+        document.getElementById('greeting').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
         <span class="spanName">${activeUserName}</span>
     `;
+    }
+
 }
 
+//Funktion kürzen / auslagern
 async function getInitialHTMLTemplate() {
     document.getElementById('content').innerHTML = /*html*/`
                         <!-- insert content and own style from here -->
