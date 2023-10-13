@@ -4,7 +4,7 @@ const FORM_FIELDS = {
   description: 'frame17_text',
   status: 'temporaryStatus',
   prio: 'prioResult',
-  subtasks: '',
+  //subtasks: '',
   member: '',
   category: '',
   duedate: '',
@@ -21,7 +21,14 @@ function getTaskValues(currentTask) {
   let currentTaskData = tasks[currentTask];  
   for (const key in currentTaskData) {
     if (currentTaskData.hasOwnProperty(key)) {
-        const keyValue = currentTaskData[key];        
+        const keyValue = currentTaskData[key];
+               
+        if(key === 'member') {          
+          for (let i = 0; i < keyValue.length; i++) {
+            const element = keyValue[i];            
+            createBadge(element);
+          }
+        }
         setTaskValues(currentTask, key, keyValue);
     }
   }
@@ -29,10 +36,11 @@ function getTaskValues(currentTask) {
 
 function setTaskValues(currentTask, key, keyValue) {
   let formId = FORM_FIELDS[key];
-  console.log(formId + " neuer Wert: " + keyValue);
+  //console.log(formId + " neuer Wert: " + keyValue);
   document.getElementById(formId).value = keyValue;
   // radiobuttons-funktion
-  selectedRadioButton('Urgente', 'frame24');
+  //selectedRadioButton('Urgent', 'frame24');
+  
 }
 
 
