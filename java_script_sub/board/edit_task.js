@@ -4,7 +4,7 @@ const FORM_FIELDS = {
   description: 'frame17_text',
   status: 'temporaryStatus',
   prio: 'prioResult',
-  //subtasks: '',
+  subtasks: '',
   member: '',
   category: '',
   duedate: '',
@@ -28,7 +28,7 @@ function getTaskValues(currentTask) {
             const element = keyValue[i];            
             createBadge(element);
           }
-        }
+        }        
         setTaskValues(currentTask, key, keyValue);
     }
   }

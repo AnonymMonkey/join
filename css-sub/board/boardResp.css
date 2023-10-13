@@ -25,7 +25,9 @@
   #done {
     flex-direction: row;
     height: auto;
-    width: 100%;
+    width: 100%;    
+    overflow-x: auto;
+    padding: 1%;
   }
 
   .frame136,

@@ -110,6 +110,7 @@ input::-webkit-inner-spin-button {
 
 .frame119_title_task {
   width: 100%;
+  word-wrap: break-word;
   height: auto;
   font-size: 61px;
   font-weight: 700;
