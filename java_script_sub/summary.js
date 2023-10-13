@@ -19,28 +19,28 @@ let greeting = false;
 
 
 
-async function renderSummary(){
+async function renderSummary() {
     getDeviceWidth();
-    if(deviceWidth <= 910){
+    if (deviceWidth <= 910) {
         await getLoginType();
-        if(login){
+        if (login) {
             getCurrentGreeting();
             greetingUser1();
             setTimeout(greetingUser2, 2000);
             setTimeout(renderMobileContent, 4000);
         }
-        else{
+        else {
             getCurrentGreeting();
             greetingGuest();
             setTimeout(renderMobileContent, 2000);
         }
-    }else{
+    } else {
         renderDesktopContent();
     }
 }
 
 
-async function renderMobileContent(){
+async function renderMobileContent() {
     includeHTML();
     await loadTodos();
     getCurrentGreeting();
@@ -58,7 +58,7 @@ async function renderMobileContent(){
 }
 
 
-async function renderDesktopContent(){
+async function renderDesktopContent() {
     includeHTML();
     await loadTodos();
     getCurrentGreeting();
@@ -75,96 +75,96 @@ async function renderDesktopContent(){
 }
 
 
-function loadFromLocalStorage(){
+function loadFromLocalStorage() {
     activeUserMail = localStorage.getItem('activeUser');
 }
 
 
-async function getLoginType(){
-    if(login){
+async function getLoginType() {
+    if (login) {
         await loadUsers();
         loadFromLocalStorage();
         activeUserName = await setActiveUser();
     }
-    else{
+    else {
         activeUserName = "undefined";
     }
 }
 
-function getCurrentGreeting(){
+function getCurrentGreeting() {
     /* Get Hours */
     let hours = new Date().getHours();
 
-    if(hours >= 18  && hours <= 5 ){
+    if (hours >= 18 && hours <= 5) {
         currentGreeting = 'Good evening!';
     }
-    else if(hours >= 6  && hours <= 11){
+    else if (hours >= 6 && hours <= 11) {
         currentGreeting = 'Good morning!';
     }
-    else{
+    else {
         currentGreeting = 'Good afternoon!';
     }
 }
 
 
-async function greetingGuest(){
+async function greetingGuest() {
     document.getElementById('content').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
     `
 }
 
-async function greetingUser1(){
+async function greetingUser1() {
     document.getElementById('content').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
         
     `
 }
 
-async function greetingUser2(){
+async function greetingUser2() {
     document.getElementById('content').innerHTML = /*html*/`
         <span class="spanName">${activeUserName}</span>
     `
 }
 
 
-async function loadTodos(){
+async function loadTodos() {
     try {
         todos = JSON.parse(await getItem('tasks'));
-    } catch(e){
+    } catch (e) {
         console.error('Loading error:', e);
     }
 }
 
 
-function getAmountInBoard(){
+function getAmountInBoard() {
     amountInBoard = todos.length;
 }
 
 
-function getAmountTodos(){
+function getAmountTodos() {
     amountTodos = 0;
     for (let index = 0; index < todos.length; index++) {
-        if(todos[index].status == 'todo'){
+        if (todos[index].status == 'todo') {
             amountTodos++
         }
     }
 }
 
 
-function getAmountDone(){
+function getAmountDone() {
     amountDone = 0
     for (let index = 0; index < todos.length; index++) {
-        if(todos[index].status == 'done'){
+        if (todos[index].status == 'done') {
             amountDone++
         }
     }
 }
 
 
-function getAmountUrgent(){
+function getAmountUrgent() {
     amountUrgent = 0
     for (let index = 0; index < todos.length; index++) {
-        if(todos[index].prio == 'Urgent'){
+        if (todos[index].prio == 'Urgent') {
             amountUrgent++
             let dateInSeconds = todos[index].duedate;
             urgentDueDates.push(dateInSeconds);
@@ -173,42 +173,42 @@ function getAmountUrgent(){
 }
 
 
-function getDueDate(date){
+function getDueDate(date) {
     //Get nearest Date from Array
-    let nearestDate =  Math.min.apply(Math, urgentDueDates)
+    let nearestDate = Math.min.apply(Math, urgentDueDates)
     let dueDate;
     //Convert DateNumber to String    
-    if(date){
+    if (date) {
         dueDate = new Date(date);
     }
-    else{
+    else {
         dueDate = new Date(nearestDate);
     }
 
     let currentday = String(dueDate.getDate()).padStart(2, '0');
-    let currentMonth = String(dueDate.getMonth()+1).padStart(2, '0');
+    let currentMonth = String(dueDate.getMonth() + 1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
-    let urgentDate = `${currentday}-${currentMonth}-${currentYear}`; 
+    let urgentDate = `${currentday}-${currentMonth}-${currentYear}`;
     let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;
     urgentDueDate = urgentDate;
     return formattedDate;
 }
 
 
-function getAmountInProgress(){
+function getAmountInProgress() {
     amountInProgress = 0
     for (let index = 0; index < todos.length; index++) {
-        if(todos[index].status == 'inProgress'){
+        if (todos[index].status == 'inProgress') {
             amountInProgress++
         }
     }
 }
 
 
-function getAmountAwaitingFeedback(){
+function getAmountAwaitingFeedback() {
     amountAwaitingFeedback = 0
     for (let index = 0; index < todos.length; index++) {
-        if(todos[index].status == 'awaitFeedback'){
+        if (todos[index].status == 'awaitFeedback') {
             amountAwaitingFeedback++
         }
     }
@@ -219,12 +219,12 @@ function getAmountAwaitingFeedback(){
 
 
 /*Get Mobile Greeting */
-function getDeviceWidth(){
+function getDeviceWidth() {
     deviceWidth = window.innerWidth;
 }
 
 
-async function getHTMLTemplateforSummary(){
+async function getHTMLTemplateforSummary() {
     //Amount To-do
     document.getElementById('summaryToDo').innerHTML = /*html*/`
         <span class="tasksAmount">${amountTodos}</span>
@@ -270,7 +270,7 @@ async function getHTMLTemplateforSummary(){
     `;
 }
 
-async function getInitialHTMLTemplate(){
+async function getInitialHTMLTemplate() {
     document.getElementById('content').innerHTML = /*html*/`
                         <!-- insert content and own style from here -->
                 
