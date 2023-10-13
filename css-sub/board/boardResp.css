@@ -1,9 +1,11 @@
 @media (max-width: 1400px) {
-  .board_distribution {    
-    flex-direction: column;    
+  .board_distribution {
+    flex-direction: column;
     gap: 16px;
     padding: 0;
+    height: -webkit-fill-available;
   }
+
   .column_title {
     width: 100%;
     flex-direction: row;
@@ -23,12 +25,12 @@
   #done {
     flex-direction: row;
     height: auto;
-    width: 100%;    
+    width: 100%;
   }
 
-  .frame136, 
-  .frame149, 
-  .frame137, 
+  .frame136,
+  .frame149,
+  .frame137,
   .frame138 {
     width: 100%;
   }
@@ -39,7 +41,7 @@
     margin-bottom: 8px;
   }
 
-  .placeholderCard{
+  .placeholderCard {
     /* height: 48px !important;
     border-radius: 10px;     */
     display: none;
@@ -53,7 +55,7 @@
     justify-content: flex-start;
   }
 
-  .frame123{
+  .frame123 {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
@@ -61,15 +63,16 @@
     width: 100%;
     top: 10px;
   }
-  .search_task_web{
+
+  .search_task_web {
     width: 100%;
   }
 
-  .buttonText{
+  .buttonText {
     display: none;
   }
 
-  .add_task{
+  .add_task {
     display: flex;
     justify-content: center;
     width: 44px;
@@ -77,7 +80,7 @@
 }
 
 @media (max-width: 910px) {
-  .content{
+  .content {
     left: 0;
     width: 100%;
   }
