@@ -2,6 +2,7 @@
   .board_distribution {    
     flex-direction: column;    
     gap: 16px;
+    padding: 0;
   }
   .column_title {
     width: 100%;
@@ -13,6 +14,7 @@
   .respLayout {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   #todo,
@@ -24,16 +26,24 @@
     width: 100%;    
   }
 
+  .frame136, 
+  .frame149, 
+  .frame137, 
+  .frame138 {
+    width: 100%;
+  }
+
   .no_tasks_feedback {
-    width: 252px;
+    /* width: 252px; */
+    width: 100%;
     margin-bottom: 8px;
   }
 
   .placeholderCard{
-    height: 48px !important;
-    border-radius: 10px;    
+    /* height: 48px !important;
+    border-radius: 10px;     */
+    display: none;
   }
-
 }
 
 @media (max-width: 1100px) {
@@ -49,6 +59,7 @@
     align-items: flex-end;
     position: absolute;
     width: 100%;
+    top: 10px;
   }
   .search_task_web{
     width: 100%;

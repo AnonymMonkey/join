@@ -32,6 +32,7 @@ function setTaskValues(currentTask, key, keyValue) {
   console.log(formId + " neuer Wert: " + keyValue);
   document.getElementById(formId).value = keyValue;
   // radiobuttons-funktion
+  selectedRadioButton('Urgente', 'frame24');
 }
 
 
