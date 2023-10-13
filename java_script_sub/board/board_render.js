@@ -152,14 +152,14 @@ function generateOverlayContent(element) {
   `;
 }
 
-function generateOverlayAddTask(status) {
-  openAddTaskOverlay();
+async function generateOverlayAddTask(status) {
+  await openAddTaskOverlay();
   content = document.getElementById('overlayAddTaskContent');
   content.innerHTML = '';
   content.innerHTML = /*html*/ `
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">        
     `;
-  document.getElementById('temporaryStatus').innerHTML = `${status}`;
+  document.getElementById('temporaryStatus').innerHTML = status;
   document.getElementById('addTaskClear').classList.add('d-none');
   document.getElementById('addTaskCancel').classList.remove('d-none');
 }

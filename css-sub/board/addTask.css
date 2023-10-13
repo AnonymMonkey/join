@@ -296,7 +296,6 @@ input[type='date']::placeholder {
   width: 350px;
   height: 56px;
   gap: 25px;
-  position: relative;
   bottom: 5vh;
 }
 

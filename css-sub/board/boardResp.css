@@ -1,9 +1,14 @@
 @media (max-width: 1400px) {
+  
+  .content{
+    overflow-y: auto;
+  }
+  
   .board_distribution {
     flex-direction: column;
     gap: 16px;
     padding: 0;
-    height: -webkit-fill-available;
+    margin-bottom: 40px;
   }
 
   .column_title {
@@ -86,4 +91,15 @@
     left: 0;
     width: 100%;
   }
+
+  .board_frame{
+    position: sticky;
+    z-index: 4;
+    top: 0;
+    background-color: #f5f7f8;
+  }
+  .board_distribution{
+    margin-bottom: 140px;
+  }
+
 }

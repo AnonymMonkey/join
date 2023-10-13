@@ -1,22 +1,17 @@
 @media (max-width: 1400px) {
 
-  #sidebar{
-    display: none;    
-  }
-
-  .content{
-    left: 0;
-    width: 100%;
+  .content{    
     display: flex;
-    justify-content: center;    
+    justify-content: center; 
+    align-items: center;   
   }
 
   #task_form{
     display: flex;
+    justify-content: center;
     flex-direction: column;    
   }
-  .frame40{
-    font-size: 14px;
+  .frame40{    
     position: relative;
     top: 0;
     left: 0;
@@ -67,4 +62,18 @@
     left: 0;
   }
 
+}
+
+@media (max-width: 910px) {
+  .content{    
+    display: flex;    
+    justify-content: center;
+    align-items: center;    
+    left: 0;
+    width: 100%;
+  }
+  #task_form{
+    display: flex;
+    justify-content: stretch;
+  }
 }
