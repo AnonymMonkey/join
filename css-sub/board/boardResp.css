@@ -75,3 +75,10 @@
     width: 44px;
   }
 }
+
+@media (max-width: 910px) {
+  .content{
+    left: 0;
+    width: 100%;
+  }
+}
