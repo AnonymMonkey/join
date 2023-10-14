@@ -182,16 +182,21 @@ function addSubtask() {
 }
 
 function addnewSubtask() {
+  let subtitleValue = document.getElementById('frame14_subtask_text').value;
+  if(!subtitleValue){
+    return;
+  }
+
   hideEditSubtask();
   let nextSubId = getNextFreeId(newSubtasks, 'subid');
   if (newSubtasks.length < 5) {
     let newSubtask = {
       subid: nextSubId,
-      subtitle: document.getElementById('frame14_subtask_text').value,
+      subtitle: subtitleValue,
       substatus: 'open',
     }
     newSubtasks.push(newSubtask);
-    document.getElementById('frame14_subtask_text').value = '';
+    document.getElementById('frame14_subtask_text').value = '';    
     addSubtask();
   } else {
     document.getElementById('frame14_subtask').classList.add('error');

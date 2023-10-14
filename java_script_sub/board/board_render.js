@@ -110,7 +110,7 @@ function generateOverlayContent(element) {
         taskCategory[tasks[id]['category']]['title']
       }</span>
     </div>  
-    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay()">
+    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay(), doNotClose(event)">
     </div>
       <span class="frame119_title_task">${tasks[id]['title']}</span>
       <span class="frame119_content_task">${tasks[id]['description']}</span>
@@ -138,8 +138,8 @@ function generateOverlayContent(element) {
       <div id="frame204" class="frame204">${subtaskHTML}</div>
     </div>
 
-    <div class="frame20">      
-      <div class="delete-task pointer" onclick="deleteTask(${element})">
+    <div class="frame20">
+      <div class="delete-task pointer" onclick="deleteTask(${element}),doNotClose(event)">
       <img class="delete-icon" src="../assets/img/board/delete.svg">
         <div class="delete-text">Delete</div>     
       </div> 
@@ -193,7 +193,7 @@ function generateSubtaskListStatus(id, subtask) {
 
 function generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText) {  
   return (subtaskHTML += /*html*/ `
-    <div id="subtaskImage${subtask['subid']}" class="subtasks-check pointer" onclick="changeSubtask(${id}, ${subtask['subid']}, '${newStatusText}', '${newImg}')">
+    <div id="subtaskImage${subtask['subid']}" class="subtasks-check pointer" onclick="changeSubtask(${id}, ${subtask['subid']}, '${newStatusText}', '${newImg}'),doNotClose(event)">
       <img id="${subtask['subid']}" class="subtasks-checkbutton" src="${currentImg}">      
       <div class="subtasks-title">${subtask['subtitle']}</div>
     </div>        

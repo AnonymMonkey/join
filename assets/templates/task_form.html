@@ -49,7 +49,7 @@
       </svg>
     </div>
 
-    <div class="frame39">
+    <div class="frame39" id="frame39">
       <div class="framedue">
         <div class="frame39_duedate">
           Due date<sup class="requiredAsterisk">*</sup>
@@ -146,7 +146,7 @@
             Clear
             <img src="../assets/img/add-task/cancel.svg" />
           </div>
-          <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay()">
+          <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay(), doNotClose(event)">
             Cancel
             <img src="../assets/img/add-task/cancel.svg" />
           </div>

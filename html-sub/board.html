@@ -18,7 +18,7 @@
   <script src="../java_script_sub/contacts/contacts_register.js"></script>
   <script src="../java_script_sub/animated_small_label.js"></script>
   <script src="../java_script_sub/storage.js"></script>
-  <!-- <script src="../java_script_sub/board/user_selection.js"></script> -->
+  <script src="../java_script_sub/board/user_selection.js"></script>
   <script src="../java_script_sub/board/user_selection_html.js"></script>
   <script type="module" src="../java_script_sub/all_contacts.js"></script>
   <script src="../java_script_sub/help_functions.js"></script>
@@ -45,7 +45,7 @@
     <div id="header" w3-include-html="../assets/templates/header.html"></div>
 
     <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
-    <div class="content d-flex">
+    <div class="content d-flex" onclick="doNotClose(event)">
       <div class="board_frame">
         <div class="board_headline">
           <div class="headline_text">Board</div>

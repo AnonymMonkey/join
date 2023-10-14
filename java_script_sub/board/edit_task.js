@@ -25,16 +25,10 @@ function getTaskValues(currentTask) {
   for (const key in currentTaskData) {
     if (currentTaskData.hasOwnProperty(key)) {
         const keyValue = currentTaskData[key];
-        
-        console.log(key + " Wert: " + keyValue);
-
-        // task 39 // member: 3175,3663,7519,4415,4336 (einen gibts nicht mehr)
         if(key === 'member') {          
           for (let i = 0; i < keyValue.length; i++) {
             const element = keyValue[i];            
-            console.log(element);
-            contactSelection.push(element);
-            createBadge(element);
+            checkContacts(element);
           }
         } else
         if(key === 'prio') {                    
@@ -47,12 +41,13 @@ function getTaskValues(currentTask) {
         if(key === 'subtasks') {                    
           console.log('subtasks');
         } 
-        else {
-        // titel, description und category klappen hier
-          setTaskValues(currentTask, key, keyValue);
-        }
+        // else {
+        // // titel, description und category klappen hier
+        //   setTaskValues(currentTask, key, keyValue);
+        // }
     }
-  }
+  }  
+  document.getElementById('frame39').style = 'margin-top: 42px;';  
 }
 
 function setTaskValues(currentTask, key, keyValue) {
@@ -78,4 +73,14 @@ function getValueDueDate(date) {
   let currentYear = String(dueDate.getFullYear());
   let formattedDate = `${currentYear}-${currentMonth}-${currentday}`;
   return formattedDate;
+}
+
+function checkContacts(thisContact) {
+    const istImArray = contacts.some(entry => entry.register_entry.some(contact => contact.contact_ID === thisContact));
+    console.log(thisContact + " ist im Array vorhanden? " + istImArray);
+    //isOpen = true;
+    if(istImArray){
+      contactSelection.push(thisContact);      
+      createBadge(`${thisContact}`);
+    }
 }
