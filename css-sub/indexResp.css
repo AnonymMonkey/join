@@ -157,9 +157,21 @@
         gap: 5%;
     }
 
-    .startLogo {
-        width: 10vw !important;
-        height: auto !important;
-        top: 10% !important;
+    @keyframes logoAnimation {
+        0% {
+            width: 274px;
+            height: 334.072px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        100% {
+            width: auto;
+            height: 10%;
+            position: fixed;
+            top: calc(6vh + 61px);
+            left: calc(5vw + 50px);
+        }
     }
 }

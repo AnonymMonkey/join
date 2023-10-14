@@ -186,35 +186,17 @@ function openSignUp() {
 
 
 function loadStartScreen() {
-    /*     getDeviceWidth();
-        if (deviceWidth <= 800) {
-            setTimeout(setMobileScreen, 1000);
-        }
-        else {
-            setTimeout(setDesktopScreen, 1000);
-        } */
     setDesktopScreen();
     loadFromLocalStorage();
 }
 
-
-function setMobileScreen() {
-    document.getElementById('startScreen').classList.remove('desktopScreen')
-    document.getElementById('startScreen').classList.add('mobileScreen')
-
-    document.getElementById('startScreen').classList.add('elementToFadeInAndOut')
-    document.getElementById('logoScreen').classList.remove('logoScreen')
-
-    document.getElementById('startLogo').classList.add('dNone');
-    document.getElementById('indexContent').classList.remove('dNone')
-    document.getElementById('logoScreen').classList.add('normalScreen')
-}
-
-
 function setDesktopScreen() {
     animateLogo();
     document.getElementById('indexContent').classList.remove('dNone');
-    document.getElementById('startScreen').classList.add('elementToFadeInAndOut');
+    setTimeout(() => {
+        document.getElementById('startScreen').classList.add('elementToFadeInAndOut');
+    }, 1000);
+
 }
 
 function animateLogo() {
@@ -224,12 +206,6 @@ function animateLogo() {
         logo.style.animationPlayState = "running";
     }
 }
-
-
-function getDeviceWidth() {
-    deviceWidth = window.innerWidth;
-}
-
 
 function openLegal() {
     window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html?msg=legal', '_blank');
