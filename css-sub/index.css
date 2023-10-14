@@ -1,13 +1,14 @@
-body{
+body {
     margin: 0;
 }
-.container{
+
+.container {
     width: 100%;
     height: 1024px;
-    background: #F6F7F8;  
+    background: #F6F7F8;
 }
 
-.logoBig{
+.logoBig {
     width: 202px;
     height: 244px;
 }
@@ -15,7 +16,7 @@ body{
 
 /*Animation */
 
-.desktopScreen{
+.desktopScreen {
     background-color: #F6F7F8;
     opacity: 0;
     z-index: 10;
@@ -23,22 +24,19 @@ body{
     height: 100vh;
 }
 
-.mobileScreen{
+.mobileScreen {
     background-color: #F6F7F8;
     opacity: 0;
     z-index: 10;
     width: 100%;
     height: 100vh;
 }
-*/
 
-.logoScreen{
-    width: 100%;
-    height: 100vh;
-    background-color: #2A3D59;
+*/ .logoScreen {
+    position: relative;
 }
 
-.normalScreen{
+.normalScreen {
     width: 100%;
     height: 100vh;
     background-color: #F6F7F8;
@@ -47,151 +45,160 @@ body{
 
 .elementToFadeInAndOut {
     opacity: 1;
-    animation: fade 3s linear;
+    animation: fade 0.5s linear;
 }
 
 
 @keyframes fade {
+    0% {
+        opacity: 0;
+    }
 
-  0%,100% { opacity: 0 }
-  100% { opacity: 1 }
+    100% {
+        opacity: 1;
+    }
 }
 
-.startLogo{
+.startLogo {
+    width: 274px;
+    height: 334.072px;
     position: absolute;
-    top: 25%;
-    left: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: logoAnimation;
+    animation-delay: 200ms;
+    animation-timing-function: ease-in-out;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+    /* Werte nach der Animation beibehalten */
+    z-index: 999;
 }
 
-.animation{
-    /*transform: translate(-100%, -50%) rotate(300deg);*/
-    /*transition: 5s ease-out;*/
-    
-    transform: translateX(800px);
-    transition: all 500ms ease-in-out;
+@keyframes logoAnimation {
+    0% {
+        width: 274px;
+        height: 334.072px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        width: 100px;
+        height: 121px;
+        position: fixed;
+        top: calc(6vh + 61px);
+        left: calc(5vw + 50px);
+    }
 }
 
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
 
-.logIn{
+.logIn {
     display: inline-flex;
     padding: 48px 115px;
     flex-direction: column;
     align-items: center;
-    gap: 32px; 
+    gap: 32px;
 
     border-radius: 30px;
-    background: var(--white, #FFF);
+    background-color: var(--white, #FFF);
     /* shadoe backlog box */
-    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04); 
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 
-    width: 550px;
-    height: 50vh;
-    /*Fixation*/
-    position: fixed;
-    top: 30vh;
-    left: 30vw;
-    
-    /*
-    top: 265.5px;
-    left: 394px;
-    bottom: 200px;
-    right: 394px;
-    */
-    
+    width: 652px;
+    height: 493px;
 }
 
 
-.signUp{
+.signUp {
     display: inline-flex;
     align-items: center;
-    gap: 35px; 
+    gap: 35px;
 
-    width: 279px;
+    width: 292px;
 
-    /*Fixation*/
     position: fixed;
+    top: 6vh;
     right: 10vw;
-    
-    /*
-    top: 67px;
-    left: 1100px;
-    bottom: 908px;
-    right: 122px;
-    */
 }
 
-.signUp span{
+.sign-up-button {
+    display: flex;
+    width: 104px;
+    padding: 15px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 8px;
+    background: #2A3647;
+
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.sign-up-button:hover {
+    background: var(--Ligth-blue, #29ABE2);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: 0.1s ease-in-out;
+}
+
+.sign-up-button:active {
+    background: #091931;
+}
+
+.signUp span {
     color: #000;
-    /* Version 2/t6 */
+
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */ 
+    line-height: 120%;
 }
 
-.signupHover:hover rect{
-    fill: #29ABE2; 
+.signupHover:hover rect {
+    fill: #29ABE2;
 }
 
-.signupHover:hover svg{
+.signupHover:hover svg {
     transform: scale(1.02);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
 }
 
-.logoTopLeft{
-    width: 100.034px;
-    height: 121.966px;
-    flex-shrink: 0; 
-
-    /*Fixation*/
-    position: fixed;
-    
-    top: 8vh;
-    left: 4vw;
-    
-
-    /*
-    top: 80px;
-    left: 77px;
-    bottom: 822.03px;
-    right: 1262.97px;
-    */
-}
-
-.headlineLogIn{
+.headlineLogIn {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px; 
+    gap: 16px;
     color: #000000;
-    width: 430px;
-
-    /*Fixation*/
-    position: fixed;
-    top: 33vh;
-    
-    /*
-    top: 313.5px;
-    left: 562.5px;
-    bottom: 621.5px;
-    right: 562.5px;
-    */
+    margin-bottom: 32px;
 }
 
-#indexContent{
+#indexContent {
     width: 100vw;
     height: 100vh;
     position: absolute;
     display: flex;
     justify-content: center;
-    top: 80px;
 }
 
 
-.headlineLogIn span{
-    width: 315px; 
+.headlineLogIn span {
+    width: 315px;
 
     color: #000;
     text-align: center;
@@ -200,11 +207,12 @@ body{
     font-size: 61px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; /* 73.2px */ 
+    line-height: 120%;
+    /* 73.2px */
 }
 
-.headlineLogIn img{
-    
+.headlineLogIn img {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -212,15 +220,15 @@ body{
     stroke-width: 3px;
 }
 
-.loginOverview{
+.loginOverview {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    align-self: stretch; 
-    
+    align-self: stretch;
+
     /*Fixation*/
-    
+
     /*
     position: fixed;
     top: 434.5px;
@@ -231,146 +239,135 @@ body{
 
 }
 
-.inputsLogin{
+.inputsLogin {
     display: flex;
-    height: 152px;
     flex-direction: column;
-    
     gap: 32px;
-    
-    /*Fixation*/
-    
-    position: fixed;
-    top: 46vh;
-    /*
-    top: 434.5px;
-    left: 509px;
-    bottom: 437.5px;
-    right: 509px;
-    */
+    height: 100%;
+    width: 100%;
 }
 
-.inputsDecoration{
+.innerform {
     display: flex;
-    
+    flex-direction: column;
+    justify-content: center;
     width: 422px;
-    
+    height: 100%;
+    gap: 32px;
+}
+
+.inputsDecoration {
+    display: flex;
+
+    width: 100%;
+
     padding: 12px 21px;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
     cursor: pointer;
 
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
-    background: #FFF; 
+    background: #FFF;
 }
 
-.changeBorderBlue{
+.mt-32 {
+    margin-top: -32px;
+}
+
+.changeBorderBlue {
     border: 1px solid var(--Style, #29ABE2)
 }
 
-.changeBorderRed{
-    border: 1px solid var(--Style, red); 
+.changeBorderRed {
+    border: 1px solid var(--Style, red);
 }
 
-.inputs{
+.inputs {
     display: flex;
-    width: 380px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
-.inputs input{
+.inputs input {
     border: 0px solid;
     color: var(--Style, #D1D1D1);
-    /* Version 2/t6 */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 24px */
+    line-height: 120%;
     cursor: pointer;
-    width: 350px;
-    
+    width: 100%;
 }
 
 input:focus {
     outline: none;
 }
 
-input:not(:placeholder-shown){
+input:not(:placeholder-shown) {
     color: black;
 }
 
-.inputs img{
+.inputs img {
     width: 24px;
     height: 24px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
-.settingsLogin{
+.settingsLogin {
     display: flex;
-    padding: 0px 241px 0px 39px;
     align-items: center;
+    justify-content: start;
+    width: 100%;
+}
+
+.loginMsgBox {
+    margin-top: -24px;
+
     align-self: stretch;
 
+    color: #FF8190;
 
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
 }
 
-.loginMsgBox{
-    position: fixed;
-    top: 570px;
-    left: 510px;
-    bottom: 393.5px;
-    right: 750px;
-
-    font-size: 12px;
-    width: 350px;
-    color: red; 
-}
-
-.rememberMe{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px; 
+.rememberMe {
+    gap: 8px;
     color: black;
-    width: 142px;
-
-    position: fixed;
-    
-    
-    
-    /*
-    top: 606.5px;
-    left: 548px;
-    bottom: 393.5px;
-    right: 750px
-    */
+    width: 100%;
+    white-space: nowrap;
+    padding-left: 5%;
 }
 
-.rememberMe span{
+.rememberMe span {
     color: #000;
     /* Version 2/body */
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 19.2px */
+    line-height: 120%;
+    /* 19.2px */
 }
 
 
-.checkboxBG:hover{
+.checkboxBG:hover {
     background-color: #F6F7F8;
 }
 
-.buttonsLogin{
+.buttonsLogin {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
+
     gap: 35px;
     width: 100%;
 
@@ -387,68 +384,90 @@ input:not(:placeholder-shown){
     */
 }
 
-.buttonsLogin img{
+.buttonsLogin img {
     display: flex;
     height: 48px;
     padding: 15px 24px;
     justify-content: center;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
 }
 
-.submitButton{
-    border: none;
-    
-}
-
-.mobileLogin{
-    display: none;
-}
-
-.desktopLogin{
+.submitButton {
     display: flex;
-}
-
-
-.svgLogin{
-    display: flex;
-    flex-direction: row;
+    height: 48px;
+    padding: 15px 24px;
     justify-content: center;
-    gap: 35px;
-    
-}
-
-
-.svgLogin:hover rect{
-    fill: #29ABE2;
-}
-
-.svgLogin:hover svg{
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    gap: 10px;
     border-radius: 8px;
+    border: 0;
+    background: #2A3647;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
 }
 
-.svgGuestLogin:hover path {
-    fill: #29ABE2;
+.submitButton:hover {
+    background: var(--Ligth-blue, #29ABE2);
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    transition: 0.1s ease-in-out;
 }
 
-.svgGuestLogin:hover rect {
-    stroke: #29ABE2;
+.submitButton:active {
+    background: #091931;
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.svgGuestLogin:hover svg{
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
-    transform: scale(1.05);
-    border-color: #29ABE2;
+.guestLoginButton {
+    display: flex;
+    height: 48px;
+    padding: 15px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
     border-radius: 8px;
+    border: 1px solid var(--version-2-main-color, #2A3647);
+    background: var(--white, #FFF);
+
+    color: var(--version-2-main-color, #2A3647);
+    font-family: Inter;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
 }
 
-.signupMobile{
+.guestLoginButton:hover {
+    border: 2px solid var(--Ligth-blue, #29ABE2);
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: var(--Ligth-blue, #29ABE2);
+
+    transform: scale(1.01);
+    transition: 0.1s ease-in-out;
+}
+
+.guestLoginButton:active {
+    border: 1px solid #091931;
+
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #091931;
+}
+
+.signupMobile {
     display: none;
 }
 
 
-.legalPrivacy{
+.legalPrivacy {
     display: inline-flex;
     justify-content: center;
     gap: 16px;
@@ -457,7 +476,7 @@ input:not(:placeholder-shown){
     bottom: 5vh;
 }
 
-.legalPrivacyButton{
+.legalPrivacyButton {
     display: flex;
     padding: 8px;
     align-items: center;
@@ -469,24 +488,25 @@ input:not(:placeholder-shown){
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; /* 19.2px */
+    line-height: 120%;
+    /* 19.2px */
     background: #F6F7F8;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
-.legalPrivacyButton:hover{
+.legalPrivacyButton:hover {
     transform: scale(1.1);
     color: #29ABE2;
 }
 
-.clickable{
+.clickable {
     cursor: pointer;
 }
 
-.transform:hover{
+.transform:hover {
     transform: scale(1.05);
 }
 
-.dNone{
+.dNone {
     display: none;
 }

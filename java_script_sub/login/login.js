@@ -2,71 +2,72 @@ let isChecked = false;
 let users = [];
 let activeUser;
 let deviceWidth;
+let animationStarted = false;
 let loginData = [];
 
-function changeCheckbox(){
-    if(isChecked){
+function changeCheckbox() {
+    if (isChecked) {
         loginCheckboxOff();
     }
-    else{
+    else {
         loginCheckboxOn();
     }
 }
 
 
-function loginCheckboxOff(){
+function loginCheckboxOff() {
     document.getElementById('loginCheckboxUnchecked').classList.remove('dNone');
     document.getElementById('loginCheckboxChecked').classList.add('dNone');
     isChecked = false;
 }
 
 
-function loginCheckboxOn(){
+function loginCheckboxOn() {
     document.getElementById('loginCheckboxUnchecked').classList.add('dNone');
     document.getElementById('loginCheckboxChecked').classList.remove('dNone');
     isChecked = true;
 }
 
 
-async function login(){
+async function login() {
     let email = document.getElementById('loginEmail').value;
     let password = document.getElementById('loginPassword').value;
     checkRememberMe(email, password);
     await loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
-    if(user){
+    if (user) {
         activeUser = user.email;
         saveUserToLocalStorage('activeUser', activeUser);
         window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
-    else{
+    else {
         showMsgBoxInvalidPassword();
     };
 }
 
 
-function saveUserToLocalStorage(key, value){
+function saveUserToLocalStorage(key, value) {
     localStorage.setItem(key, value);
 }
 
 
-function saveToLocalStorage(key, value){
+function saveToLocalStorage(key, value) {
     let valueAsText = JSON.stringify(value)
     localStorage.setItem(key, valueAsText);
 }
 
 
-function checkRememberMe(email, password){
-    if(isChecked){
+function checkRememberMe(email, password) {
+    if (isChecked) {
         pushLoginData(email, password)
     }
-    else{
+    else {
         /*localStorage.removeItem('loginData');*/
     }
 }
 
 
-function pushLoginData(email, password){
+function pushLoginData(email, password) {
     loginData = [];
     loginData.push({
         email: email,
@@ -76,16 +77,16 @@ function pushLoginData(email, password){
 }
 
 
-async function loadUsers(){
+async function loadUsers() {
     try {
         users = JSON.parse(await getItem('users'));
-    } catch(e){
+    } catch (e) {
         console.error('Loading error:', e);
     }
 }
 
 
-function showMsgBoxInvalidPassword(){
+function showMsgBoxInvalidPassword() {
     document.getElementById('decoLoginPassword').classList.remove('changeBorderBlack')
     document.getElementById('decoLoginPassword').classList.add('changeBorderRed')
     document.getElementById('LoginMsgBox').classList.remove('dNone');
@@ -95,37 +96,37 @@ function showMsgBoxInvalidPassword(){
 }
 
 
-function changeBorderOnFocus(id){
+function changeBorderOnFocus(id) {
     let identifiers = ['loginEmail', 'loginPassword'];
     let decorations = ['decoLoginName', 'decoLoginPassword'];
     document.getElementById('LoginMsgBox').classList.add('dNone');
     for (let index = 0; index < identifiers.length; index++) {
         const idName = identifiers[index];
-        if(idName == id){
+        if (idName == id) {
             changeBorderToBlue(decorations, index);
         }
-        else{
+        else {
             changeBorderToStandard(decorations, index);
-        } 
+        }
     }
 }
 
 
-function changeBorderToBlue(decorations, index){
+function changeBorderToBlue(decorations, index) {
     document.getElementById(`${decorations[index]}`).classList.add('changeBorderBlue');
     document.getElementById('decoLoginPassword').classList.remove('changeBorderRed')
     showLockSymbol();
 }
 
 
-function changeBorderToStandard(decorations, index){
+function changeBorderToStandard(decorations, index) {
     document.getElementById(`${decorations[index]}`).classList.remove('changeBorderBlue');
     document.getElementById('decoLoginPassword').classList.remove('changeBorderRed')
     showLockSymbol();
 }
 
 
-function showLockSymbol(){
+function showLockSymbol() {
     document.getElementById('passwordLock').classList.remove('dNone');
     document.getElementById('passwordVisibilityOff').classList.add('dNone');
     document.getElementById('passwordVisibility').classList.add('dNone');
@@ -139,17 +140,17 @@ function showLockSymbol(){
 
 
 //change visibility of lock-symbol in Login-form
-function passwordVisibilityLock(id){
+function passwordVisibilityLock(id) {
     let identifiers = ['passwordLock', 'passwordVisibilityOff', 'passwordVisibility'];
     for (let index = 0; index < identifiers.length; index++) {
         const idName = identifiers[index];
-        if(idName == id){
-            if(index == 0){
+        if (idName == id) {
+            if (index == 0) {
                 revealPassword();
             }
-            else if(index == 1){
+            else if (index == 1) {
                 revealPassword();
-            }else{
+            } else {
                 coverPassword();
             }
         }
@@ -157,90 +158,93 @@ function passwordVisibilityLock(id){
 }
 
 
-function coverPassword(){
+function coverPassword() {
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.remove('dNone');
-    document.getElementById('passwordVisibility').classList.add('dNone');     
+    document.getElementById('passwordVisibility').classList.add('dNone');
     document.getElementById('loginPassword').type = 'password';
 }
 
 
-function revealPassword(){
+function revealPassword() {
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.add('dNone');
-    document.getElementById('passwordVisibility').classList.remove('dNone');  
+    document.getElementById('passwordVisibility').classList.remove('dNone');
     document.getElementById('loginPassword').type = 'text';
 }
 
 
-function guestLogin(){
+function guestLogin() {
     localStorage.removeItem('activeUser');
     window.location.href = 'http://127.0.0.1:5500/html-sub/summary.html?msg=guest';
 }
 
 
-function openSignUp(){
+function openSignUp() {
     window.location.href = 'http://127.0.0.1:5500/html-sub/sign_up.html';
 }
 
 
-function loadStartScreen(){
-    getDeviceWidth();
-    if(deviceWidth <= 800){
-        setTimeout(setMobileScreen, 1000);
-    }
-    else{
-        setTimeout(setDesktopScreen, 1000);
-    }
+function loadStartScreen() {
+    /*     getDeviceWidth();
+        if (deviceWidth <= 800) {
+            setTimeout(setMobileScreen, 1000);
+        }
+        else {
+            setTimeout(setDesktopScreen, 1000);
+        } */
+    setDesktopScreen();
     loadFromLocalStorage();
 }
 
 
-function setMobileScreen(){
+function setMobileScreen() {
     document.getElementById('startScreen').classList.remove('desktopScreen')
     document.getElementById('startScreen').classList.add('mobileScreen')
-    
+
     document.getElementById('startScreen').classList.add('elementToFadeInAndOut')
     document.getElementById('logoScreen').classList.remove('logoScreen')
-    
+
     document.getElementById('startLogo').classList.add('dNone');
     document.getElementById('indexContent').classList.remove('dNone')
     document.getElementById('logoScreen').classList.add('normalScreen')
 }
 
 
-function setDesktopScreen(){
-    setTimeout(animateLogo, 4000);
-    document.getElementById('startScreen').classList.add('elementToFadeInAndOut')
-    document.getElementById('indexContent').classList.remove('dNone')
-    document.getElementById('startLogo').classList.add('dNone');
+function setDesktopScreen() {
+    animateLogo();
+    document.getElementById('indexContent').classList.remove('dNone');
+    document.getElementById('startScreen').classList.add('elementToFadeInAndOut');
 }
 
-function animateLogo(){
-    document.getElementById('startLogo').classList.remove('startLogo2');
-    document.getElementById('startLogo').classList.add('animation');
+function animateLogo() {
+    if (!animationStarted) {
+        animationStarted = true;
+        let logo = document.getElementById("startLogo");
+        logo.style.animationPlayState = "running";
+    }
 }
 
 
-function getDeviceWidth(){
+function getDeviceWidth() {
     deviceWidth = window.innerWidth;
 }
 
 
-function openLegal(){
+function openLegal() {
     window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html?msg=legal', '_blank');
 }
 
 
-function openPrivacy(){
+function openPrivacy() {
     window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html?msg=privacy', '_blank');
 }
 
 
 
-function loadFromLocalStorage(){
+function loadFromLocalStorage() {
     let loginDataAsText = localStorage.getItem('loginData');
-    if(loginDataAsText){
+    if (loginDataAsText) {
         loginData = JSON.parse(loginDataAsText);
         document.getElementById('loginEmail').value = loginData[0].email;
         document.getElementById('loginPassword').value = loginData[0].password;
