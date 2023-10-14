@@ -4,10 +4,13 @@ const FORM_FIELDS = {
   description: 'frame17_text',
   status: 'temporaryStatus',
   prio: 'prioResult',
-  //subtasks: '',
-  //member: '',
-  //category: '',
-  //duedate: '',
+  Urgent: 'frame24', 
+  Medium: 'frame25', 
+  Low: 'frame26',
+  subtasks: '',
+  member: '',
+  category: 'category_select',
+  duedate: 'addtask-duedate',
 };
 
 function getTaskData() {
@@ -22,28 +25,57 @@ function getTaskValues(currentTask) {
   for (const key in currentTaskData) {
     if (currentTaskData.hasOwnProperty(key)) {
         const keyValue = currentTaskData[key];
-               
+        
+        console.log(key + " Wert: " + keyValue);
+
+        // task 39 // member: 3175,3663,7519,4415,4336 (einen gibts nicht mehr)
         if(key === 'member') {          
           for (let i = 0; i < keyValue.length; i++) {
             const element = keyValue[i];            
+            console.log(element);
+            contactSelection.push(element);
             createBadge(element);
           }
+        } else
+        if(key === 'prio') {                    
+          setValuesOnRadioButtons(keyValue);
+        } else
+        if(key === 'duedate') {                    
+          setValueOnDueDate(key, keyValue);          
         }
-        setTaskValues(currentTask, key, keyValue);
+        else
+        if(key === 'subtasks') {                    
+          console.log('subtasks');
+        } 
+        else {
+        // titel, description und category klappen hier
+          setTaskValues(currentTask, key, keyValue);
+        }
     }
   }
 }
 
 function setTaskValues(currentTask, key, keyValue) {
-  let formId = FORM_FIELDS[key];
-  console.log(formId + " neuer Wert: " + keyValue);
+  let formId = FORM_FIELDS[key];  
   document.getElementById(formId).value = keyValue;
-  // radiobuttons-funktion
-  selectedRadioButton('Urgent', 'frame24');  
 }
 
+function setValuesOnRadioButtons(keyValue) {  
+  let formId = FORM_FIELDS[keyValue];  
+  selectedRadioButton(keyValue, formId);
+}
 
-// radiobuttons-funktion / eigene Funktion nötig je nachdem was keyValue für einen Wert hat
-//selectedRadioButton(keyValue, 'frame24');
-//selectedRadioButton(keyValue, 'frame25');
-//selectedRadioButton(keyValue, 'frame26');
+function setValueOnDueDate(key, keyValue) {
+  let formId = FORM_FIELDS[key];
+  let formattedDate = getValueDueDate(keyValue);  
+  document.getElementById(formId).value = `${formattedDate}`;
+}
+
+function getValueDueDate(date) {  
+  dueDate = new Date(date);  
+  let currentday = String(dueDate.getDate()).padStart(2, '0');
+  let currentMonth = String(dueDate.getMonth() + 1).padStart(2, '0');
+  let currentYear = String(dueDate.getFullYear());
+  let formattedDate = `${currentYear}-${currentMonth}-${currentday}`;
+  return formattedDate;
+}

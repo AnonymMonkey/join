@@ -188,7 +188,7 @@ function getDueDate(date) {
     let currentday = String(dueDate.getDate()).padStart(2, '0');
     let currentMonth = String(dueDate.getMonth() + 1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
-    let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;
+    let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;    
 
 
     if (urgentDueDates > 0) {
