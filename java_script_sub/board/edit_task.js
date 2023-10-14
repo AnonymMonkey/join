@@ -24,13 +24,7 @@ function getTaskValues(currentTask) {
   let currentTaskData = tasks[currentTask];  
   for (const key in currentTaskData) {
     if (currentTaskData.hasOwnProperty(key)) {
-        const keyValue = currentTaskData[key];
-        if(key === 'member') {          
-          for (let i = 0; i < keyValue.length; i++) {
-            const element = keyValue[i];            
-            checkContacts(element);
-          }
-        } else
+        const keyValue = currentTaskData[key];        
         if(key === 'prio') {                    
           setValuesOnRadioButtons(keyValue);
         } else
@@ -40,11 +34,17 @@ function getTaskValues(currentTask) {
         else
         if(key === 'subtasks') {                    
           console.log('subtasks');
+        } else
+        if(key === 'member') {
+          for (let i = 0; i < keyValue.length; i++) {
+            const element = keyValue[i];            
+            checkContacts(element);
+          }
         } 
-        // else {
-        // // titel, description und category klappen hier
-        //   setTaskValues(currentTask, key, keyValue);
-        // }
+        else {
+        // titel, description und category klappen hier
+           setTaskValues(currentTask, key, keyValue);
+        }
     }
   }  
   document.getElementById('frame39').style = 'margin-top: 42px;';  
@@ -64,6 +64,7 @@ function setValueOnDueDate(key, keyValue) {
   let formId = FORM_FIELDS[key];
   let formattedDate = getValueDueDate(keyValue);  
   document.getElementById(formId).value = `${formattedDate}`;
+  console.log(formattedDate);
 }
 
 function getValueDueDate(date) {  
@@ -76,10 +77,8 @@ function getValueDueDate(date) {
 }
 
 function checkContacts(thisContact) {
-    const istImArray = contacts.some(entry => entry.register_entry.some(contact => contact.contact_ID === thisContact));
-    console.log(thisContact + " ist im Array vorhanden? " + istImArray);
-    //isOpen = true;
-    if(istImArray){
+    const contactInArray = contacts.some(entry => entry.register_entry.some(contact => contact.contact_ID === thisContact));
+    if(contactInArray){
       contactSelection.push(thisContact);      
       createBadge(`${thisContact}`);
     }
