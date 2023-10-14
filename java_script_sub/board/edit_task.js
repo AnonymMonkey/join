@@ -28,7 +28,7 @@ function getTaskValues(currentTask) {
             const element = keyValue[i];            
             createBadge(element);
           }
-        }        
+        }
         setTaskValues(currentTask, key, keyValue);
     }
   }

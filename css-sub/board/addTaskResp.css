@@ -1,6 +1,6 @@
 @media (max-width: 1660px) {
 
-  .content{    
+  .content_addTask{
     display: flex;
     justify-content: center; 
     align-items: center;   
@@ -85,7 +85,7 @@
 }
 
 @media (max-width: 910px) {
-  .content{    
+  .content_addTask{    
     display: flex;    
     justify-content: center;
     align-items: center;    
