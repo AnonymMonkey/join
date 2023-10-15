@@ -1,4 +1,5 @@
 function openTaskOverlay() {
+    resetArrays();
     let overlayBg = elementByID("overlay-bg");
     let overlayContent = elementByID("overlay-content");
     

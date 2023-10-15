@@ -1,5 +1,5 @@
 async function openAddTaskOverlay() {
-
+    resetArrays();
     await taskContainerRenderHTML('add', 'Add');
 
     let overlayBg = elementByID("overlay-bg-addTask");

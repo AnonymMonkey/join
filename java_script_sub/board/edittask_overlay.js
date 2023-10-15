@@ -1,5 +1,5 @@
 async function openEditTaskOverlay(element) {
-    
+    resetArrays();
     await taskContainerRenderHTML('edit', 'Edit');
 
     let overlayBg = elementByID("overlay-bg-editTask");
