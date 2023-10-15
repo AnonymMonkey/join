@@ -37,6 +37,7 @@ async function getTaskValues(currentTask) {
           } else
             if (key === 'member') {              
               await userSelection();
+              isOpen = false;
               for (let i = 0; i < keyValue.length; i++) {                
                 const element = keyValue[i];
                 checkContacts(element, keyValue.length);                
@@ -79,7 +80,7 @@ function getValueDueDate(date) {
 async function checkContacts(thisContact, length) {  
   const contactInArray = contacts.some(entry => entry.register_entry.some(contact => contact.contact_ID === thisContact));
   if (contactInArray) {    
-    await createBadge(thisContact); // contactSelection push
+    createBadge(thisContact); // contactSelection push
   }
 }
 

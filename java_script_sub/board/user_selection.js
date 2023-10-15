@@ -1,18 +1,19 @@
 let contactSelection = [];
 let isOpen = true;
 
-// document.addEventListener('click', function (event) {
-//     let userSelectionFrame = document.getElementById('frame74');
-//     let select = document.getElementById('user_selection');
-//     let selectBG = elementByID("user_selection-background");
-//     let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
+document.addEventListener('click', function (event) {
+    let select = document.getElementById('user_selection');
+    let selectBG = elementByID("user_selection-background");
+    let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
+    let selectedUser = elementByID('selected_user');
 
-//     if (!selectBG.contains(event.target)) {
-//         select.classList.add('d-none');
-//         selectBG.classList.add('d-none');
-//         arrowDropdown.classList.remove('open');
-//     }
-// });
+    if (select && !selectBG.contains(event.target)) {
+        select.classList.add('d-none');
+        selectBG.classList.add('d-none');
+        selectedUser.classList.remove('d-none');
+        arrowDropdown.classList.remove('open');        
+    }
+});
 
 async function userSelection() {
   await loadContacts();
