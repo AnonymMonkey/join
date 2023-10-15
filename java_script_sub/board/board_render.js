@@ -7,22 +7,16 @@ function generateTasksHTML(element) {
   let prioIcon = element['prio'].toLowerCase();
   let status = element['status'];
   return /*html*/ `
-  <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${
-    element['id']
-  }),openTaskOverlay()" onmousedown="startTransform(${
-    element['id']
-  }, '${status}')" onmouseup="stopTransform(${
-    element['id']
-  }, '${status}')" ondragstart="startDragging(${
-    element['id']
-  })"  class="card pointer">
+  <div id="${element['id']}" draggable="true" onclick="generateOverlayContent(${element['id']
+    }),openTaskOverlay()" onmousedown="startTransform(${element['id']
+    }, '${status}')" onmouseup="stopTransform(${element['id']
+    }, '${status}')" ondragstart="startDragging(${element['id']
+    })"  class="card pointer">
     <div class="frame119">
-      <div class="board_card" style="background: ${
-        taskCategory[element['category']]['bgColor']
-      }">
-      <span class="board_card_label">${
-        taskCategory[element['category']]['title']
-      }</span>
+      <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']
+    }">
+      <span class="board_card_label">${taskCategory[element['category']]['title']
+    }</span>
     </div>
     <div class="frame114">
       <span class="frame114_title">${element['title']}</span>
@@ -103,12 +97,10 @@ function generateOverlayContent(element) {
   generateSubtaskList(id);
   content.innerHTML = /*html*/ `
   <div class="frame203_task">                   
-    <div class="board_card_task" style="background: ${
-      taskCategory[tasks[id]['category']]['bgColor']
+    <div class="board_card_task" style="background: ${taskCategory[tasks[id]['category']]['bgColor']
     }">
-      <span class="board_card_label_task">${
-        taskCategory[tasks[id]['category']]['title']
-      }</span>
+      <span class="board_card_label_task">${taskCategory[tasks[id]['category']]['title']
+    }</span>
     </div>  
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay(), doNotClose(event)">
     </div>
@@ -168,7 +160,7 @@ function generateSubtaskList(id) {
   subtaskHTML = '';
   let subtasks = tasks[id]['subtasks'];
   for (let i = 0; i < subtasks.length; i++) {
-    let subtask = subtasks[i];    
+    let subtask = subtasks[i];
     generateSubtaskListStatus(id, subtask);
   }
 }
@@ -179,7 +171,7 @@ function generateSubtaskListStatus(id, subtask) {
   let currentImg;
   let newImg;
   let newStatusText;
-  if(subStatus == 'open'){
+  if (subStatus == 'open') {
     currentImg = '../assets/img/login/checkbox_unchecked.png'
     newImg = '../assets/img/login/checkbox_checked.png';
     newStatusText = 'done';
@@ -187,11 +179,11 @@ function generateSubtaskListStatus(id, subtask) {
     currentImg = '../assets/img/login/checkbox_checked.png';
     newImg = '../assets/img/login/checkbox_unchecked.png';
     newStatusText = 'open';
-  }  
+  }
   generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText);
 }
 
-function generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText) {  
+function generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText) {
   return (subtaskHTML += /*html*/ `
     <div id="subtaskImage${subtask['subid']}" class="subtasks-check pointer" onclick="changeSubtask(${id}, ${subtask['subid']}, '${newStatusText}', '${newImg}'),doNotClose(event)">
       <img id="${subtask['subid']}" class="subtasks-checkbutton" src="${currentImg}">      
@@ -200,11 +192,11 @@ function generateSubtaskListHTML(id, subtask, currentImg, newImg, newStatusText)
   `);
 }
 
-async function changeSubtask(id, subtask, newStatusText, newImg){  
-  tasks[id]['subtasks'][subtask]['substatus'] = newStatusText;  
-  document.getElementById(subtask).src = `${newImg}`;  
-  await setItem('tasks', tasks);  
-  updateHTML();  
+async function changeSubtask(id, subtask, newStatusText, newImg) {
+  tasks[id]['subtasks'][subtask]['substatus'] = newStatusText;
+  document.getElementById(subtask).src = `${newImg}`;
+  await setItem('tasks', tasks);
+  updateHTML();
   generateOverlayContent(tasks[id]['id']);
 }
 
@@ -214,6 +206,12 @@ async function generateOverlayEditTask(element) {
   content.innerHTML = '';
   content.innerHTML = /*html*/ `
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeEditTaskOverlay()">
-  `;  
-  getTaskData();
+  `;
+
+  /* TODO: Stefan: kann wieder weg */
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1000);
+  });
+
+  /* getTaskData(); */
 }

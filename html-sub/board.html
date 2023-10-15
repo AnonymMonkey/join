@@ -20,7 +20,6 @@
   <script src="../java_script_sub/storage.js"></script>
   <script src="../java_script_sub/board/user_selection.js"></script>
   <script src="../java_script_sub/board/user_selection_html.js"></script>
-  <script type="module" src="../java_script_sub/all_contacts.js"></script>
   <script src="../java_script_sub/help_functions.js"></script>
   <script src="../script.js"></script>
 
@@ -29,11 +28,11 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../css-sub/headerSidebar.css" />
   <link rel="stylesheet" href="../css-sub/headerSidebarResp.css" />
-  <link rel="stylesheet" href="../css-sub/board/board.css"/>
+  <link rel="stylesheet" href="../css-sub/board/board.css" />
   <link rel="stylesheet" href="../css-sub/board/boardResp.css" />
-  <link rel="stylesheet" href="../css-sub/board/addTask.css" id="defaultStyle"/>
-  <link rel="stylesheet" href="../css-sub/board/addTaskResp.css" id="defaultStyle"/>
-  <link rel="stylesheet" href="../css-sub/board/editTask.css" id="smallScreenStyle"/>  
+  <link rel="stylesheet" href="../css-sub/board/addTask.css" id="defaultStyle" />
+  <link rel="stylesheet" href="../css-sub/board/addTaskResp.css" id="defaultStyle" />
+  <link rel="stylesheet" href="../css-sub/board/editTask.css" id="smallScreenStyle" />
   <link rel="stylesheet" href="../css-sub/board/user_selection.css" />
   <link id="favicon" rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>Join</title>
@@ -65,8 +64,8 @@
                 </g>
               </svg>
             </div>
-            <button class="add_task pointer" onclick="generateOverlayAddTask('todo', 'board')"><span class="buttonText">Add task</span> <img
-                src="../assets/img/board/add.svg"></button>
+            <button class="add_task pointer" onclick="generateOverlayAddTask('todo', 'board')"><span
+                class="buttonText">Add task</span> <img src="../assets/img/board/add.svg"></button>
           </div>
         </div>
       </div>
@@ -74,29 +73,29 @@
         <div class="column_title">
           <div class="respLayout">
             <div class="frame136">To do <img class="pointer" src="../assets/img/board/plus_button.svg"
-              onclick="generateOverlayAddTask('todo', 'board')"></div>
-              <div id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
+                onclick="generateOverlayAddTask('todo', 'board')"></div>
+            <div id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
           </div>
         </div>
         <div class="column_title">
           <div class="respLayout">
             <div class="frame149">In Progress <img class="pointer" src="../assets/img/board/plus_button.svg"
-              onclick="generateOverlayAddTask('inProgress', 'board')"></div>
+                onclick="generateOverlayAddTask('inProgress', 'board')"></div>
             <div id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
           </div>
         </div>
         <div class="column_title">
           <div class="respLayout">
             <div class="frame137">Await feedback <img class="pointer" src="../assets/img/board/plus_button.svg"
-              onclick="generateOverlayAddTask('awaitFeedback', 'board')"></div>
-              <div id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)"></div>
-            </div>
+                onclick="generateOverlayAddTask('awaitFeedback', 'board')"></div>
+            <div id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)"></div>
+          </div>
         </div>
         <div class="column_title">
           <div class="respLayout">
             <div class="frame138">Done</div>
             <div id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
@@ -112,7 +111,7 @@
     </div>
   </div>
 
-  <!-- overlay addtask or edittask -->  
+  <!-- overlay addtask or edittask -->
   <div id="taskContainer"></div>
 
 </body>
