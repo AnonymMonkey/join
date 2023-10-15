@@ -19,7 +19,7 @@ function getTaskData() {
   getTaskValues(currentTask);
 }
 
-function getTaskValues(currentTask) {
+async function getTaskValues(currentTask) {
 
   let currentTaskData = tasks[currentTask];
   for (const key in currentTaskData) {
@@ -33,13 +33,13 @@ function getTaskValues(currentTask) {
         }
         else
           if (key === 'subtasks') {
-            console.log('subtasks');
+            //console.log('subtasks');
           } else
-            if (key === 'member') {
-              for (let i = 0; i < keyValue.length; i++) {
-                debugger
+            if (key === 'member') {              
+              await userSelection();
+              for (let i = 0; i < keyValue.length; i++) {                
                 const element = keyValue[i];
-                checkContacts(element);
+                checkContacts(element, keyValue.length);                
               }
             }
             else {
@@ -64,8 +64,7 @@ function setValuesOnRadioButtons(keyValue) {
 function setValueOnDueDate(key, keyValue) {
   let formId = FORM_FIELDS[key];
   let formattedDate = getValueDueDate(keyValue);
-  document.getElementById(formId).value = `${formattedDate}`;
-  console.log(formattedDate);
+  document.getElementById(formId).value = `${formattedDate}`;  
 }
 
 function getValueDueDate(date) {
@@ -77,11 +76,10 @@ function getValueDueDate(date) {
   return formattedDate;
 }
 
-function checkContacts(thisContact) {
-  debugger
+async function checkContacts(thisContact, length) {  
   const contactInArray = contacts.some(entry => entry.register_entry.some(contact => contact.contact_ID === thisContact));
-  if (contactInArray) {
-    contactSelection.push(thisContact);
-    createBadge(thisContact);
+  if (contactInArray) {    
+    await createBadge(thisContact); // contactSelection push
   }
 }
+
