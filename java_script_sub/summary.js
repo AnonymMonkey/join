@@ -191,7 +191,7 @@ function getDueDate(date) {
     let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;    
 
 
-    if (urgentDueDates > 0) {
+    if (urgentDueDates.length > 0) {
         let urgentDate = `${currentday}-${currentMonth}-${currentYear}`;
         urgentDueDate = urgentDate;
     }
