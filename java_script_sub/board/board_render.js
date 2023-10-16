@@ -154,6 +154,7 @@ async function generateOverlayAddTask(status) {
   document.getElementById('temporaryStatus').innerHTML = status;
   document.getElementById('addTaskClear').classList.add('d-none');
   document.getElementById('addTaskCancel').classList.remove('d-none');
+  adjustQuicklinkBG();
 }
 
 function generateSubtaskList(id) {
@@ -214,4 +215,5 @@ async function generateOverlayEditTask(element) {
   }); */
 
   getTaskData();
+  adjustQuicklinkBG();
 }
