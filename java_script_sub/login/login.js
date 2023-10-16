@@ -5,6 +5,15 @@ let deviceWidth;
 let animationStarted = false;
 let loginData = [];
 
+
+async function renderIndex(){
+    await includeHTML();
+    await loadUsers();
+    await loadStartScreen();
+}
+
+
+
 function changeCheckbox() {
     if (isChecked) {
         loginCheckboxOff();
@@ -185,12 +194,12 @@ function openSignUp() {
 }
 
 
-function loadStartScreen() {
-    setDesktopScreen();
-    loadFromLocalStorage();
+async function loadStartScreen() {
+    await setDesktopScreen();
+    await loadFromLocalStorage();
 }
 
-function setDesktopScreen() {
+async function setDesktopScreen() {
     animateLogo();
     document.getElementById('indexContent').classList.remove('dNone');
     setTimeout(() => {
@@ -218,7 +227,7 @@ function openPrivacy() {
 
 
 
-function loadFromLocalStorage() {
+async function loadFromLocalStorage() {
     let loginDataAsText = localStorage.getItem('loginData');
     if (loginDataAsText) {
         loginData = JSON.parse(loginDataAsText);
