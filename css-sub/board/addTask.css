@@ -80,11 +80,12 @@ select {
   right: 48px;
 }
 
-.content_addTask{
-  left: 232px;
+.content_addTask{  
+  left: 328px;
   top: 96px;
-  width: calc(100% - 232px);
-  height: calc(100vh - 96px);
+  width: calc(100% - 328px);
+  height: calc(100vh - 96px);  
+  align-items: center; 
   position: absolute;
 }
 
@@ -350,7 +351,7 @@ input {
   justify-content: space-between;
   border: 1px solid #d1d1d1;
   background-color: #ffffff;
-  z-index: 20;
+  z-index: 8;
 }
 
 #frame74_select {
@@ -497,10 +498,9 @@ form{
 }
 
 #task_form{
-  display: flex;
+  display: flex;  
   flex-direction: column;
-  top: 206px;
-  left: 328px;
+  top: 206px;  
   position: fixed;
 }
 
