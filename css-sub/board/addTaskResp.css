@@ -7,10 +7,13 @@
   }
 
   #task_form{
-    display: flex;
-    justify-content: center;
+    display: flex;    
     flex-direction: column;
-    width: 85%;
+    width: calc(100% - 424px);
+    top: 206px;
+    left: 328px;
+    position: fixed;
+
   }
   .frame40{    
     position: relative;
