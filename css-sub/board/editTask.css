@@ -31,12 +31,14 @@ select {
 .overlay-content-editTask {
   position: relative;  
   width: 525px;  
-  height: 727px;  
+  height: calc(100vh - 259px);
+  margin-bottom: 35px;  
   padding: 48px 40px;
   border-radius: 30px;
   gap: 24px;
   background-color: #ffffff !important;
   z-index: 11;
+  overflow-y: hidden;
 }
 
 #overlayEditTaskContent {
