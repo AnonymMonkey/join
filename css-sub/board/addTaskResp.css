@@ -37,6 +37,7 @@
     left: 0;
     position: relative;
     width: 100%;
+    height: auto;
   }
   
   .frame219{
@@ -73,7 +74,8 @@
   .category,
   .subtasks,
   .frame14_subtask,
-  #frame14_subtask_text {
+  #frame14_subtask_text,
+  #subtaskEdit {
     width: 100%;
   }
 
