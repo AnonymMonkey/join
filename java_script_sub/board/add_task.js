@@ -8,7 +8,7 @@ async function initAddTasks() {
   setDateRange();
   addSubtask();
   await loadData();
-  await userSelection();
+  await userSelection('isClosed');
 }
 
 function resetForm() {  
