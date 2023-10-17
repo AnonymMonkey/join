@@ -209,11 +209,6 @@ async function generateOverlayEditTask(element) {
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeEditTaskOverlay()">
   `;
 
-  /* TODO: Stefan: kann wieder weg */
-  /* await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  }); */
-
   getTaskData();
   adjustQuicklinkBG();
 }

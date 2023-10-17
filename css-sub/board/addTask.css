@@ -800,3 +800,7 @@ textarea {
   filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg)
     brightness(120%) contrast(90%);
 }
+
+#editTaskButton[type=submit]{
+  display: none;
+}

@@ -92,11 +92,7 @@ select {
 }
 
 .requiredInfo {
-  position: absolute;
-  width: 170px;
-  height: 27px;
-  top: 800px;
-  left: 74px;
+  display: none;
 }
 
 .frame219 {
@@ -775,3 +771,14 @@ textarea {
     left: 0;
   }
 
+  #addTaskClear{
+    display: none;
+  }
+
+  #createTaskButton[type=submit]{
+    display: none;
+  }
+
+  #editTaskButton{
+    width: auto;
+  }
