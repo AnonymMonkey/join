@@ -29,7 +29,7 @@
   #awaitFeedback,
   #done {
     flex-direction: row;
-    height: auto;
+    height: -webkit-fill-available;
     width: 100%;    
     overflow-x: auto;
     padding: 1%;

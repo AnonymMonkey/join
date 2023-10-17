@@ -120,7 +120,8 @@
     width: 95%;
   }
 
-  #addTaskClear {
+  #addTaskClear,
+  #addTaskCancel {
     display: none;
   }
 }
