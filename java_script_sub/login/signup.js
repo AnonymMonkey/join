@@ -11,13 +11,12 @@ let users = [];
 
 async function registerUser(){
     let name = document.getElementById('signupName').value;
-    let surname = document.getElementById('signupName').value;
     let email = document.getElementById('signupEmail').value;
     let password = document.getElementById('signupPassword').value;
     let confirmation = document.getElementById('signupConfirmation').value;
     if(checkName()){
         if(password == confirmation){
-            pushUser(name, surname, email, password);
+            pushUser(name, email, password);
             await setItem('users', JSON.stringify(users));
             await openSignUpOverlay();
         }
@@ -82,10 +81,9 @@ function openSuccessfullRegistered(){
 }
 
 
-async function pushUser(name, surname, email, password){
+async function pushUser(name, email, password){
     users.push({
         name: name,
-        surname: surname,
         email: email,
         password: password,
     });

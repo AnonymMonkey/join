@@ -1,9 +1,11 @@
 let isChecked = false;
 let users = [];
 let activeUser;
+let activeUserName;
 let deviceWidth;
 let animationStarted = false;
 let loginData = [];
+
 
 
 async function renderIndex(){
@@ -41,12 +43,16 @@ function loginCheckboxOn() {
 async function login() {
     let email = document.getElementById('loginEmail').value;
     let password = document.getElementById('loginPassword').value;
+    
     checkRememberMe(email, password);
     await loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
     if (user) {
         activeUser = user.email;
+        pushLoginData(email, password, user.name);
         saveUserToLocalStorage('activeUser', activeUser);
+        /*Hier schon in contacts pushen?*/
+        /*addActiveUserToContacts();*/
         window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
     else {
@@ -76,11 +82,12 @@ function checkRememberMe(email, password) {
 }
 
 
-function pushLoginData(email, password) {
+function pushLoginData(email, password, name) {
     loginData = [];
     loginData.push({
         email: email,
         password: password,
+        name: name
     })
     saveToLocalStorage('loginData', loginData);
 }

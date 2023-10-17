@@ -163,17 +163,32 @@ function createRegisterInfo() {
 
 
 
+//param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled
+function getContactFirstLetters(nameFromLogin) {
+    let loginName = nameFromLogin
+    if(loginName){
+        let words = name2.split(' ');
+    
+        let firstInitial = words[0].charAt(0).toUpperCase();
+        let secondInitial = words[1].charAt(0).toUpperCase();
+    
+        let initials = firstInitial + secondInitial;
+    
+        return initials;
+    }
+    else{
+        let name = contact_name.value
+        let words = name.split(' ');
+    
+        let firstInitial = words[0].charAt(0).toUpperCase();
+        let secondInitial = words[1].charAt(0).toUpperCase();
+    
+        let initials = firstInitial + secondInitial;
+    
+        return initials;
+    }
+    
 
-function getContactFirstLetters() {
-    let name = contact_name.value
-    let words = name.split(' ');
-
-    let firstInitial = words[0].charAt(0).toUpperCase();
-    let secondInitial = words[1].charAt(0).toUpperCase();
-
-    let initials = firstInitial + secondInitial;
-
-    return initials;
 }
 
 
@@ -191,5 +206,97 @@ function deleteTest() {
     for (let i = 0; i < categories.length; i++) {
         categories.splice(1, 3)
         saveData();
+    }
+}
+
+
+//Testfunction wegen activeUser
+//
+
+async function addActiveUserToContacts() {
+    /*Step 1: load loginData with key "loginData" from localStorage*/
+    let activeUserLoginData;
+    let activeUserContactAsText = localStorage.getItem('loginData');
+    if (activeUserContactAsText) {
+        activeUserLoginData = JSON.parse(activeUserContactAsText);
+    }
+    
+    /*await loadData();*/
+
+    /*Test contacts zum einkommentieren 
+    contacts.push({
+        'activeUser_entry': [
+            {
+                'contact_name': 'Simon Weirauch',
+                'contact_mail': 'wtest@test.de',
+                'contact_phone': `please add phonenumber`,
+                'contact_color': randomColor(),
+                'contact_initials': getContactFirstLetters(activeUserLoginData[0].name),
+                'contact_ID': randomID(),
+            }
+        ],
+    });
+
+
+    contacts.push({
+        'activeUser_entry': [
+            {
+                'contact_name': 'Simon Weirauch',
+                'contact_mail': 'fakemail@test.de',
+                'contact_phone': `please add phonenumber`,
+                'contact_color': randomColor(),
+                'contact_initials': getContactFirstLetters(),
+                'contact_ID': randomID(),
+            }
+        ],
+    });
+
+
+    contacts.push({
+        'register_entry': [
+            {
+                'contact_name': 'Stefan Jaroni',
+                'contact_mail': 'Stefan',
+                'contact_phone': `please add phonenumber`,
+                'contact_color': randomColor(),
+                'contact_initials': getContactFirstLetters(),
+                'contact_ID': randomID(),
+            }
+        ],
+    });
+    
+    */
+
+    let searchActiveUserMail = activeUserLoginData[0].email;
+    let activeUserID;
+    
+
+    for (let i = 0; i < contacts.length; i++) {        
+        if(contacts[i]['activeUser_entry'] == undefined){
+            console.log('kein activeUser_entry also ignore');
+        }
+        else{
+            if(contacts[i]['activeUser_entry'][0].contact_mail == searchActiveUserMail){
+                activeUserID = contacts[i]['activeUser_entry'][0].contact_ID
+                console.log('ActiveUser in Contacts gefunden und ID zugeordnet');
+                console.log('Die ID lautet ' + activeUserID);
+            }
+            else{
+                console.log('ActiveUser nicht in Contacts gefunden und gepusht');
+
+                contacts['activeUser_entry'].push({
+                    'activeUser_entry': [
+                        {
+                            'contact_name': activeUserLoginData[0].name,
+                            'contact_mail': activeUserLoginData[0].email,
+                            'contact_phone': `please add phonenumber`,
+                            'contact_color': randomColor(),
+                            'contact_initials': getContactFirstLetters(activeUserLoginData[0].name),
+                            'contact_ID': randomID(),
+                        }
+                    ],
+                });
+            }
+        }
     }
 }
