@@ -16,9 +16,7 @@ document.addEventListener('click', function (event) {
 });
 
 async function userSelection(isClosed) {
-  if(isClosed){
-    isOpen = true;
-  }
+  isOpen = isClosed;
   await loadContacts();
   contacts.sort((a, b) =>
     a.register_entry[0].contact_name.localeCompare(
