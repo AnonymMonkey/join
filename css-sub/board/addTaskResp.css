@@ -1,4 +1,13 @@
-@media (max-width: 1660px) {
+@media (max-width: 1352px){
+  .content_addTask{
+    display: flex;
+    left: 280px;
+    justify-content: center;
+    position: relative;
+  }
+}
+
+@media (max-width: 1200px) {
 
   .content_addTask{
     display: flex;
@@ -7,11 +16,14 @@
   }
 
   #task_form{
-    display: flex;
-    justify-content: center;
+    display: flex;    
     flex-direction: column;
-    width: 85%;
+    width: calc(100% - 328px);
+    top: 206px;
+    left: 280px;
+    position: fixed;
   }
+
   .frame40{    
     position: relative;
     top: 0;
@@ -33,7 +45,7 @@
     top: 0;
     left: 0;
     position: relative;
-    width: 100%;
+    width: 100%;    
   }
   
   .frame219{
@@ -66,14 +78,18 @@
   .frame74,
   .framedue,
   .frame211,
-  .frame28,
-  .priority,
+  .frame28,  
   .category,
   .subtasks,
   .frame14_subtask,
-  #frame14_subtask_text {
+  #frame14_subtask_text,
+  #subtaskEdit {
     width: 100%;
   }
+
+  .priority{
+    width: 99%;
+  }  
 
   label{
     width: 100%;
@@ -88,12 +104,19 @@
   .content_addTask{    
     display: flex;    
     justify-content: center;
-    align-items: center;    
-    left: 0;
+    align-items: center;
     width: 100%;
+    position: relative;
   }
   #task_form{
-    display: flex;
-    justify-content: stretch;
+    display: flex;    
+    align-items: center;
+    justify-content: flex-start;    
+    left: 0;
+    width: 100%;
+    height: 80vh;
+  }
+  #addTaskInputForm{
+    width: 90%;    
   }
 }

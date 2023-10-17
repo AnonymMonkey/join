@@ -36,8 +36,7 @@ async function getTaskValues(currentTask) {
             //console.log('subtasks');
           } else
             if (key === 'member') {              
-              await userSelection();
-              isOpen = false;
+              await userSelection('isClosed');
               for (let i = 0; i < keyValue.length; i++) {                
                 const element = keyValue[i];
                 checkContacts(element, keyValue.length);                

@@ -80,6 +80,15 @@ select {
   right: 48px;
 }
 
+.content_addTask{  
+  left: 328px;
+  top: 96px;
+  width: calc(100% - 328px);
+  height: calc(100vh - 96px);  
+  align-items: center; 
+  position: absolute;
+}
+
 .button-hover {
   height: 25px;
   width: 25px;
@@ -121,6 +130,7 @@ select {
   display: flex;
   height: 100%;
   gap: 24px;  
+  left: 328px;
 }
 
 .frame219 {
@@ -131,8 +141,7 @@ select {
   align-items: flex-start;
   gap: 16px;
   top: 174px;
-  left: 74px;
-  position: absolute;
+  left: 74px;  
 }
 
 input[type='date']::placeholder {
@@ -146,17 +155,13 @@ input[type='date']::placeholder {
   height: 424px;
   flex-shrink: 0;
   top: 174px;
-  left: 562.25px;
-  position: absolute;
+  left: 562.25px;  
   border: 1px;
   transform: rotate(-0deg);
 }
 
-.frame40 {
-  top: 64px;
-  left: 74px;
-  gap: 1px;
-  position: absolute;
+.frame40 {  
+  gap: 1px;  
   color: #000;
   /* Version 2/t1 */
   font-family: Inter;
@@ -197,8 +202,7 @@ input[type='date']::placeholder {
   display: flex;
   width: 440px;
   height: 168px;
-  top: 112px;
-  position: absolute;
+  top: 112px;  
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
@@ -259,8 +263,7 @@ input[type='date']::placeholder {
   top: 296px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  position: absolute;
+  gap: 8px;  
 }
 
 .task_assigned_to_text {
@@ -348,7 +351,7 @@ input {
   justify-content: space-between;
   border: 1px solid #d1d1d1;
   background-color: #ffffff;
-  z-index: 20;
+  z-index: 8;
 }
 
 #frame74_select {
@@ -427,8 +430,7 @@ input {
   align-items: center;
   gap: 24px;
   top: 174px;
-  left: 610.25px;
-  position: absolute;
+  left: 610.25px;  
 }
 
 .framedue {
@@ -496,12 +498,13 @@ form{
 }
 
 #task_form{
-  display: flex;
+  display: flex;  
   flex-direction: column;
+  top: 206px;  
+  position: fixed;
 }
 
 .taskFormFooter {
-  position: absolute;
   top: 100%;
   width: 100%;
   z-index: 4;  
@@ -509,8 +512,7 @@ form{
   flex-direction: row-reverse;
   align-items: center;  
   display: flex;
-  bottom: 20px;
-  margin: 0;  
+  margin-top: 32px;  
   height: 70px;
 }
 
@@ -528,12 +530,11 @@ textarea {
 .frame28 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   width: 440px;
   height: 88px;
-  top: 120px;
-  position: absolute;
+  top: 120px;  
 }
 
 .frame28_text {
@@ -633,8 +634,7 @@ textarea {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-  top: 232px;
-  position: absolute;
+  top: 232px;  
 }
 
 .category_text {
@@ -669,11 +669,8 @@ textarea {
 .subtasks {
   display: flex;
   flex-direction: column;
-  width: 440px;
-  height: 80px;
-  top: 336px;
-  gap: 8px;
-  position: absolute;
+  width: 440px;    
+  gap: 8px;  
 }
 
 .subtasks_text {
