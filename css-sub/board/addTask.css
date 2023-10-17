@@ -53,24 +53,20 @@ select {
 @keyframes slideIn {
   from {
     right: -100%;
-    /* Startposition: rechts außerhalb des Bildschirms */
   }
 
   to {
     right: 0;
-    /* Endposition: in die Mitte des Bildschirms */
   }
 }
 
 @keyframes slideOut {
   from {
     right: 0;
-    /* Startposition: in der Mitte des Bildschirms */
   }
 
   to {
     right: -100%;
-    /* Endposition: rechts außerhalb des Bildschirms */
   }
 }
 
@@ -163,13 +159,11 @@ input[type='date']::placeholder {
 .frame40 {  
   gap: 1px;  
   color: #000;
-  /* Version 2/t1 */
   font-family: Inter;
   font-size: 61px;
   font-style: normal;
   font-weight: 700;
   line-height: 120%;
-  /* 73.2px */
 }
 
 #temporaryStatus {
@@ -189,13 +183,11 @@ input[type='date']::placeholder {
 
 .task_title_text {
   color: #2a3647;
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .task_description {
@@ -213,13 +205,11 @@ input[type='date']::placeholder {
   height: 24px;
   align-self: stretch;
   color: #2a3647;
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame207 {
@@ -381,7 +371,6 @@ input {
 .search-contact {
   width: 100%;
   color: var(--black, #000);
-
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -391,7 +380,6 @@ input {
 
 .search-contact::placeholder {
   color: var(--black, #000);
-
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -445,7 +433,6 @@ input {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame39_duedate {
@@ -455,7 +442,6 @@ input {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame211 {
@@ -478,13 +464,11 @@ input {
   border-radius: 10px;
   border: 1px solid var(--Style, #d1d1d1);
   background: #ffffff;
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame14due::placeholder {
@@ -639,14 +623,11 @@ textarea {
 
 .category_text {
   color: var(--version-2-main-color, #2a3647);
-
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame74:focus-within,
@@ -711,12 +692,10 @@ textarea {
   letter-spacing: 0em;
   text-align: left;
   border: none;
-  /* background: url(../../assets/img/add-task/plus.svg) no-repeat right; */
 }
 
 #frame14_subtask_text:focus {
   background: none;
-  /* Hintergrund beim Fokus entfernen */
 }
 
 #subtasklist {

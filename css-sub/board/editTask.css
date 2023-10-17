@@ -2,7 +2,8 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right center;
+  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right
+    center;
 }
 
 .d-none {
@@ -29,10 +30,10 @@ select {
 }
 
 .overlay-content-editTask {
-  position: relative;  
-  width: 525px;  
+  position: relative;
+  width: 525px;
   height: calc(100vh - 259px);
-  margin-bottom: 35px;  
+  margin-bottom: 35px;
   padding: 48px 40px;
   border-radius: 30px;
   gap: 24px;
@@ -46,12 +47,12 @@ select {
   height: 36px;
   gap: 24px;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
-#header{
+#header {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
 .button-hover {
@@ -138,13 +139,11 @@ input[type='date']::placeholder {
 
 .task_title_text {
   color: #2a3647;
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .task_description {
@@ -163,13 +162,11 @@ input[type='date']::placeholder {
   height: 24px;
   align-self: stretch;
   color: #2a3647;
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame207 {
@@ -324,11 +321,11 @@ input {
   height: 24px;
   flex-shrink: 0;
   border-radius: 50%;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .arrow-dropdown:hover {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
 .search-contact {
@@ -337,7 +334,6 @@ input {
 
 .search-contact::placeholder {
   color: var(--black, #000);
-
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
@@ -393,7 +389,6 @@ input {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame39_duedate {
@@ -403,7 +398,6 @@ input {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame211 {
@@ -426,13 +420,11 @@ input {
   border-radius: 10px;
   border: 1px solid var(--Style, #d1d1d1);
   background: #ffffff;
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame14due::placeholder {
@@ -498,8 +490,8 @@ textarea {
 #frame25,
 #frame26 {
   width: 106px;
-  display: flex;  
-  position: relative;  
+  display: flex;
+  position: relative;
   justify-content: flex-start;
   align-items: center;
 }
@@ -559,14 +551,11 @@ textarea {
 
 .category_text {
   color: var(--version-2-main-color, #2a3647);
-
-  /* Version 2/t6 */
   font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  /* 24px */
 }
 
 .frame74:focus-within,
@@ -639,7 +628,6 @@ textarea {
 
 #frame14_subtask_text:focus {
   background: none;
-  /* Hintergrund beim Fokus entfernen */
 }
 
 #subtasklist {
@@ -694,7 +682,7 @@ textarea {
   padding: 16px;
   justify-content: center;
   align-items: center;
-  gap: 4px;  
+  gap: 4px;
   border-radius: 10px;
   border: 1px solid var(--version-2-main-color, #2a3647);
   color: var(--version-2-main-color, #2a3647);
@@ -719,66 +707,64 @@ textarea {
 }
 
 .buttons-cancel:hover img {
-  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
+  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg)
+    brightness(120%) contrast(90%);
 }
 
-  
+#task_form {
+  display: flex;
+  flex-direction: column;
+}
 
-  #task_form{
-    display: flex;
-    flex-direction: column;    
-  }
-  
-  #addTaskInputForm{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;    
-  }
+#addTaskInputForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .addtask_content{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    /* overflow-y: auto; */    
-  }
-  
-  .frame219{
-    top: 0;
-    left: 0;
-    position: relative;    
-  }
+.addtask_content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 
-  .vector4{
-    display: none;
-  }
-  
-  .frame39{
-    top: 0;
-    left: 0;
-    position: relative;
-  }
+.frame219 {
+  top: 0;
+  left: 0;
+  position: relative;
+}
 
-  .frame35{
-    top: 0;
-    left: 0;
-    position: relative;
-  }
+.vector4 {
+  display: none;
+}
 
-  .requiredInfo{
-    position: relative;
-    top: 0;
-    left: 0;
-  }
+.frame39 {
+  top: 0;
+  left: 0;
+  position: relative;
+}
 
-  #addTaskClear{
-    display: none;
-  }
+.frame35 {
+  top: 0;
+  left: 0;
+  position: relative;
+}
 
-  #createTaskButton[type=submit]{
-    display: none;
-  }
+.requiredInfo {
+  position: relative;
+  top: 0;
+  left: 0;
+}
 
-  #editTaskButton{
-    width: auto;
-  }
+#addTaskClear {
+  display: none;
+}
+
+#createTaskButton[type='submit'] {
+  display: none;
+}
+
+#editTaskButton {
+  width: auto;
+}

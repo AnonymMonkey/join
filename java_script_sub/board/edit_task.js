@@ -27,14 +27,18 @@ async function getTaskValues(currentTask) {
       const keyValue = currentTaskData[key];
       if (key === 'prio') {
         setValuesOnRadioButtons(keyValue);
-      } else
-        if (key === 'duedate') {
+      } else 
+      if (key === 'duedate') {
           setValueOnDueDate(key, keyValue);
-        }
-        else
+        } else
           if (key === 'subtasks') {
             //console.log('subtasks');
-          } else
+          } 
+          else 
+          if (key === 'status') {              
+            setStatus(key, keyValue);
+            }          
+          else
             if (key === 'member') {              
               await userSelection('isClosed');
               for (let i = 0; i < keyValue.length; i++) {                
@@ -42,8 +46,7 @@ async function getTaskValues(currentTask) {
                 checkContacts(element, keyValue.length);                
               }
             }
-            else {
-              // titel, description und category klappen hier
+            else {              
               setTaskValues(currentTask, key, keyValue);
             }
     }
@@ -65,6 +68,11 @@ function setValueOnDueDate(key, keyValue) {
   let formId = FORM_FIELDS[key];
   let formattedDate = getValueDueDate(keyValue);
   document.getElementById(formId).value = `${formattedDate}`;  
+}
+
+function setStatus(key, keyValue) {
+  let formId = FORM_FIELDS[key];
+  document.getElementById('temporaryStatus').innerHTML = keyValue;
 }
 
 function getValueDueDate(date) {

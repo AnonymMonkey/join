@@ -1,5 +1,8 @@
 let newSubtasks = [];
 
+/**
+ * Init-Functions on load * 
+ */
 async function initAddTasks() {
   await loadTasks();
   await loadTaskCategory();
@@ -11,6 +14,11 @@ async function initAddTasks() {
   await userSelection('isClosed');
 }
 
+/**
+ * Reset Form
+ * This function resets all Values from Input,
+ * resets added Styles and resets Variables and Arrays
+ */
 function resetForm() {  
   document.getElementById('addTaskInputForm').reset();
   resetArrays();
@@ -21,42 +29,62 @@ function resetForm() {
   resetClassError();
   resetRequiredFields();  
 }
-
+/**
+ * Reset Arrays
+ */
 function resetArrays() {
   newSubtasks = [];
   contactSelection = [];
 }
 
+/**
+ * Reset style from Radio-Buttons
+ */
 function resetRadioButtonClasses(){
   document.getElementById('frame24').classList.remove('frame24_selected');
   document.getElementById('frame25').classList.remove('frame25_selected');
   document.getElementById('frame26').classList.remove('frame26_selected');
 }
 
+/**
+ * Reset content
+ */
 function resetInnerHTML() {
   document.getElementById('temporaryStatus').innerHTML = '';
   document.getElementById('prioResult').innerHTML = '';
   document.getElementById('selected_user').innerHTML = '';
 }
 
+/**
+ * Reset images
+ */
 function resetImages() {
   document.getElementById('imgUrgent').src = '../../assets/img/add-task/urgent.svg';
   document.getElementById('imgMedium').src = '../../assets/img/add-task/medium.svg';
   document.getElementById('imgLow').src = '../../assets/img/add-task/low.svg';
 }
 
+/**
+ * Reset style from all elements with class error
+ */
 function resetClassError() {
   Array.from(document.querySelectorAll('.error')).forEach(
     (el) => el.classList.remove('error')
   );  
 }
 
+/**
+ * Change style to display: none for every element with class requiredField
+ */
 function resetRequiredFields() {
   Array.from(document.querySelectorAll('.requiredField')).forEach(
     (el) => el.classList.add('d-none')
   );  
 }
 
+/**
+ * Sets min and max range for datepicker (from today to one year in the future)
+ */
 function setDateRange() {
   let no_of_years = 1;
   let year = new Date().getFullYear();
@@ -69,16 +97,32 @@ function setDateRange() {
   document.getElementById('addtask-duedate').max = maxdate;
 }
 
+/**
+ * Add and remove style for specified fields
+ * @param {string} fieldName - the form-element
+ * @param {string} labelField - the associated label
+ */
 function invalid(fieldName, labelField) {
   document.getElementById(`${fieldName}`).classList.add('error');
   document.getElementById(labelField).classList.remove('d-none');
 }
 
+/**
+ * Add and remove style for specified fields
+ * @param {string} fieldName - the form-element
+ * @param {string} labelField - the associated label
+ */
 function valid(fieldName, labelField) {
   document.getElementById(`${fieldName}`).classList.remove('error');
   document.getElementById(labelField).classList.add('d-none');
 }
 
+/**
+ * Validates input-fields and start additional functions depending of result
+ * @param {string} inputField - form-field
+ * @param {string} errorField - the associated label
+ * @param {string} labelField - the associated label
+ */
 function validateField(inputField, errorField, labelField) {
   if (document.getElementById(inputField).value === '') {
     invalid(errorField, labelField);
@@ -87,6 +131,11 @@ function validateField(inputField, errorField, labelField) {
   }
 }
 
+/**
+ * Sets style for Radiobuttons
+ * @param {string} prio - 
+ * @param {string} frameName - 
+ */
 function selectedRadioButton(prio, frameName) {
   let frames = ['frame24', 'frame25', 'frame26'];
   let images = { Urgent: 'imgUrgent', Medium: 'imgMedium', Low: 'imgLow' };
@@ -100,6 +149,10 @@ function selectedRadioButton(prio, frameName) {
   document.getElementById('prioResult').innerHTML = prio;
 }
 
+/**
+ * Change style for displaying or not input-fields
+ * @param {string} view 
+ */
 function subtaskActions(view) {
   if (view == 'show') {
     document.getElementById('clearSubtaskInput').classList.remove('d-none');
@@ -115,6 +168,12 @@ function subtaskActions(view) {
   }
 }
 
+/**
+ * Gets the next unused free Id from specified array
+ * @param {string} items - array-name
+ * @param {string} idKey - id
+ * @returns 
+ */
 function getNextFreeId(items, idKey) {
   if (items.length === 0) {
     return 0;
@@ -124,10 +183,14 @@ function getNextFreeId(items, idKey) {
   return nextFreeId;
 }
 
-async function addNewTask(origin) {
+/**
+ * Used to get all Form-field values
+ * @param {string} origin - Origin, from where the function was called
+ */
+async function addNewTask(origin) {    
   let status = document.getElementById('temporaryStatus').innerHTML;
-  let category = document.getElementById('category_select').value;
-  let id = getNextFreeId(tasks, 'id');
+  let category = document.getElementById('category_select').value;  
+  let id = parseInt(await checkExistingTask(), 10);
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
@@ -136,7 +199,7 @@ async function addNewTask(origin) {
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
 
-  await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);
+  await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
   smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');
 
   if (origin) {
@@ -145,6 +208,28 @@ async function addNewTask(origin) {
   openSelectedQuicklink('quickBoard');
 }
 
+/**
+ * Used to check whether it is a new or an existing task.
+ * @returns {number} id - currentTask-Id or new Task-Id
+ */
+async function checkExistingTask() {  
+  let currentTask =+ document.getElementById('currentTask').innerText;  
+  let id = !currentTask ? getNextFreeId(tasks, 'id') : currentTask;    
+  return id;
+}
+  
+/**
+ * Used to create a new Task
+ * @param {number} id - id of the new task
+ * @param {string} title - title of the new task
+ * @param {string} description - description of the new task
+ * @param {string} status - status of the new task
+ * @param {string} prio - prio of the new task
+ * @param {string} addTaskSubtasks - subtasks of the new task
+ * @param {string} allMember - member of the new task
+ * @param {number} category - category of the new task
+ * @param {date} formattedTaskDate - Duedate of the new task 
+ */
 async function createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate) {
   let newTask = {
     id: id,
@@ -157,11 +242,28 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
     category: category,
     duedate: formattedTaskDate,
   };
+  await changeTaskArray(id, newTask);
+}
 
-  tasks.push(newTask);
+/**
+ * Update Task or add new Task
+ * @param {number} id - Task-id
+ * @param {string} newTask - values of Task
+ */
+async function changeTaskArray(id, newTask) {  
+  let indexToUpdate = getTaskIndex(id);
+  console.log(id + " " + indexToUpdate);  
+  if (indexToUpdate !== -1) {    
+    tasks[indexToUpdate] = newTask;
+  } else {
+    tasks.push(newTask);
+  }
   await setItem('tasks', tasks);
 }
 
+/**
+ * Generate list of subtasks
+ */
 function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
@@ -181,6 +283,10 @@ function addSubtask() {
   }
 }
 
+/**
+ * Add new Subtasks from input
+ * @returns 
+ */
 function addnewSubtask() {
   let subtitleValue = document.getElementById('frame14_subtask_text').value;
   if(!subtitleValue){
@@ -205,6 +311,10 @@ function addnewSubtask() {
   subtaskActions();
 }
 
+/**
+ * Delete subtask from array
+ * @param {number} id - id of subtask in array
+ */
 function deleteSubtask(id) {
   document.getElementById('frame14_subtask_label').classList.add('d-none');
   document.getElementById('frame14_subtask').classList.remove('error');
@@ -213,6 +323,10 @@ function deleteSubtask(id) {
   hideEditSubtask();
 }
 
+/**
+ * Edit subtask on input
+ * @param {number} id - id of subtask in array
+ */
 function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
@@ -226,12 +340,19 @@ function editSubtask(id) {
   `;
 }
 
+/**
+ * Update subtask
+ * @param {number} id - id of subtask in array
+ */
 function updateSubtask(id) {
   newSubtasks[id]['subtitle'] = document.getElementById('subtaskEditInput').value;
   addSubtask();
   hideEditSubtask();
 }
 
+/**
+ * Hiding input-field
+ */
 function hideEditSubtask() {
   subtaskEditInput = document.getElementById('subtaskEditInput');
   subtaskEditInput.value = '';
@@ -239,6 +360,10 @@ function hideEditSubtask() {
   subtaskEdit.classList.add('d-none');
 }
 
+/**
+ * Set empty value on form-field
+ * @param {string} field - associated fieldname
+ */
 function clearInput(field) {
   document.getElementById(field).value = '';
   hideEditSubtask();

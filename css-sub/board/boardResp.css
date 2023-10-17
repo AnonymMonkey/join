@@ -42,15 +42,12 @@
     width: 100%;
   }
 
-  .no_tasks_feedback {
-    /* width: 252px; */
+  .no_tasks_feedback {    
     width: 100%;
     margin-bottom: 8px;
   }
 
   .placeholderCard {
-    /* height: 48px !important;
-    border-radius: 10px;     */
     display: none;
   }
 }

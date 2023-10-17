@@ -257,7 +257,6 @@
   color: var(--text-btn);
   height: 27px;
   transform: rotate(0deg);
-  /*angle: -0 deg;*/
 }
 .board_card_label {
   height: 19px;
@@ -282,7 +281,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 120%; /* 19.2px */
+  line-height: 120%;
 }
 
 .frame114_content {
@@ -291,7 +290,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 19.2px */
+  line-height: 120%;
 }
 
 .frame114_progress {
@@ -392,7 +391,7 @@
   fill: #FF7A00;
   stroke-width: 1px;
   stroke: #FFFFFF;
-  position: relative; /* Füge eine Position hinzu */
+  position: relative;
 }
 
 .group9_text {
@@ -400,16 +399,16 @@
   width: 21.333px;  
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Zentriere horizontal */
+  align-items: center;
   color: #FFFFFF;
   text-align: center;  
   font-style: normal;
   font-size: 12px;
   font-weight: 400;
-  line-height: 120%; /* 14.4px */
-  position: absolute; /* Positioniere absolut innerhalb von .group9_ellipse */
-  top: 9px; /* Oben ausrichten */
-  left: 5px; /* Links ausrichten */
+  line-height: 120%;
+  position: absolute;
+  top: 9px;
+  left: 5px;
 }
 
 .badgeRest{
