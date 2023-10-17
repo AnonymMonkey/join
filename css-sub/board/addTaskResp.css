@@ -1,3 +1,12 @@
+@media (max-width: 1352px){
+  .content_addTask{
+    display: flex;
+    left: 280px;
+    justify-content: center;
+    position: relative;
+  }
+}
+
 @media (max-width: 1200px) {
 
   .content_addTask{
@@ -9,12 +18,12 @@
   #task_form{
     display: flex;    
     flex-direction: column;
-    width: calc(100% - 424px);
+    width: calc(100% - 328px);
     top: 206px;
-    left: 328px;
+    left: 280px;
     position: fixed;
-
   }
+
   .frame40{    
     position: relative;
     top: 0;
@@ -99,13 +108,14 @@
     align-items: center;    
     left: 0;
     width: 100%;
+    position: relative;
   }
   #task_form{
     display: flex;
-    justify-content: stretch;
-    position: relative;
+    justify-content: stretch;    
+    align-items: center;
     left: 0;
     top: 36px;
     width: 90%;
-  }
+  }  
 }
