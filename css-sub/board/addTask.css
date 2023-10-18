@@ -123,7 +123,7 @@ select {
 }
 
 .addtask_content {
-  display: flex;
+  display: flex;  
   height: 100%;
   gap: 24px;  
   left: 328px;
@@ -488,8 +488,7 @@ form{
   position: fixed;
 }
 
-.taskFormFooter {
-  top: 100%;
+.taskFormFooter {  
   width: 100%;
   z-index: 4;  
   justify-content: space-between;
