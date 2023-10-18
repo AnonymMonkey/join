@@ -1,4 +1,6 @@
 let contacts = [];
+let activeUserID;
+let activeUserLoginData;
 
 const generatedIDs = new Set();
 const generatedColors = new Set();
@@ -115,9 +117,26 @@ async function createRegister() {
 }
 
 function createRegisterEntry() {
+    /* createLoginContact(); */ /* zum erstellen des login Kontakts */
     createRegisterInfo();
 }
 
+
+function createLoginContact() {
+
+
+
+    let register = elementByID('register');
+    register += `
+        <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
+            <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
+            <div>
+                <div class="contact-info-name">${name} (YOU)</div>
+                <div class="contact-info-mail">${mail}</div>
+            </div>
+        </div>
+        `;
+}
 
 function createRegisterInfo() {
     let register = elementByID('register');
@@ -165,29 +184,30 @@ function createRegisterInfo() {
 
 //param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled
 function getContactFirstLetters(nameFromLogin) {
+    debugger
     let loginName = nameFromLogin
-    if(loginName){
+    if (loginName) {
         let words = name2.split(' ');
-    
+
         let firstInitial = words[0].charAt(0).toUpperCase();
         let secondInitial = words[1].charAt(0).toUpperCase();
-    
+
         let initials = firstInitial + secondInitial;
-    
+
         return initials;
     }
-    else{
+    else {
         let name = contact_name.value
         let words = name.split(' ');
-    
+
         let firstInitial = words[0].charAt(0).toUpperCase();
         let secondInitial = words[1].charAt(0).toUpperCase();
-    
+
         let initials = firstInitial + secondInitial;
-    
+
         return initials;
     }
-    
+
 
 }
 
@@ -214,13 +234,14 @@ function deleteTest() {
 //
 
 async function addActiveUserToContacts() {
+    debugger
     /*Step 1: load loginData with key "loginData" from localStorage*/
-    let activeUserLoginData;
+    /* let activeUserLoginData; */
     let activeUserContactAsText = localStorage.getItem('loginData');
     if (activeUserContactAsText) {
         activeUserLoginData = JSON.parse(activeUserContactAsText);
     }
-    
+
     /*await loadData();*/
 
     /*Test contacts zum einkommentieren 
@@ -268,20 +289,20 @@ async function addActiveUserToContacts() {
     */
 
     let searchActiveUserMail = activeUserLoginData[0].email;
-    let activeUserID;
-    
 
-    for (let i = 0; i < contacts.length; i++) {        
-        if(contacts[i]['activeUser_entry'] == undefined){
+
+
+    for (let i = 0; i < contacts.length; i++) {
+        if (contacts[i]['activeUser_entry'] == undefined) {
             console.log('kein activeUser_entry also ignore');
         }
-        else{
-            if(contacts[i]['activeUser_entry'][0].contact_mail == searchActiveUserMail){
+        else {
+            if (contacts[i]['activeUser_entry'][0].contact_mail == searchActiveUserMail) {
                 activeUserID = contacts[i]['activeUser_entry'][0].contact_ID
                 console.log('ActiveUser in Contacts gefunden und ID zugeordnet');
                 console.log('Die ID lautet ' + activeUserID);
             }
-            else{
+            else {
                 console.log('ActiveUser nicht in Contacts gefunden und gepusht');
 
                 contacts['activeUser_entry'].push({
