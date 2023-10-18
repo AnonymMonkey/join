@@ -7,8 +7,6 @@ const FORM_FIELDS = {
   Urgent: 'frame24',
   Medium: 'frame25',
   Low: 'frame26',
-  subtasks: '',
-  member: '',
   category: 'category_select',
   duedate: 'addtask-duedate',
 };
@@ -39,7 +37,10 @@ async function getTaskValues(currentTask) {
           setValueOnDueDate(key, keyValue);
         } else
           if (key === 'subtasks') {
-            //console.log('subtasks');
+            for (let i = 0; i < keyValue.length; i++) {
+              const element = keyValue[i];
+              setSubtasks(element);
+            }
           } 
           else 
           if (key === 'status') {              
@@ -48,7 +49,7 @@ async function getTaskValues(currentTask) {
           else
             if (key === 'member') {              
               await userSelection('isClosed');
-              for (let i = 0; i < keyValue.length; i++) {                
+              for (let i = 0; i < keyValue.length; i++) {
                 const element = keyValue[i];
                 checkContacts(element);
               }
@@ -79,6 +80,15 @@ function setTaskValues(currentTask, key, keyValue) {
 function setValuesOnRadioButtons(keyValue) {
   let formId = FORM_FIELDS[keyValue];
   selectedRadioButton(keyValue, formId);
+}
+
+/**
+ * Generates Subtasklist
+ * @param {string} keyValue - Subtasks of the given Task
+ */
+function setSubtasks(keyValue){    
+  newSubtasks.push(keyValue);
+  addSubtask();
 }
 
 /**
@@ -126,4 +136,5 @@ async function checkContacts(thisContact) {
     createBadge(thisContact);
   }
 }
+
 
