@@ -10,10 +10,8 @@
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
-
+    gap: 30px;
     background: #2A3647;
-
-    /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
     position: relative;
     z-index: 10;
@@ -25,6 +23,7 @@
     height: 121.966px;
     flex-shrink: 0;
 }
+
 
 .quicklinks {
     display: flex;
@@ -41,7 +40,6 @@
     padding: 8px 56px;
     align-items: center;
     gap: 8px;
-
 }
 
 .hoverBG:hover {
@@ -90,24 +88,18 @@
     justify-content: space-between;
     align-items: center;
     background: #FFF;
-    /* Barra superior */
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
 .headerSpan {
     color: #000;
-    /* Version 2/t6 */
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    /* 24px */
     text-wrap: nowrap;
 }
-
-
-
 
 .headerSymbols {
     display: flex;
@@ -140,7 +132,6 @@
     align-items: center;
 }
 
-
 .headerInitialsLogin {
     flex-shrink: 0;
     color: #29ABE2;
@@ -160,23 +151,14 @@
     background: #F6F7F8;
 }
 
-
-
-
-
-
 .subMenu {
     display: inline-flex;
     padding: 10px;
     flex-direction: column;
     align-items: flex-start;
-
     border-radius: 20px 0px 20px 20px;
     background: var(--version-2-main-color, #2A3647);
-    /* nuevo */
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-
-    /*Fixation*/
     position: absolute;
     top: 96px;
     right: 16px;
@@ -191,15 +173,11 @@
     align-items: center;
     gap: 8px;
     border-radius: 8px;
-
-
-    /* Version 2/body */
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    /* 19.2px */
     text-decoration: none;
     color: #CDCDCD;
 }

@@ -34,14 +34,11 @@
         align-items: center;
         flex-shrink: 0;
         background: #2A3647;
-    
-        /* nuevo */
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
         z-index: 10;
         position: absolute;
         bottom: 0px
     }
-
 
     .quicklinks {
         display: flex;
@@ -50,7 +47,6 @@
         gap: 15px; 
         width: 90%;
         color: white;
-        
         position: absolute;
         left: 10px;
         right: auto;
@@ -104,8 +100,6 @@
     }
 }
 
-
-
 /*Iphone XR*/
 @media(max-width: 414px){
     .sidebarMobile{
@@ -118,7 +112,7 @@
 @media(max-width: 412px){
     .sidebarMobile{
         position: absolute;
-        bottom: 10px;
+        bottom: 0px;
     }
 }
 
@@ -134,7 +128,6 @@
     }
 }
 
-
 /*iphone*/
 @media(max-width: 375px){
     .sidebarMobile{
@@ -142,7 +135,6 @@
         bottom: 0px;
     }
 }
-
 
 /*Galaxy S8*/
 @media(max-width: 360px){

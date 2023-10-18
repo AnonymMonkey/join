@@ -60,13 +60,11 @@ body {
     align-items: center;
     gap: 16px;
     color: #000000;
-
     width: 315px;
 }
 
 .headlineSignUp span {
     width: 315px;
-
     color: #000;
     text-align: center;
     font-family: Inter;
@@ -86,15 +84,12 @@ body {
 
 .overlay-content-addTask {
     display: flex;
-
     justify-content: center;
     position: relative;
     top: 400px;
-
     padding: 48px 40px;
     border-radius: 30px;
     gap: 24px;
-
     z-index: 6;
     transition: right 0.3s ease;
 }
@@ -112,24 +107,20 @@ body {
 @keyframes slideIn {
     from {
         right: -100%;
-        /* Startposition: rechts außerhalb des Bildschirms */
     }
 
     to {
         right: 0;
-        /* Endposition: in die Mitte des Bildschirms */
     }
 }
 
 @keyframes slideOut {
     from {
         right: 0;
-        /* Startposition: in der Mitte des Bildschirms */
     }
 
     to {
         right: -100%;
-        /* Endposition: rechts außerhalb des Bildschirms */
     }
 }
 
@@ -147,7 +138,6 @@ body {
     align-items: center;
     gap: 10px;
     cursor: pointer;
-
     border-radius: 10px;
     border: 1px solid var(--Style, #D1D1D1);
     background: #FFF;
@@ -161,7 +151,6 @@ body {
     border: 1px solid var(--Style, red);
 }
 
-
 .inputs {
     display: flex;
     width: 380px;
@@ -174,7 +163,6 @@ body {
 .inputs input {
     border: 0px solid;
     color: var(--Style, #D1D1D1);
-
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
@@ -199,7 +187,6 @@ input:not(:placeholder-shown) {
     color: black;
 }
 
-
 .signupMsgBox {
     font-size: 12px;
     width: 100%;
@@ -207,13 +194,11 @@ input:not(:placeholder-shown) {
     margin-top: -16px;
 }
 
-
 .settingsSignUp {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 16px;
-
     width: 100%;
 }
 
@@ -238,7 +223,6 @@ input:not(:placeholder-shown) {
 .fakeSubmitButton rect {
     fill: grey;
 }
-
 
 .buttonsSignUp {
     display: flex;
@@ -291,13 +275,11 @@ input:not(:placeholder-shown) {
     gap: 8px;
     border: 0px solid;
     color: var(--icon, #A8A8A8);
-    /* Version 2/body */
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    /* 19.2px */
     background: #F6F7F8;
     cursor: pointer;
 }
@@ -307,7 +289,6 @@ input:not(:placeholder-shown) {
     color: #29ABE2;
 }
 
-/*GENERICS STAYS */
 .clickable {
     cursor: pointer;
 }

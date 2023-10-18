@@ -8,14 +8,10 @@ let todos = [];
 let urgentDueDates = [];
 let urgentDueDate;
 let currentGreeting;
-
 let deviceWidth;
 let currentUser;
 let user;
-
-
 let greeting = false;
-
 
 
 //Funktion kürzen??
@@ -277,6 +273,7 @@ async function getHTMLTemplateforSummary() {
     else {
         document.getElementById('greeting').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
+        <br>
         <span class="spanName">${activeUserName}</span>
     `;
     }

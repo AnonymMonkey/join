@@ -1,4 +1,4 @@
-@media(max-width: 1210px){
+@media(max-width: 1270px){
     .greetingSection{
         display: none;
     }
@@ -6,7 +6,6 @@
 
 @media(max-width: 990px){
     .headlineSection{    
-        /*Fixation*/
         position: fixed;
         top: 206px;
         left: auto;
@@ -15,7 +14,6 @@
     }
 
     .headlineSummary{
-        /*Fixation*/
         position: fixed;
         top: 206px;
         left: auto;
@@ -24,7 +22,6 @@
     }
 
     .headlineVector{
-        /*Fixation*/
         position: fixed;
         top: 213px;
         left: auto;
@@ -33,7 +30,6 @@
     }
 
     .headlineSpan{        
-        /*Fixation*/
         position: fixed;
         top: 226.5px;
         left: auto;
@@ -42,7 +38,6 @@
     }
 
     .mediumCardSection{
-        /*Fixation*/
         position: fixed;
         top: 335px;
         left: auto;
@@ -51,7 +46,6 @@
     }
 
     .cardLarge{
-        /*Fixation*/
         position: fixed;
         top: 531.5px;
         left: auto;
@@ -60,7 +54,6 @@
     }
 
     .smallCardSection{
-        /*Fixation*/
         position: fixed;
         top: 727px;
         left: auto;
@@ -73,49 +66,91 @@
 @media(max-width: 910px){
     .content{
         transform: scale(0.8);
-        top: -12vh;
-        left: auto;
-        right: 13vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: -3vh;
+        top: -130px;
+        width: 100%;
     }
 
     .spanGreeting{
-        /*Fixation*/
-        flex-direction: column;
+        display: flex;
         justify-content: center;
         align-items: center;
-        
-        position: absolute;
-        top: 40%;
-        left: 20%;
-        right: auto;
-        width: 500px;
+        height: 120%;
+        width: 100%;
     }
 
     .spanName{
-        /*Fixation*/
-        flex-direction: column;
+        display: flex;
         justify-content: center;
         align-items: center;
-
-        position: absolute;
-        top: 40%;
-        left: 10%;
-        right: auto;
-        width: 600px;
+        height: 120%;
+        width: 100%;
     }
 }
-
 
 @media(max-width: 775px){
-    .content{
-        transform: scale(0.8);
-        right: 7vh;
+    .spanGreeting{ 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120%;
+        width: 100%;
+    }
+
+    .spanName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120%;
+        width: 100%;
     }
 }
+
+
+
+@media(max-width: 745px){
+    .spanName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120%;
+        width: 100%;
+        font-size: 50px;
+    }
+}
+
 
 /*Switch to Mobile View*/
 @media(max-width: 642px){
 
+    .spanGreeting{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
+        width: 100%;
+    }
+    
+    .spanName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
+        width: 100%;
+    }
+
+    .content {
+        width: 100%;
+        height: 100%;
+        transform: scale(0.8);
+        top: -6vh;
+        left: auto;
+        right: 0vh;
+    }
+    
     .penMobile{
         display: flex;
     }
@@ -136,15 +171,6 @@
         display: none;
     }
 
-    .content {
-        width: 100%;
-        height: 100%;
-        transform: scale(0.8);
-        top: -6vh;
-        left: auto;
-        right: 0vh;
-    }
-    
     .headlineVectorMobile{
         display: flex;
         position: fixed;
@@ -156,8 +182,6 @@
 
     .headlineSummary{
         font-size: 47px;
-
-        /*Fixation*/
         position: fixed;
         top: 128px;
         left: auto;
@@ -167,7 +191,6 @@
     
     .headlineSpan{
         font-size: 20px;
-        /*Fixation*/
         position: fixed;
         top: 192px;
         left: auto;
@@ -175,15 +198,12 @@
         right: 270px;
     }
     
-    /*Section 2*/
     .mediumCardSection{
-        /*Fixation*/
         position: fixed;
         top: 280px;
         left: auto;
         bottom: 521px;
         right: 35px;
-        
     }
     
     .cardMedium{
@@ -204,7 +224,6 @@
         width: 390px;
         height: 110px;
         gap: 36px;
-        /*Fixation*/
         position: fixed;
         top: 410px;
         left: auto;
@@ -237,11 +256,8 @@
         width: 130px;  
     }
     
-    
-    /*Section 4*/
     .smallCardSection{
         width: 400px;
-        /*Fixation*/
         position: fixed;
         top: 550px;
         left: auto;
@@ -257,7 +273,22 @@
 
 
 @media(max-width: 525px){
-    
+    .spanGreeting{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
+        width: 100%;
+    }
+
+    .spanName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
+        width: 100%;
+    }
+
     .headlineSection{
         left: 14px;
     }
@@ -298,10 +329,36 @@
     .content{
         transform: scale(0.7);
     }
+
+    .spanName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90%;
+        width: 100%;
+        font-size: 40px;
+    }
 }
 
 
 @media(max-width: 375px){
+    .spanGreeting{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 110%;
+        width: 100%;
+        font-size: 40px;
+    }
+
+    .spanName{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 110%;
+        width: 100%;
+    }
+    
     .content{
         transform: scale(0.7);
         top: -13vh;
