@@ -124,7 +124,6 @@ select {
 
 .addtask_content {
   display: flex;  
-  height: 100%;
   gap: 24px;  
   left: 328px;
 }
