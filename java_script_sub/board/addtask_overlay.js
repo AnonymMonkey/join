@@ -1,3 +1,6 @@
+/**
+ * Function to open the Add-Task-Dialog
+ */
 async function openAddTaskOverlay() {
     resetArrays();
     await taskContainerRenderHTML('add', 'Add');
@@ -21,6 +24,9 @@ async function openAddTaskOverlay() {
     }    
 }
 
+/**
+ * Function to close the Add-Task-Dialog
+ */
 function closeAddTaskOverlay() {
     resetForm();
     let overlayBg = elementByID("overlay-bg-addTask");

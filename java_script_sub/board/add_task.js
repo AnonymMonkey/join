@@ -151,7 +151,7 @@ function selectedRadioButton(prio, frameName) {
 
 /**
  * Change style for displaying or not input-fields
- * @param {string} view 
+ * @param {string} view - parameter which defines the origin of the function
  */
 function subtaskActions(view) {
   if (view == 'show') {

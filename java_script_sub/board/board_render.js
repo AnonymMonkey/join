@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {*} element 
+ * @returns 
+ */
 function generateTasksHTML(element) {
   progressHTML = '';
   badgeHTML = '';

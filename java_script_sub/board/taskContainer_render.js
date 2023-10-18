@@ -1,3 +1,8 @@
+/**
+ * Renderfunction to generate HTML
+ * @param {string} view - Name of the Variable which defines the View (add or edit)
+ * @param {string} viewName - Name of the Variable which defines the viewName (Add or Edit)
+ */
 async function taskContainerRenderHTML(view, viewName) {
 
   taskContainer = document.getElementById('taskContainer');
