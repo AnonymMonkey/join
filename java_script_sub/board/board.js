@@ -204,13 +204,13 @@ async function deleteTask(searchId) {
   }
 }
 
-//TODO Stefan - Funktionen um außerhalb der Dialoge das Schließen zu erzwingen bzw. dieses zu unterbinden / not working
-function close() {
-  console.log('jetzt muss es zu');
-}
-
-function doNotClose(event) {
+//TODO Stefan
+/**
+ * Close Dialogs on Overlay-BG 
+ * works on task-overlay
+ * not working od Add-/Edit-Task
+ * @param {string} event - event-data
+ */
+function doNotClose(event) {  
   event.stopPropagation();
 }
-
-// onclick="previousImage(),doNotClose(event)"

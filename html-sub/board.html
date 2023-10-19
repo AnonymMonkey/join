@@ -53,7 +53,7 @@
     <div id="header" w3-include-html="../assets/templates/header.html"></div>
 
     <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
-    <div class="content" onclick="doNotClose(event)">
+    <div class="content">
       <div class="board_frame">
         <div class="board_headline">
           <div class="headline_text">Board</div>
@@ -112,8 +112,8 @@
   </div>
 
   <!-- overlay task -->
-  <div id="overlay-bg" class="overlay-bg d-none">
-    <div id="overlay-content" class="overlay-content-task d-flex">
+  <div id="overlay-bg" class="overlay-bg d-none" onclick="closeTaskOverlay()">
+    <div id="overlay-content" class="overlay-content-task d-flex" onclick="doNotClose(event)">
 
       <div id="overlayTaskContent"></div>
 
