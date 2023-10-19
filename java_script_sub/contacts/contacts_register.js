@@ -183,7 +183,7 @@ function createRegisterInfo() {
 
 
 
-//param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled
+// TODO: param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled - SIMON
 function getContactFirstLetters(nameFromLogin) {
     let loginName = nameFromLogin
     if (loginName) {
@@ -230,7 +230,7 @@ function deleteTest() {
 }
 
 
-//Testfunction wegen activeUser
+// TODO: Testfunction wegen activeUser - bis ende
 //
 
 async function addActiveUserToContacts() {
