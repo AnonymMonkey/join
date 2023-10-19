@@ -158,4 +158,10 @@
   #frame26 {
     justify-content: end;
   }
+  
+  #createTaskButton{
+    font-size: 0;
+    width: auto;
+  }
+
 }
