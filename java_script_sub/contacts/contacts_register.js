@@ -28,7 +28,8 @@ async function createContact() {
 
 async function createContactLight() {
     let nameIsValid = checkName();
-    if (!nameIsValid) {
+    let mailIsValid = checkMail();
+    if (!nameIsValid && !mailIsValid) {
         return;
     }
     create_btn.disable = true;
@@ -184,7 +185,6 @@ function createRegisterInfo() {
 
 //param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled
 function getContactFirstLetters(nameFromLogin) {
-    debugger
     let loginName = nameFromLogin
     if (loginName) {
         let words = name2.split(' ');
