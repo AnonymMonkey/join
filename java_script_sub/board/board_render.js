@@ -93,14 +93,14 @@ function generateOverlayContent(element) {
   let dueDate = getDueDate(tasks[id]['duedate']);
   let prioIcon = tasks[id]['prio'].toLowerCase();
 
-  content = document.getElementById('overlayTaskContent');
-  content.innerHTML = '';
+  contentTask = document.getElementById('overlayTaskContent');
+  contentTask.innerHTML = '';
   badgeHTMLTask = '';
   subtaskHTML = '';
 
   assignedToTask(id);
   generateSubtaskList(id);
-  content.innerHTML = /*html*/ `
+  contentTask.innerHTML = /*html*/ `
   <div class="frame203_task">                   
     <div class="board_card_task" style="background: ${taskCategory[tasks[id]['category']]['bgColor']
     }">
@@ -151,9 +151,9 @@ function generateOverlayContent(element) {
 
 async function generateOverlayAddTask(status) {
   await openAddTaskOverlay();
-  content = document.getElementById('overlayAddTaskContent');
-  content.innerHTML = '';
-  content.innerHTML = /*html*/ `
+  contentAddTask = document.getElementById('overlayAddTaskContent');
+  contentAddTask.innerHTML = '';
+  contentAddTask.innerHTML = /*html*/ `
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">        
     `;
   document.getElementById('temporaryStatus').innerHTML = status;
@@ -208,9 +208,9 @@ async function changeSubtask(id, subtask, newStatusText, newImg) {
 
 async function generateOverlayEditTask(element) {
   await openEditTaskOverlay(element);
-  content = document.getElementById('overlayEditTaskContent');
-  content.innerHTML = '';
-  content.innerHTML = /*html*/ `
+  contentEditTask = document.getElementById('overlayEditTaskContent');
+  contentEditTask.innerHTML = '';
+  contentEditTask.innerHTML = /*html*/ `
     <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeEditTaskOverlay()">
   `;
 

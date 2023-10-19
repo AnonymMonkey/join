@@ -105,16 +105,16 @@
           
           onblur = funktion checke data-value und dann hideCategory
           -->
-            <input onclick="searchCategory()" onblur="hideCategory()"id="search_category" class="search-category" placeholder="Select task category">
+            <input onclick="searchCategory()" onblur="checkCategory(this.value)" id="search_category" class="search-category" placeholder="Select task category">
             <img onclick="searchCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);">
         </div>
 
         <div id="category_selection-background" class="d-none">          
-          <div data-value="0" onclick="alert(this.getAttribute('data-value'))" class="categoryElement pointer">HTML + CSS</div>
-          <div data-value="1" onclick="alert(this.getAttribute('data-value'))" class="categoryElement pointer">JavaScript</div>
-          <div data-value="2" onclick="alert(this.getAttribute('data-value'))" class="categoryElement pointer">Team</div>
-          <div data-value="3" onclick="alert(this.getAttribute('data-value'))" class="categoryElement pointer">Meeting</div>
-          <div data-value="4" onclick="alert(this.getAttribute('data-value'))" class="categoryElement pointer">Angular</div>
+          <div data-value="0" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">HTML + CSS</div>
+          <div data-value="1" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">JavaScript</div>
+          <div data-value="2" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">Team</div>
+          <div data-value="3" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">Meeting</div>
+          <div data-value="4" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">Angular</div>
         </div>
 
         <label id="category_select_label" class="requiredField d-none" for="category_select">This field is

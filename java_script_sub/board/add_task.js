@@ -384,3 +384,9 @@ function hideCategory() {
   arrowDropdown.style.transform = 'rotate(360deg)';  
   categorySelection.classList.add('d-none');
 }
+
+function checkCategory(choice) {
+  console.log(choice);
+  let input = document.getElementById('search_category').value = choice;
+  hideCategory()
+}

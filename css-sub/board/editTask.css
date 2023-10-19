@@ -6,10 +6,6 @@ select {
     center;
 }
 
-.d-none {
-  display: none !important;
-}
-
 .close-button {
   position: absolute;
   top: 48px;
