@@ -57,7 +57,7 @@
           Due date<sup class="requiredAsterisk">*</sup>
         </div>
         <div id="frame211" class="frame211">
-          <input id="addtask-duedate" placeholder="2023-10-08" type="date" min="2023-10-04" max="2024-04-20" required
+          <input id="addtask-duedate" type="date" min="2023-10-04" max="2024-04-20" required
             class="frame14due pointer" onblur="validateField('addtask-duedate', 'addtask-duedate', 'duedate_label')" />
           <label id="duedate_label" class="requiredField d-none" for="addtask-duedate">This field is required</label>
         </div>
@@ -101,6 +101,25 @@
       <div class="category">
         <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
         <div id="frame74task" class="frame74 pointer">
+          <div class="category_select">
+            <input onclick="searchCategory()" onblur="hideCategory()" id="search_category" class="search-category" placeholder="Select task category">
+            <img id="arrow_dropdown_addCategory" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);">
+          </div>
+
+          <div id="category_selection-background" class="d-none">
+            <div class="category_list">
+              cdsg
+            </div>
+          </div>
+
+        </div>
+        <label id="category_select_label" class="requiredField d-none" for="category_select">This field is
+          required</label>
+      </div>
+
+      <!-- <div class="category">
+        <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
+        <div id="frame74task" class="frame74 pointer">
           <select class="category-select" required name="category_select" id="category_select"
             onblur="validateField('category_select', 'frame74task', 'category_select_label')">
 
@@ -115,7 +134,7 @@
         </div>
         <label id="category_select_label" class="requiredField d-none" for="category_select">This field is
           required</label>
-      </div>
+      </div> -->
 
       <div class="subtasks">
         <div class="subtasks_text">Subtasks</div>
