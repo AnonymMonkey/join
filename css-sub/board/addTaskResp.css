@@ -58,6 +58,8 @@
     left: 0;
     position: relative;
     width: 100%;
+    height: -webkit-fill-available;
+    overflow-x: inherit;
   }
 
   .vector4 {
@@ -69,6 +71,8 @@
     left: 0;
     position: relative;
     width: 100%;
+    height: -webkit-fill-available;
+    overflow-y: inherit;
   }
 
   .task_title,

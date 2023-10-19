@@ -252,6 +252,7 @@ input[type='date']::placeholder {
   display: flex;
   flex-direction: column;
   gap: 8px;  
+  position: relative;
 }
 
 .task_assigned_to_text {
@@ -358,7 +359,7 @@ input {
     background-color: #FFF;
     border-radius: 10px;
     height: 288px;
-    position: absolute;    
+    position: absolute;        
     padding-top: 48px;
     z-index: 5;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
