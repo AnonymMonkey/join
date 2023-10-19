@@ -1,8 +1,8 @@
 <div class="frame40">Add Task</div>
-<div class="d-none" id="temporaryStatus">todo</div>
+<div id="temporaryStatus">todo</div>
 <div class="d-none" id="prioResult"></div>
 <div class="d-none" id="currentTask"></div>
-
+<div class="d-none" id="category_select"></div>
 <!-- form start -->
 
 <form autocomplete="off" id="addTaskInputForm" onsubmit="addNewTask(); return false;">
@@ -97,48 +97,22 @@
         <label id="priority_label" class="requiredField d-none" for="priority">This field is required</label>
       </div>
 
-      <!-- //TODO - Hier sollte das Styling der Liste angepasst werden -->
       <div class="category">
         <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
-        <div id="frame74task" class="frame74 pointer">       
-          <!-- onclick="alert(this.value)" 
-          
-          onblur = funktion checke data-value und dann hideCategory
-          -->
-            <input onclick="searchCategory()" onblur="checkCategory(this.value)" id="search_category" class="search-category" placeholder="Select task category">
+        <div id="frame74task" class="frame74 pointer">            
+            <input onclick="searchCategory()" id="category_select_name" class="search-category" placeholder="Select task category" required="required" />
             <img onclick="searchCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);">
         </div>
-
         <div id="category_selection-background" class="d-none">          
-          <div data-value="0" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">HTML + CSS</div>
-          <div data-value="1" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">JavaScript</div>
-          <div data-value="2" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">Team</div>
-          <div data-value="3" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">Meeting</div>
-          <div data-value="4" onclick="checkCategory(this.getAttribute('data-value'))" class="categoryElement pointer">Angular</div>
+          <div data-value="0" onclick="setCategory(this.getAttribute('data-value'), 'HTML + CSS')" class="categoryElement pointer">HTML + CSS</div>
+          <div data-value="1" onclick="setCategory(this.getAttribute('data-value'), 'JavaScript')" class="categoryElement pointer">JavaScript</div>
+          <div data-value="2" onclick="setCategory(this.getAttribute('data-value'), 'Team')" class="categoryElement pointer">Team</div>
+          <div data-value="3" onclick="setCategory(this.getAttribute('data-value'), 'Meeting')" class="categoryElement pointer">Meeting</div>
+          <div data-value="4" onclick="setCategory(this.getAttribute('data-value'), 'Angular')" class="categoryElement pointer">Angular</div>
         </div>
-
         <label id="category_select_label" class="requiredField d-none" for="category_select">This field is
           required</label>
       </div>
-
-      <!-- <div class="category">
-        <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
-        <div id="frame74task" class="frame74 pointer">
-          <select class="category-select" required name="category_select" id="category_select"
-            onblur="validateField('category_select', 'frame74task', 'category_select_label')">
-
-            <option value="">Select task category</option>
-            <option value="0">HTML + CSS</option>
-            <option value="1">JavaScript</option>
-            <option value="2">Team</option>
-            <option value="3">Meeting</option>
-            <option value="4">Angular</option>
-
-          </select>
-        </div>
-        <label id="category_select_label" class="requiredField d-none" for="category_select">This field is
-          required</label>
-      </div> -->
 
       <div class="subtasks">
         <div class="subtasks_text">Subtasks</div>

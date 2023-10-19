@@ -21,6 +21,7 @@ async function initAddTasks() {
  */
 function resetForm() {  
   document.getElementById('addTaskInputForm').reset();
+  document.getElementById('category_select').innerHTML = "";
   resetArrays();
   addSubtask();
   resetRadioButtonClasses();    
@@ -28,6 +29,7 @@ function resetForm() {
   resetImages();
   resetClassError();
   resetRequiredFields();  
+  hideCategory();
 }
 /**
  * Reset Arrays
@@ -189,7 +191,7 @@ function getNextFreeId(items, idKey) {
  */
 async function addNewTask(origin) {    
   let status = document.getElementById('temporaryStatus').innerHTML;
-  let category = document.getElementById('category_select').value;  
+  let category = document.getElementById('category_select').innerHTML;
   let id = parseInt(await checkExistingTask(), 10);
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
@@ -373,7 +375,7 @@ function clearInput(field) {
 function searchCategory() {
   let arrowDropdown = document.getElementById('arrow_dropdown_addCategory');
   let categorySelection = document.getElementById('category_selection-background');
-  document.getElementById('search_category').focus();
+  document.getElementById('category_select').focus();
   arrowDropdown.style.transform = 'rotate(180deg)';
   categorySelection.classList.remove('d-none');
 }
@@ -385,8 +387,12 @@ function hideCategory() {
   categorySelection.classList.add('d-none');
 }
 
-function checkCategory(choice) {
-  console.log(choice);
-  let input = document.getElementById('search_category').value = choice;
-  hideCategory()
+function setCategory(choice, name) { 
+  document.getElementById('category_select_name').value = name;  
+  document.getElementById('category_select').innerHTML = choice;
+  hideCategory();
+}
+
+function checkCategory() {  
+  hideCategory();
 }
