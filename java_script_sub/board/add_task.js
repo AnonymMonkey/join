@@ -373,16 +373,14 @@ function clearInput(field) {
 function searchCategory() {
   let arrowDropdown = document.getElementById('arrow_dropdown_addCategory');
   let categorySelection = document.getElementById('category_selection-background');
-  console.log('ja');
+  document.getElementById('search_category').focus();
   arrowDropdown.style.transform = 'rotate(180deg)';
   categorySelection.classList.remove('d-none');
-
 }
 
 function hideCategory() {
   let arrowDropdown = document.getElementById('arrow_dropdown_addCategory');
   let categorySelection = document.getElementById('category_selection-background');
-  console.log('nein');
   arrowDropdown.style.transform = 'rotate(360deg)';  
   categorySelection.classList.add('d-none');
 }
