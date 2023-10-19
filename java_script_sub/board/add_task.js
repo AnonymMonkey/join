@@ -29,7 +29,7 @@ function resetForm() {
   resetImages();
   resetClassError();
   resetRequiredFields();  
-  hideCategory();
+  toggleCategory();
 }
 /**
  * Reset Arrays
@@ -372,27 +372,31 @@ function clearInput(field) {
   subtaskActions();
 }
 
-function searchCategory() {
+/**
+ * Hide/Unhide the Category-Selection, Transform Arrow-Image and sets Focus
+ */
+function toggleCategory() {
   let arrowDropdown = document.getElementById('arrow_dropdown_addCategory');
   let categorySelection = document.getElementById('category_selection-background');
-  document.getElementById('category_select').focus();
-  arrowDropdown.style.transform = 'rotate(180deg)';
-  categorySelection.classList.remove('d-none');
+  let categorySelect = document.getElementById('category_select');
+
+  if (categorySelection.classList.contains('d-none')) {    
+    categorySelect.focus();
+    arrowDropdown.style.transform = 'rotate(180deg)';
+    categorySelection.classList.remove('d-none');
+  } else {    
+    arrowDropdown.style.transform = 'rotate(360deg)';
+    categorySelection.classList.add('d-none');
+  }
 }
 
-function hideCategory() {
-  let arrowDropdown = document.getElementById('arrow_dropdown_addCategory');
-  let categorySelection = document.getElementById('category_selection-background');
-  arrowDropdown.style.transform = 'rotate(360deg)';  
-  categorySelection.classList.add('d-none');
-}
-
+/**
+ * Set Values of your choice in Form
+ * @param {number} choice - value of choice
+ * @param {string} name - name of selected choice
+ */
 function setCategory(choice, name) { 
   document.getElementById('category_select_name').value = name;  
   document.getElementById('category_select').innerHTML = choice;
-  hideCategory();
-}
-
-function checkCategory() {  
-  hideCategory();
+  toggleCategory();
 }

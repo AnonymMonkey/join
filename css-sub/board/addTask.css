@@ -351,6 +351,19 @@ input {
   caret-color: transparent;
 }
 
+#category_selection-background{                
+    top: 40px;  
+    left: 0;    
+    width: 100%;
+    background-color: #FFF;
+    border-radius: 10px;
+    height: 288px;
+    position: absolute;    
+    padding-top: 48px;
+    z-index: 5;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
 .categoryElement{
   font-family: Inter;
   font-size: 20px;
@@ -633,11 +646,11 @@ textarea {
 }
 
 .category {
-  width: 440px;
-  height: 100%;  
+  width: 440px;  
   display: flex;
   flex-direction: column;
   gap: 8px;
+  position: relative;
 }
 
 .category_text {

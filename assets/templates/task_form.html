@@ -1,5 +1,5 @@
 <div class="frame40">Add Task</div>
-<div id="temporaryStatus">todo</div>
+<div class="d-none" id="temporaryStatus">todo</div>
 <div class="d-none" id="prioResult"></div>
 <div class="d-none" id="currentTask"></div>
 <div class="d-none" id="category_select"></div>
@@ -100,8 +100,8 @@
       <div class="category">
         <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
         <div id="frame74task" class="frame74 pointer">            
-            <input onclick="searchCategory()" id="category_select_name" class="search-category" placeholder="Select task category" required="required" />
-            <img onclick="searchCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);">
+            <input onclick="toggleCategory()" id="category_select_name" class="search-category" placeholder="Select task category" required="required" />
+            <img onclick="toggleCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);">
         </div>
         <div id="category_selection-background" class="d-none">          
           <div data-value="0" onclick="setCategory(this.getAttribute('data-value'), 'HTML + CSS')" class="categoryElement pointer">HTML + CSS</div>

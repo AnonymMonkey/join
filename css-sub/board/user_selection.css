@@ -91,9 +91,7 @@
     flex-shrink: 0;
 }
 
-#user_selection-background,
-#category_selection-background {
-    height: 20vh;
+#user_selection-background {    
     width: 100%;
     background-color: #FFF;
     border-radius: 10px;
