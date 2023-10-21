@@ -13,6 +13,7 @@ async function init() {
   updateHTML();
   adjustQuicklinkBG();
   setStylesheet();
+  detectDarkmode();
 }
 
 function setStylesheet() {

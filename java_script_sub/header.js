@@ -59,6 +59,7 @@ async function loadUsers(){
     } catch(e){
         console.error('Loading error:', e);
     }
+    detectDarkmode();
 }
 
 

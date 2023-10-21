@@ -1,6 +1,7 @@
 async function privacyInit(){
     await includeHTML();
     adjustQuicklinkBG();
+    detectDarkmode();
 }
 
 function openLastSite(){

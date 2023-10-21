@@ -4,5 +4,6 @@ async function contactsInit() {
     getCategoryLetter();
     createRegisterEntry();
     adjustQuicklinkBG();
+    detectDarkmode();
 }
 

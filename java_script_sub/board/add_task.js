@@ -12,6 +12,7 @@ async function initAddTasks() {
   addSubtask();
   await loadData();
   await userSelection('isClosed');
+  detectDarkmode();  
 }
 
 /**
@@ -203,7 +204,8 @@ async function addNewTask(origin) {
 
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
   await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');
-
+  debugger
+  return;
   if (origin) {
     closeAddTaskOverlay();
   }
