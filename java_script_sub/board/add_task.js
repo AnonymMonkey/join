@@ -202,7 +202,7 @@ async function addNewTask(origin) {
   let formattedTaskDate = new Date(duedate).getTime();
 
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
-  smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');
+  await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');
 
   if (origin) {
     closeAddTaskOverlay();

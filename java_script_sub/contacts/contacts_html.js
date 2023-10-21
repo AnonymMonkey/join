@@ -37,7 +37,7 @@ function contacts_overlay_html() {
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <button id="create_btn">Create contact<img
+                        <button id="create_btn" onclick="doNotClose(event)">Create contact<img
                                 src="../assets/img/contacts/check.svg"></button>
                     </div>
                 </form>
