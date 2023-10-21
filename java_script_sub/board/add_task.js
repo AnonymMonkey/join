@@ -97,7 +97,7 @@ function setDateRange() {
   let today = year + '-' + month + '-' + date;
   let maxdate = maxyear + '-' + month + '-' + date;
   document.getElementById('addtask-duedate').min = today;
-  document.getElementById('addtask-duedate').max = maxdate;
+  document.getElementById('addtask-duedate').max = maxdate;  
 }
 
 /**
@@ -193,7 +193,7 @@ function getNextFreeId(items, idKey) {
 async function addNewTask(origin) {    
   let status = document.getElementById('temporaryStatus').innerHTML;
   let category = document.getElementById('category_select').innerHTML;
-  let id = parseInt(await checkExistingTask(), 10);
+  let id = parseInt(checkExistingTask(), 10);
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
@@ -203,12 +203,11 @@ async function addNewTask(origin) {
   let formattedTaskDate = new Date(duedate).getTime();
 
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
-  await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');
-  debugger
-  return;
-  if (origin) {
+  /**TODO - Animation kommt nicht (mehr) */
+  await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');  
+  if (origin) {  
     closeAddTaskOverlay();
-  }
+  }  
   openSelectedQuicklink('quickBoard');
 }
 
@@ -246,7 +245,7 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
     category: category,
     duedate: formattedTaskDate,
   };
-  await changeTaskArray(id, newTask);
+  await changeTaskArray(id, newTask);  
 }
 
 /**
@@ -256,7 +255,6 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
  */
 async function changeTaskArray(id, newTask) {  
   let indexToUpdate = getTaskIndex(id);
-  console.log(id + " " + indexToUpdate);  
   if (indexToUpdate !== -1) {    
     tasks[indexToUpdate] = newTask;
   } else {
