@@ -1,15 +1,19 @@
+@import url('../animations.css');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right
-    center;
 }
 
-.close-button {
-  position: absolute;
-  top: 48px;
-  right: 48px;
+.d-none {
+  display: none !important;
 }
 
 .overlay-bg-editTask {
@@ -22,7 +26,7 @@ select {
   width: 100%;
   height: 100%;
   background-color: rgba(200, 200, 200, 0.5);
-  z-index: 10;
+  z-index: 5;
 }
 
 .overlay-content-editTask {
@@ -33,10 +37,53 @@ select {
   padding: 48px 40px;
   border-radius: 30px;
   gap: 24px;
-  background-color: #ffffff !important;
-  z-index: 11;
-  overflow-y: hidden;
+  background-color: #fff;
+  z-index: 6;
+  transition: right 0.3s ease;
 }
+.slide-in {
+  animation: slideIn 0.3s ease-in-out forwards;
+}
+
+.slideOut {
+  animation: slideOut 0.3s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    right: -100%;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: -100%;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 48px;
+  right: 48px;
+}
+
+.content_addTask{  
+  left: 328px;
+  top: 96px;
+  width: calc(100% - 328px);
+  height: calc(100vh - 96px);  
+  align-items: center; 
+  position: absolute;
+}
+
 
 #overlayEditTaskContent {
   width: 100%;
@@ -101,7 +148,6 @@ select {
   gap: 16px;
   top: 174px;
   left: 74px;
-  position: absolute;
 }
 
 input[type='date']::placeholder {
@@ -116,7 +162,6 @@ input[type='date']::placeholder {
   flex-shrink: 0;
   top: 174px;
   left: 562.25px;
-  position: absolute;
   border: 1px;
   transform: rotate(-0deg);
 }
@@ -147,7 +192,6 @@ input[type='date']::placeholder {
   width: 440px;
   height: 168px;
   top: 112px;
-  position: absolute;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
@@ -202,12 +246,11 @@ input[type='date']::placeholder {
 
 .task_assigned_to {
   width: 440px;
-  height: 100%;
-  top: 296px;
+  height: 100%;  
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  position: absolute;
+  gap: 8px;  
+  position: relative;
 }
 
 .task_assigned_to_text {
@@ -227,9 +270,6 @@ input[type='date']::placeholder {
   justify-content: flex-end;
   width: 334px;
   height: 56px;
-  top: 780px;
-  left: 716.25px;
-  position: absolute;
   gap: 4px;
 }
 
@@ -297,7 +337,46 @@ input {
   justify-content: space-between;
   border: 1px solid #d1d1d1;
   background-color: #ffffff;
-  z-index: 20;
+  z-index: 8;
+}
+
+.category_select{
+  display: flex;
+  flex-direction: row;  
+}
+
+#category_select_name{
+  caret-color: transparent;
+}
+
+#category_selection-background{                
+    top: 40px;  
+    left: 0;    
+    width: 100%;
+    background-color: #FFF;
+    border-radius: 10px;
+    height: 288px;
+    position: absolute;        
+    padding-top: 48px;
+    z-index: 5;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+}
+
+.categoryElement{
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;    
+  padding: 7px 16px;  
+  display: flex;
+  align-items: center;  
+  height: 48px;
+}
+
+.categoryElement:hover{
+  border-radius: 10px;
+  background-color: #EEE;
 }
 
 #frame74_select {
@@ -328,7 +407,8 @@ input {
   width: 100%;
 }
 
-.search-contact::placeholder {
+.search-contact::placeholder,
+.search-category::placeholder {
   color: var(--black, #000);
   font-family: Inter;
   font-size: 20px;
@@ -363,14 +443,12 @@ input {
 .frame39 {
   display: flex;
   width: 440px;
-  height: 376px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   gap: 24px;
   top: 174px;
-  left: 610.25px;
-  position: absolute;
+  left: 610.25px;  
 }
 
 .framedue {
@@ -535,23 +613,23 @@ textarea {
 }
 
 .category {
+  width: 440px;  
   display: flex;
-  width: 440px;
-  height: 80px;
   flex-direction: column;
-  align-items: flex-start;
   gap: 8px;
-  top: 232px;
-  position: absolute;
+  position: relative;
 }
 
 .category_text {
-  color: var(--version-2-main-color, #2a3647);
+  width: 150px;
+  height: 24px;
   font-family: Inter;
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 120%;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #2a3647;
 }
 
 .frame74:focus-within,
