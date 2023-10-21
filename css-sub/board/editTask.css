@@ -41,6 +41,7 @@ select {
   z-index: 6;
   transition: right 0.3s ease;
 }
+
 .slide-in {
   animation: slideIn 0.3s ease-in-out forwards;
 }

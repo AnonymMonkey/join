@@ -136,7 +136,7 @@ select {
   align-items: flex-start;
   gap: 16px;
   top: 174px;
-  left: 74px;  
+  left: 74px;
 }
 
 input[type='date']::placeholder {

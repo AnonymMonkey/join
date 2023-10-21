@@ -28,8 +28,9 @@ function checkMail(ID) {
     console.log(currentMail);
 
     if (mailInput !== currentMail) {
-        if (emailAddresses.includes(mailInput)) {
-            alert("Fehler: Die E-Mail-Adresse existiert bereits!");
+        if (emailAddresses.includes(mailInput)) {            
+            let mailExists = elementByID("mailExists");
+            mailExists.classList.remove('d-none');
             return false;
         }
     }
