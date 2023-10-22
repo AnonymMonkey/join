@@ -64,8 +64,9 @@ async function login() {
 
 function saveUserToLocalStorage(key, value) {
     localStorage.setItem(key, value);
+    // nächste Funktion für push in contacts
+    addActiveUserToContacts();
 }
-
 
 function saveToLocalStorage(key, value) {
     let valueAsText = JSON.stringify(value)

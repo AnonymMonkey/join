@@ -7,14 +7,14 @@ let users = [];
 let activeUserMail;
 let activeUserInitials;
 let activeUserName;
-const FORM_FIELDS = {
+const HEADER_FIELDS = {
     quickSummary: 'http://127.0.0.1:5500/html-sub/summary.html?msg=summary',
     quickAddTask: 'frame14_text',
     // so on
 }
 
 function test(id) {
-    let formId = FORM_FIELDS[id];
+    let formId = HEADER_FIELDS[id];
     
     console.log(formId);
 }

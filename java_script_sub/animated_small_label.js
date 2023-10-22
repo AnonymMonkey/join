@@ -1,4 +1,4 @@
-function smallAnimatedLabel(message, imgSrc) {
+async function smallAnimatedLabel(message, imgSrc) {
     const timeout = 500;
 
     setTimeout(() => {

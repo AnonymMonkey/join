@@ -187,7 +187,7 @@ function createRegisterInfo() {
 function getContactFirstLetters(nameFromLogin) {
     let loginName = nameFromLogin
     if (loginName) {
-        let words = name2.split(' ');
+        let words = loginName.split(' ');
 
         let firstInitial = words[0].charAt(0).toUpperCase();
         let secondInitial = words[1].charAt(0).toUpperCase();
@@ -234,16 +234,15 @@ function deleteTest() {
 //
 
 async function addActiveUserToContacts() {
-    debugger
     /*Step 1: load loginData with key "loginData" from localStorage*/
     /* let activeUserLoginData; */
     let activeUserContactAsText = localStorage.getItem('loginData');
     if (activeUserContactAsText) {
         activeUserLoginData = JSON.parse(activeUserContactAsText);
     }
-
+    
     /*await loadData();*/
-
+    
     /*Test contacts zum einkommentieren 
     contacts.push({
         'activeUser_entry': [
@@ -257,8 +256,8 @@ async function addActiveUserToContacts() {
             }
         ],
     });
-
-
+    
+    
     contacts.push({
         'activeUser_entry': [
             {
@@ -271,8 +270,8 @@ async function addActiveUserToContacts() {
             }
         ],
     });
-
-
+    
+    
     contacts.push({
         'register_entry': [
             {
@@ -287,37 +286,40 @@ async function addActiveUserToContacts() {
     });
     
     */
-
-    let searchActiveUserMail = activeUserLoginData[0].email;
-
-
-
-    for (let i = 0; i < contacts.length; i++) {
-        if (contacts[i]['activeUser_entry'] == undefined) {
-            console.log('kein activeUser_entry also ignore');
-        }
-        else {
-            if (contacts[i]['activeUser_entry'][0].contact_mail == searchActiveUserMail) {
-                activeUserID = contacts[i]['activeUser_entry'][0].contact_ID
+   
+   let searchActiveUserMail = activeUserLoginData[0].email;
+   
+   
+   
+   for (let i = 0; i < contacts.length; i++) {
+       console.log(contacts);
+       
+    //    debugger
+                
+            if (contacts[i]['register_entry'][0]['contact_mail'] == searchActiveUserMail) {
+                activeUserID = contacts[i]['register_entry'][0].contact_ID
                 console.log('ActiveUser in Contacts gefunden und ID zugeordnet');
                 console.log('Die ID lautet ' + activeUserID);
             }
             else {
                 console.log('ActiveUser nicht in Contacts gefunden und gepusht');
-
-                contacts['activeUser_entry'].push({
-                    'activeUser_entry': [
+                
+                contacts.push({
+                    'registrer_entry': [
                         {
                             'contact_name': activeUserLoginData[0].name,
                             'contact_mail': activeUserLoginData[0].email,
                             'contact_phone': `please add phonenumber`,
-                            'contact_color': randomColor(),
-                            'contact_initials': getContactFirstLetters(activeUserLoginData[0].name),
-                            'contact_ID': randomID(),
+                            //'contact_color': randomColor(),
+                            'contact_color': '#fa995e',
+                            'contact_initials': getContactFirstLetters(activeUserLoginData[0].name), // JS
+                            //'contact_ID': randomID(),
+                            'contact_ID': 6666,
                         }
                     ],
                 });
-            }
-        }
+                // todo Namen in CategoryLetters JS
+                return;
+            }        
     }
 }

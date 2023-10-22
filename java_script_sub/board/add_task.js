@@ -202,12 +202,12 @@ async function addNewTask(origin) {
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
 
-  await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
-  /**TODO - Animation kommt nicht (mehr) */
   await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');  
+  await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
   if (origin) {  
     closeAddTaskOverlay();
   }  
+  /**TODO - Animation kommt nicht (mehr) */
   openSelectedQuicklink('quickBoard');
 }
 
