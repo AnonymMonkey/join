@@ -105,6 +105,7 @@ select {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  margin-top: 0 !important;
 }
 
 .requiredAsterisk {
