@@ -8,7 +8,7 @@ let loginData = [];
 
 
 
-async function renderIndex(){
+async function renderIndex() {
     await includeHTML();
     await loadUsers();
     await loadStartScreen();
@@ -45,19 +45,16 @@ function loginCheckboxOn() {
 async function login() {
     let email = document.getElementById('loginEmail').value;
     let password = document.getElementById('loginPassword').value;
-    
+
     checkRememberMe(email, password);
     await loadUsers();
     let user = users.find(u => u.email == email && u.password == password);
     if (user) {
         activeUser = user.email;
-        pushLoginData(email, password, user.name);        
-        saveUserToLocalStorage('activeUser', activeUser);
+        pushLoginData(email, password, user.name);
+        await saveUserToLocalStorage('activeUser', activeUser);
 
-        /*Hier schon in contacts pushen?*/
-        // /*addActiveUserToContacts();*/
-        //window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
-        window.location.href = `http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&login=true`;
+        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
     }
     else {
         showMsgBoxInvalidPassword();
