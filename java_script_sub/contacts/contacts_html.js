@@ -18,18 +18,19 @@ function contacts_overlay_html() {
                             <input required type="text" name="" id="contact_name" placeholder="Name">
                             <img src="../assets/img/contacts/person_small.svg">
                         </div>
+                        
                         <div class="place-img">
                             <input required type="email" name="" id="contact_mail" placeholder="E-Mail">
                             <img src="../assets/img/contacts/mail.svg">
                         </div>
-                        <label id="mailExists" class="requiredField d-none" for="signupEmail">This Email already exists!</label>
-
+                        
                         <div class="place-img">
                             <input required type="tel" name="" id="contact_phone" placeholder="+491234567"
-                                pattern="\\+\\d{2}\\d{7,}">
+                            pattern="\\+\\d{2}\\d{7,}">
                             <img src="../assets/img/contacts/call.svg">
                         </div>
                     </div>
+                    <div id="errorMsg" class="requiredField"></div>
                     <div class="buttons">
                         <div class="buttons-cancel" onclick="closeContactOverlay()">Cancel<svg width="25"
                                 height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
