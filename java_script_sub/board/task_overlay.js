@@ -1,7 +1,10 @@
+/**
+ * Function to open the Task-Dialog
+ */
 function openTaskOverlay() {
     resetArrays();
-    let overlayBg = elementByID("overlay-bg");
-    let overlayContent = elementByID("overlay-content");
+    let overlayBg = elementByID("overlay-bg-task");
+    let overlayContent = elementByID("overlay-content-task");
     
     overlayContent.classList.remove("slideOut");
 
@@ -18,9 +21,12 @@ function openTaskOverlay() {
     }    
 }
 
+/**
+ * Function to close the Task-Dialog
+ */
 function closeTaskOverlay() {
-    let overlayBg = elementByID("overlay-bg");
-    let overlayContent = elementByID("overlay-content");
+    let overlayBg = elementByID("overlay-bg-task");
+    let overlayContent = elementByID("overlay-content-task");
 
     overlayContent.classList.add("slideOut");
 

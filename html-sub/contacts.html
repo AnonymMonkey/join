@@ -32,8 +32,8 @@
     <link rel="stylesheet" href="../css-sub/headerSidebarResp.css" />
     <link rel="stylesheet" href="../css-sub/contacts/contacts-media.css">
 
-
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  
+    <link id="favicon" rel="icon" type="image/png" href="../assets/img/favicon.png">
 
     <title>Join</title>
 </head>
@@ -65,8 +65,8 @@
             </section>
 
             <!-- overlay -->
-            <div id="overlay-bg" class="overlay-bg d-none">
-                <div id="overlay-content" class="overlay-content d-flex"></div>
+            <div id="overlay-bg" class="overlay-bg d-none" onclick="closeContactOverlay()">
+                <div id="overlay-content" class="overlay-content d-flex" onclick="doNotClose(event)"></div>
             </div>
 
         </div>

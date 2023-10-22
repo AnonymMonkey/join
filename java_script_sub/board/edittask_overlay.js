@@ -1,3 +1,6 @@
+/**
+ * Function to open the Edit-Task-Dialog
+ */
 async function openEditTaskOverlay(element) {
     resetArrays();
     await taskContainerRenderHTML('edit', 'Edit');
@@ -17,6 +20,9 @@ async function openEditTaskOverlay(element) {
     document.getElementById('currentTask').innerHTML = element;
 }
 
+/**
+ * Function to close the Edit-Task-Dialog
+ */
 function closeEditTaskOverlay() {    
     let overlayBg = elementByID("overlay-bg-editTask");
     let overlayContent = elementByID("overlay-content-editTask");

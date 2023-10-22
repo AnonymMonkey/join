@@ -12,6 +12,7 @@ async function renderIndex(){
     await includeHTML();
     await loadUsers();
     await loadStartScreen();
+    detectDarkmode();
 }
 
 

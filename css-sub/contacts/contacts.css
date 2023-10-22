@@ -336,3 +336,15 @@
     z-index: 5;
     background-color: rgba(200, 200, 200, 1);
 }
+
+.requiredField {
+    color: #ff8190;
+    width: 200px;
+    height: 12px;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    margin-top: -24px;
+}

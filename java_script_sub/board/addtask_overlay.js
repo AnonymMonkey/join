@@ -1,3 +1,6 @@
+/**
+ * Function to open the Add-Task-Dialog
+ */
 async function openAddTaskOverlay() {
     resetArrays();
     await taskContainerRenderHTML('add', 'Add');
@@ -21,12 +24,15 @@ async function openAddTaskOverlay() {
     }    
 }
 
+/**
+ * Function to close the Add-Task-Dialog
+ */
 function closeAddTaskOverlay() {
     resetForm();
     let overlayBg = elementByID("overlay-bg-addTask");
     let overlayContent = elementByID("overlay-content-addTask");
 
-    overlayContent.classList.add("slideOut");
+    overlayContent.classList.add("slideOut");    
 
     overlayContent.addEventListener("animationend", onAnimationEnd);
 
@@ -36,7 +42,5 @@ function closeAddTaskOverlay() {
         overlayBg.classList.add("d-none");
         overlayContent.classList.remove("slideOut");
     }
-
     document.getElementById('taskContainer').innerHTML = '';
-    
 }

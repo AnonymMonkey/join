@@ -28,7 +28,8 @@ async function createContact() {
 
 async function createContactLight() {
     let nameIsValid = checkName();
-    if (!nameIsValid) {
+    let mailIsValid = checkMail();
+    if (!nameIsValid && !mailIsValid) {
         return;
     }
     create_btn.disable = true;
@@ -182,9 +183,8 @@ function createRegisterInfo() {
 
 
 
-//param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled
+// TODO: param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled - SIMON
 function getContactFirstLetters(nameFromLogin) {
-    debugger
     let loginName = nameFromLogin
     if (loginName) {
         let words = name2.split(' ');
@@ -230,7 +230,7 @@ function deleteTest() {
 }
 
 
-//Testfunction wegen activeUser
+// TODO: Testfunction wegen activeUser - bis ende
 //
 
 async function addActiveUserToContacts() {

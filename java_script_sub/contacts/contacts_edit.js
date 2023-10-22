@@ -43,7 +43,8 @@ async function editContact(ID) {
 
 async function changeContactData(pos, ID) {
     let nameIsValid = checkName();
-    if (!nameIsValid) {
+    let mailIsValid = checkMail(ID);
+    if (!nameIsValid || !mailIsValid) {
         return;
     }
     pos['contact_name'] = contact_name.value;
@@ -55,6 +56,7 @@ async function changeContactData(pos, ID) {
     await loadData();
     createRegisterEntry();
     showContact(ID);
+    emailAddresses = [];
     closeContactOverlay();
     smallAnimatedLabel("Contact succesfully edited");
 }

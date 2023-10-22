@@ -91,14 +91,14 @@
     flex-shrink: 0;
 }
 
-#user_selection-background {
-    height: 20vh;
+#user_selection-background {    
     width: 100%;
     background-color: #FFF;
     border-radius: 10px;
     height: calc(20vh + 48px);
-    position: relative;
-    top: -56px;
+    position: absolute;
+    top: 40px;
+    left: 0;
     padding-top: 48px;
     z-index: 5;
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);

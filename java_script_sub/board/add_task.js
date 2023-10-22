@@ -12,6 +12,7 @@ async function initAddTasks() {
   addSubtask();
   await loadData();
   await userSelection('isClosed');
+  detectDarkmode();  
 }
 
 /**
@@ -21,6 +22,7 @@ async function initAddTasks() {
  */
 function resetForm() {  
   document.getElementById('addTaskInputForm').reset();
+  document.getElementById('category_select').innerHTML = "";
   resetArrays();
   addSubtask();
   resetRadioButtonClasses();    
@@ -28,6 +30,7 @@ function resetForm() {
   resetImages();
   resetClassError();
   resetRequiredFields();  
+  toggleCategory();
 }
 /**
  * Reset Arrays
@@ -94,7 +97,7 @@ function setDateRange() {
   let today = year + '-' + month + '-' + date;
   let maxdate = maxyear + '-' + month + '-' + date;
   document.getElementById('addtask-duedate').min = today;
-  document.getElementById('addtask-duedate').max = maxdate;
+  document.getElementById('addtask-duedate').max = maxdate;  
 }
 
 /**
@@ -151,7 +154,7 @@ function selectedRadioButton(prio, frameName) {
 
 /**
  * Change style for displaying or not input-fields
- * @param {string} view 
+ * @param {string} view - parameter which defines the origin of the function
  */
 function subtaskActions(view) {
   if (view == 'show') {
@@ -189,8 +192,8 @@ function getNextFreeId(items, idKey) {
  */
 async function addNewTask(origin) {    
   let status = document.getElementById('temporaryStatus').innerHTML;
-  let category = document.getElementById('category_select').value;  
-  let id = parseInt(await checkExistingTask(), 10);
+  let category = document.getElementById('category_select').innerHTML;
+  let id = parseInt(checkExistingTask(), 10);
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
@@ -200,11 +203,11 @@ async function addNewTask(origin) {
   let formattedTaskDate = new Date(duedate).getTime();
 
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
-  smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');
-
-  if (origin) {
+  /**TODO - Animation kommt nicht (mehr) */
+  await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');  
+  if (origin) {  
     closeAddTaskOverlay();
-  }
+  }  
   openSelectedQuicklink('quickBoard');
 }
 
@@ -242,7 +245,7 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
     category: category,
     duedate: formattedTaskDate,
   };
-  await changeTaskArray(id, newTask);
+  await changeTaskArray(id, newTask);  
 }
 
 /**
@@ -252,7 +255,6 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
  */
 async function changeTaskArray(id, newTask) {  
   let indexToUpdate = getTaskIndex(id);
-  console.log(id + " " + indexToUpdate);  
   if (indexToUpdate !== -1) {    
     tasks[indexToUpdate] = newTask;
   } else {
@@ -368,4 +370,33 @@ function clearInput(field) {
   document.getElementById(field).value = '';
   hideEditSubtask();
   subtaskActions();
+}
+
+/**
+ * Hide/Unhide the Category-Selection, Transform Arrow-Image and sets Focus
+ */
+function toggleCategory() {
+  let arrowDropdown = document.getElementById('arrow_dropdown_addCategory');
+  let categorySelection = document.getElementById('category_selection-background');
+  let categorySelect = document.getElementById('category_select');
+
+  if (categorySelection.classList.contains('d-none')) {    
+    categorySelect.focus();
+    arrowDropdown.style.transform = 'rotate(180deg)';
+    categorySelection.classList.remove('d-none');
+  } else {    
+    arrowDropdown.style.transform = 'rotate(360deg)';
+    categorySelection.classList.add('d-none');
+  }
+}
+
+/**
+ * Set Values of your choice in Form
+ * @param {number} choice - value of choice
+ * @param {string} name - name of selected choice
+ */
+function setCategory(choice, name) { 
+  document.getElementById('category_select_name').value = name;  
+  document.getElementById('category_select').innerHTML = choice;
+  toggleCategory();
 }

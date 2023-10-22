@@ -4,11 +4,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.d-none {
-  display: none !important;
-}
-
-.overlay-bg {
+.overlay-bg-task {
   position: fixed;
   display: flex;
   justify-content: center;

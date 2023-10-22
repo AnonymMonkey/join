@@ -41,9 +41,10 @@
   <link rel="stylesheet" href="../css-sub/board/addTask.css" id="defaultStyle" />
   <link rel="stylesheet" href="../css-sub/board/addTaskResp.css" id="defaultStyle" />
   <link rel="stylesheet" href="../css-sub/board/editTask.css" id="smallScreenStyle" />
-  <!-- <link rel="stylesheet" href="../css-sub/contacts/contacts.css">   -->
-  <link rel="stylesheet" href="../css-sub/board/user_selection.css" />
-  <link id="favicon" rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="../css-sub/board/user_selection.css" />  
+  <link rel="stylesheet" href="../css-sub/contacts/contacts.css" />  
+  <link rel="stylesheet" href="../css-sub/contacts/dialog.css" />  
+  <link id="favicon" rel="icon" type="image/png" href="../assets/img/favicon.png">  
   <title>Join</title>
 </head>
 
@@ -53,7 +54,7 @@
     <div id="header" w3-include-html="../assets/templates/header.html"></div>
 
     <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
-    <div class="content d-flex" onclick="doNotClose(event)">
+    <div class="content">
       <div class="board_frame">
         <div class="board_headline">
           <div class="headline_text">Board</div>
@@ -112,8 +113,8 @@
   </div>
 
   <!-- overlay task -->
-  <div id="overlay-bg" class="overlay-bg d-none">
-    <div id="overlay-content" class="overlay-content-task d-flex">
+  <div id="overlay-bg-task" class="overlay-bg-task d-none" onclick="closeTaskOverlay()">
+    <div id="overlay-content-task" class="overlay-content-task d-flex" onclick="doNotClose(event)">
 
       <div id="overlayTaskContent"></div>
 

@@ -13,6 +13,7 @@ async function init() {
   updateHTML();
   adjustQuicklinkBG();
   setStylesheet();
+  detectDarkmode();
 }
 
 function setStylesheet() {
@@ -203,14 +204,3 @@ async function deleteTask(searchId) {
     init();
   }
 }
-
-//TODO Stefan - Funktionen um außerhalb der Dialoge das Schließen zu erzwingen bzw. dieses zu unterbinden / not working
-function close() {
-  console.log('jetzt muss es zu');
-}
-
-function doNotClose(event) {
-  event.stopPropagation();
-}
-
-// onclick="previousImage(),doNotClose(event)"

@@ -2,7 +2,7 @@
 <div class="d-none" id="temporaryStatus">todo</div>
 <div class="d-none" id="prioResult"></div>
 <div class="d-none" id="currentTask"></div>
-
+<div class="d-none" id="category_select"></div>
 <!-- form start -->
 
 <form autocomplete="off" id="addTaskInputForm" onsubmit="addNewTask(); return false;">
@@ -57,7 +57,7 @@
           Due date<sup class="requiredAsterisk">*</sup>
         </div>
         <div id="frame211" class="frame211">
-          <input id="addtask-duedate" placeholder="2023-10-08" type="date" min="2023-10-04" max="2024-04-20" required
+          <input id="addtask-duedate" type="date" min="2023-10-04" max="2024-04-20" required
             class="frame14due pointer" onblur="validateField('addtask-duedate', 'addtask-duedate', 'duedate_label')" />
           <label id="duedate_label" class="requiredField d-none" for="addtask-duedate">This field is required</label>
         </div>
@@ -97,21 +97,18 @@
         <label id="priority_label" class="requiredField d-none" for="priority">This field is required</label>
       </div>
 
-      <!-- //TODO - Hier sollte das Styling der Liste angepasst werden -->
       <div class="category">
         <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
-        <div id="frame74task" class="frame74 pointer">
-          <select class="category-select" required name="category_select" id="category_select"
-            onblur="validateField('category_select', 'frame74task', 'category_select_label')">
-
-            <option value="">Select task category</option>
-            <option value="0">HTML + CSS</option>
-            <option value="1">JavaScript</option>
-            <option value="2">Team</option>
-            <option value="3">Meeting</option>
-            <option value="4">Angular</option>
-
-          </select>
+        <div id="frame74task" class="frame74 pointer">            
+            <input onclick="toggleCategory()" id="category_select_name" class="search-category" placeholder="Select task category" required="required" />
+            <img onclick="toggleCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);">
+        </div>
+        <div id="category_selection-background" class="d-none">          
+          <div data-value="0" onclick="setCategory(this.getAttribute('data-value'), 'HTML + CSS')" class="categoryElement pointer">HTML + CSS</div>
+          <div data-value="1" onclick="setCategory(this.getAttribute('data-value'), 'JavaScript')" class="categoryElement pointer">JavaScript</div>
+          <div data-value="2" onclick="setCategory(this.getAttribute('data-value'), 'Team')" class="categoryElement pointer">Team</div>
+          <div data-value="3" onclick="setCategory(this.getAttribute('data-value'), 'Meeting')" class="categoryElement pointer">Meeting</div>
+          <div data-value="4" onclick="setCategory(this.getAttribute('data-value'), 'Angular')" class="categoryElement pointer">Angular</div>
         </div>
         <label id="category_select_label" class="requiredField d-none" for="category_select">This field is
           required</label>
@@ -171,6 +168,6 @@
 <!-- form end -->
 
 <!-- overlay -->
-<div id="overlay-bg" class="overlay-bg d-none">
-  <div id="overlay-content" class="overlay-content d-flex"></div>
+<div id="overlay-bg" class="overlay-bg d-none" onclick="closeContactOverlay()">
+  <div id="overlay-content" class="overlay-content d-flex" onclick="doNotClose(event)"></div>
 </div>

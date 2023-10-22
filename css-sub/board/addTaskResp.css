@@ -14,6 +14,10 @@
     align-items: center;
   }
 
+  .user{
+    width: 100% !important;
+  }
+
   #task_form {
     display: flex;
     flex-direction: column;
@@ -26,7 +30,7 @@
   .frame40 {
     position: relative;
     top: 0;
-    left: 0;    
+    left: 0;
     width: 95%;
   }
 
@@ -41,6 +45,7 @@
 
   .addtask_content {
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
     top: 0;
     left: 0;
@@ -53,6 +58,8 @@
     left: 0;
     position: relative;
     width: 100%;
+    height: -webkit-fill-available;
+    overflow-x: inherit;
   }
 
   .vector4 {
@@ -64,12 +71,14 @@
     left: 0;
     position: relative;
     width: 100%;
+    height: -webkit-fill-available;
+    overflow-y: inherit;
   }
 
   .task_title,
   .frame203,
   .frame14,
-  .frame14_text,
+  #frame14_text,
   .task_description,
   .frame207,
   #frame17,
@@ -105,6 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    left: 0;
     width: 100%;
     position: relative;
   }
@@ -120,13 +130,18 @@
     width: 95%;
   }
 
+  .frame27,
+  .frame35 {
+    width: auto;
+  }
+
   #addTaskClear,
   #addTaskCancel {
     display: none;
   }
 }
 
-@media (max-width: 500px){
+@media (max-width: 500px) {
   label {
     align-items: center;
     gap: 4px;
@@ -134,14 +149,19 @@
 
   .urgent,
   .medium,
-  .low{
-    gap: 0px
+  .low {
+    gap: 0px;
   }
 
   #frame24,
   #frame25,
-  #frame26{
+  #frame26 {
     justify-content: end;
+  }
+  
+  #createTaskButton{
+    font-size: 0;
+    width: auto;
   }
 
 }

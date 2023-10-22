@@ -22,6 +22,8 @@ function contacts_overlay_html() {
                             <input required type="email" name="" id="contact_mail" placeholder="E-Mail">
                             <img src="../assets/img/contacts/mail.svg">
                         </div>
+                        <label id="mailExists" class="requiredField d-none" for="signupEmail">This Email already exists!</label>
+
                         <div class="place-img">
                             <input required type="tel" name="" id="contact_phone" placeholder="+491234567"
                                 pattern="\\+\\d{2}\\d{7,}">
@@ -37,7 +39,7 @@ function contacts_overlay_html() {
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <button id="create_btn">Create contact<img
+                        <button id="create_btn" onclick="doNotClose(event)">Create contact<img
                                 src="../assets/img/contacts/check.svg"></button>
                     </div>
                 </form>
