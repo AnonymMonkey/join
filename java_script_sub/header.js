@@ -146,7 +146,10 @@ function showPrivacyExternal(){
     window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external?msg=privacy.html', '_blank');
 }
 
-
+/**
+ * opens the the next page of Join according to id as a guest
+ * @param {*} id 
+ */
 //Funktion kürzen??
 function openGuestQuicklinks(id){
     if(id=='quickSummary'){
@@ -173,6 +176,11 @@ function openGuestQuicklinks(id){
 }
 
 //Funktion kürzen??
+/**
+ * opens the the next page of Join according to id as a logged in member 
+ * @param {*} id string 
+ *            
+ */
 function openLoginQuicklinks(id){
     if(id=='quickSummary'){
         window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary&login=true", "_self");
@@ -197,7 +205,9 @@ function openLoginQuicklinks(id){
     }
 }
 
-
+/**
+ * adding dark blue background to quicklink "summary" in desktop view
+ */
 function addBgToQuickSummary(){
     document.getElementById('quickSummary').classList.add('isActiveColor');
     document.getElementById('quickAddTask').classList.remove('isActiveColor');
@@ -210,7 +220,9 @@ function addBgToQuickSummary(){
     document.getElementById('quickContacts').classList.add('hoverBG');
 }
 
-
+/**
+ * adding dark blue background to quicklink "add task" in desktop view
+ */
 function addBgToQuickAddTask(){
     document.getElementById('quickSummary').classList.remove('isActiveColor');
     document.getElementById('quickAddTask').classList.add('isActiveColor');
@@ -223,7 +235,9 @@ function addBgToQuickAddTask(){
     document.getElementById('quickContacts').classList.add('hoverBG');
 }
 
-
+/**
+ * adding dark blue background to quicklink "board" in desktop view
+ */
 function addBgToQuickBoard(){
     document.getElementById('quickSummary').classList.remove('isActiveColor');
     document.getElementById('quickAddTask').classList.remove('isActiveColor');
@@ -236,7 +250,9 @@ function addBgToQuickBoard(){
     document.getElementById('quickContacts').classList.add('hoverBG');
 }
 
-
+/**
+ * adding dark blue background to quicklink "contacts" in desktop view
+ */
 function addBgToQuickContacts(){
     document.getElementById('quickSummary').classList.remove('isActiveColor');
     document.getElementById('quickAddTask').classList.remove('isActiveColor');
@@ -249,7 +265,10 @@ function addBgToQuickContacts(){
     document.getElementById('quickContacts').classList.remove('hoverBG');
 }
 
-/*BG Responsive */
+
+/**
+ * adding dark blue background to quicklink "summary" in mobile view
+ */
 function addBgToQuickSummaryResp(){
     document.getElementById('respQuickSummary').classList.add('isActiveColor');
     document.getElementById('respQuickAddTask').classList.remove('isActiveColor');
@@ -262,7 +281,9 @@ function addBgToQuickSummaryResp(){
     document.getElementById('respQuickContacts').classList.add('hoverBG');
 }
 
-
+/**
+ * adding dark blue background to quicklink "add task" in mobile view
+ */
 function addBgToQuickAddTaskResp(){
     document.getElementById('respQuickSummary').classList.remove('isActiveColor');
     document.getElementById('respQuickAddTask').classList.add('isActiveColor');
@@ -275,7 +296,9 @@ function addBgToQuickAddTaskResp(){
     document.getElementById('respQuickContacts').classList.add('hoverBG');
 }
 
-
+/**
+ * adding dark blue background to quicklink "board" in mobile view
+ */
 function addBgToQuickBoardResp(){
     document.getElementById('respQuickSummary').classList.remove('isActiveColor');
     document.getElementById('respQuickAddTask').classList.remove('isActiveColor');
@@ -288,7 +311,9 @@ function addBgToQuickBoardResp(){
     document.getElementById('respQuickContacts').classList.add('hoverBG');
 }
 
-
+/**
+ * adding dark blue background to quicklink "contacts" in mobile view
+ */
 function addBgToQuickContactsResp(){
     document.getElementById('respQuickSummary').classList.remove('isActiveColor');
     document.getElementById('respQuickAddTask').classList.remove('isActiveColor');
@@ -301,7 +326,9 @@ function addBgToQuickContactsResp(){
     document.getElementById('respQuickContacts').classList.remove('hoverBG');
 }
 
-
+/**
+ * opens board page
+ */
 function openBoard(){
     window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board", "_self");
 }

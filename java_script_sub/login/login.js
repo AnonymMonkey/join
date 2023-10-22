@@ -76,9 +76,6 @@ function checkRememberMe(email, password) {
     if (isChecked) {
         pushLoginData(email, password)
     }
-    else {
-        /*localStorage.removeItem('loginData');*/
-    }
 }
 
 
