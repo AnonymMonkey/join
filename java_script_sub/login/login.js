@@ -12,6 +12,7 @@ async function renderIndex(){
     await includeHTML();
     await loadUsers();
     await loadStartScreen();
+    await loadData();
     detectDarkmode();
 }
 
@@ -50,11 +51,13 @@ async function login() {
     let user = users.find(u => u.email == email && u.password == password);
     if (user) {
         activeUser = user.email;
-        pushLoginData(email, password, user.name);
+        pushLoginData(email, password, user.name);        
         saveUserToLocalStorage('activeUser', activeUser);
+
         /*Hier schon in contacts pushen?*/
-        /*addActiveUserToContacts();*/
-        window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
+        // /*addActiveUserToContacts();*/
+        //window.location.href = `http://127.0.0.1:5500/html-sub/summary.html?msg=login&login=true`;
+        window.location.href = `http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&login=true`;
     }
     else {
         showMsgBoxInvalidPassword();
@@ -62,10 +65,10 @@ async function login() {
 }
 
 
-function saveUserToLocalStorage(key, value) {
+async function saveUserToLocalStorage(key, value) {
     localStorage.setItem(key, value);
     // nächste Funktion für push in contacts
-    addActiveUserToContacts();
+    await addActiveUserToContacts();
 }
 
 function saveToLocalStorage(key, value) {

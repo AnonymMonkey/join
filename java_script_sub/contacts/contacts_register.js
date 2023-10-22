@@ -9,128 +9,125 @@ const generatedColors = new Set();
 // CREATE CONTACT ||||||||||||||||||||||||||||||||||||||||||| //
 
 async function createContact() {
-    let nameIsValid = checkName();
-    if (!nameIsValid) {
-        return;
-    }
-    create_btn.disable = true;
-    await getValues();
-    await saveData();
-    resetContactsForm();
-    await loadData();
-    createRegisterEntry();
+  let nameIsValid = checkName();
+  if (!nameIsValid) {
+    return;
+  }
+  create_btn.disable = true;
+  await getValues();
+  await saveData();
+  resetContactsForm();
+  await loadData();
+  createRegisterEntry();
 
-    closeContactOverlay();
-    smallAnimatedLabel("Contact succesfully created");
-    contactsInit();
-    showContact(getLastJsonObjectID());
+  closeContactOverlay();
+  smallAnimatedLabel('Contact succesfully created');
+  contactsInit();
+  showContact(getLastJsonObjectID());
 }
 
 async function createContactLight() {
-    let nameIsValid = checkName();
-    let mailIsValid = checkMail();
-    if (!nameIsValid && !mailIsValid) {
-        return;
-    }
-    create_btn.disable = true;
-    await getValues();
-    await saveData();
-    resetContactsForm();
-    await loadData();
+  let nameIsValid = checkName();
+  let mailIsValid = checkMail();
+  if (!nameIsValid && !mailIsValid) {
+    return;
+  }
+  create_btn.disable = true;
+  await getValues();
+  await saveData();
+  resetContactsForm();
+  await loadData();
 
-    closeContactOverlay();
-    smallAnimatedLabel("Contact succesfully created");
+  closeContactOverlay();
+  smallAnimatedLabel('Contact succesfully created');
 }
-
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // GET VALUES ||||||||||||||||||||||||||||||||||||||||||||||| //
 
 async function getValues() {
-    getCategoryLetter();
-    getJSON_Entry();
+  getCategoryLetter();
+  getJSON_Entry();
 }
 
 function getCategoryLetter() {
-    categories = [];
-    for (let i = 0; i < contacts.length; i++) {
-        let contactName = contacts[i]['register_entry'][0]['contact_name'];
-        let firstLetter = contactName[0].toUpperCase();
-        if (!categories.includes(firstLetter)) {
-            categories.push(firstLetter);
-        }
+  categories = [];
+  for (let i = 0; i < contacts.length; i++) {
+    let contactName = contacts[i]['register_entry'][0]['contact_name'];
+    let firstLetter = contactName[0].toUpperCase();
+    if (!categories.includes(firstLetter)) {
+      categories.push(firstLetter);
     }
+  }
 }
 
 function getJSON_Entry() {
-    contacts.push({
-        'register_entry': [
-            {
-                'contact_name': contact_name.value,
-                'contact_mail': contact_mail.value,
-                'contact_phone': `${contact_phone.value}`,
-                'contact_color': randomColor(),
-                'contact_initials': getContactFirstLetters(),
-                'contact_ID': randomID(),
-            }
-        ]
-    });
+  contacts.push({
+    register_entry: [
+      {
+        contact_name: contact_name.value,
+        contact_mail: contact_mail.value,
+        contact_phone: `${contact_phone.value}`,
+        contact_color: randomColor(),
+        contact_initials: getContactFirstLetters(),
+        contact_ID: randomID(),
+      },
+    ],
+  });
 }
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // STORAGE |||||||||||||||||||||||||||||||||||||||||||||||||| //
 
 async function saveData() {
-    await saveToStorage('categories', categories);
-    await saveToStorage('contacts', contacts);
+  await saveToStorage('categories', categories);
+  await saveToStorage('contacts', contacts);
 }
 
 async function saveToStorage(key, data) {
-    try {
-        await setItem(key, JSON.stringify(data));
-    } catch (e) {
-        console.error('Saving error:', e);
-    }
+  try {
+    await setItem(key, JSON.stringify(data));
+  } catch (e) {
+    console.error('Saving error:', e);
+  }
 }
 
 async function loadData() {
-    await loadFromStorage('contacts', contacts);
-    await loadFromStorage('categories', categories);
+  await loadFromStorage('contacts', contacts);
+  await loadFromStorage('categories', categories);
 }
 
 async function loadFromStorage(key, data) {
-    try {
-        const storedData = await getItem(key);
-        if (storedData) {
-            Object.assign(data, JSON.parse(storedData));
-        }
-    } catch (e) {
-        console.error('Loading error:', e);
+  try {
+    const storedData = await getItem(key);
+    if (storedData) {
+      Object.assign(data, JSON.parse(storedData));
     }
+  } catch (e) {
+    console.error('Loading error:', e);
+  }
 }
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // CREATE REGISTER |||||||||||||||||||||||||||||||||||||||||| //
 
 async function createRegister() {
-    let register = elementByID('register');
-    register.innerHTML = createRegisterEntry();
+  let register = elementByID('register');
+  register.innerHTML = createRegisterEntry();
 }
 
 function createRegisterEntry() {
-    /* createLoginContact(); */ /* zum erstellen des login Kontakts */
-    createRegisterInfo();
+  /* createLoginContact(); */ /* zum erstellen des login Kontakts */
+  createRegisterInfo();
 }
 
-
 function createLoginContact() {
-
-
-
-    let register = elementByID('register');
-    register += `
+  let register = elementByID('register');
+  register += `
         <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
-            <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
+            <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(
+    color,
+  )}>${initials}</div>
             <div>
                 <div class="contact-info-name">${name} (YOU)</div>
                 <div class="contact-info-mail">${mail}</div>
@@ -140,33 +137,36 @@ function createLoginContact() {
 }
 
 function createRegisterInfo() {
-    let register = elementByID('register');
-    let infoHTML = "";
+  let register = elementByID('register');
+  let infoHTML = '';
 
-    for (let category of categories.sort()) {
-        let categoryContacts = contacts.filter(contact => {
-            let firstLetter = contact['register_entry'][0]['contact_name'][0].toUpperCase();
-            return firstLetter === category;
-        });
+  for (let category of categories.sort()) {
+    let categoryContacts = contacts.filter((contact) => {
+      let firstLetter =
+        contact['register_entry'][0]['contact_name'][0].toUpperCase();
+      return firstLetter === category;
+    });
 
-        infoHTML += `
+    infoHTML += `
             <div id="category_${category}">
                 <div class="contact-letter">${category}</div>
             </div>
             <img src="../assets/img/contacts/cutline2.svg">
         `;
 
-        for (let contact of categoryContacts) {
-            let registerEntry = contact['register_entry'][0];
-            let name = registerEntry['contact_name'];
-            let mail = registerEntry['contact_mail'];
-            let initials = registerEntry['contact_initials'];
-            let ID = registerEntry['contact_ID'];
-            let color = registerEntry['contact_color'];
+    for (let contact of categoryContacts) {
+      let registerEntry = contact['register_entry'][0];
+      let name = registerEntry['contact_name'];
+      let mail = registerEntry['contact_mail'];
+      let initials = registerEntry['contact_initials'];
+      let ID = registerEntry['contact_ID'];
+      let color = registerEntry['contact_color'];
 
-            let contactHTML = `
+      let contactHTML = `
                 <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
-                    <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
+                    <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(
+        color,
+      )}>${initials}</div>
                     <div>
                         <div class="contact-info-name">${name}</div>
                         <div class="contact-info-mail">${mail}</div>
@@ -174,76 +174,69 @@ function createRegisterInfo() {
                 </div>
             `;
 
-            infoHTML += contactHTML;
-        }
+      infoHTML += contactHTML;
     }
+  }
 
-    register.innerHTML = infoHTML;
+  register.innerHTML = infoHTML;
 }
-
-
 
 // TODO: param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled - SIMON
 function getContactFirstLetters(nameFromLogin) {
-    let loginName = nameFromLogin
-    if (loginName) {
-        let words = loginName.split(' ');
+  let loginName = nameFromLogin;
+  if (loginName) {
+    let words = loginName.split(' ');
 
-        let firstInitial = words[0].charAt(0).toUpperCase();
-        let secondInitial = words[1].charAt(0).toUpperCase();
+    let firstInitial = words[0].charAt(0).toUpperCase();
+    let secondInitial = words[1].charAt(0).toUpperCase();
 
-        let initials = firstInitial + secondInitial;
+    let initials = firstInitial + secondInitial;
 
-        return initials;
-    }
-    else {
-        let name = contact_name.value
-        let words = name.split(' ');
+    return initials;
+  } else {
+    let name = contact_name.value;
+    let words = name.split(' ');
 
-        let firstInitial = words[0].charAt(0).toUpperCase();
-        let secondInitial = words[1].charAt(0).toUpperCase();
+    let firstInitial = words[0].charAt(0).toUpperCase();
+    let secondInitial = words[1].charAt(0).toUpperCase();
 
-        let initials = firstInitial + secondInitial;
+    let initials = firstInitial + secondInitial;
 
-        return initials;
-    }
-
-
+    return initials;
+  }
 }
-
 
 // |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
 // RESET & DELETE ||||||||||||||||||||||||||||||||||||||||||| //
 
 function resetContactsForm() {
-    contact_name.value = '';
-    contact_mail.value = '';
-    contact_phone.value = '';
-    create_btn.disabled = false;
+  contact_name.value = '';
+  contact_mail.value = '';
+  contact_phone.value = '';
+  create_btn.disabled = false;
 }
 
 function deleteTest() {
-    for (let i = 0; i < categories.length; i++) {
-        categories.splice(1, 3)
-        saveData();
-    }
+  for (let i = 0; i < categories.length; i++) {
+    categories.splice(1, 3);
+    saveData();
+  }
 }
-
 
 // TODO: Testfunction wegen activeUser - bis ende
 //
 
 async function addActiveUserToContacts() {
-    /*Step 1: load loginData with key "loginData" from localStorage*/
-    /* let activeUserLoginData; */
-    let activeUserContactAsText = localStorage.getItem('loginData');
-    if (activeUserContactAsText) {
-        activeUserLoginData = JSON.parse(activeUserContactAsText);
-    }
-    
-    /*await loadData();*/
-    
-    /*Test contacts zum einkommentieren 
+  /*Step 1: load loginData with key "loginData" from localStorage*/
+  /* let activeUserLoginData; */
+  let activeUserContactAsText = localStorage.getItem('loginData');
+  if (activeUserContactAsText) {
+    activeUserLoginData = JSON.parse(activeUserContactAsText);
+  }
+
+  // await loadData();
+
+  /*Test contacts zum einkommentieren 
     contacts.push({
         'activeUser_entry': [
             {
@@ -286,40 +279,47 @@ async function addActiveUserToContacts() {
     });
     
     */
-   
-   let searchActiveUserMail = activeUserLoginData[0].email;
-   
-   
-   
-   for (let i = 0; i < contacts.length; i++) {
-       console.log(contacts);
-       
+
+  let searchActiveUserMail = activeUserLoginData[0].email;
+
+  let x = 0;
+
+  for (let i = 0; i < contacts.length; i++) {
+    console.log(contacts);
+
     //    debugger
-                
-            if (contacts[i]['register_entry'][0]['contact_mail'] == searchActiveUserMail) {
-                activeUserID = contacts[i]['register_entry'][0].contact_ID
-                console.log('ActiveUser in Contacts gefunden und ID zugeordnet');
-                console.log('Die ID lautet ' + activeUserID);
-            }
-            else {
-                console.log('ActiveUser nicht in Contacts gefunden und gepusht');
-                
-                contacts.push({
-                    'registrer_entry': [
-                        {
-                            'contact_name': activeUserLoginData[0].name,
-                            'contact_mail': activeUserLoginData[0].email,
-                            'contact_phone': `please add phonenumber`,
-                            //'contact_color': randomColor(),
-                            'contact_color': '#fa995e',
-                            'contact_initials': getContactFirstLetters(activeUserLoginData[0].name), // JS
-                            //'contact_ID': randomID(),
-                            'contact_ID': 6666,
-                        }
-                    ],
-                });
-                // todo Namen in CategoryLetters JS
-                return;
-            }        
+
+    if (
+      contacts[i]['register_entry'][0]['contact_mail'] == searchActiveUserMail
+    ) {
+      activeUserID = contacts[i]['register_entry'][0].contact_ID;
+      console.log('ActiveUser in Contacts gefunden und ID zugeordnet');
+      console.log('Die ID lautet ' + activeUserID);
+    } else {
+      console.log('ActiveUser nicht in Contacts gefunden und gepusht');
+      //debugger;
+      x++;
     }
+  }
+
+  if (x > 0) {
+    console.log('nur einmal pushen');
+    // contacts.push
+    contacts.push({
+      register_entry: [
+        {
+          contact_name: activeUserLoginData[0].name,
+          contact_mail: activeUserLoginData[0].email,
+          contact_phone: `please add phonenumber`,
+          //'contact_color': randomColor(),
+          contact_color: '#fa995e',
+          contact_initials: getContactFirstLetters(activeUserLoginData[0].name), // JS
+          //'contact_ID': randomID(),
+          contact_ID: 6666,
+        },
+      ],
+    });
+    await saveData();
+    //contactsInit();
+  }
 }

@@ -1,10 +1,7 @@
 let categories = [];
 
-//TODO Stefan
 /**
- * Close Dialogs on Overlay-BG 
- * works on task-overlay, create-contact
- * not working od Add-/Edit-Task
+ * Close Dialogs on Overlay-BG  
  * @param {string} event - event-data
  */
 function doNotClose(event) {  
