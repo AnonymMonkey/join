@@ -12,8 +12,10 @@ let emailAddresses = [];
 function checkMail(email) {
     searchMailsInJSON();    
     if (emailAddresses.includes(email)) {            
-        let mailExists = elementByID("mailExists");
-        mailExists.classList.remove('dNone');
+        document.getElementById('signupMsgBox').classList.remove('dNone');
+        document.getElementById('signupMsgBox').innerHTML = /*html*/`
+            <span>This Email already exists!</span>  
+        `;
         return false;
     } 
     return true;
