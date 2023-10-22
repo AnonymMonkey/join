@@ -23,10 +23,7 @@ function checkMail(ID) {
     searchMailsInJSON();
     let mailInput = elementByID("contact_mail").value;
     let currentMail = getIndexOfJson(ID)['contact_mail'];
-
-    console.log(mailInput);
-    console.log(currentMail);
-
+  
     if (mailInput !== currentMail) {
         if (emailAddresses.includes(mailInput)) {            
             let mailExists = elementByID("mailExists");

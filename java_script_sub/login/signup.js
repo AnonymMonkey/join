@@ -7,11 +7,31 @@ if(msg) {
 }
 
 let users = [];
+let emailAddresses = [];
 
+function checkMail(email) {
+    searchMailsInJSON();    
+    if (emailAddresses.includes(email)) {            
+        let mailExists = elementByID("mailExists");
+        mailExists.classList.remove('dNone');
+        return false;
+    } 
+    return true;
+}
+
+function searchMailsInJSON() {
+    for (let i = 0; i < users.length; i++) {
+        const element = users[i];     
+        emailAddresses.push(element['email']);
+    }
+}
 
 async function registerUser(){
     let name = document.getElementById('signupName').value;
-    let email = document.getElementById('signupEmail').value;
+    let email = document.getElementById('signupEmail').value;    
+    if(!checkMail(email)){
+        return;
+    }
     let password = document.getElementById('signupPassword').value;
     let confirmation = document.getElementById('signupConfirmation').value;
     if(checkName()){
