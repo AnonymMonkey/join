@@ -41,6 +41,6 @@ function closeAddTaskOverlay() {
         overlayBg.classList.remove("d-flex");
         overlayBg.classList.add("d-none");
         overlayContent.classList.remove("slideOut");
+        document.getElementById('taskContainer').innerHTML = '';
     }
-    document.getElementById('taskContainer').innerHTML = '';
 }
