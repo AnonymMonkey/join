@@ -390,6 +390,21 @@ function toggleCategory() {
   }
 }
 
+
+function toggleAssignedTo(){
+  let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
+  let userSelection = document.getElementById('user_selection-background');
+
+  if (userSelection.classList.contains('d-none')) {    
+    //categorySelect.focus();
+    arrowDropdown.style.transform = 'rotate(180deg)';
+    userSelection.classList.remove('d-none');
+  } else {    
+    arrowDropdown.style.transform = 'rotate(360deg)';
+    userSelection.classList.add('d-none');
+  }
+}
+
 /**
  * Set Values of your choice in Form
  * @param {number} choice - value of choice

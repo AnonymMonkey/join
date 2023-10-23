@@ -1,6 +1,7 @@
 let contactSelection = [];
 let isOpen = true;
 
+/*
 document.addEventListener('click', function (event) {
     let select = document.getElementById('user_selection');
     let selectBG = elementByID("user_selection-background");
@@ -14,8 +15,17 @@ document.addEventListener('click', function (event) {
         arrowDropdown.classList.remove('open');        
     }
 });
+*/
 
 async function userSelection(isClosed) {
+  
+  //Function gets called by toggleAssignedTo() from add_task.js with isClosed = undefined
+  //if the undefined status is not catched the userSelection(isClosed)-function will
+  //remove all changes from toggleAssignedTo(), which will be prevented by this if-statement
+  //if(isClosed == undefined){
+  //  return;
+  //}
+  
   isOpen = isClosed;
   await loadContacts();
   contacts.sort((a, b) =>
@@ -30,13 +40,18 @@ async function userSelection(isClosed) {
 
   let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
 
-  if (select.classList.contains('d-none')) {
+  if (select.classList.contains('d-none') ) {
     select.classList.remove('d-none');
-    arrowDropdown.style.transform = 'rotate(360deg)';
+    if(isClosed !== undefined){
+      arrowDropdown.style.transform = 'rotate(360deg)';
+    }
+    
   } else {
     select.classList.add('d-none');
     selectBG.classList.add('d-none');
-    arrowDropdown.style.transform = 'rotate(180deg)';
+    if(isClosed !== undefined){
+      arrowDropdown.style.transform = 'rotate(180deg)';
+    }
   }
 
   if (isOpen) {
@@ -61,10 +76,13 @@ async function userSelection(isClosed) {
       };
     }
     select.innerHTML += userSelection_addContact_button();
-    select.classList.remove('d-none');
-    selectBG.classList.remove('d-none');
-    selectedUser.classList.add('d-none');
-    isOpen = true;
+    if(isClosed !== undefined){
+      select.classList.remove('d-none');
+      selectBG.classList.remove('d-none');
+      selectedUser.classList.add('d-none');
+      isOpen = true;
+    }
+
   }
 }
 
