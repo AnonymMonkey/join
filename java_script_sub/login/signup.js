@@ -36,7 +36,7 @@ async function registerUser(){
     }
     let password = document.getElementById('signupPassword').value;
     let confirmation = document.getElementById('signupConfirmation').value;
-    if(checkName()){
+    if(await checkName()){
         if(password == confirmation){
             pushUser(name, email, password);
             await setItem('users', JSON.stringify(users));
@@ -49,19 +49,40 @@ async function registerUser(){
 }
 
 
-function checkName() {
+async function checkName() {
     let nameInput = elementByID("signupName").value;
     let namenParts = nameInput.split(" ");
     if (namenParts.length !== 2) {
-        alert("Bitte geben Sie genau zwei Namen mit Leerzeichen dazwischen ein.");
+        document.getElementById('signupMsgBox').classList.remove('dNone');
+        document.getElementById('signupMsgBox').innerHTML = /*html*/`
+                <span>Please enter exactly two names with a space in between.</span><br>
+                <span>The names should start with a capital letter.</span>
+                `;
         return false;
     }
-    for (var i = 0; i < namenParts.length; i++) {
+    for (let i = 0; i <= namenParts.length - 1; i++) {
         if (namenParts[i][0] !== namenParts[i][0].toUpperCase()) {
-            alert("Die Namen sollen mit einem Großbuchstaben beginnen.");
+            document.getElementById('signupMsgBox').classList.remove('dNone');
+            document.getElementById('signupMsgBox').innerHTML = /*html*/`
+                <span>Please enter exactly two names with a space in between.</span><br>
+                <span>The names should start with a capital letter.</span>
+            `;
             return false;
         }
     }
+    return true;
+}
+
+
+function checkMail(email) {
+    searchMailsInJSON();    
+    if (emailAddresses.includes(email)) {            
+        document.getElementById('signupMsgBox').classList.remove('dNone');
+        document.getElementById('signupMsgBox').innerHTML = /*html*/`
+            <span>This Email already exists!</span>  
+        `;
+        return false;
+    } 
     return true;
 }
 
