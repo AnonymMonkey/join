@@ -170,7 +170,7 @@ input::-webkit-inner-spin-button {
     line-height: 120%;
 }
 
-.place-img input:focus {
+.place-img input:focus-within {
     border-radius: 10px;
     border: 1px solid var(--Ligth-blue, #29ABE2);
     background: #FFF;

@@ -1,19 +1,18 @@
+let emailAddresses = [];
 function checkName() {
-    let nameInput = elementByID("contact_name").value;
-    let namenParts = nameInput.split(" ");
+    let nameInput = elementByID("contact_name");
+    let namenParts = nameInput.value.split(" ");
 
     if (namenParts.length !== 2) {
-        // alert("Bitte geben Sie genau zwei Namen mit Leerzeichen dazwischen ein.");
-        let errorMsg = elementByID("errorMsg");
-        errorMsg.innerHTML = 'Bitte geben Sie genau zwei Namen mit Leerzeichen dazwischen ein.';        
+        let msg = 'Please enter exactly two names with a space in between.';        
+        showErrorMessage(msg, nameInput);
         return false;
     }
 
     for (var i = 0; i < namenParts.length; i++) {
         if (namenParts[i][0] !== namenParts[i][0].toUpperCase()) {
-            // alert("Die Namen sollten mit einem Großbuchstaben beginnen.");
-            let errorMsg = elementByID("errorMsg");
-            errorMsg.innerHTML = 'Die Namen sollten mit einem Großbuchstaben beginnen.';            
+            let msg = 'The names should start with a capital letter.';            
+            showErrorMessage(msg, nameInput);
             return false;
         }
     }
@@ -21,17 +20,16 @@ function checkName() {
     return true;
 }
 
-let emailAddresses = [];
 
 function checkMail(ID) {
     searchMailsInJSON();
-    let mailInput = elementByID("contact_mail").value;
+    let mailInput = elementByID("contact_mail");
     let currentMail = getIndexOfJson(ID)['contact_mail'];
   
-    if (mailInput !== currentMail) {
-        if (emailAddresses.includes(mailInput)) {            
-            let errorMsg = elementByID("errorMsg");
-            errorMsg.innerHTML = 'This Email already exists!';
+    if (mailInput.value !== currentMail) {
+        if (emailAddresses.includes(mailInput.value)) {  
+            let msg = 'This Email already exists!';
+            showErrorMessage(msg, mailInput);
             return false;
         }
     }
@@ -41,7 +39,13 @@ function checkMail(ID) {
 function searchMailsInJSON() {
     contacts.forEach(entry => {
         let registerEntry = entry.register_entry[0];
-
+        
         emailAddresses.push(registerEntry.contact_mail);
     });
+}
+
+function showErrorMessage(msg, errorField){
+    let errorMsg = elementByID("errorMsg");
+    errorMsg.innerHTML = msg;
+    errorField.focus();
 }
