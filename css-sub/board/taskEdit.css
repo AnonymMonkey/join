@@ -1,0 +1,45 @@
+.overlay-bg-editTask {  
+  z-index: 5;
+}
+
+.overlay-content-editTask {
+  width: 525px;
+}
+
+.addtask_content {  
+  flex-direction: column;
+}
+
+.requiredInfo {
+  display: none;
+}
+
+input[type='date']::placeholder {
+  color: #d1d1d1;
+}
+
+.vector4 {
+  display: none;
+}
+
+.frame40 {
+  display: none;
+}
+
+.frame39 {  
+  top: 0;
+  left: 0;
+  position: relative;
+}
+
+#addTaskClear {
+  display: none;
+}
+
+#createTaskButton[type='submit'] {
+  display: none;
+}
+
+#editTaskButton {
+  width: auto;
+}

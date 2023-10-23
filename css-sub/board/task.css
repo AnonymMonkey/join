@@ -16,32 +16,6 @@ select {
   display: none !important;
 }
 
-.overlay-bg-editTask {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(200, 200, 200, 0.5);
-  z-index: 5;
-}
-
-.overlay-content-editTask {
-  position: relative;
-  width: 525px;
-  height: calc(100vh - 259px);
-  margin-bottom: 35px;
-  padding: 48px 40px;
-  border-radius: 30px;
-  gap: 24px;
-  background-color: #fff;
-  z-index: 6;
-  transition: right 0.3s ease;
-}
-
 .slide-in {
   animation: slideIn 0.3s ease-in-out forwards;
 }
@@ -136,8 +110,34 @@ select {
   border: 1px solid #ff8190 !important;
 }
 
-.requiredInfo {
-  display: none;
+.addtask_content {
+  display: flex;  
+  gap: 24px;  
+}
+
+.overlay-content-addTask,
+.overlay-content-editTask {
+  position: relative; 
+  height: calc(100vh - 259px);
+  margin-bottom: 35px;
+  padding: 48px 40px;
+  border-radius: 30px;  
+  background-color: #fff;
+  z-index: 6;
+  transition: right 0.3s ease;
+}
+
+.overlay-bg-addTask,
+.overlay-bg-editTask {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0.5);
 }
 
 .frame219 {
@@ -153,22 +153,6 @@ select {
 
 input[type='date']::placeholder {
   color: #d1d1d1;
-}
-
-.vector4 {
-  stroke-width: 1px;
-  stroke: var(--Style, #d1d1d1);
-  width: 0.001px;
-  height: 424px;
-  flex-shrink: 0;
-  top: 174px;
-  left: 562.25px;
-  border: 1px;
-  transform: rotate(-0deg);
-}
-
-.frame40 {
-  display: none;
 }
 
 .task_title {
@@ -455,9 +439,7 @@ input {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 24px;
-  top: 174px;
-  left: 610.25px;  
+  gap: 24px;  
 }
 
 .framedue {
@@ -801,51 +783,4 @@ textarea {
 .buttons-cancel:hover img {
   filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg)
     brightness(120%) contrast(90%);
-}
-
-#addTaskInputForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.addtask_content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.vector4 {
-  display: none;
-}
-
-.frame39 {
-  top: 0;
-  left: 0;
-  position: relative;
-}
-
-.frame35 {
-  top: 0;
-  left: 0;
-  position: relative;
-}
-
-.requiredInfo {
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-#addTaskClear {
-  display: none;
-}
-
-#createTaskButton[type='submit'] {
-  display: none;
-}
-
-#editTaskButton {
-  width: auto;
 }
