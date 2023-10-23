@@ -22,15 +22,14 @@ async function initAddTasks() {
  */
 function resetForm() {  
   document.getElementById('addTaskInputForm').reset();
-  document.getElementById('category_select').innerHTML = "";
+  document.getElementById('category_selection-background').classList.add('d-none');
   resetArrays();
   addSubtask();
   resetRadioButtonClasses();    
   resetInnerHTML();  
   resetImages();
   resetClassError();
-  resetRequiredFields();  
-  toggleCategory();
+  resetRequiredFields();
 }
 /**
  * Reset Arrays
@@ -56,6 +55,7 @@ function resetInnerHTML() {
   document.getElementById('temporaryStatus').innerHTML = '';
   document.getElementById('prioResult').innerHTML = '';
   document.getElementById('selected_user').innerHTML = '';
+  document.getElementById('category_select').innerHTML = "";
 }
 
 /**
