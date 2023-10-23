@@ -85,7 +85,6 @@ select {
   position: absolute;
 }
 
-
 #overlayEditTaskContent {
   width: 100%;
   height: 36px;
@@ -119,6 +118,7 @@ select {
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  margin-top: 0 !important;
 }
 
 .requiredAsterisk {
@@ -279,6 +279,7 @@ input[type='date']::placeholder {
   width: 350px;
   height: 56px;
   gap: 25px;
+  bottom: 5vh;
 }
 
 .frame203 {
@@ -404,8 +405,15 @@ input {
   background-color: #d9d9d9;
 }
 
-.search-contact {
+.search-contact,
+.search-category {
   width: 100%;
+  color: var(--black, #000);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .search-contact::placeholder,
@@ -502,8 +510,33 @@ input {
   line-height: 120%;
 }
 
-.frame14due::placeholder {
-  color: var(--Style, #d1d1d1);
+form{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#task_form{
+  display: flex;  
+  flex-direction: column;
+  top: 206px;  
+  position: fixed;
+}
+
+.taskFormFooter {  
+  width: 100%;
+  z-index: 4;  
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;  
+  display: flex;
+  margin-top: 32px;  
+  height: 70px;
+}
+
+select {
+  background: url(../../assets/img/add-task/arrow_drop_down.png) no-repeat right
+    center;
 }
 
 textarea {
@@ -515,12 +548,11 @@ textarea {
 .frame28 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   width: 440px;
   height: 88px;
   top: 120px;
-  position: absolute;
 }
 
 .frame28_text {
@@ -638,26 +670,11 @@ textarea {
   border: 2px solid #5fc0e9 !important;
 }
 
-#category_select {
-  width: 400px;
-  height: 24px;
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #000000;
-}
-
 .subtasks {
   display: flex;
   flex-direction: column;
-  width: 440px;
-  height: 80px;
-  top: 336px;
+  width: 440px;    
   gap: 8px;
-  position: absolute;
 }
 
 .subtasks_text {
@@ -698,7 +715,6 @@ textarea {
   letter-spacing: 0em;
   text-align: left;
   border: none;
-  background: url(../../assets/img/add-task/plus.svg) no-repeat 377px center;
 }
 
 #frame14_subtask_text:focus {
@@ -758,6 +774,7 @@ textarea {
   justify-content: center;
   align-items: center;
   gap: 4px;
+  overflow: hidden;
   border-radius: 10px;
   border: 1px solid var(--version-2-main-color, #2a3647);
   color: var(--version-2-main-color, #2a3647);
@@ -786,11 +803,6 @@ textarea {
     brightness(120%) contrast(90%);
 }
 
-#task_form {
-  display: flex;
-  flex-direction: column;
-}
-
 #addTaskInputForm {
   display: flex;
   flex-direction: column;
@@ -802,12 +814,6 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-
-.frame219 {
-  top: 0;
-  left: 0;
-  position: relative;
 }
 
 .vector4 {
