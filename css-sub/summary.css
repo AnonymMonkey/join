@@ -1,100 +1,104 @@
-body{
+body {
     margin: 0;
 }
 
-.headlineSection{
+.headlineSection {
     display: inline-flex;
-    justify-content: center;
     align-items: center;
-    gap: 30px; 
-    position: fixed;
-    top: 206px;
-    left: 328px;
-    bottom: 745px;
-    right: 461px;
+    gap: 30px;
+    margin-bottom: 56px;
 }
 
-.headlineSummary{
+.headlineSummary {
     color: #000;
     font-family: Inter;
     font-size: 61px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; 
-    position: fixed;
+    line-height: 120%;
+    /*     position: fixed;
     top: 206px;
     left: 328px;
     bottom: 745px;
-    right: 825px;
+    right: 825px; */
 }
 
-.headlineVector{
-    height: 59px; 
+.headlineVector {
+    height: 59px;
     stroke-width: 3px;
     stroke: #29ABE2;
-    position: fixed;
+    /*     position: fixed;
     top: 213px;
     left: 645px;
     bottom: 745px;
-    right: 795px;
+    right: 795px; */
 }
 
-.headlineVectorMobile{
+.headlineVectorMobile {
     display: none;
 }
 
-.headlineSpan{
+.headlineSpan {
     color: #2A3647;
     font-family: Inter;
     font-size: 27px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    text-wrap: nowrap; 
-    position: fixed;
+    text-wrap: nowrap;
+    /*     position: fixed;
     top: 226.5px;
     left: 675px;
     bottom: 765.5px;
-    right: 461px;
+    right: 461px; */
 }
 
-.mediumCardSection{
+.table {
+    display: flex;
+    width: 560px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.mediumCardSection {
     display: flex;
     width: 560px;
     height: 168px;
     justify-content: center;
     align-items: flex-start;
     gap: 32px;
-    flex-shrink: 0; 
-    position: fixed;
+    flex-shrink: 0;
+    /*     position: fixed;
     top: 335px;
     left: 328px;
     bottom: 521px;
-    right: 552px
+    right: 552px */
 }
 
-.mediumCardSection :hover{
+.mediumCardSection :hover {
     background-color: #2A3647;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
-.mediumCardSection :hover span{
+.mediumCardSection :hover span {
     color: white;
 }
 
-.mediumCardSection :hover svg circle{
+.mediumCardSection :hover svg circle {
     fill: white;
 }
 
-.svgPen:hover path{
+.svgPen:hover path {
     fill: #2A3647;
 }
 
-.svgCheckmark:hover path{
+.svgCheckmark:hover path {
     fill: #2A3647;
 }
 
-.cardMedium{
+.cardMedium {
     display: flex;
     width: 264px;
     height: 168px;
@@ -102,13 +106,13 @@ body{
     justify-content: center;
     align-items: center;
     gap: 18px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
     border-radius: 30px;
     background: var(--white, #FFF);
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10); 
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
-.cardMedium:hover{
+.cardMedium:hover {
     transform: scale(1.1);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
@@ -117,24 +121,24 @@ body{
     stroke: #2A3647;
 }
 
-.largeCardSection{
-    position: fixed;
+.largeCardSection {
+    /*     position: fixed;
     top: 531px;
     left: 328px;
     bottom: 325px;
-    right: 552px
+    right: 552px */
 }
 
-.largeCardSection :hover{
+.largeCardSection :hover {
     background-color: #2A3647;
     cursor: pointer;
 }
 
-.largeCardSection :hover span{
+.largeCardSection :hover span {
     color: white;
 }
 
-.cardLarge{
+.cardLarge {
     display: flex;
     width: 560px;
     height: 168px;
@@ -142,45 +146,45 @@ body{
     justify-content: center;
     align-items: center;
     gap: 61px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
     border-radius: 30px;
     background: var(--white, #FFF);
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10); 
-    position: fixed;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    /*     position: fixed;
     top: 531.5px;
     left: 328px;
     bottom: 324.5px;
-    right: 552px;
+    right: 552px; */
 }
 
-.cardLarge:hover{
+.cardLarge:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
-.urgentSection{
+.urgentSection {
     display: flex;
     align-items: center;
-    gap: 18px; 
+    gap: 18px;
 }
 
-.redArrowsMobile{
+.redArrowsMobile {
     display: none;
 }
 
-.vectorGreyMobile{
+.vectorGreyMobile {
     display: none;
 }
 
 
-.deadlineSection{
+.deadlineSection {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 13px; 
+    gap: 13px;
 }
 
-.deadlineSpan{
+.deadlineSpan {
     color: #2A3647;
     font-family: Inter;
     font-size: 21px;
@@ -189,7 +193,7 @@ body{
     line-height: 120%;
 }
 
-.dateTextSpan{
+.dateTextSpan {
     color: #2A3647;
     font-family: Inter;
     font-size: 16px;
@@ -198,16 +202,16 @@ body{
     line-height: 120%;
 }
 
-.greetingSection{
-    position: fixed;
-    top: 547.5px;
-    left: 968px;
-    bottom: 340.5px;
-    right: 87px
+.greetingSection {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
-.spanGreeting{
-    width: 338px; 
+.spanGreeting {
+    width: 100%;
     color: #2A3647;
     font-family: Inter;
     font-size: 47px;
@@ -216,8 +220,8 @@ body{
     line-height: 120%;
 }
 
-.spanName{
-    width: 385px;
+.spanName {
+    width: 100%;
     color: var(--Ligth-blue, #29ABE2);
     font-family: Inter;
     font-size: 64px;
@@ -226,7 +230,7 @@ body{
     line-height: 120%;
 }
 
-.smallCardSection{
+.smallCardSection {
     display: flex;
     width: 560px;
     height: 170px;
@@ -235,14 +239,14 @@ body{
     align-items: flex-start;
     gap: 28px;
     flex-shrink: 0;
-    position: fixed;
+    /*     position: fixed;
     top: 727px;
     left: 328px;
     bottom: 127px;
-    right: 552px
+    right: 552px */
 }
 
-.cardSmall{
+.cardSmall {
     display: flex;
     width: 168px;
     height: 168px;
@@ -250,37 +254,37 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0; 
+    flex-shrink: 0;
     border-radius: 30px;
     background: var(--white, #FFF);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
-.cardSmall:hover{
+.cardSmall:hover {
     transform: scale(1.1);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
-.smallCardSection :hover{
+.smallCardSection :hover {
     background-color: #2A3647;
     cursor: pointer;
 }
 
-.smallCardSection :hover span{
+.smallCardSection :hover span {
     color: white;
 }
 
-.tasksAmount{
+.tasksAmount {
     color: #000;
     text-align: center;
     font-family: Inter;
     font-size: 64px;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; 
+    line-height: 120%;
 }
 
-.tasksSpan{
+.tasksSpan {
     color: #2A3647;
     text-align: center;
     font-family: Inter;
@@ -290,22 +294,22 @@ body{
     line-height: 120%;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.penMobile{
+.penMobile {
     display: none;
 }
 
-.penDesktop{
+.penDesktop {
     display: flex;
 }
 
-.checkmarkMobile{
+.checkmarkMobile {
     display: none;
 }
 
-.checkmarkDesktop{
+.checkmarkDesktop {
     display: flex;
 }

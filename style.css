@@ -178,14 +178,18 @@ body {
 }
 
 .content {
+  display: flex;
   left: 232px;
   top: 96px;
   width: calc(100% - 232px);
+  max-width: 75vw;
   height: calc(100vh - 96px);
   position: absolute;
+  margin-left: 5vw;
+  margin-top: 8vh;
 
 }
 
-.h {
+/* .h {
   height: calc(100vh - 96px);
-}
+} */
