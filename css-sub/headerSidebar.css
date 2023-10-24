@@ -200,7 +200,7 @@
 {
     height: 100vh; 
     width: calc(100% - 232px); 
-    background-color: rgba(200, 200, 200, 0.5);
+    background-color: transparent;
     z-index: 4; 
     left: 232px; 
     position: absolute;
