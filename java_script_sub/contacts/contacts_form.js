@@ -36,6 +36,17 @@ function checkMail(ID) {
     return true;
 }
 
+function checkNewMail() {
+    searchMailsInJSON();
+    let mailInput = elementByID("contact_mail");    
+    if (emailAddresses.includes(mailInput.value)) {  
+      let msg = 'This Email already exists!';
+      showErrorMessage(msg, mailInput);
+        return false;
+    }    
+    return true;
+}
+
 function searchMailsInJSON() {
     contacts.forEach(entry => {
         let registerEntry = entry.register_entry[0];

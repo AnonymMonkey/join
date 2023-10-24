@@ -11,7 +11,8 @@ const generatedColors = new Set();
 
 async function createContact() {
     let nameIsValid = checkName();
-    if (!nameIsValid) {
+    let mailIsValid = checkNewMail();
+    if (!nameIsValid || !mailIsValid) {
         return;
     }
     create_btn.disable = true;
