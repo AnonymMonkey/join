@@ -162,7 +162,7 @@
     position: absolute;
     top: 96px;
     right: 16px;
-    z-index: 1;
+    z-index: 5;
 }
 
 .subMenu span {
@@ -194,4 +194,14 @@
 
 .dNone {
     display: none;
+}
+
+#overlay-bg-subMenu
+{
+    height: 100vh; 
+    width: calc(100% - 232px); 
+    background-color: rgba(200, 200, 200, 0.5);
+    z-index: 4; 
+    left: 232px; 
+    position: absolute;
 }

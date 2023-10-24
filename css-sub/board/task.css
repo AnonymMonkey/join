@@ -95,16 +95,6 @@ select {
   margin-top: 0 !important;
 }
 
-.requiredAsterisk {
-  color: #ff8190;
-  width: 119px;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-}
-
 .error {
   border-radius: 10px;
   border: 1px solid #ff8190 !important;

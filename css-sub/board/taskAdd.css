@@ -47,3 +47,13 @@
 #editTaskButton[type=submit]{
   display: none;
 }
+
+.requiredAsterisk {
+  color: #ff8190;
+  width: 119px;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
