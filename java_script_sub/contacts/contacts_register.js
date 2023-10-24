@@ -211,20 +211,16 @@ function deleteTest() {
 
 async function addActiveUserToContacts() {
     getLoginData();
-
-    let x = 0;
-
+    let isFound = false;
     for (let i = 0; i < contacts.length; i++) {
 
-
         if (contacts[i]['register_entry'][0]['contact_mail'] == activeUserLoginMail) {
-            activeUserID = contacts[i]['register_entry'][0].contact_ID;
-        } else {
-            x++;
-        }
+            /*activeUserID = contacts[i]['register_entry'][0].contact_ID;*/
+            isFound = true;
+        } 
     }
 
-    if (x > 0) {
+    if (!isFound) {
         contacts.push({
             register_entry: [
                 {

@@ -21,12 +21,14 @@ function checkMail(email) {
     return true;
 }
 
+
 function searchMailsInJSON() {
     for (let i = 0; i < users.length; i++) {
         const element = users[i];     
         emailAddresses.push(element['email']);
     }
 }
+
 
 async function registerUser(){
     let name = document.getElementById('signupName').value;
