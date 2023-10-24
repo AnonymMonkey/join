@@ -108,9 +108,8 @@ function createBadge(ID) {
   selectedUser.innerHTML = '';
   for (let i = 0; i < contactSelection.length; i++) {
     let selection = contactSelection[i];
-    let initials = getIndexOfJson(selection)['contact_initials'];
-    let color = getIndexOfJson(selection)['contact_color'];
-
+    let initials = getIndexOfJson('ID', selection)['contact_initials'];
+    let color = getIndexOfJson('ID', selection)['contact_color'];
     selectedUser.innerHTML += user_selectedUser_html(selection, initials);
 
     let userInitial = elementByID(`user_inital_${selection}`);
