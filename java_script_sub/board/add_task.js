@@ -16,76 +16,6 @@ async function initAddTasks() {
 }
 
 /**
- * Reset Form
- * This function resets all Values from Input,
- * resets added Styles and resets Variables and Arrays
- */
-function resetForm() {  
-  document.getElementById('addTaskInputForm').reset();
-  document.getElementById('category_selection-background').classList.add('d-none');
-  resetArrays();
-  addSubtask();
-  resetRadioButtonClasses();    
-  resetInnerHTML();  
-  resetImages();
-  resetClassError();
-  resetRequiredFields();
-}
-/**
- * Reset Arrays
- */
-function resetArrays() {
-  newSubtasks = [];
-  contactSelection = [];
-}
-
-/**
- * Reset style from Radio-Buttons
- */
-function resetRadioButtonClasses(){
-  document.getElementById('frame24').classList.remove('frame24_selected');
-  document.getElementById('frame25').classList.remove('frame25_selected');
-  document.getElementById('frame26').classList.remove('frame26_selected');
-}
-
-/**
- * Reset content
- */
-function resetInnerHTML() {
-  document.getElementById('temporaryStatus').innerHTML = '';
-  document.getElementById('prioResult').innerHTML = '';
-  document.getElementById('selected_user').innerHTML = '';
-  document.getElementById('category_select').innerHTML = "";
-}
-
-/**
- * Reset images
- */
-function resetImages() {
-  document.getElementById('imgUrgent').src = '../../assets/img/add-task/urgent.svg';
-  document.getElementById('imgMedium').src = '../../assets/img/add-task/medium.svg';
-  document.getElementById('imgLow').src = '../../assets/img/add-task/low.svg';
-}
-
-/**
- * Reset style from all elements with class error
- */
-function resetClassError() {
-  Array.from(document.querySelectorAll('.error')).forEach(
-    (el) => el.classList.remove('error')
-  );  
-}
-
-/**
- * Change style to display: none for every element with class requiredField
- */
-function resetRequiredFields() {
-  Array.from(document.querySelectorAll('.requiredField')).forEach(
-    (el) => el.classList.add('d-none')
-  );  
-}
-
-/**
  * Sets min and max range for datepicker (from today to one year in the future)
  */
 function setDateRange() {
@@ -177,7 +107,7 @@ function subtaskActions(view) {
  * @param {string} idKey - id
  * @returns 
  */
-function getNextFreeId(items, idKey) {
+async function getNextFreeId(items, idKey) {
   if (items.length === 0) {
     return 0;
   }
@@ -193,7 +123,7 @@ function getNextFreeId(items, idKey) {
 async function addNewTask(origin) {    
   let status = document.getElementById('temporaryStatus').innerHTML;
   let category = document.getElementById('category_select').innerHTML;
-  let id = parseInt(checkExistingTask(), 10);
+  let id = parseInt(await checkExistingTask(), 10);
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
@@ -201,7 +131,6 @@ async function addNewTask(origin) {
   let allMember = contactSelection;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
-
   await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');  
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
   if (origin) {  
@@ -216,8 +145,14 @@ async function addNewTask(origin) {
  * @returns {number} id - currentTask-Id or new Task-Id
  */
 async function checkExistingTask() {  
-  let currentTask =+ document.getElementById('currentTask').innerText;  
-  let id = !currentTask ? getNextFreeId(tasks, 'id') : currentTask;    
+  let id;
+  let currentTask = document.getElementById('currentTask').innerText;  
+  if(currentTask === '')
+  {
+    id = await getNextFreeId(tasks, 'id');
+  } else {
+    id = currentTask;
+  }
   return id;
 }
   
@@ -270,7 +205,7 @@ function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < newSubtasks.length; i++) {
-    list.innerHTML += `
+    list.innerHTML += /*html*/`
       <li class="pointer" ondblclick="editSubtask(${i})">
         <div>&bull; 
           ${newSubtasks[i].subtitle}
@@ -289,14 +224,14 @@ function addSubtask() {
  * Add new Subtasks from input
  * @returns 
  */
-function addnewSubtask() {
+async function addnewSubtask() {
   let subtitleValue = document.getElementById('frame14_subtask_text').value;
   if(!subtitleValue){
     return;
   }
 
   hideEditSubtask();
-  let nextSubId = getNextFreeId(newSubtasks, 'subid');
+  let nextSubId = await getNextFreeId(newSubtasks, 'subid');
   if (newSubtasks.length < 5) {
     let newSubtask = {
       subid: nextSubId,
@@ -395,8 +330,7 @@ function toggleAssignedTo(){
   let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
   let userSelection = document.getElementById('user_selection-background');
 
-  if (userSelection.classList.contains('d-none')) {    
-    //categorySelect.focus();
+  if (userSelection.classList.contains('d-none')) {   
     arrowDropdown.style.transform = 'rotate(180deg)';
     userSelection.classList.remove('d-none');
   } else {    

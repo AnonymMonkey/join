@@ -30,6 +30,5 @@ function closeEditTaskOverlay() {
     overlayBg.classList.add("d-none");    
     document.getElementById('defaultStyle').disabled = false;
     document.getElementById('smallScreenStyle').disabled = true;
-
-    document.getElementById('taskContainer').innerHTML = '';    
+    document.getElementById('taskContainer').innerHTML = '';
 }
