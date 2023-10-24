@@ -66,7 +66,7 @@ function getIndexOf(value, input) {
     return position;
 }
 
-function getIndexOfJson(wert, input) {
-    let pos = contacts[getIndexOf(wert, input)]['register_entry'][0];
+function getIndexOfJson(value, input) {
+    let pos = contacts[getIndexOf(value, input)]['register_entry'][0];
     return pos;
 }
