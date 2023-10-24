@@ -177,7 +177,7 @@ function subtaskActions(view) {
  * @param {string} idKey - id
  * @returns 
  */
-function getNextFreeId(items, idKey) {
+async function getNextFreeId(items, idKey) {
   if (items.length === 0) {
     return 0;
   }
@@ -193,7 +193,7 @@ function getNextFreeId(items, idKey) {
 async function addNewTask(origin) {    
   let status = document.getElementById('temporaryStatus').innerHTML;
   let category = document.getElementById('category_select').innerHTML;
-  let id = parseInt(checkExistingTask(), 10);
+  let id = parseInt(await checkExistingTask(), 10);
   let title = document.getElementById('frame14_text').value;
   let description = document.getElementById('frame17_text').value;
   let prio = document.getElementById('prioResult').innerHTML;
@@ -201,7 +201,6 @@ async function addNewTask(origin) {
   let allMember = contactSelection;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
-
   await smallAnimatedLabel('Task added to board', '../assets/img/summary/board.svg');  
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
   if (origin) {  
@@ -216,8 +215,14 @@ async function addNewTask(origin) {
  * @returns {number} id - currentTask-Id or new Task-Id
  */
 async function checkExistingTask() {  
-  let currentTask =+ document.getElementById('currentTask').innerText;  
-  let id = !currentTask ? getNextFreeId(tasks, 'id') : currentTask;    
+  let id;
+  let currentTask = document.getElementById('currentTask').innerText;  
+  if(currentTask === '')
+  {
+    id = await getNextFreeId(tasks, 'id');
+  } else {
+    id = currentTask;
+  }
   return id;
 }
   
@@ -270,7 +275,7 @@ function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < newSubtasks.length; i++) {
-    list.innerHTML += `
+    list.innerHTML += /*html*/`
       <li class="pointer" ondblclick="editSubtask(${i})">
         <div>&bull; 
           ${newSubtasks[i].subtitle}
@@ -289,14 +294,14 @@ function addSubtask() {
  * Add new Subtasks from input
  * @returns 
  */
-function addnewSubtask() {
+async function addnewSubtask() {
   let subtitleValue = document.getElementById('frame14_subtask_text').value;
   if(!subtitleValue){
     return;
   }
 
   hideEditSubtask();
-  let nextSubId = getNextFreeId(newSubtasks, 'subid');
+  let nextSubId = await getNextFreeId(newSubtasks, 'subid');
   if (newSubtasks.length < 5) {
     let newSubtask = {
       subid: nextSubId,
@@ -395,8 +400,7 @@ function toggleAssignedTo(){
   let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
   let userSelection = document.getElementById('user_selection-background');
 
-  if (userSelection.classList.contains('d-none')) {    
-    //categorySelect.focus();
+  if (userSelection.classList.contains('d-none')) {   
     arrowDropdown.style.transform = 'rotate(180deg)';
     userSelection.classList.remove('d-none');
   } else {    
