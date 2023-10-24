@@ -6,8 +6,7 @@ const FORM_FIELDS = {
   prio: 'prioResult',
   Urgent: 'frame24',
   Medium: 'frame25',
-  Low: 'frame26',
-  category: 'category_select',
+  Low: 'frame26',  
   duedate: 'addtask-duedate',
 };
 
@@ -45,7 +44,11 @@ async function getTaskValues(currentTask) {
           else 
           if (key === 'status') {              
             setStatus(key, keyValue);
-            }          
+            }
+            else 
+          if (key === 'category') {            
+            setCategory(keyValue);
+            }
           else
             if (key === 'member') {              
               await userSelection('isClosed');
@@ -108,8 +111,8 @@ function setValueOnDueDate(key, keyValue) {
  * @param {string} keyValue - Array-Value
  */
 function setStatus(key, keyValue) {
-  let formId = FORM_FIELDS[key];
-  document.getElementById('temporaryStatus').innerHTML = keyValue;
+  let formId = FORM_FIELDS[key];  
+  document.getElementById(formId).innerHTML = keyValue;
 }
 
 /**
