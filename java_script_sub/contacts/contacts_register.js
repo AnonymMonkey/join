@@ -1,5 +1,6 @@
 let contacts = [];
 let activeUserID;
+let activeUserLoginMail;
 let activeUserLoginData;
 
 const generatedIDs = new Set();
@@ -117,23 +118,7 @@ async function createRegister() {
 }
 
 function createRegisterEntry() {
-    /* createLoginContact(); */ /* zum erstellen des login Kontakts */
     createRegisterInfo();
-}
-
-function createLoginContact() {
-    let register = elementByID('register');
-    register += `
-        <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
-            <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(
-        color,
-    )}>${initials}</div>
-            <div>
-                <div class="contact-info-name">${name} (YOU)</div>
-                <div class="contact-info-mail">${mail}</div>
-            </div>
-        </div>
-        `;
 }
 
 function createRegisterInfo() {
@@ -164,11 +149,9 @@ function createRegisterInfo() {
 
             let contactHTML = `
                 <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
-                    <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(
-                color,
-            )}>${initials}</div>
+                    <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
                     <div>
-                        <div class="contact-info-name">${name}</div>
+                        <div id="contact_name_${ID}" class="contact-info-name">${name}</div>
                         <div class="contact-info-mail">${mail}</div>
                     </div>
                 </div>
@@ -179,6 +162,7 @@ function createRegisterInfo() {
     }
 
     register.innerHTML = infoHTML;
+
 }
 
 // TODO: param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled - SIMON
@@ -225,22 +209,14 @@ function deleteTest() {
 
 
 async function addActiveUserToContacts() {
-    /*Step 1: load loginData with key "loginData" from localStorage*/
-    let activeUserContactAsText = localStorage.getItem('loginData');
-    if (activeUserContactAsText) {
-        activeUserLoginData = JSON.parse(activeUserContactAsText);
-    }
-
-    let searchActiveUserMail = activeUserLoginData[0].email;
+    getLoginData();
 
     let x = 0;
 
     for (let i = 0; i < contacts.length; i++) {
 
 
-        if (
-            contacts[i]['register_entry'][0]['contact_mail'] == searchActiveUserMail
-        ) {
+        if (contacts[i]['register_entry'][0]['contact_mail'] == activeUserLoginMail) {
             activeUserID = contacts[i]['register_entry'][0].contact_ID;
         } else {
             x++;
@@ -261,5 +237,35 @@ async function addActiveUserToContacts() {
             ],
         });
         await saveData();
+    }
+}
+
+function loginIsYourContact() {
+    /* debugger */
+
+    getLoginData();
+    for (let i = 0; i < contacts.length; i++) {
+        let contactMail = contacts[i]['register_entry'][0]['contact_mail'];
+        let checkedMail = contactMail.includes(activeUserLoginMail);
+        if (checkedMail) {
+            let contactEntry = getIndexOfJson('mail', contactMail);
+            let entryMail = contactEntry['contact_mail'];
+            let entryName = contactEntry['contact_name'];
+            let entryID = contactEntry['contact_ID'];
+            let contactRegisterName = elementByID(`contact_name_${entryID}`);
+            if (entryMail == activeUserLoginMail) {
+                contactRegisterName.innerHTML += ` <b>(You)`;
+            } else {
+                contactRegisterName.innerHTML = entryName;
+            }
+        }
+    }
+}
+
+function getLoginData() {
+    let activeUserContactAsText = localStorage.getItem('loginData');
+    if (activeUserContactAsText) {
+        activeUserLoginData = JSON.parse(activeUserContactAsText);
+        activeUserLoginMail = activeUserLoginData[0].email;
     }
 }

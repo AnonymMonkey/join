@@ -3,6 +3,7 @@ async function contactsInit() {
     await loadData();
     getCategoryLetter();
     createRegisterEntry();
+    loginIsYourContact();
     adjustQuicklinkBG();
     detectDarkmode();
 }

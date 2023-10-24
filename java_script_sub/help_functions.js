@@ -61,12 +61,12 @@ function contactFirstLettersBG(color) {
 
 
 /* contacts help */
-function getIndexOf(ID) {
-    let position = contacts.findIndex(entry => entry.register_entry[0].contact_ID === ID);
+function getIndexOf(value, input) {
+    let position = contacts.findIndex(entry => entry.register_entry[0][`contact_${value}`] === input);
     return position;
 }
 
-function getIndexOfJson(ID) {
-    let pos = contacts[getIndexOf(ID)]['register_entry'][0];
+function getIndexOfJson(wert, input) {
+    let pos = contacts[getIndexOf(wert, input)]['register_entry'][0];
     return pos;
 }
