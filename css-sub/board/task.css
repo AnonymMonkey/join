@@ -85,7 +85,7 @@ select {
 
 .requiredField {
   color: #ff8190;
-  width: 200px;
+  width: 200px !important;
   height: 12px;
   font-family: Inter;
   font-size: 12px;

@@ -7,7 +7,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1351px) {
   .content_addTask {
     display: flex;
     justify-content: center;
@@ -87,6 +87,7 @@
   .frame14,
   #frame14_text,
   .task_description,
+  .task_description_text,
   .frame207,
   #frame17,
   #frame17_text,
@@ -95,6 +96,7 @@
   .framedue,
   .frame211,
   .frame28,
+  .frame28_text,
   .category,
   .subtasks,
   .frame14_subtask,
