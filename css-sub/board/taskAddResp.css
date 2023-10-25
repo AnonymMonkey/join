@@ -146,6 +146,12 @@
   #addTaskCancel {
     display: none;
   }
+
+  .priority {
+    gap: 4px;
+    font-size: 14px;
+  }
+
 }
 
 @media (max-width: 500px) {
@@ -159,17 +165,18 @@
   .low {
     gap: 0px;
   }
-
-
-  #frame24,
-  #frame25,
-  #frame26 {
-    justify-content: end;
-  }
   
   #createTaskButton{
     font-size: 0;
     width: auto;
   }
+  #subtaskEditInput {    
+    width: 80%;
+  }
+}
 
+@media (max-width: 400px){
+  .priority_text{
+    font-size: 0;
+  }
 }
