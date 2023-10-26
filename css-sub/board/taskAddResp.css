@@ -79,7 +79,7 @@
   #frame25,
   #frame26 {
     justify-content: center;
-    padding-right: 19px;
+    padding-right: 8px;
   }
 
   .task_title,
@@ -171,18 +171,23 @@
   .overlay-content-editTask {
     height: calc(100vh - 259px);
   }
-}
 
-@media (max-width: 500px) {
-  label {
-    align-items: center;
-    gap: 4px;
+  .frame40 {
+    font-size: 48px;
   }
 
   .urgent,
   .medium,
   .low {
     gap: 0px;
+  }
+
+}
+
+@media (max-width: 500px) {
+  label {
+    align-items: center;
+    gap: 4px;
   }
 
   #createTaskButton {
