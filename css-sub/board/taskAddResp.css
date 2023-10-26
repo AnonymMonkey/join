@@ -213,4 +213,9 @@
   #frame26 {  
     padding-right: 30px;
   }
+
+  .overlay-content-addTask,
+  .overlay-content-editTask{
+    padding: 16px 16px;
+  }
 }
