@@ -199,9 +199,9 @@
 #overlay-bg-subMenu
 {
     height: 100vh; 
-    width: calc(100% - 232px); 
+    width: 100%; 
     background-color: transparent;
     z-index: 4; 
-    left: 232px; 
+    left: 2px; 
     position: absolute;
 }
