@@ -7,6 +7,7 @@
 .overlay-content-editTask {
   width: 525px;
   padding: 48px 24px;
+  flex-direction: column;
 }
 
 .addtask_content {  
@@ -55,4 +56,35 @@ input[type='date']::placeholder {
   height: 70vh;
   overflow-y: auto;
   margin-top: 8px;
+}
+
+.priority{
+  width: 98%;
+}
+
+.frame219,
+#frame74,
+.frame39,
+.task_title,
+.frame203,
+.frame14,
+#frame14_text,
+.task_description,
+.task_description_text,
+.frame207,
+#frame17,
+#frame17_text,
+.task_assigned_to,
+.frame74,
+.framedue,
+.frame211,
+.frame28,
+.frame28_text,
+.category,
+.subtasks,
+.frame14_subtask,
+#frame14_subtask_text,
+#subtaskEdit,
+.user {
+  width: 100% !important;
 }
