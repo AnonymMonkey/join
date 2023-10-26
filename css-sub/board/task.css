@@ -107,8 +107,7 @@ select {
 
 .overlay-content-addTask,
 .overlay-content-editTask {
-  position: relative;  
-  padding: 48px 40px;
+  position: relative;    
   border-radius: 30px;
   background-color: #fff;
   z-index: 6;
@@ -482,13 +481,6 @@ form {
   flex-direction: column;
   position: relative;
 }
-
-/* #task_form {
-  display: flex;
-  flex-direction: column;
-  top: 206px;
-  position: fixed;
-} */
 
 .taskFormFooter {
   width: 100%;

@@ -4,9 +4,9 @@
   z-index: 4;
 }
 
-/* .overlay-content-addTask {  
-  width: 1116px;
-} */
+.overlay-content-addTask {    
+  padding: 48px 40px;
+}
 
 .addtask_content {  
   left: 328px;

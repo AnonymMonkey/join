@@ -6,6 +6,7 @@
 
 .overlay-content-editTask {
   width: 525px;
+  padding: 48px 24px;
 }
 
 .addtask_content {  
@@ -48,4 +49,10 @@ input[type='date']::placeholder {
 
 .requiredAsterisk {
   display: none;
+}
+
+#addTaskInputForm{
+  height: 70vh;
+  overflow-y: auto;
+  margin-top: 8px;
 }
