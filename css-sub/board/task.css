@@ -108,7 +108,6 @@ select {
 .overlay-content-addTask,
 .overlay-content-editTask {
   position: relative;  
-  margin-bottom: 35px;
   padding: 48px 40px;
   border-radius: 30px;
   background-color: #fff;
@@ -246,8 +245,7 @@ input[type='date']::placeholder {
 }
 
 .frame27 {
-  display: flex;
-  width: 350px;
+  display: flex;  
   height: 56px;
   gap: 25px;
   bottom: 5vh;
