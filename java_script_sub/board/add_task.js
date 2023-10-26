@@ -137,7 +137,8 @@ async function addNewTask(origin) {
     closeAddTaskOverlay();
   } 
   resetForm();
-  //await closeAddTaskOverlay();
+  identifyGuest();
+  openSelectedQuicklink('quickBoard');
 }
 
 /**

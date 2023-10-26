@@ -162,7 +162,7 @@ function showPrivacyExternal(){
 
 /**
  * opens the the next page of Join according to id as a guest
- * @param {*} id 
+ * @param {string} id 
  */
 //Funktion kürzen??
 function openGuestQuicklinks(id){
@@ -192,7 +192,7 @@ function openGuestQuicklinks(id){
 //Funktion kürzen??
 /**
  * opens the the next page of Join according to id as a logged in member 
- * @param {*} id string 
+ * @param {string} id string 
  *            
  */
 function openLoginQuicklinks(id){
