@@ -692,10 +692,6 @@ textarea {
   background: none;
 }
 
-#subtasklist {
-  gap: 10px;
-}
-
 #subtasklist li {
   padding-left: 24px;
   display: flex;
