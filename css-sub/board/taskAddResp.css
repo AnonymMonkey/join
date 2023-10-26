@@ -125,6 +125,10 @@
   .frame27 {
     width: auto;
   }
+
+  #addTaskClear {
+    display: none;
+  }
 }
 
 @media (max-width: 910px) {
@@ -151,10 +155,6 @@
   .frame27,
   .frame35 {
     width: auto;
-  }
-
-  #addTaskClear {
-    display: none;
   }
 
   .priority {
@@ -211,6 +211,6 @@
   #frame24,
   #frame25,
   #frame26 {  
-    padding-right: 32px;
+    padding-right: 30px;
   }
 }
