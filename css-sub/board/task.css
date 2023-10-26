@@ -122,9 +122,7 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 232px;
-  width: calc(100% - 232px);
+  top: 0;  
   height: 100%;
   background-color: rgba(200, 200, 200, 0.5);
 }

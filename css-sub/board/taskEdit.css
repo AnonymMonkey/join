@@ -1,5 +1,7 @@
-.overlay-bg-editTask {  
-  z-index: 5;
+.overlay-bg-editTask {    
+  left: 0;
+  width: 100%;
+  z-index: 5;  
 }
 
 .overlay-content-editTask {
