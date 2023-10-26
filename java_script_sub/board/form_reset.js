@@ -3,7 +3,7 @@
  * This function resets all Values from Input,
  * resets added Styles and resets Variables and Arrays
  */
-function resetForm() {  
+async function resetForm() {  
   document.getElementById('addTaskInputForm').reset();
   document.getElementById('category_selection-background').classList.add('d-none');
   resetArrays();

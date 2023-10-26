@@ -310,7 +310,7 @@ input {
   justify-content: space-between;
   border: 1px solid #d1d1d1;
   background-color: #ffffff;
-  z-index: 8;
+  z-index: 52;
 }
 
 .category_select {

@@ -27,7 +27,7 @@ async function openAddTaskOverlay() {
 /**
  * Function to close the Add-Task-Dialog
  */
-function closeAddTaskOverlay() {
+async function closeAddTaskOverlay() {
     resetForm();
     let overlayBg = elementByID("overlay-bg-addTask");
     let overlayContent = elementByID("overlay-content-addTask");

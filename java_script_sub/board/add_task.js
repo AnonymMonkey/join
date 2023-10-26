@@ -135,9 +135,9 @@ async function addNewTask(origin) {
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
   if (origin) {  
     closeAddTaskOverlay();
-  }  
-  /**TODO - Animation kommt nicht (mehr) */
-  openSelectedQuicklink('quickBoard');
+  } 
+  resetForm();
+  //await closeAddTaskOverlay();
 }
 
 /**

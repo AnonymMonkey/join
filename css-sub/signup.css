@@ -300,3 +300,9 @@ input:not(:placeholder-shown) {
 .dNone {
     display: none;
 }
+
+.sucsessimg{
+    height: 200px;
+    width: 100%;
+    z-index: 999;
+}
