@@ -107,8 +107,7 @@ select {
 
 .overlay-content-addTask,
 .overlay-content-editTask {
-  position: relative;
-  height: calc(100vh - 259px);
+  position: relative;  
   margin-bottom: 35px;
   padding: 48px 40px;
   border-radius: 30px;
@@ -124,8 +123,8 @@ select {
   justify-content: center;
   align-items: center;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 232px;
+  width: calc(100% - 232px);
   height: 100%;
   background-color: rgba(200, 200, 200, 0.5);
 }
