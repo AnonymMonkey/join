@@ -79,7 +79,7 @@
   #frame25,
   #frame26 {
     justify-content: center;
-    padding-right: 8px;
+    padding-right: 21px;
   }
 
   .task_title,
@@ -181,7 +181,15 @@
   .low {
     gap: 0px;
   }
-
+  
+  #frame24,
+  #frame25,
+  #frame26 {  
+    padding-right: 8px;        
+  }
+  .priority_text{
+    right: 8px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -197,10 +205,12 @@
   #subtaskEditInput {
     width: 80%;
   }
-}
-
-@media (max-width: 400px) {
   .priority_text {
     font-size: 0;
+  }
+  #frame24,
+  #frame25,
+  #frame26 {  
+    padding-right: 32px;
   }
 }
