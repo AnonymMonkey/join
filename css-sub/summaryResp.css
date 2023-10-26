@@ -1,368 +1,82 @@
-@media(max-width: 1270px){
-    .greetingSection{
+@media(max-width: 1270px) {
+    .greetingSection {
         display: none;
     }
 }
 
-@media(max-width: 990px){
-    .headlineSection{    
-        position: fixed;
-        top: 206px;
-        left: auto;
-        bottom: 745px;
-        right: 461px;
+@media(max-width: 990px) {
+    .content-summary {
+        justify-content: center;
+        margin-left: 0;
     }
 
-    .headlineSummary{
-        position: fixed;
-        top: 206px;
-        left: auto;
-        bottom: 745px;
-        right: 377px;
+    .headlineVector {
+        display: none;
     }
 
-    .headlineVector{
-        position: fixed;
-        top: 213px;
-        left: auto;
-        bottom: 745px;
-        right: 343px;
-    }
-
-    .headlineSpan{        
-        position: fixed;
-        top: 226.5px;
-        left: auto;
-        bottom: 765.5px;
-        right: 14px;
-    }
-
-    .mediumCardSection{
-        position: fixed;
-        top: 335px;
-        left: auto;
-        bottom: 521px;
-        right: 100px;
-    }
-
-    .cardLarge{
-        position: fixed;
-        top: 531.5px;
-        left: auto;
-        bottom: 324.5px;
-        right: 100px;
-    }
-
-    .smallCardSection{
-        position: fixed;
-        top: 727px;
-        left: auto;
-        bottom: 127px;
-        right: 100px;
+    .headlineSpan {
+        display: none;
     }
 }
 
 
-@media(max-width: 910px){
-    .content{
-        transform: scale(0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        left: -3vh;
-        top: -130px;
-        width: 100%;
-    }
-
-    .spanGreeting{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120%;
-        width: 100%;
-    }
-
-    .spanName{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120%;
-        width: 100%;
-    }
-}
-
-@media(max-width: 775px){
-    .spanGreeting{ 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120%;
-        width: 100%;
-    }
-
-    .spanName{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120%;
-        width: 100%;
-    }
-}
-
-
-
-@media(max-width: 745px){
-    .spanName{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 120%;
-        width: 100%;
-        font-size: 50px;
-    }
-}
-
-
-/*Switch to Mobile View*/
-@media(max-width: 642px){
-
-    .spanGreeting{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 90%;
-        width: 100%;
-    }
-    
-    .spanName{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 90%;
-        width: 100%;
+@media(max-width: 910px) {
+    .table {
+        max-width: 476px;
+        width: 95vw;
     }
 
     .content {
         width: 100%;
-        height: 100%;
-        transform: scale(0.8);
-        top: -6vh;
-        left: auto;
-        right: 0vh;
-    }
-    
-    .penMobile{
-        display: flex;
-    }
-    
-    .penDesktop{
-        display: none;
-    }
-    
-    .checkmarkMobile{
-        display: flex;
-    }
-    
-    .checkmarkDesktop{
-        display: none;
-    }
-    
-    .headlineVector{
-        display: none;
+        max-width: 100vw;
+        position: unset;
+        margin-top: 0;
     }
 
-    .headlineVectorMobile{
-        display: flex;
-        position: fixed;
-        top: 230px;
-        left: auto;
-        bottom: 745px;
-        right: 400px;
-    }
-
-    .headlineSummary{
-        font-size: 47px;
-        position: fixed;
-        top: 128px;
-        left: auto;
-        bottom: 742px;
-        right: 280px;
-    }
-    
-    .headlineSpan{
-        font-size: 20px;
-        position: fixed;
-        top: 192px;
-        left: auto;
-        bottom: 710px;
-        right: 270px;
-    }
-    
-    .mediumCardSection{
-        position: fixed;
-        top: 280px;
-        left: auto;
-        bottom: 521px;
-        right: 35px;
-    }
-    
-    .cardMedium{
-        width: 175px;
-        height: 100px;
-    }
-
-    .tasksAmount{
-        font-size: 47px;
-    }
-    
-    .tasksSpan{
-        font-size: 14px;
-        width: 60px; 
-    }
-    
-    .cardLarge{
-        width: 390px;
-        height: 110px;
-        gap: 36px;
-        position: fixed;
-        top: 410px;
-        left: auto;
-        bottom: 324.5px;
-        right: 120px;
-    }
-    
-    .redArrows{
-        display: none;
-    }
-
-    .redArrowsMobile{
-        display: flex;
-    }
-
-    .vectorGrey{
-        display: none;
-    }
-
-    .vectorGreyMobile{
-        display: flex;
-    }
-
-    .deadlineSpan{
-        font-size: 16px;
-    }
-    
-    .dateTextSpan{
-        font-size: 14px;
-        width: 130px;  
-    }
-    
-    .smallCardSection{
-        width: 400px;
-        position: fixed;
-        top: 550px;
-        left: auto;
-        bottom: 127px;
-        right: 120px;
-    }
-    
-    .cardSmall{
-        width: 110px;
-        height: 110px;
-    }
-}
-
-
-@media(max-width: 525px){
-    .spanGreeting{
+    .spanGreeting {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 90%;
+        height: 120%;
         width: 100%;
     }
 
-    .spanName{
+    .headlineSection {
+        flex-direction: column;
+        gap: 0;
+        align-items: start;
+    }
+
+    .spanName {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 90%;
+        height: 120%;
         width: 100%;
     }
 
-    .headlineSection{
-        left: 14px;
-    }
-    
-    .headlineSummary{
-        left: 0px;
-    }
-    
-    .headlineVector{
-        left: 0px;
-    }
 
-    .headlineVectorMobile{
+    .headlineSpan {
         display: flex;
-        left: 0px;
-    }
-    
-    .headlineSpan{        
-        left: 0px;
-    }
-    
-    .mediumCardSection{
-        width: 500px;
-        left: -70px;
-    }
-    
-    .cardLarge{    
-        left: -10px;
-    }
-    
-    .smallCardSection{
-        left: -15px;
-    }
-}
-
-
-@media(max-width: 450px){
-    .content{
-        transform: scale(0.7);
+        margin-top: -110px;
     }
 
-    .spanName{
+    .headlineVector {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 90%;
-        width: 100%;
-        font-size: 40px;
-    }
-}
-
-
-@media(max-width: 375px){
-    .spanGreeting{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 110%;
-        width: 100%;
-        font-size: 40px;
+        transform: rotate(90deg);
+        margin-left: 56px;
+        height: 120px;
     }
 
-    .spanName{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 110%;
-        width: 100%;
+    .cardLarge {
+        height: 140px;
     }
-    
-    .content{
-        transform: scale(0.7);
-        top: -13vh;
-        left: auto;
-        right: 0vh;
+
+    .cardMedium {
+        height: 140px;
+    }
+
+    .cardSmall {
+        height: 140px;
     }
 }
