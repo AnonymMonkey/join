@@ -1,75 +1,92 @@
-/* @media (max-width: 1400px) {
-  
-  .content{
+@media (max-width: 1500px) {
+  .content_board-optimize {}
+
+  .board_content {
     overflow-y: auto;
+    margin-bottom: 10vh;
   }
-  
-  .board_distribution {
+
+  .board_grid {
+    display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 0;
-    margin-bottom: 40px;
+    overflow-y: auto;
+    padding-right: 10px;
   }
 
   .column_title {
-    width: 100%;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-
-  .respLayout {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    width: unset;
   }
 
   #todo,
   #inProgress,
   #awaitFeedback,
   #done {
-    flex-direction: row;
-    height: -webkit-fill-available;
-    width: 100%;    
+    display: flex;
     overflow-x: auto;
-    padding: 1%;
+    height: 33vh;
+    padding: 10px 0px 10px 10px;
+    align-items: center;
+    gap: 20px;
   }
 
   .frame136,
   .frame149,
   .frame137,
   .frame138 {
-    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
   }
 
-  .no_tasks_feedback {    
-    width: 100%;
-    margin-bottom: 8px;
+  .task_categories {
+    width: 95%;
+  }
+
+  .card {
+    height: 100%;
+    width: unset;
+    aspect-ratio: 1/1;
   }
 
   .placeholderCard {
-    display: none;
+    height: 25vh;
+    width: unset;
+    aspect-ratio: 1/1;
+  }
+
+  .no_tasks_feedback {
+    width: 230px;
+    align-self: unset;
   }
 }
 
 @media (max-width: 1100px) {
+  .board_content {
+    overflow-y: auto;
+    margin-bottom: 10vh;
+    margin-top: 20px;
+  }
+
   .board_headline {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    max-height: 15vh;
+    margin-bottom: 20px;
   }
 
   .frame123 {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
-    position: absolute;
+    position: relative;
     width: 100%;
-    top: 10px;
+    top: -70px;
+    box-shadow: 0px 15px 10px 0px #f5f7f8;
   }
 
   .search_task_web {
     width: 100%;
+
   }
 
   .buttonText {
@@ -80,23 +97,38 @@
     display: flex;
     justify-content: center;
     width: 44px;
+    position: relative;
+    top: 10px;
   }
 }
 
 @media (max-width: 910px) {
+  .board_content {
+    margin-bottom: calc(128px + 10vh);
+  }
+
   .content {
     left: 0;
     width: 100%;
   }
 
-  .board_frame{
+  .board_frame {
     position: sticky;
     z-index: 4;
     top: 0;
     background-color: #f5f7f8;
   }
-  .board_distribution{
+
+  .board_distribution {
     margin-bottom: 140px;
   }
 
-} */
+  .no_tasks_feedback {
+    min-width: 100%;
+    align-self: unset;
+  }
+
+  .frame119 {
+    gap: 20px;
+  }
+}

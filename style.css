@@ -3,98 +3,29 @@
 :root {
   --bg-body: #f5f5f5;
   --bg-login: #ffffff;
-  /* Login-BG*/
   --bg-header: #ffffff;
   --bg-button: #2a3647;
   --bg-menu: #2a3647;
-  /* left menu */
   --bg-menu-hover: #081931;
-  /* left menu hover */
   --bg-arrow-up: #ff3d00;
   --bg-default: #f6f7f8;
   --text-btn: #ffffff;
   --fo-bo: #d1d1d1;
-  /* Form Border*/
   --svg: #cdcdcd;
-  /* SVGs*/
   --cutline: #29abe2;
-  /* Cutline*/
   --cutline2: #d1d1d1;
-  /* Cutline2*/
   --headline: #000000;
-  /* Font Colors: Headline Font Color + Big Fonts: ##000000*/
   --font-color: #2a3647;
-  /* Allg Font Color */
   --sub: #29abe2;
-  /* sub */
   --good-morning: #29abe2;
-  /* Good morning "name" */
   --sub-sub: #a8a8a8;
-  /* Sub-sub*/
   --progressbar: #4589ff;
-  /* Progressbar*/
 }
 
-
-/* Pfeil nach oben als Hintergrundbild */
-.custom-scrollbar::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url('./assets/img/contacts/scroll_up.svg');
-  background-size: contain;
-  /* Größe des Hintergrundbildes anpassen */
-  background-repeat: no-repeat;
-  /* Wiederholung des Hintergrundbilds deaktivieren */
-}
-
-/* Pfeil nach unten als Hintergrundbild */
-.custom-scrollbar::-webkit-scrollbar-button:vertical:increment {
-  background-image: url('./assets/img/contacts/scroll_down.svg');
-  background-size: contain;
-  /* Größe des Hintergrundbildes anpassen */
-  background-repeat: no-repeat;
-  /* Wiederholung des Hintergrundbilds deaktivieren */
-}
-
-/* Standard-Pfeile ausblenden */
-.custom-scrollbar::-webkit-scrollbar-button:vertical {
-  display: none;
-}
-
-/* Pfeil am Anfang des Scrollbalkens */
-.custom-scrollbar::-webkit-scrollbar-button:start {
-  display: none;
-  /* Standard-Pfeil ausblenden */
-}
-
-.custom-scrollbar::-webkit-scrollbar-button:start::before {
-  content: "";
-  /* Leeres Pseudo-Element, um den Standard-Pfeil zu verbergen */
-}
-
-/* Pfeil am Ende des Scrollbalkens */
-.custom-scrollbar::-webkit-scrollbar-button:end {
-  display: none;
-  /* Standard-Pfeil ausblenden */
-}
-
-.custom-scrollbar::-webkit-scrollbar-button:end::before {
-  content: "";
-  /* Leeres Pseudo-Element, um den Standard-Pfeil zu verbergen */
-}
-
-/* Pfeil für den Horizontal-Scrollbar (wenn erforderlich) */
-.custom-scrollbar::-webkit-scrollbar-button:horizontal {
-  display: none;
-  /* Standard-Pfeil ausblenden */
-}
-
-.custom-scrollbar::-webkit-scrollbar-button:horizontal::before {
-  content: "";
-  /* Leeres Pseudo-Element, um den Standard-Pfeil zu verbergen */
-}
-
-/* Beispiel für eine individuelle Scrollbar für ein Element mit der Klasse "custom-scrollbar" */
+/* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
@@ -106,21 +37,6 @@
   background-color: #787878;
 }
 
-
-
-/** use cases
-/*
-body { background-color: var(--bg-default); }
-h2 { border-bottom: 2px solid var(--); }
-.container { color: var(--blue);
-  background-color: var(--white);
-}
-button {
-  background-color: var(--white);
-  color: var(--blue);
-  border: 1px solid var(--blue);
-}
-*/
 
 * {
   scroll-behavior: smooth;

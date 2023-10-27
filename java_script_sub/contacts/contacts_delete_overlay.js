@@ -1,12 +1,12 @@
 async function deleteContactOverlay(ID) {
     openContactOverlay();
-    let pos = getIndexOfJson(ID);
+    let pos = getIndexOfJson('ID', ID);
 
-    let name = getIndexOfJson(ID)['contact_name'];
-    let mail = getIndexOfJson(ID)['contact_mail'];
-    let phone = getIndexOfJson(ID)['contact_phone'];
-    let initials = getIndexOfJson(ID)['contact_initials'];
-    let color = getIndexOfJson(ID)['contact_color'];
+    let name = getIndexOfJson('ID', ID)['contact_name'];
+    let mail = getIndexOfJson('ID', ID)['contact_mail'];
+    let phone = getIndexOfJson('ID', ID)['contact_phone'];
+    let initials = getIndexOfJson('ID', ID)['contact_initials'];
+    let color = getIndexOfJson('ID', ID)['contact_color'];
 
     let overlayTitle = elementByID("overlay_title");
     let overlayTitleSub = elementByID("overlay_title_sub");

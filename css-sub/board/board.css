@@ -1,6 +1,13 @@
 @import url('taskDialog.css');
 @import url('../animations.css');
 
+.content_board-optimize {
+  margin-left: calc(5vw - 10px) !important;
+  max-width: -webkit-fill-available;
+  width: auto;
+  margin-right: 20px;
+}
+
 .board_frame {
   width: 100%;
   height: 232px;
@@ -9,6 +16,7 @@
 .board_headline {
   display: flex;
   justify-content: space-between;
+  margin-left: 10px;
 }
 
 .headline_text {
@@ -22,6 +30,10 @@
   font-weight: 700;
   line-height: 73.2px;
   position: relative;
+}
+
+.task-categories {
+  height: 100vh;
 }
 
 .frame123 {
@@ -120,26 +132,26 @@
   margin-right: auto;
 }
 
-/* .board_distribution {
+.board_content {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  
-} */
+}
 
 /* grid */
-.board_distribution {
+.board_grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 25px;
   overflow-y: auto;
+  padding-right: 25px;
 }
 
-/* grid */
-
 .column_title {
-  width: 90%;
+  width: 250px;
+  margin-top: 10px;
+}
+
+.m-l-10 {
+  margin-left: 10px;
 }
 
 .column_title img:hover {
@@ -150,7 +162,7 @@
 .frame149,
 .frame137,
 .frame138 {
-  width: 100%;
+  min-width: 250px;
   height: 43px;
   display: flex;
   justify-content: space-between;
@@ -162,11 +174,12 @@
   text-align: left;
   position: sticky;
   color: #43526e;
+  background-color: #f5f7f8;
   top: 0;
   z-index: 3;
-  box-shadow: 0px 0px 10px 3px #f5f7f8;
+  box-shadow: 0px 15px 10px 0px #f5f7f8;
   backdrop-filter: blur(5px);
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 #todo,
@@ -213,7 +226,7 @@
 
 .placeholderCard {
   display: flex;
-  width: 252px !important;
+  width: 100%;
   height: 230px !important;
   padding: 16px;
   flex-direction: column;
@@ -244,7 +257,7 @@
   border-radius: 8px;
   color: var(--text-btn);
   height: 27px;
-  transform: rotate(0deg);
+  /* transform: rotate(0deg); */
 }
 
 .board_card_label {

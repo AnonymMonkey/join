@@ -57,7 +57,7 @@
     <div id="header" w3-include-html="../assets/templates/header.html"></div>
 
     <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
-    <div class="content column">
+    <div class="content column content_board-optimize">
       <!-- <div class="board_frame"> -->
       <div class="board_headline">
         <div class="headline_text">Board</div>
@@ -82,34 +82,45 @@
         </div>
       </div>
       <!-- </div> -->
-      <div class="board_distribution custom-scrollbar">
-        <div class="column_title">
-          <div class="respLayout">
+      <div class="board_content custom-scrollbar">
+        <div class="d-flex board_grid custom-scrollbar">
+
+          <div class="m-l-10 task_categories">
             <div class="frame136">To do <img class="pointer" src="../assets/img/board/plus_button.svg"
                 onclick="generateOverlayAddTask('todo', 'board')"></div>
-            <div id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
+            <div class="column_title">
+              <div class="custom-scrollbar" id="todo" ondrop="moveTo('todo')" ondragover="allowDrop(event)"></div>
+            </div>
           </div>
-        </div>
-        <div class="column_title">
-          <div class="respLayout">
+
+          <div class="m-l-10 task_categories">
             <div class="frame149">In Progress <img class="pointer" src="../assets/img/board/plus_button.svg"
                 onclick="generateOverlayAddTask('inProgress', 'board')"></div>
-            <div id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
+            <div class="column_title">
+              <div class="custom-scrollbar" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="column_title">
-          <div class="respLayout">
+
+          <div class="m-l-10 task_categories">
             <div class="frame137">Await feedback <img class="pointer" src="../assets/img/board/plus_button.svg"
                 onclick="generateOverlayAddTask('awaitFeedback', 'board')"></div>
-            <div id="awaitFeedback" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)"></div>
+            <div class="column_title">
+              <div class="custom-scrollbar" id="awaitFeedback" ondrop="moveTo('awaitFeedback')"
+                ondragover="allowDrop(event)"></div>
+            </div>
           </div>
-        </div>
-        <div class="column_title">
-          <div class="respLayout">
+
+          <div class="m-l-10 task_categories">
             <div class="frame138">Done</div>
-            <div id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+            <div class="column_title">
+              <div class="custom-scrollbar" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+            </div>
           </div>
+
         </div>
+
+
       </div>
     </div>
   </div>
