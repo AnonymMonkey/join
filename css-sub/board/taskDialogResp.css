@@ -1,0 +1,25 @@
+@media (max-width: 910px) {
+    .overlay-content-task {
+        left: -24px;
+      }
+  }
+
+
+  @media (max-width: 642px) {
+    .overlay-content-task {
+        left: 0px;
+      }
+  }
+
+
+  @media (max-width: 550px) {
+    .overlay-content-task {
+        transform: scale(0.8);
+      }
+  }
+
+  @media (max-width: 450px) {
+    .overlay-content-task {
+        transform: scale(0.65);
+      }
+  }

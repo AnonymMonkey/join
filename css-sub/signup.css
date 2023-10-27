@@ -94,6 +94,12 @@ body {
     transition: right 0.3s ease;
 }
 
+.overlay-bg-addTask {  
+    left: 232px;
+    width: calc(100% - 232px);  
+    z-index: 4;
+  }
+
 .slide-in {
     animation: slideIn 0.3s ease-in-out forwards;
     /* 0.3s ist die Dauer der Animation */
