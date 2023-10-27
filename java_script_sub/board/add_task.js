@@ -268,14 +268,30 @@ function deleteSubtask(id) {
 function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
-  document.getElementById('subtaskEdit').classList.remove('d-none');
+  let editField = document.getElementById('subtaskEdit');
+  
+  editField.classList.remove('d-none');  
   subtaskfield.value = newSubtasks[id]['subtitle'];
   subTaskActions.innerHTML = '';
   subTaskActions.innerHTML = /*html*/`
     <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
     <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
-  `;
+    `;
+  setEditPosition(id, editField);
+}
+
+/**
+ * This function sets the EditField of a Subtask above the selected list-element
+ * @param {number} id - selected Subtask
+ * @param {string} editField - the Subtask editField
+ */
+function setEditPosition(id, editField) {
+  let editPosition = newSubtasks.length - (id+1);
+  let defaultPxl = 38;
+  let everySub = 29;
+  let newPos = defaultPxl+(editPosition)*everySub;
+  editField.style = `top: -${newPos}px`;
 }
 
 /**
@@ -326,7 +342,9 @@ function toggleCategory() {
   }
 }
 
-
+/**
+ * Hide/Unhide the AssignetTo-Selection, Transform Arrow-Image and sets Focus
+ */
 function toggleAssignedTo(){
   let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
   let userSelection = document.getElementById('user_selection-background');
