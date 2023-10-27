@@ -19,50 +19,74 @@ function getTaskData() {
   getTaskValues(currentTask);
 }
 
+// async function xgetTaskValues(currentTask) {
+  
+  //   let currentTaskData = tasks[currentTask];
+  //   for (const key in currentTaskData) {
+    //     if (currentTaskData.hasOwnProperty(key)) {
+      //       const keyValue = currentTaskData[key];
+      //       if (key === 'prio') {
+        //         setValuesOnRadioButtons(keyValue);
+        //       } else 
+        //       if (key === 'duedate') {
+          //           setValueOnDueDate(key, keyValue);
+          //         } else
+          //           if (key === 'subtasks') {
+            //             for (let i = 0; i < keyValue.length; i++) {
+              //               const element = keyValue[i];
+              //               setSubtasks(element);
+              //             }
+              //           } 
+              //           else 
+              //           if (key === 'status') {              
+                //             setStatus(key, keyValue);
+                //             }
+                //             else 
+                //           if (key === 'category') {            
+                  //             setCategory(keyValue);
+                  //             }
+                  //           else
+                  //             if (key === 'member') {              
+                    //               await userSelection('isClosed');
+                    //               for (let i = 0; i < keyValue.length; i++) {
+                      //                 const element = keyValue[i];
+                      //                 checkContacts(element);
+                      //               }
+                      //             }
+                      //             else {              
+                        //               setTaskValues(currentTask, key, keyValue);
+                        //             }
+                        //     }
+                        //   }
+                        //   document.getElementById('frame39').style = 'margin-top: 42px;';
+                        // }
+                        
 /**
- * Getting all Values from Task
- * @param {number} currentTask - ID of the Task
- */
+* Getting all Values from Task
+* @param {number} currentTask - ID of the Task
+*/
 async function getTaskValues(currentTask) {
+  const currentTaskData = tasks[currentTask];
+  const actions = {
+    prio: setValuesOnRadioButtons,
+    duedate: setValueOnDueDate,
+    subtasks: getSubtasks,
+    status: setStatus,
+    category: setCategory,
+    member: async () => {
+      await userSelection('isClosed');
+      currentTaskData.member.forEach(checkContacts);
+    },
+  };
 
-  let currentTaskData = tasks[currentTask];
-  for (const key in currentTaskData) {
-    if (currentTaskData.hasOwnProperty(key)) {
-      const keyValue = currentTaskData[key];
-      if (key === 'prio') {
-        setValuesOnRadioButtons(keyValue);
-      } else 
-      if (key === 'duedate') {
-          setValueOnDueDate(key, keyValue);
-        } else
-          if (key === 'subtasks') {
-            for (let i = 0; i < keyValue.length; i++) {
-              const element = keyValue[i];
-              setSubtasks(element);
-            }
-          } 
-          else 
-          if (key === 'status') {              
-            setStatus(key, keyValue);
-            }
-            else 
-          if (key === 'category') {            
-            setCategory(keyValue);
-            }
-          else
-            if (key === 'member') {              
-              await userSelection('isClosed');
-              for (let i = 0; i < keyValue.length; i++) {
-                const element = keyValue[i];
-                checkContacts(element);
-              }
-            }
-            else {              
-              setTaskValues(currentTask, key, keyValue);
-            }
+  Object.entries(currentTaskData).forEach(([key, value]) => {
+    if (actions[key]) {
+      actions[key](key, value);
+    } else {
+      setTaskValues(currentTask, key, value);
     }
-  }
-  document.getElementById('frame39').style = 'margin-top: 42px;';
+  });
+  //document.getElementById('frame39').style = 'margin-top: 42px;';
 }
 
 /**
@@ -80,7 +104,7 @@ function setTaskValues(currentTask, key, keyValue) {
  * Set the priority (value of Radio-Button-Group) of the given Task
  * @param {string} keyValue - Array-Value
  */
-function setValuesOnRadioButtons(keyValue) {
+function setValuesOnRadioButtons(key, keyValue) {
   let formId = FORM_FIELDS[keyValue];
   selectedRadioButton(keyValue, formId);
 }
@@ -89,7 +113,15 @@ function setValuesOnRadioButtons(keyValue) {
  * Generates Subtasklist
  * @param {string} keyValue - Subtasks of the given Task
  */
-function setSubtasks(keyValue){    
+function getSubtasks(key, keyValue){    
+
+  for (let i = 0; i < keyValue.length; i++) {
+    const element = keyValue[i];
+    setSubtasks(element);
+  }
+
+}
+function setSubtasks(keyValue){
   newSubtasks.push(keyValue);
   addSubtask();
 }

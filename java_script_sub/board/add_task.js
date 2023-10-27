@@ -342,10 +342,11 @@ function toggleAssignedTo(){
 
 /**
  * Set Values of your choice in Form
+ * @param {number} key - number of key
  * @param {number} choice - value of choice
  * @param {string} origin - name of origin where function was called
  */
-function setCategory(choice, origin) { 
+function setCategory(key, choice, origin) { 
   let categoryName = taskCategory[choice]['title']
   document.getElementById('category_select_name').value = categoryName;
   document.getElementById('category_select').innerHTML = choice;
