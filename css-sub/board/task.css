@@ -491,6 +491,7 @@ form {
   align-items: center;
   display: flex;
   margin-top: 32px;
+  margin-bottom: 16px;
   height: 70px;
 }
 
