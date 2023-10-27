@@ -125,7 +125,10 @@
 @media (max-width: 1024px) {  
   .frame27 {
     width: auto;
-  }  
+  }
+  #addTaskClear {
+    display: none;
+  }
 }
 
 @media (max-width: 910px) {
@@ -146,6 +149,7 @@
     width: 100%;    
     height: calc(80vh);
     padding: 16px;
+    background-color: blue;
   }
   
   #addTaskInputForm {
@@ -203,10 +207,6 @@
   label {
     align-items: center;
     gap: 4px;
-  }
-
-  #addTaskClear {
-    display: none;
   }
   
   #createTaskButton {
