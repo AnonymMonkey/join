@@ -490,7 +490,7 @@ form {
   flex-direction: row-reverse;
   align-items: center;
   display: flex;
-  margin-top: 32px;
+  margin-top: 16px;
   margin-bottom: 16px;
   height: 70px;
 }
@@ -634,7 +634,7 @@ textarea {
   display: flex;
   flex-direction: column;
   width: 440px;
-  gap: 8px;
+  gap: 8px;  
 }
 
 .subtasks_text {

@@ -178,6 +178,15 @@
     gap: 30px;
 }
 
+.arrow-back {
+    display: none;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: calc(8vh + 18px);
+    right: 5vw;
+}
+
 .show-contact-headline {
     display: inline-flex;
     justify-content: flex-end;
