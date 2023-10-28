@@ -1,19 +1,38 @@
-@media (max-width: 910px) {
+@media (max-width: 1200px) {
     .content {
         width: 100vw;
+        max-width: 100%;
         left: 0;
     }
 
     .show-contact {
-        display: none !important;
+        width: -webkit-fill-available;
+        margin-right: 5vw;
+    }
+
+    .arrow-back {
+        display: flex;
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        top: calc(8vh + 18px);
+        right: 5vw;
+    }
+
+    .show-contact-headline {
+        justify-content: flex-start;
     }
 
     .contact-inner-register,
     .contact-register {
         margin-bottom: 128px;
-        width: 100%;
+        width: calc();
+        position: relative;
+        z-index: 1;
     }
+}
 
+@media (max-width: 910px) {
     .contact-register button {
         position: absolute;
         width: 56px;
