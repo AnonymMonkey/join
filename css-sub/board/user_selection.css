@@ -95,7 +95,7 @@
     width: 100%;
     background-color: #FFF;
     border-radius: 10px;
-    height: calc(20vh + 48px);
+    height: calc(18vh + 48px);
     position: absolute;
     top: 40px;
     left: 0;
@@ -106,7 +106,7 @@
 
 #user_selection {
     overflow-y: auto;
-    height: 20vh;
+    height: 100%;
     width: 100%;
 }
 

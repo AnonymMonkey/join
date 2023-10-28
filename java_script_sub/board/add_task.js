@@ -269,6 +269,8 @@ function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
   let editField = document.getElementById('subtaskEdit');
+  let subtask = document.getElementsByClassName('subtask');
+  subtask.style = 'margin-bottom: -32px';
   
   editField.classList.remove('d-none');  
   subtaskfield.value = newSubtasks[id]['subtitle'];
