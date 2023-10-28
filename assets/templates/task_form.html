@@ -7,7 +7,7 @@
 <div class="d-none" id="category_select"></div>
 <!-- form start -->
 
-<form autocomplete="off" id="addTaskInputForm" onsubmit="addNewTask(); return false;">
+<form class="custom-scrollbar" autocomplete="off" id="addTaskInputForm" onsubmit="addNewTask(); return false;">
   <div class="addtask_content">
     <div class="frame219">
       <div class="task_title">
@@ -26,9 +26,8 @@
         <div class="task_description_text">Description<sup class="requiredAsterisk">*</sup></div>
         <div class="frame207">
           <div id="frame17" class="pointer">
-            <textarea required placeholder="Enter a Description" minlength="4" maxlength="70"
-              class="pointer" id="frame17_text"
-              onblur="validateField('frame17_text', 'frame17', 'frame17_label')"></textarea>
+            <textarea required placeholder="Enter a Description" minlength="4" maxlength="70" class="pointer"
+              id="frame17_text" onblur="validateField('frame17_text', 'frame17', 'frame17_label')"></textarea>
           </div>
           <div id="frame17_label" class="requiredField d-none">This field is required</div>
         </div>
@@ -39,7 +38,8 @@
         <div id="frame74" onclick="userSelection()" class="frame74 pointer">
           <input onclick="toggleAssignedTo()" onkeyup="searchContact()" id="search_contact" class="search-contact"
             placeholder="Select contacts to assign">
-          <img onclick="toggleAssignedTo()" id="arrow_dropdown_addTask" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" alt="Arrow-Image">
+          <img onclick="toggleAssignedTo()" id="arrow_dropdown_addTask" class="arrow-dropdown"
+            src="../../assets/img/add-task/arrow_drop_down.png" alt="Arrow-Image">
         </div>
         <div id="user_selection-background" class="d-none">
           <div class="d-none custom-scrollbar" id="user_selection"></div>
@@ -59,8 +59,8 @@
           Due date<sup class="requiredAsterisk">*</sup>
         </div>
         <div id="frame211" class="frame211">
-          <input id="addtask-duedate" type="date" min="2023-10-04" max="2024-04-20" required
-            class="frame14due pointer" onblur="validateField('addtask-duedate', 'addtask-duedate', 'duedate_label')" />
+          <input id="addtask-duedate" type="date" min="2023-10-04" max="2024-04-20" required class="frame14due pointer"
+            onblur="validateField('addtask-duedate', 'addtask-duedate', 'duedate_label')" />
           <div id="duedate_label" class="requiredField d-none">This field is required</div>
         </div>
       </div>
@@ -81,7 +81,7 @@
           <div id="frame25" class="medium pointer" onclick="selectedRadioButton('Medium', 'frame25')">
             <input type="radio" value="Medium" id="Medium" name="prio" class="radio-medium pointer"
               required="required" />
-            <div class="pointer">              
+            <div class="pointer">
               <span class="priority_text">Medium</span>
               <img src="../assets/img/add-task/medium.svg" alt="Medium-Image" id="imgMedium" class="pointer">
             </div>
@@ -101,16 +101,23 @@
 
       <div class="category">
         <div class="category_text">Category<sup class="requiredAsterisk">*</sup></div>
-        <div id="frame74task" class="frame74 pointer">            
-            <input onclick="toggleCategory()" id="category_select_name" class="search-category" placeholder="Select task category" required="required" />
-            <img onclick="toggleCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown" src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);" alt="Arrow-Image">
+        <div id="frame74task" class="frame74 pointer">
+          <input onclick="toggleCategory()" id="category_select_name" class="search-category"
+            placeholder="Select task category" required="required" />
+          <img onclick="toggleCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown"
+            src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);" alt="Arrow-Image">
         </div>
-        <div id="category_selection-background" class="d-none">          
-          <div data-value="0" onclick="setCategory(0,this.getAttribute('data-value'), 'add')" class="categoryElement pointer">HTML + CSS</div>
-          <div data-value="1" onclick="setCategory(0,this.getAttribute('data-value'), 'add')" class="categoryElement pointer">JavaScript</div>
-          <div data-value="2" onclick="setCategory(0,this.getAttribute('data-value'), 'add')" class="categoryElement pointer">Team</div>
-          <div data-value="3" onclick="setCategory(0,this.getAttribute('data-value'), 'add')" class="categoryElement pointer">Meeting</div>
-          <div data-value="4" onclick="setCategory(0,this.getAttribute('data-value'), 'add')" class="categoryElement pointer">Angular</div>
+        <div id="category_selection-background" class="d-none">
+          <div data-value="0" onclick="setCategory(0,this.getAttribute('data-value'), 'add')"
+            class="categoryElement pointer">HTML + CSS</div>
+          <div data-value="1" onclick="setCategory(0,this.getAttribute('data-value'), 'add')"
+            class="categoryElement pointer">JavaScript</div>
+          <div data-value="2" onclick="setCategory(0,this.getAttribute('data-value'), 'add')"
+            class="categoryElement pointer">Team</div>
+          <div data-value="3" onclick="setCategory(0,this.getAttribute('data-value'), 'add')"
+            class="categoryElement pointer">Meeting</div>
+          <div data-value="4" onclick="setCategory(0,this.getAttribute('data-value'), 'add')"
+            class="categoryElement pointer">Angular</div>
         </div>
         <div id="category_select_label" class="requiredField d-none">This field is
           required</div>
@@ -122,7 +129,7 @@
           <input type="text" placeholder="Add new subtask" class="pointer" maxlength="30" id="frame14_subtask_text"
             onfocus="subtaskActions('show')" />
           <img id="plusSubtaskButton" onfocus="subtaskActions('show')" class="pointer button-hover"
-            src="../assets/img/add-task/plus.svg" alt="Plus-Image">  
+            src="../assets/img/add-task/plus.svg" alt="Plus-Image">
           <img id="clearSubtaskInput" onclick="clearInput('frame14_subtask_text')" class="d-none pointer button-hover"
             src="../assets/img/add-task/cancel.svg" alt="Cancel-Image">
           <img id="subtask-vector" class="d-none" src="../assets/img/add-task/vector.png" alt="Vector-Image">
@@ -131,41 +138,42 @@
         </div>
         <div id="frame14_subtask_label" class="requiredField d-none">Maximum number
           reached</div>
-          <ul id="subtasklist"></ul>
-          <div id="subtaskEdit" class="d-none">
-            <input type="text" maxlength="30" id="subtaskEditInput">
-            <div id="subtaskEditActions"></div>
-          </div>
+        <ul id="subtasklist"></ul>
+        <div id="subtaskEdit" class="d-none">
+          <input type="text" maxlength="30" id="subtaskEditInput">
+          <div id="subtaskEditActions"></div>
         </div>
       </div>
     </div>
-    
-    <div class="taskFormFooter">
-      <div class="frame35">
-        <div class="frame27">
-          <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">
-            Clear
-            <img src="../assets/img/add-task/cancel.svg" alt="Cancel-Image"/>
-          </div>
-          <div id="addTaskCancel" class="buttons-cancel pointer d-none" onclick="closeAddTaskOverlay(), doNotClose(event)">
-            Cancel
-            <img src="../assets/img/add-task/cancel.svg" alt="Cancel-Image"/>
-          </div>
-          <button id="createTaskButton" type="submit" class="primary_check_button pointer">
-            Create Task
-            <img src="../assets/img/add-task/check.svg" alt="Accept-Image"/>
-          </button>
-          <button id="editTaskButton" type="submit" class="primary_check_button pointer">
-            Ok
-            <img src="../assets/img/add-task/check.svg" alt="Accept-Image"/>
-          </button>
-        </div>
-      </div>
-      <div class="requiredInfo">
-        <sup class="requiredAsterisk">*</sup>This field is required
-      </div>    
   </div>
-  
+
+  <div class="taskFormFooter">
+    <div class="frame35">
+      <div class="frame27">
+        <div id="addTaskClear" class="buttons-cancel pointer" onclick="resetForm()">
+          Clear
+          <img src="../assets/img/add-task/cancel.svg" alt="Cancel-Image" />
+        </div>
+        <div id="addTaskCancel" class="buttons-cancel pointer d-none"
+          onclick="closeAddTaskOverlay(), doNotClose(event)">
+          Cancel
+          <img src="../assets/img/add-task/cancel.svg" alt="Cancel-Image" />
+        </div>
+        <button id="createTaskButton" type="submit" class="primary_check_button pointer">
+          Create Task
+          <img src="../assets/img/add-task/check.svg" alt="Accept-Image" />
+        </button>
+        <button id="editTaskButton" type="submit" class="primary_check_button pointer">
+          Ok
+          <img src="../assets/img/add-task/check.svg" alt="Accept-Image" />
+        </button>
+      </div>
+    </div>
+    <div class="requiredInfo">
+      <sup class="requiredAsterisk">*</sup>This field is required
+    </div>
+  </div>
+
 </form>
 <!-- form end -->
 
