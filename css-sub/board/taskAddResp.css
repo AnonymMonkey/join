@@ -171,8 +171,7 @@
     width: 100%;
   }
 
-  .overlay-content-addTask,
-  .overlay-content-editTask {
+  .overlay-content-addTask {
     height: calc(100vh - 259px);
     margin-bottom: 32px;
     padding: 32px 24px;
