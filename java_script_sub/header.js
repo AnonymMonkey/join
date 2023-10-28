@@ -7,63 +7,91 @@ let users = [];
 let activeUserMail;
 let activeUserInitials;
 let activeUserName;
-const HEADER_FIELDS = {
+
+
+const QUICKLINK_LOGIN = {
+    quickSummary: 'http://127.0.0.1:5500/html-sub/summary.html?msg=summary&login=true',
+    quickAddTask: 'http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask&login=true',
+    quickBoard: 'http://127.0.0.1:5500/html-sub/board.html?msg=board&login=true',
+    quickContacts: 'http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&login=true',
+    privacy: 'http://127.0.0.1:5500/html-sub/privacy_data_protection.html?msg=privacy&login=true',
+    legal: 'http://127.0.0.1:5500/html-sub/legal_notice.html?msg=legal&login=true',
+    help: 'http://127.0.0.1:5500/html-sub/help.html?msg=help&login=true'
+}
+
+
+const QUICKLINK_GUEST = {
     quickSummary: 'http://127.0.0.1:5500/html-sub/summary.html?msg=summary',
-    quickAddTask: 'frame14_text',
-    // so on
+    quickAddTask: 'http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask',
+    quickBoard: 'http://127.0.0.1:5500/html-sub/board.html?msg=board',
+    quickContacts: 'http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts',
+    privacy: 'http://127.0.0.1:5500/html-sub/privacy_data_protection.html?msg=privacy',
+    legal: 'http://127.0.0.1:5500/html-sub/legal_notice.html?msg=legal',
+    help: 'http://127.0.0.1:5500/html-sub/help.html?msg=help'
 }
 
-function test(id) {
-    let formId = HEADER_FIELDS[id];
-    
-    console.log(formId);
-}
 
-
-//Funktion kürzen!!
+/**
+ * adjusts the backgroundcolor of the quicklinks in the sidebar and makes sure that the
+ * initials are carried over to the next page
+ */
 async function adjustQuicklinkBG(){
-    
     loadFromLocalStorage();
     await loadUsers();
     setActiveUser();
     activeUserInitials = getActiveUserInitials();
     identifyGuest();
     if(msg) {
-        switch (msg) {
-            case 'summary':
-                addBgToQuickSummary();
-                addBgToQuickSummaryResp();
-            break;
-        
-            case 'addtask':
-                addBgToQuickAddTask();
-                addBgToQuickAddTaskResp();
-            break;
-
-            case 'board':
-                addBgToQuickBoard();
-                addBgToQuickBoardResp();
-            break;
-
-            case 'contacts':
-                addBgToQuickContacts();
-                addBgToQuickContactsResp();
-            break;
-
-            default:
-                addBgToQuickSummary();
-                addBgToQuickSummaryResp();
-            break;
-        }
+        identifyQuicklink(msg);
     }
 }
 
 
+/**
+ * opens the quicklink to the next page according to the msg parameter
+ * @param {Sring} msg can be "summary", "addtask", "board", "contacts", "privacy", "legal" or "help"
+ */
+function identifyQuicklink(msg){
+    switch (msg) {
+        case 'summary':
+            addBgToQuickSummary();
+            addBgToQuickSummaryResp();
+        break;
+    
+        case 'addtask':
+            addBgToQuickAddTask();
+            addBgToQuickAddTaskResp();
+        break;
+
+        case 'board':
+            addBgToQuickBoard();
+            addBgToQuickBoardResp();
+        break;
+
+        case 'contacts':
+            addBgToQuickContacts();
+            addBgToQuickContactsResp();
+        break;
+
+        default:
+            addBgToQuickSummary();
+            addBgToQuickSummaryResp();
+        break;
+    }
+}
+
+
+/**
+ * load email for current active user from local storage
+ */
 function loadFromLocalStorage(){
     activeUserMail = localStorage.getItem('activeUser');
 }
 
 
+/**
+ * load user-data from backend
+ */
 async function loadUsers(){
     try {
         users = JSON.parse(await getItem('users'));
@@ -74,6 +102,9 @@ async function loadUsers(){
 }
 
 
+/**
+ * identifies the current active user
+ */
 async function setActiveUser(){
     let user = users.find(u => u.email == activeUserMail);
     if(user){
@@ -83,45 +114,84 @@ async function setActiveUser(){
 }
 
 
+/**
+ * identifies the first letter of both user names to combine them as
+ * their initials to be viewed in the profile picture
+ * @returns first letter of both user names as capital letters
+ */
 function getActiveUserInitials() {
     let name = activeUserName
     if(name != 'undefined' &&  name != undefined){
         let words = name.split(' ');
-
         let firstInitial = words[0].charAt(0).toUpperCase();
         let secondInitial = words[1].charAt(0).toUpperCase();
-    
         let initials = firstInitial + secondInitial;
-    
         return initials;
     }
 }
 
-//Funktion kürzen??
+
+/**
+ * identifies the role of the user either a guest, logged in member or entering from a
+ * diefferent site
+ */
 function identifyGuest(){
-    if(msg == 'guest'){ //first time User enters through GuestLoginButton
-        document.getElementById('headerInitials').textContent = 'G';
-        document.getElementById('headerInitialsLogin').classList.add('dNone');
-        activeUserInitials = "";
-        guest = true;
-    }else if(login == 'true'){ //login=true only if user logged in
-        document.getElementById('headerInitialsLogin').textContent = activeUserInitials;
-        document.getElementById('headerInitials').classList.add('dNone');
-        guest = false;
+    if(msg == 'guest'){
+        enteringAsAGuest();
+    }else if(login == 'true'){
+        enteringAsAUser();
     }
-    //if user entered from different Site without Login or Guestlogin
     else if(!msg){
-        window.open("http://127.0.0.1:5500/index.html", "_self");
+        enteringWithoutLoginOrGuest();
     }
-    //user moves from guestlogin to another site
     else{
-        document.getElementById('headerInitials').textContent = 'G';
-        document.getElementById('headerInitialsLogin').classList.add('dNone')
-        guest = true;
+        continueAsAGuest();
     }
 }
 
 
+/**
+ * sets the values according to the guest status after first guest login
+ */
+function enteringAsAGuest(){
+    document.getElementById('headerInitials').textContent = 'G';
+    document.getElementById('headerInitialsLogin').classList.add('dNone');
+    activeUserInitials = "";
+    guest = true;
+}
+
+
+/**
+ * sets the values according to the user status
+ */
+function enteringAsAUser(){
+    document.getElementById('headerInitialsLogin').textContent = activeUserInitials;
+    document.getElementById('headerInitials').classList.add('dNone');
+    guest = false;
+}
+
+
+/**
+ * redirects to login page if user try to enter without login or guest login
+ */
+function enteringWithoutLoginOrGuest(){
+    window.open("http://127.0.0.1:5500/index.html", "_self");
+}
+
+
+/**
+ * sets the values according to the guest status, when moving from site to site within join
+ */
+function continueAsAGuest(){
+    document.getElementById('headerInitials').textContent = 'G';
+    document.getElementById('headerInitialsLogin').classList.add('dNone')
+    guest = true;
+}
+
+
+/**
+ * shows the the submenu from headers usericon/initials
+ */
 function showSubmenu(){
     if(showMenu){
         document.getElementById('subMenu').classList.add('dNone');
@@ -136,12 +206,19 @@ function showSubmenu(){
 }
 
 
+/**
+ * logs out the user and opens the loginpage
+ */
 function logOut(){
     localStorage.removeItem('loginData');
     window.open("http://127.0.0.1:5500/index.html", "_self");
 }
 
 
+/** 
+ * opens the the next page of Join according to id as a guest or as a logged in user
+ * @param {string} id can be "quickSummary", "quickAddTask", "quickBoard", "quickContacts", "privacy", "legal" or "help"
+ */
 function openSelectedQuicklink(id){
     if(guest){
         openGuestQuicklinks(id);
@@ -152,72 +229,42 @@ function openSelectedQuicklink(id){
 }
 
 
+/**
+ * opens the legal notice as a non user/guest
+ */
 function showLegalExternal(){
     window.open('http://127.0.0.1:5500/html-sub/legal_notice_external?msg=legal.html', '_blank');
 }
 
+
+/**
+ * opens the privacy data protection as a non user/guest
+ */
 function showPrivacyExternal(){
     window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external?msg=privacy.html', '_blank');
 }
 
+
 /**
  * opens the the next page of Join according to id as a guest
- * @param {string} id 
+ * @param {string} id can be "quickSummary", "quickAddTask", "quickBoard", "quickContacts", "privacy", "legal" or "help"
  */
-//Funktion kürzen??
 function openGuestQuicklinks(id){
-    if(id=='quickSummary'){
-        window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary", "_self");
-    }
-    if(id=='quickAddTask'){
-        window.open("http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask", "_self");
-    }
-    if(id=='quickBoard'){
-        window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board", "_self");
-    }
-    if(id=='quickContacts'){
-        window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts", "_self");
-    }
-    if(id=='privacy'){
-        window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html?msg=privacy", "_self");
-    }
-    if(id=='legal'){
-        window.open("http://127.0.0.1:5500/html-sub/legal_notice.html?msg=legal", "_self");
-    }
-    if(id=='help'){
-        window.open("http://127.0.0.1:5500/html-sub/help.html?msg=help", "_self");
-    }
+    let quicklink = QUICKLINK_GUEST[id];
+    window.open(quicklink, "_self");
 }
 
-//Funktion kürzen??
+ 
 /**
  * opens the the next page of Join according to id as a logged in member 
- * @param {string} id string 
+ * @param {string} id can be "quickSummary", "quickAddTask", "quickBoard", "quickContacts", "privacy", "legal" or "help"
  *            
  */
-function openLoginQuicklinks(id){
-    if(id=='quickSummary'){
-        window.open("http://127.0.0.1:5500/html-sub/summary.html?msg=summary&login=true", "_self");
-    }
-    if(id=='quickAddTask'){
-        window.open("http://127.0.0.1:5500/html-sub/add_task.html?msg=addtask&login=true", "_self");
-    }
-    if(id=='quickBoard'){
-        window.open("http://127.0.0.1:5500/html-sub/board.html?msg=board&login=true", "_self");
-    }
-    if(id=='quickContacts'){
-        window.open("http://127.0.0.1:5500/html-sub/contacts.html?msg=contacts&login=true", "_self");
-    }
-    if(id=='privacy'){
-        window.open("http://127.0.0.1:5500/html-sub/privacy_data_protection.html?msg=privacy&login=true", "_self");
-    }
-    if(id=='legal'){
-        window.open("http://127.0.0.1:5500/html-sub/legal_notice.html?msg=legal&login=true", "_self");
-    }
-    if(id=='help'){
-        window.open("http://127.0.0.1:5500/html-sub/help.html?msg=help&login=true", "_self");
-    }
+function openLoginQuicklinks(id){ 
+    let quicklink = QUICKLINK_LOGIN[id];
+    window.open(quicklink, "_self");
 }
+
 
 /**
  * adding dark blue background to quicklink "summary" in desktop view
@@ -234,6 +281,7 @@ function addBgToQuickSummary(){
     document.getElementById('quickContacts').classList.add('hoverBG');
 }
 
+
 /**
  * adding dark blue background to quicklink "add task" in desktop view
  */
@@ -249,6 +297,7 @@ function addBgToQuickAddTask(){
     document.getElementById('quickContacts').classList.add('hoverBG');
 }
 
+
 /**
  * adding dark blue background to quicklink "board" in desktop view
  */
@@ -263,6 +312,7 @@ function addBgToQuickBoard(){
     document.getElementById('quickBoard').classList.remove('hoverBG');
     document.getElementById('quickContacts').classList.add('hoverBG');
 }
+
 
 /**
  * adding dark blue background to quicklink "contacts" in desktop view
@@ -295,6 +345,7 @@ function addBgToQuickSummaryResp(){
     document.getElementById('respQuickContacts').classList.add('hoverBG');
 }
 
+
 /**
  * adding dark blue background to quicklink "add task" in mobile view
  */
@@ -309,6 +360,7 @@ function addBgToQuickAddTaskResp(){
     document.getElementById('respQuickBoard').classList.add('hoverBG');
     document.getElementById('respQuickContacts').classList.add('hoverBG');
 }
+
 
 /**
  * adding dark blue background to quicklink "board" in mobile view
@@ -325,6 +377,7 @@ function addBgToQuickBoardResp(){
     document.getElementById('respQuickContacts').classList.add('hoverBG');
 }
 
+
 /**
  * adding dark blue background to quicklink "contacts" in mobile view
  */
@@ -339,6 +392,7 @@ function addBgToQuickContactsResp(){
     document.getElementById('respQuickBoard').classList.add('hoverBG');
     document.getElementById('respQuickContacts').classList.remove('hoverBG');
 }
+
 
 /**
  * opens board page
