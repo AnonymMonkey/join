@@ -31,7 +31,8 @@
     position: relative;
     top: 0;
     left: 0;
-    width: 70%;
+    width: 100%;
+    z-index: -1;
   }
 
   #addTaskInputForm {
@@ -148,8 +149,7 @@
     left: 0;
     width: 100%;    
     height: calc(80vh);
-    padding: 16px;
-    background-color: blue;
+    padding: 16px;    
   }
   
   #addTaskInputForm {
