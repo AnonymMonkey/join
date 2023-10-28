@@ -124,9 +124,7 @@ async function getLoginType() {
  * identifies the current greeting-string depending on the current time
  */
 function getCurrentGreeting() {
-    /* Get Hours */
     let hours = new Date().getHours();
-
     if (hours >= 18 && hours <= 5) {
         currentGreeting = 'Good evening!';
     }
@@ -155,7 +153,6 @@ async function greetingGuest() {
 async function greetingUser1() {
     document.getElementById('content').innerHTML = /*html*/`
         <span class="spanGreeting">${currentGreeting}</span>
-        
     `
 }
 
@@ -235,27 +232,22 @@ function getAmountUrgent() {
  * identifies the nearest Date of all tasks with the  status "urgent"
  * from board and formates it to the needed date format or formates
  * the date which is given via the parameter "date"
- * @param {*} date date as number
+ * @param {number} date date as number
  * @returns returns date in form of day/month/year
  */
 function getDueDate(date) {
-    //Get nearest Date from Array
     let nearestDate = Math.min.apply(Math, urgentDueDates)
     let dueDate;
-    //Convert DateNumber to String    
     if (date) {
         dueDate = new Date(date);
     }
     else {
         dueDate = new Date(nearestDate);
     }
-
     let currentday = String(dueDate.getDate()).padStart(2, '0');
     let currentMonth = String(dueDate.getMonth() + 1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
     let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;    
-
-
     if (urgentDueDates.length > 0) {
         let urgentDate = `${currentday}-${currentMonth}-${currentYear}`;
         urgentDueDate = urgentDate;
@@ -263,7 +255,6 @@ function getDueDate(date) {
     else {
         urgentDueDate = 'No';
     }
-
     return formattedDate;
 }
 

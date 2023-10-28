@@ -33,9 +33,7 @@ function searchMailsInJSON() {
 async function registerUser(){
     let name = document.getElementById('signupName').value;
     let email = document.getElementById('signupEmail').value;    
-    if(!checkMail(email)){
-        return;
-    }
+    if(!checkMail(email)){return;}
     let password = document.getElementById('signupPassword').value;
     let confirmation = document.getElementById('signupConfirmation').value;
     if(await checkName()){
@@ -143,7 +141,9 @@ async function loadUsers(){
     }
 }
 
-
+/**
+ * shows an error message if the confirmation of the password is wrong
+ */
 function showMsgBoxInvalidConfirmation(){
     document.getElementById('decoSignupConfirmation').classList.remove('changeBorderBlack')
     document.getElementById('decoSignupConfirmation').classList.add('changeBorderRed')
@@ -153,7 +153,9 @@ function showMsgBoxInvalidConfirmation(){
     `;
 }
 
-
+/**
+ * checks if the checkbox of "remember me" is checked or unchecked
+ */
 function changeCheckbox(){
     if(isChecked){
         signupCheckboxOff()
@@ -163,7 +165,9 @@ function changeCheckbox(){
     }
 }
 
-
+/**
+ * changes the status of the checkbox to unchecked
+ */
 function signupCheckboxOff(){
     document.getElementById('signupCheckboxUnchecked').classList.remove('dNone');
     document.getElementById('signupCheckboxChecked').classList.add('dNone');
@@ -172,7 +176,9 @@ function signupCheckboxOff(){
     isChecked = false;
 }
 
-
+/**
+ * changes the status of the checkbox to checked
+ */
 function signupCheckboxOn(){
     document.getElementById('signupCheckboxUnchecked').classList.add('dNone');
     document.getElementById('signupCheckboxChecked').classList.remove('dNone');
@@ -182,6 +188,11 @@ function signupCheckboxOn(){
 }
 
 
+/**
+ * identifies which inputfield is pressed and is going to be changed
+ * to either blue or black borders
+ * @param {String} id can be "signupName", "signupEmail", "signupPassword" or "signupConfirmation"
+ */
 function changeBorderOnFocus(id){
     let identifiers = ['signupName', 'signupEmail', 'signupPassword', 'signupConfirmation'];
     let decorations = ['decoSignupName', 'decoSignupEmail', 'decoSignupPassword', 'decoSignupConfirmation'];
@@ -192,12 +203,17 @@ function changeBorderOnFocus(id){
             signupChangeBorderToBlue(decorations, index)
         }
         else{
-            sisgnupChangeBorderToStandard(decorations, index)
+            signupChangeBorderToStandard(decorations, index)
         } 
     }
 }
 
 
+/**
+ * changes the bordercolor of the clicked inputfield to blue
+ * @param {array} decorations can be either "decoLoginName" or "decoLoginPassword" depending on index
+ * @param {number} index either 0 or 1 and determines the value of the array
+ */
 function signupChangeBorderToBlue(decorations, index){
     document.getElementById(`${decorations[index]}`).classList.add('changeBorderBlue');
     document.getElementById('decoSignupConfirmation').classList.remove('changeBorderRed')
@@ -205,13 +221,21 @@ function signupChangeBorderToBlue(decorations, index){
 }
 
 
-function sisgnupChangeBorderToStandard(decorations, index){
+/**
+ * changes the bordercolor of the clicked inputfield to black
+ * @param {array} decorations can be either "decoLoginName" or "decoLoginPassword" depending on index
+ * @param {number} index either 0 or 1 and determines the value of the array
+ */
+function signupChangeBorderToStandard(decorations, index){
     document.getElementById(`${decorations[index]}`).classList.remove('changeBorderBlue');
     document.getElementById('decoSignupConfirmation').classList.remove('changeBorderRed')
     showLock();
 }
 
 
+/**
+ * shows the locksymbol of the inputfield "password"
+ */
 function showLock(){
     document.getElementById('passwordLock').classList.remove('dNone');
     document.getElementById('passwordVisibilityOff').classList.add('dNone');
@@ -225,7 +249,10 @@ function showLock(){
 }
 
 
-//change visibility of lock-symbol in signup-form
+/**
+ * controls the visisbility of the inputfield "password"
+ * @param {string} id can be "passwordLock" "passwordVisibilityOff" or "passwordVisibility"
+ */
 function passwordVisibilityLock(id){
     let identifiers = ['passwordLock', 'passwordVisibilityOff', 'passwordVisibility'];
     for (let index = 0; index < identifiers.length; index++) {
@@ -244,6 +271,9 @@ function passwordVisibilityLock(id){
 }
 
 
+/**
+ * reveals the password at the signup page
+ */
 function singupRevealPassword(){
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.add('dNone');
@@ -252,6 +282,9 @@ function singupRevealPassword(){
 }
 
 
+/**
+ * covers the password at the signup page
+ */
 function signupCoverPassword(){
     document.getElementById('passwordLock').classList.add('dNone');
     document.getElementById('passwordVisibilityOff').classList.remove('dNone');
@@ -260,6 +293,10 @@ function signupCoverPassword(){
 }
 
 
+/**
+ * controls the visisbility of the inputfield "confirmation"
+ * @param {string} id can be "confirmationLock" "confirmationVisibilityOff" or "confirmationVisibility"
+ */
 function confirmationVisibilityLock(id){
     let identifiers = ['confirmationLock', 'confirmationVisibilityOff', 'confirmationVisibility'];
     for (let index = 0; index < identifiers.length; index++) {
@@ -278,6 +315,9 @@ function confirmationVisibilityLock(id){
 }
 
 
+/**
+ * reveals the confirmation of the password at the signup page
+ */
 function signupRevealConfirmation(){
     document.getElementById('confirmationLock').classList.add('dNone');
     document.getElementById('confirmationVisibilityOff').classList.add('dNone');
@@ -286,6 +326,9 @@ function signupRevealConfirmation(){
 }
 
 
+/**
+ * covers the confirmation of the password at the signup page
+ */
 function signupCoverConfirmation(){
     document.getElementById('confirmationLock').classList.add('dNone');
     document.getElementById('confirmationVisibilityOff').classList.remove('dNone');
@@ -294,16 +337,25 @@ function signupCoverConfirmation(){
 }
 
 
+/**
+ * opens the login page
+ */
 function openLogin(){
     window.location.href = 'http://127.0.0.1:5500/index.html';
 }
 
 
+/**
+ * opens the privacy data protection as a non user/guest
+ */
 function openPrivacy(){
     window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html', '_blank');
 }
 
 
+/**
+ * opens the legal notice as a non user/guest
+ */
 function openLegal(){
     window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
 }

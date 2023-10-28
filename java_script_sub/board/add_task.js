@@ -135,11 +135,12 @@ async function addNewTask(origin) {
   await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);  
   if (origin) {  
     closeAddTaskOverlay();
-  } 
+  }
   resetForm();
   identifyGuest();
   openSelectedQuicklink('quickBoard');
 }
+
 
 /**
  * Used to check whether it is a new or an existing task.

@@ -20,7 +20,7 @@ async function renderIndex() {
 
 
 /**
- * checks if the checkbox of "remember me" is checked or unchecked
+ * checks if the checkbox for accepted privacy policy is checked or unchecked
  */
 function changeCheckbox() {
     if (isChecked) {
