@@ -289,6 +289,7 @@ function deleteSubtask(id) {
   newSubtasks.splice(id, 1);
   addSubtask();
   hideEditSubtask();
+  moveTaskFormFooter(0);
 }
 
 /**
@@ -298,9 +299,7 @@ function deleteSubtask(id) {
 function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
-  let editField = document.getElementById('subtaskEdit');
-  let subtask = document.getElementsByClassName('subtask');
-  subtask.style = 'margin-bottom: -32px';
+  let editField = document.getElementById('subtaskEdit');  
 
   editField.classList.remove('d-none');
   subtaskfield.value = newSubtasks[id]['subtitle'];
@@ -311,6 +310,13 @@ function editSubtask(id) {
     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
     `;
   setEditPosition(id, editField);
+  moveTaskFormFooter(40);
+}
+
+function moveTaskFormFooter(pixel) {  
+  let taskFormFooter = document.getElementById('taskFormFooter');
+  taskFormFooter.style.top = `-${pixel}px`;
+  taskFormFooter.style.position = 'relative';
 }
 
 /**
@@ -335,6 +341,7 @@ function updateSubtask(id) {
     document.getElementById('subtaskEditInput').value;
   addSubtask();
   hideEditSubtask();
+  moveTaskFormFooter(0);
 }
 
 /**
