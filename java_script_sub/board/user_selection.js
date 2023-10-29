@@ -81,6 +81,9 @@ async function userSelection(isClosed) {
       isOpen = true;
     }
   }
+  if(!isClosed){
+    whoAmi();
+  }
 }
 
 /**
