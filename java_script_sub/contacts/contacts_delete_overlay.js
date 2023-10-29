@@ -24,6 +24,7 @@ async function deleteContactOverlay(ID) {
     overlayInitials.classList.remove('person-bg');
     overlayInitials.classList.add('contact-headline-initials');
     overlayInitials.classList.add('contact-headline-initials-font');
+    overlayInitials.classList.add('person-bg');
     overlayInitials.innerHTML = initials;
     overlayInitials.style = `background-color: ${color}`;
 

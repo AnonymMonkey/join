@@ -68,6 +68,8 @@
         margin-top: 0;
         gap: 10px;
         justify-content: center;
+        position: absolute;
+        bottom: 5px;
     }
 
     .buttons-cancel {
@@ -87,10 +89,54 @@
 
     .overlay-right-form {
         align-items: center;
-        width: 50vw;
+        /*         width: 50vw; */
     }
 
     .place-img input::placeholder {
         font-size: 16px;
+    }
+}
+
+@media (max-height: 850px) {
+    .overlay-right form {
+        height: unset;
+    }
+
+    .overlay-right .person-bg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .person-bg img {
+        width: unset;
+        height: 80%;
+    }
+
+    .overlay-right-form {
+        gap: 0;
+    }
+
+    .place-img {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-height: 780px) {
+    #overlay_title_sub {
+        display: none;
+    }
+
+    .overlay-left img {
+        display: none;
+    }
+}
+
+@media (max-height: 700px) {
+    .place-img {
+        transform: scale(0.6);
+    }
+
+    .place-img input {
+        height: 35px;
     }
 }
