@@ -114,7 +114,6 @@
 .contact-info {
     display: flex;
     width: 100%;
-    /*  352px */
     padding: 15px 24px;
     align-items: flex-start;
     gap: 35px;

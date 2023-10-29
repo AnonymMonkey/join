@@ -19,7 +19,8 @@ input::-webkit-inner-spin-button {
 .overlay-content {
     position: relative;
 
-    width: 1212px;
+    width: 90%;
+    max-width: 1400px;
     height: 592px;
 
     padding: 0 !important;
@@ -150,9 +151,13 @@ input::-webkit-inner-spin-button {
     gap: 32px;
 }
 
+.place-img {
+    width: 100%;
+}
+
 .place-img input {
     display: flex;
-    width: 422px;
+    width: 100%;
     padding: 13px 21px;
     align-items: center;
     gap: 10px;

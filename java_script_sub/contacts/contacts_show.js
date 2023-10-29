@@ -1,7 +1,7 @@
 let selectedContact = null;
 
 function showContact(ID) {
-    if (window.innerWidth <= 910) {
+    if (window.innerWidth <= 1200) {
         elementByID('contact_register').classList.add('d-none');
     }
 
