@@ -1,6 +1,4 @@
 @media (max-width: 1500px) {
-  .content_board-optimize {}
-
   .board_content {
     overflow-y: auto;
     margin-bottom: 10vh;
@@ -23,7 +21,7 @@
   #done {
     display: flex;
     overflow-x: auto;
-    height: 33vh;
+    height: 300px;
     padding: 10px 0px 10px 10px;
     align-items: center;
     gap: 20px;
@@ -42,15 +40,26 @@
   }
 
   .card {
-    height: 100%;
+    height: 80%;
     width: unset;
     aspect-ratio: 1/1;
+    position: relative;
   }
 
   .placeholderCard {
     height: 25vh;
     width: unset;
     aspect-ratio: 1/1;
+  }
+
+  .board_card {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+
+  .frame114 {
+    margin-top: 35px;
   }
 
   .no_tasks_feedback {

@@ -134,6 +134,8 @@
 
 .board_content {
   width: 100%;
+  overflow-y: auto;
+  height: 70vh;
 }
 
 /* grid */
@@ -187,7 +189,6 @@
 #awaitFeedback,
 #done {
   width: 100%;
-  height: calc(100vh - 328px);
   display: grid;
   align-items: flex-start;
   grid-template-columns: repeat(1, 1fr);
