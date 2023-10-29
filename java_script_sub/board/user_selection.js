@@ -18,14 +18,13 @@ document.addEventListener('click', function (event) {
 */
 
 async function userSelection(isClosed) {
-  
   //Function gets called by toggleAssignedTo() from add_task.js with isClosed = undefined
   //if the undefined status is not catched the userSelection(isClosed)-function will
   //remove all changes from toggleAssignedTo(), which will be prevented by this if-statement
   //if(isClosed == undefined){
   //  return;
   //}
-  
+
   isOpen = isClosed;
   await loadContacts();
   contacts.sort((a, b) =>
@@ -40,16 +39,15 @@ async function userSelection(isClosed) {
 
   let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
 
-  if (select.classList.contains('d-none') ) {
+  if (select.classList.contains('d-none')) {
     select.classList.remove('d-none');
-    if(isClosed !== undefined){
+    if (isClosed !== undefined) {
       arrowDropdown.style.transform = 'rotate(360deg)';
     }
-    
   } else {
     select.classList.add('d-none');
     selectBG.classList.add('d-none');
-    if(isClosed !== undefined){
+    if (isClosed !== undefined) {
       arrowDropdown.style.transform = 'rotate(180deg)';
     }
   }
@@ -76,28 +74,29 @@ async function userSelection(isClosed) {
       };
     }
     select.innerHTML += userSelection_addContact_button();
-    if(isClosed !== undefined){
+    if (isClosed !== undefined) {
       select.classList.remove('d-none');
       selectBG.classList.remove('d-none');
       selectedUser.classList.add('d-none');
       isOpen = true;
     }
-
   }
 }
 
+/**
+ * Filter all Contacts by name, hide unmatching
+ */
 function searchContact() {
   let searchContact = elementByID('search_contact').value.toLowerCase();
-
   for (let i = 0; i < contacts.length; i++) {
     let contactName = contacts[i]['register_entry'][0]['contact_name'];
     let contactID = contacts[i]['register_entry'][0]['contact_ID'];
-    let userElement = userElement(contactID);
+    let userDiv = userElement(contactID);
 
     if (contactName.toLowerCase().includes(searchContact)) {
-      userElement.classList.remove('d-none');
+      userDiv.classList.remove('d-none');
     } else {
-      userElement.classList.add('d-none');
+      userDiv.classList.add('d-none');
     }
   }
 }
@@ -134,8 +133,8 @@ function getBadge(ID) {
 function hiddenBadge(ID) {
   if (userIndex(ID) == -1) {
     if (uncheckedIMG(ID) && checkedIMG(ID)) {
-    uncheckedIMG(ID).classList.remove('d-none');
-    checkedIMG(ID).classList.add('d-none');
+      uncheckedIMG(ID).classList.remove('d-none');
+      checkedIMG(ID).classList.add('d-none');
     }
   } else {
     if (uncheckedIMG(ID) && checkedIMG(ID)) {
