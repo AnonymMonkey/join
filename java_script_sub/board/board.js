@@ -21,6 +21,10 @@ function setStylesheet() {
   document.getElementById('smallScreenStyle').disabled = true;
 }
 
+/**
+ * Update-Function with filter
+ * @param {string} search - part of the title or description
+ */
 function updateHTML(search) {
   let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
   let longText = [
