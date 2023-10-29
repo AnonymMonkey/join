@@ -37,7 +37,7 @@ async function renderSummary() {
 /**
  * renders mobile view as a logged in member
  */
-function renderMobileLoginView(){
+function renderMobileLoginView() {
     getCurrentGreeting();
     greetingUser1();
     setTimeout(greetingUser2, 2000);
@@ -48,7 +48,7 @@ function renderMobileLoginView(){
 /**
  * renders mobile view as guest
  */
-function renderMobileGuestView(){
+function renderMobileGuestView() {
     getCurrentGreeting();
     greetingGuest();
     setTimeout(renderMobileContent, 2000);
@@ -247,7 +247,7 @@ function getDueDate(date) {
     let currentday = String(dueDate.getDate()).padStart(2, '0');
     let currentMonth = String(dueDate.getMonth() + 1).padStart(2, '0');
     let currentYear = String(dueDate.getFullYear());
-    let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;    
+    let formattedDate = `${currentday}/${currentMonth}/${currentYear}`;
     if (urgentDueDates.length > 0) {
         let urgentDate = `${currentday}-${currentMonth}-${currentYear}`;
         urgentDueDate = urgentDate;

@@ -97,7 +97,7 @@ body {
     display: flex;
     width: calc(50% - 16px);
     height: 168px;
-    padding: 38px 19px;
+    padding: 19px 19px;
     justify-content: center;
     align-items: center;
     gap: 18px;
@@ -287,7 +287,16 @@ body {
 }
 
 .penDesktop {
-    display: flex;
+    background-image: url('../assets/img/summary/pen.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 69px;
+    width: 69px;
+}
+
+.cardMedium:hover .penDesktop {
+    background-image: url('../assets/img/summary/pen-hover.png');
 }
 
 .checkmarkMobile {
@@ -295,5 +304,14 @@ body {
 }
 
 .checkmarkDesktop {
-    display: flex;
+    background-image: url('../assets/img/summary/checkmark.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 69px;
+    width: 69px;
+}
+
+.cardMedium:hover .checkmarkDesktop {
+    background-image: url('../assets/img/summary/checkmark-hover.png');
 }
