@@ -481,6 +481,7 @@ form {
   display: flex;
   flex-direction: column;
   position: relative;
+  padding-right: 10px;
 }
 
 .taskFormFooter {
