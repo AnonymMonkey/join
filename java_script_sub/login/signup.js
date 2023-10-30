@@ -34,6 +34,7 @@ async function registerUser(){
             pushUser(name, email, password);
             await setItem('users', JSON.stringify(users));
             await openSignUpOverlay();
+            //await smallAnimatedLabel('Successfully registered')
         }
         else{
             showMsgBoxInvalidConfirmation();
@@ -366,11 +367,11 @@ function openLegal(){
 
 async function openSignUpOverlay() {
     //added following 2 lines
-    let signup = elementByID("bodySignup");
+    let signup = elementByID("screen");
     let legal = elementByID("signupLegalPrivacy");
     
-    let overlayBg = elementByID("overlay-bg-addTask");
-    let overlayContent = elementByID("overlay-content-addTask");
+    let overlayBg = elementByID("overlay-bg-signup");
+    let overlayContent = elementByID("overlay-content-signup");
     
     //added following 2 lines
     legal.classList.add("dNone");

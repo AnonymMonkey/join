@@ -12,7 +12,6 @@
     <script src="../java_script_sub/help_functions.js"></script>
     <script src="../java_script_sub/animated_small_label.js"></script>
 
-
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css-sub/signup.css" />
     <link rel="stylesheet" href="../css-sub/signupResp.css" />
@@ -28,7 +27,7 @@
 
     <img class="logoTopLeft" src="/assets/img/login/logo_dark.png" alt="">
 
-    <div class="screen">
+    <div id="screen" class="screen">
         <div id="bodySignup" class="signUp ">
             <div class="arrowBackground clickable" onclick="openLogin()">
                 <svg class="arrowBack" width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -134,10 +133,9 @@
 
 
     <!-- overlay signup -->
-    <!-- overlay addtask -->
-    <div id="overlay-bg-addTask" class="overlay-bg-addTask dNone">
-        <div id="overlay-content-addTask" class="overlay-content-addTask d-flex">
-            <img class="sucsessimg" id="overlayAddTaskContent" src="../assets/img/login/signed_up_successfull.png"
+    <div id="overlay-bg-signup" class="overlay-bg-signup dNone">
+        <div id="overlay-content-signup" class="overlay-content-signup d-flex">
+            <img class="sucsessimg" src="../assets/img/login/signed_up_successfull.png"
                 alt="">
         </div>
     </div>
