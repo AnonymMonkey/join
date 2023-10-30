@@ -122,14 +122,14 @@ async function getNextFreeId(items, idKey) {
   return nextFreeId;
 }
 
-async function formSubmit(origin) {
+/**
+ * Animation of success and create a new task
+ */
+async function formSubmit() {
   await smallAnimatedLabel(
     'Task added to board',
     '../assets/img/summary/board.svg',
   );
-  if (origin) {
-       await closeAddTaskOverlay();
-  }
   setTimeout(addNewTask, 3000);
 }
 
