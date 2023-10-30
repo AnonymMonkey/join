@@ -122,11 +122,22 @@ async function getNextFreeId(items, idKey) {
   return nextFreeId;
 }
 
+async function formSubmit(origin) {
+  await smallAnimatedLabel(
+    'Task added to board',
+    '../assets/img/summary/board.svg',
+  );
+  if (origin) {
+       await closeAddTaskOverlay();
+  }
+  setTimeout(addNewTask, 3000);
+}
+
 /**
  * Used to get all Form-field values
  * @param {string} origin - Origin, from where the function was called
  */
-async function addNewTask(origin) {
+async function addNewTask() {
   let status = document.getElementById('temporaryStatus').innerHTML;
   let category = document.getElementById('category_select').innerHTML;
   let id = parseInt(await checkExistingTask(), 10);
@@ -137,10 +148,7 @@ async function addNewTask(origin) {
   let allMember = contactSelection;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
-  await smallAnimatedLabel(
-    'Task added to board',
-    '../assets/img/summary/board.svg',
-  );
+  
   await createTask(
     id,
     title,
@@ -152,14 +160,14 @@ async function addNewTask(origin) {
     category,
     formattedTaskDate,
   );
-  if (origin) {
-    await closeAddTaskOverlay();
-  }
-  else{
+  // if (origin) {
+  //   await closeAddTaskOverlay();
+  // }
+  // else{
     await resetForm();
     await identifyGuest();
     openSelectedQuicklink('quickBoard')
-  }
+  //}
 }
 
 
