@@ -15,3 +15,9 @@
         transform: scale(0.65);
       }
   }
+
+  @media (max-width: 380px) {
+    .overlay-content-task {
+        transform: scale(0.5);
+      }
+  }
