@@ -18,48 +18,6 @@ function getTaskData() {
   let currentTask = getTaskIndex(taskId);
   getTaskValues(currentTask);
 }
-
-// async function xgetTaskValues(currentTask) {
-  
-  //   let currentTaskData = tasks[currentTask];
-  //   for (const key in currentTaskData) {
-    //     if (currentTaskData.hasOwnProperty(key)) {
-      //       const keyValue = currentTaskData[key];
-      //       if (key === 'prio') {
-        //         setValuesOnRadioButtons(keyValue);
-        //       } else 
-        //       if (key === 'duedate') {
-          //           setValueOnDueDate(key, keyValue);
-          //         } else
-          //           if (key === 'subtasks') {
-            //             for (let i = 0; i < keyValue.length; i++) {
-              //               const element = keyValue[i];
-              //               setSubtasks(element);
-              //             }
-              //           } 
-              //           else 
-              //           if (key === 'status') {              
-                //             setStatus(key, keyValue);
-                //             }
-                //             else 
-                //           if (key === 'category') {            
-                  //             setCategory(keyValue);
-                  //             }
-                  //           else
-                  //             if (key === 'member') {              
-                    //               await userSelection('isClosed');
-                    //               for (let i = 0; i < keyValue.length; i++) {
-                      //                 const element = keyValue[i];
-                      //                 checkContacts(element);
-                      //               }
-                      //             }
-                      //             else {              
-                        //               setTaskValues(currentTask, key, keyValue);
-                        //             }
-                        //     }
-                        //   }
-                        //   document.getElementById('frame39').style = 'margin-top: 42px;';
-                        // }
                         
 /**
 * Getting all Values from Task
@@ -86,7 +44,6 @@ async function getTaskValues(currentTask) {
       setTaskValues(currentTask, key, value);
     }
   });
-  //document.getElementById('frame39').style = 'margin-top: 42px;';
 }
 
 /**
@@ -121,6 +78,11 @@ function getSubtasks(key, keyValue){
   }
 
 }
+
+/**
+ * Adding subtask-values to array
+ * @param {string} keyValue - content of subtask
+ */
 function setSubtasks(keyValue){
   newSubtasks.push(keyValue);
   addSubtask();
@@ -171,5 +133,3 @@ async function checkContacts(thisContact) {
     createBadge(thisContact);
   }
 }
-
-

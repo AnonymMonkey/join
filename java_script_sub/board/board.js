@@ -16,6 +16,9 @@ async function init() {
   detectDarkmode();
 }
 
+/**
+ * Enable/Disable the recognized stylesheet
+ */
 function setStylesheet() {
   document.getElementById('defaultStyle').disabled = false;
   document.getElementById('smallScreenStyle').disabled = true;
@@ -49,6 +52,12 @@ function updateHTML(search) {
   });
 }
 
+/**
+ * Generates all tasks (cards) on board
+ * @param {string} name - name of the board-status
+ * @param {string} job - array of task-values
+ * @param {string} longText - long Name for placeholder
+ */
 async function issue(name, job, longText) {
   if (job.length) {
     document.getElementById(name).innerHTML = '';
@@ -64,15 +73,29 @@ async function issue(name, job, longText) {
   generatePlaceholer(name);
 }
 
+/**
+ * Starts dragging on elements
+ * @param {number} id - current element-id for dragging
+ */
 function startDragging(id) {
   currentDraggedElement = id;
 }
 
+/**
+ * Rotate dragged element
+ * @param {number} id - current element-id
+ * @param {string} status - active status of element
+ */
 function startTransform(id, status) {
   document.getElementById(id).style.transform = 'rotate(5deg)';
   addHighlight(status);
 }
 
+/**
+ * Reset rotation on draggend element
+ * @param {number} id - current element-id
+ * @param {string} status - active status of element
+ */
 function stopTransform(id, status) {
   document.getElementById(id).style.transform = 'rotate(0deg)';
   removeHighlight(status);
@@ -82,6 +105,10 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
+/**
+ * Sets new status on dragged element
+ * @param {string} status - active status of element
+ */
 async function moveTo(status) {
   let id = getTaskIndex(currentDraggedElement);
   tasks[id]['status'] = status;
@@ -89,6 +116,10 @@ async function moveTo(status) {
   updateHTML();
 }
 
+/**
+ * Highlight status on board exclude given status
+ * @param {string} status - active status of element
+ */
 function addHighlight(status) {
   let matches = document.querySelectorAll('div.placeholderCard');
   let excludeContainer = document.getElementById(status);
@@ -100,6 +131,9 @@ function addHighlight(status) {
   });
 }
 
+/**
+ * Remove highlighting
+ */
 function removeHighlight() {
   let matches = document.querySelectorAll('div.placeholderCard');
   matches.forEach((placeholderItem) => {
@@ -107,6 +141,12 @@ function removeHighlight() {
   });
 }
 
+/**
+ * Calculating progress on subtasks
+ * @param {number} doneSubtaskCount - number of all done subtasks
+ * @param {number} allSubtaskCount - number of all subtasks
+ * @returns 
+ */
 function calculateProgress(doneSubtaskCount, allSubtaskCount) {
   const basis = 128;
   let percent = (doneSubtaskCount * 100) / allSubtaskCount;
@@ -115,12 +155,19 @@ function calculateProgress(doneSubtaskCount, allSubtaskCount) {
   return resultProgress;
 }
 
+/**
+ * Filtering tasks by given value
+ */
 function filterTasks() {
   let search = document.getElementById('search').value;
   search = search.toLowerCase();
   updateHTML(search);
 }
 
+/**
+ * Visualize the taskprogress
+ * @param {number} element - number of current task-element
+ */
 function taskProgress(element) {
   let doneSubtaskCount = 0;
   let allSubtaskCount = element['subtasks'].length;
@@ -135,6 +182,10 @@ function taskProgress(element) {
   }
 }
 
+/**
+ * Generating profile-badges on board
+ * @param {number} task - number of current task-element
+ */
 async function assignedTo(task) {
   let pixelLeft = 0;
   let counterMember = 0;
@@ -155,6 +206,10 @@ async function assignedTo(task) {
   }
 }
 
+/**
+ * Generating profile-badges on taskview
+ * @param {number} task - number of current task-element
+ */
 function assignedToTask(task) {
   for (let i = 0; i < contactsTask.length; i++) {
     let contactTask = contactsTask[i];
@@ -171,6 +226,9 @@ function assignedToTask(task) {
   }
 }
 
+/**
+ * Load all contacts from remote-storage
+ */
 async function loadContacts() {
   try {
     contactsTask = JSON.parse(await getItem('contacts'));
@@ -179,6 +237,9 @@ async function loadContacts() {
   }
 }
 
+/**
+ * Load all tasks from remote-storage
+ */
 async function loadTasks() {
   try {
     tasks = JSON.parse(await getItem('tasks'));
@@ -187,6 +248,9 @@ async function loadTasks() {
   }
 }
 
+/**
+ * Load all categories from remote-storage
+ */
 async function loadTaskCategory() {
   try {
     taskCategory = JSON.parse(await getItem('taskCategory'));
@@ -195,10 +259,19 @@ async function loadTaskCategory() {
   }
 }
 
+/**
+ * Get array-index of task
+ * @param {number} searchId - id of current task
+ * @returns 
+ */
 function getTaskIndex(searchId) {
   return tasks.findIndex((item) => item.id === searchId);
 }
 
+/**
+ * Delete task
+ * @param {number} searchId - id of current task
+ */
 async function deleteTask(searchId) {
   let taskIndex = getTaskIndex(searchId);
   if (taskIndex !== -1) {
