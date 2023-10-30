@@ -44,11 +44,10 @@ select {
   }
 }
 
-.close-button {
+.close-button-task {
   position: absolute;
   top: 48px;
-  right: 48px;
-  filter: none !important;
+  right: 48px;  
 }
 
 
