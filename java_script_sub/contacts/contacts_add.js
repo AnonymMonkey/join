@@ -1,3 +1,6 @@
+/**
+ * Add new contact
+ */
 function addContact() {
     openContactOverlay();
 

@@ -1,3 +1,7 @@
+/**
+ * Deletes a contact
+ * @param {number} ID - 4-digit contact-id like 1234
+ */
 async function deleteContactOverlay(ID) {
     openContactOverlay();
     let pos = getIndexOfJson('ID', ID);

@@ -1,3 +1,7 @@
+/**
+ * Edit a contact
+ * @param {number} ID - 4-digit contact-id like 1234
+ */
 async function editContact(ID) {
     openContactOverlay();
     let pos = getIndexOfJson(ID);
@@ -42,6 +46,12 @@ async function editContact(ID) {
 
 }
 
+/**
+ * Change contact values
+ * @param {*} pos
+ * @param {number} ID - 4-digit contact-id like 1234
+ * @returns 
+ */
 async function changeContactData(pos, ID) {
     let nameIsValid = checkName();
     let mailIsValid = checkMail(ID);
