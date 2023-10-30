@@ -48,16 +48,9 @@ select {
   position: absolute;
   top: 48px;
   right: 48px;
+  filter: none !important;
 }
 
-/* .content_addTask {
-  left: 328px;
-  top: 96px;
-  width: calc(100% - 328px);
-  height: calc(100vh - 96px);
-  align-items: center;
-  position: absolute;
-} */
 
 #overlayEditTaskContent {
   width: 100%;
