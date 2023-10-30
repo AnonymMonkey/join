@@ -135,7 +135,7 @@ function getActiveUserInitials() {
  * identifies the role of the user either a guest, logged in member or entering from a
  * diefferent site
  */
-function identifyGuest(){
+async function identifyGuest(){
     if(msg == 'guest'){
         enteringAsAGuest();
     }else if(login == 'true'){
@@ -219,12 +219,12 @@ function logOut(){
  * opens the the next page of Join according to id as a guest or as a logged in user
  * @param {string} id can be "quickSummary", "quickAddTask", "quickBoard", "quickContacts", "privacy", "legal" or "help"
  */
-function openSelectedQuicklink(id){
+async function openSelectedQuicklink(id){
     if(guest){
-        openGuestQuicklinks(id);
+        await openGuestQuicklinks(id);
     }
     else{
-        openLoginQuicklinks(id);
+       await openLoginQuicklinks(id);
     }
 }
 
@@ -249,8 +249,10 @@ function showPrivacyExternal(){
  * opens the the next page of Join according to id as a guest
  * @param {string} id can be "quickSummary", "quickAddTask", "quickBoard", "quickContacts", "privacy", "legal" or "help"
  */
-function openGuestQuicklinks(id){
+async function openGuestQuicklinks(id){
     let quicklink = QUICKLINK_GUEST[id];
+    //setTimeout(window.open('http://127.0.0.1:5500/html-sub/board.html?msg=board', "_self"),5000);
+
     window.open(quicklink, "_self");
 }
 
@@ -260,8 +262,9 @@ function openGuestQuicklinks(id){
  * @param {string} id can be "quickSummary", "quickAddTask", "quickBoard", "quickContacts", "privacy", "legal" or "help"
  *            
  */
-function openLoginQuicklinks(id){ 
+async function openLoginQuicklinks(id){ 
     let quicklink = QUICKLINK_LOGIN[id];
+    //setTimeout(window.open('http://127.0.0.1:5500/html-sub/board.html?msg=board', "_self"),5000);
     window.open(quicklink, "_self");
 }
 

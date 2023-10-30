@@ -20,7 +20,7 @@ input::-webkit-inner-spin-button {
 .overlay-content-task {
   position: relative;
   width: 525px;
-  margin-bottom: 35px; 
+  /*margin-bottom: 35px; */
   padding: 48px 40px;
   border-radius: 30px;
   gap: 24px;
