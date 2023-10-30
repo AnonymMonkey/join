@@ -85,9 +85,7 @@ function selectedRadioButton(prio, frameName) {
   document.getElementById('priority_label').classList.add('d-none');
   document.getElementById(prio).checked = true;
   document.getElementById(frameName).classList.add(`${frameName}_selected`);
-  document.getElementById(
-    `img${prio}`,
-  ).src = `../../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
+  document.getElementById(`img${prio}`).src = `../../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
   document.getElementById('prioResult').innerHTML = prio;
 }
 
@@ -316,6 +314,10 @@ function editSubtask(id) {
   moveTaskFormFooter(40);
 }
 
+/**
+ * Function to change style on taskFormFooter when editing subtask
+ * @param {number} pixel - number of pixels to move up/down
+ */
 function moveTaskFormFooter(pixel) {  
   let taskFormFooter = document.getElementById('taskFormFooter');
   taskFormFooter.style.top = `-${pixel}px`;
