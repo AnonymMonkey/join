@@ -34,7 +34,7 @@ async function registerUser(){
             pushUser(name, email, password);
             await setItem('users', JSON.stringify(users));
             await openSignUpOverlay();
-            //await smallAnimatedLabel('Successfully registered')
+            setTimeout(openSuccessfullRegistered, 1500);
         }
         else{
             showMsgBoxInvalidConfirmation();
@@ -392,5 +392,4 @@ async function openSignUpOverlay() {
         overlayContent.removeEventListener("animationend", onAnimationEnd);
         overlayBg.classList.remove("dNone");        
     }  
-    setTimeout(openSuccessfullRegistered, 1500);
 }
