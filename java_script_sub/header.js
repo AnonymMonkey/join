@@ -251,7 +251,6 @@ function showPrivacyExternal(){
  */
 async function openGuestQuicklinks(id){
     let quicklink = QUICKLINK_GUEST[id];
-    //setTimeout(window.open('http://127.0.0.1:5500/html-sub/board.html?msg=board', "_self"),5000);
     window.open(quicklink, "_self");
 }
 
@@ -263,7 +262,6 @@ async function openGuestQuicklinks(id){
  */
 async function openLoginQuicklinks(id){ 
     let quicklink = QUICKLINK_LOGIN[id];
-    //setTimeout(window.open('http://127.0.0.1:5500/html-sub/board.html?msg=board', "_self"),5000);
     window.open(quicklink, "_self");
 }
 
