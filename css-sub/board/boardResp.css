@@ -39,8 +39,7 @@
     width: 95%;
   }
 
-  .card {
-    height: 80%;
+  .card {    
     width: unset;
     aspect-ratio: 1/1;
     position: relative;
@@ -58,10 +57,19 @@
     left: 16px;
   }
 
+  .frame119{
+    height: -webkit-fill-available;
+  }
+
+  .frameX{
+    width: 200px;
+  }
+
   .frame114 {
     margin-top: 35px;
   }
   
+  .frame114_title,
   .frame114_content{
     text-overflow: ellipsis;
     overflow: hidden; 
