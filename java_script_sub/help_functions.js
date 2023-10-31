@@ -1,8 +1,16 @@
+/**
+ * returns a document-id
+ * @param {string} id - name of an element
+ * @returns 
+ */
 function elementByID(id) {
     return document.getElementById(id);
 }
 
-/*  */
+/**
+ * Create random-Color for each contact
+ * @returns - returns a color code like #fa995e
+ */
 function randomColor() {
     let color;
 
@@ -15,6 +23,10 @@ function randomColor() {
     return color;
 }
 
+/**
+ * Generates a random User-ID
+ * @returns - returns a 4-digit User-ID like 1234
+ */
 function randomID() {
     let id;
 
@@ -27,10 +39,20 @@ function randomID() {
     return id;
 }
 
+/**
+ * Capitalize the first letter of a string
+ * @param {string} string - string to edit
+ * @returns 
+ */
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+/**
+ * Convert hex-values to rgb-colors
+ * @param {string} hex - color code like #fa995e
+ * @returns rgb-value
+ */
 function hexToRgb(hex) {
     hex = hex.replace(/^#/, '');
 
@@ -51,6 +73,11 @@ function hexToRgb(hex) {
     };
 }
 
+/**
+ * Set background-color on initials
+ * @param {string} color - color-name like #fa995e
+ * @returns style for background-color
+ */
 function contactFirstLettersBG(color) {
     let rgb = hexToRgb(color);
 

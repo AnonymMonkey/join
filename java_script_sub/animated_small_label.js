@@ -1,3 +1,8 @@
+/**
+ * Showing a confirmation-message (add, delete, edit)
+ * @param {string} message - message-text
+ * @param {string} imgSrc - path of an image which should be displayed
+ */
 async function smallAnimatedLabel(message, imgSrc) {
     const timeout = 500;
 

@@ -1,3 +1,6 @@
+/**
+ * include HTML snippets (templates) in HTML
+ */
 async function includeHTML() {
   let includeElements = document.querySelectorAll('[w3-include-html]');
   for (let i = 0; i < includeElements.length; i++) {

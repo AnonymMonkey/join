@@ -1,3 +1,7 @@
+/**
+ * Deletes a contact
+ * @param {number} ID - 4-digit contact-id like 1234
+ */
 async function deleteContact(ID) {
     let showArea = elementByID('show_contact')
 

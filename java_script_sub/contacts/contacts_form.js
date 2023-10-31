@@ -1,4 +1,9 @@
 let emailAddresses = [];
+
+/**
+ * Check spelling of contact name
+ * @returns true or false
+ */
 function checkName() {
     let nameInput = elementByID("contact_name");
     let namenParts = nameInput.value.split(" ");
@@ -20,7 +25,11 @@ function checkName() {
     return true;
 }
 
-
+/**
+ * Check if mail already exists
+ * @param {number} ID - 4-digit number of contact like 1234
+ * @returns true or false
+ */
 function checkMail(ID) {
     searchMailsInJSON();
     let mailInput = elementByID("contact_mail");
@@ -36,6 +45,10 @@ function checkMail(ID) {
     return true;
 }
 
+/**
+ * Check if mail already exists 
+ * @returns true or false
+ */
 function checkNewMail() {
     searchMailsInJSON();
     let mailInput = elementByID("contact_mail");    
@@ -47,6 +60,9 @@ function checkNewMail() {
     return true;
 }
 
+/**
+ * Check if mail already exists 
+ */
 function searchMailsInJSON() {
     contacts.forEach(entry => {
         let registerEntry = entry.register_entry[0];
@@ -55,6 +71,11 @@ function searchMailsInJSON() {
     });
 }
 
+/**
+ * Show error message
+ * @param {string} msg - error-text
+ * @param {string} errorField - name of the input-field
+ */
 function showErrorMessage(msg, errorField){
     let errorMsg = elementByID("errorMsg");
     errorMsg.innerHTML = msg;
