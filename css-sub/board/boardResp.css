@@ -61,6 +61,17 @@
   .frame114 {
     margin-top: 35px;
   }
+  
+  .frame114_content{
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: 160px;
+    white-space: nowrap;
+  }
+
+  .frame114_progressbar{
+    width: 90px;
+  }
 
   .no_tasks_feedback {
     width: 230px;
