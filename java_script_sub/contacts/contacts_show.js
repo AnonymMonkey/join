@@ -1,5 +1,9 @@
 let selectedContact = null;
 
+/**
+ * Show Informations for the selected Contact
+ * @param {number} ID - 4-digit Contact-ID like 1234
+ */
 function showContact(ID) {
     if (window.innerWidth <= 1200) {
         elementByID('contact_register').classList.add('d-none');
@@ -43,23 +47,9 @@ function showContact(ID) {
 
 }
 
-/* function getLastJsonObject() {
-    let keysArray = Object.keys(contacts);
-    let lastKey = keysArray[keysArray.length - 1];
-    let lastValue = contacts[lastKey];
-
-    return lastValue;
-
-}
-
-function getLastJsonObjectID() {
-    let lastObject = getLastJsonObject();
-    let lastObjectID = lastObject['register_entry'][0]['contact_ID'];
-    return lastObjectID;
-} */
-
-
-/* return to register - Responsive */
+/**
+ * Return to register - Responsive
+ */
 function returnToRegister() {
     let show = elementByID('show_contact')
 

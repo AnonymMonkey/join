@@ -1,3 +1,7 @@
+/**
+ * Generates Content for HTML-Overlay
+ * @returns HTML-Code for contact
+ */
 function contacts_overlay_html() {
     return /* html */`
             <img src="../assets/img/contacts/close.svg" class="close-button pointer"
@@ -48,6 +52,16 @@ function contacts_overlay_html() {
             `
 }
 
+/**
+ * 
+ * @param {string} name - contains name of the contact
+ * @param {string} mail - contains mail of the contact
+ * @param {string} phone - contains number of the contact
+ * @param {string} initials - contains first-letter of first name and first-letter of surname of the contact
+ * @param {string} color - contains contact-color like #fa995e 
+ * @param {number} ID - 4-digit contact-id like 1234
+ * @returns HTML-Code for contact
+ */
 function showContact_html(name, mail, phone, initials, color, ID) {
     return /* html */`
         <div class="contact-headline">

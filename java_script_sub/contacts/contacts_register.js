@@ -6,9 +6,10 @@ let activeUserLoginData;
 const generatedIDs = new Set();
 const generatedColors = new Set();
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// CREATE CONTACT ||||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * Create a new contact
+ * @returns abort if condition is true
+ */
 async function createContact() {
     let nameIsValid = checkName();
     let mailIsValid = checkNewMail();
@@ -28,6 +29,10 @@ async function createContact() {
     showContact(getLastJsonObjectID());
 }
 
+/**
+ * Create a new contact from board
+ * @returns abort if condition is true
+ */
 async function createContactLight() {
     let nameIsValid = checkName();
     let mailIsValid = checkMail();
@@ -44,14 +49,17 @@ async function createContactLight() {
     smallAnimatedLabel('Contact succesfully created');
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// GET VALUES ||||||||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * Getting values
+ */
 async function getValues() {
     getCategoryLetter();
     getJSON_Entry();
 }
 
+/**
+ * Get category-letters for contact-list
+ */
 function getCategoryLetter() {
     categories = [];
     for (let i = 0; i < contacts.length; i++) {
@@ -63,6 +71,9 @@ function getCategoryLetter() {
     }
 }
 
+/**
+ * 
+ */
 function getJSON_Entry() {
     contacts.push({
         register_entry: [
@@ -78,14 +89,17 @@ function getJSON_Entry() {
     });
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// STORAGE |||||||||||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * Save key-value pairs (arrays) to remote-storage
+ */
 async function saveData() {
     await saveToStorage('categories', categories);
     await saveToStorage('contacts', contacts);
 }
 
+/**
+ * Save key-value pairs (arrays) to remote-storage
+ */
 async function saveToStorage(key, data) {
     try {
         await setItem(key, JSON.stringify(data));
@@ -94,11 +108,17 @@ async function saveToStorage(key, data) {
     }
 }
 
+/**
+ * Load key-value pairs (arrays) from remote-storage
+ */
 async function loadData() {
     await loadFromStorage('contacts', contacts);
     await loadFromStorage('categories', categories);
 }
 
+/**
+ * Load key-value pairs (arrays) from remote-storage
+ */
 async function loadFromStorage(key, data) {
     try {
         const storedData = await getItem(key);
@@ -110,18 +130,24 @@ async function loadFromStorage(key, data) {
     }
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// CREATE REGISTER |||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * Create contact-register
+ */
 async function createRegister() {
     let register = elementByID('register');
     register.innerHTML = createRegisterEntry();
 }
 
+/**
+ * Create entries of contact-register
+ */
 function createRegisterEntry() {
     createRegisterInfo();
 }
 
+/**
+ * Create register informations
+ */
 function createRegisterInfo() {
     let register = elementByID('register');
     let infoHTML = '';
@@ -166,7 +192,11 @@ function createRegisterInfo() {
 
 }
 
-// TODO: param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled - SIMON
+/**
+ * Get initials from logged-in User
+ * @param {string} nameFromLogin - name from logged-in user
+ * @returns - initials of logged-in user
+ */
 function getContactFirstLetters(nameFromLogin) {
     let loginName = nameFromLogin;
     if (loginName) {
@@ -191,9 +221,9 @@ function getContactFirstLetters(nameFromLogin) {
     }
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// RESET & DELETE ||||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * Reset html-form (set inputs empty)
+ */
 function resetContactsForm() {
     contact_name.value = '';
     contact_mail.value = '';
@@ -201,6 +231,9 @@ function resetContactsForm() {
     create_btn.disabled = false;
 }
 
+/**
+ * Deletes empty categories if contact is deleted
+ */
 function deleteTest() {
     for (let i = 0; i < categories.length; i++) {
         categories.splice(1, 3);
@@ -208,14 +241,15 @@ function deleteTest() {
     }
 }
 
-
+/**
+ * Add active User to contacts if not exist on first login
+ */
 async function addActiveUserToContacts() {
     getLoginData();
     let isFound = false;
     for (let i = 0; i < contacts.length; i++) {
 
-        if (contacts[i]['register_entry'][0]['contact_mail'] == activeUserLoginMail) {
-            /*activeUserID = contacts[i]['register_entry'][0].contact_ID;*/
+        if (contacts[i]['register_entry'][0]['contact_mail'] == activeUserLoginMail) {            
             isFound = true;
         } 
     }
@@ -237,8 +271,10 @@ async function addActiveUserToContacts() {
     }
 }
 
+/**
+ * Add YOU to Contact-list if contact is active User
+ */
 function loginIsYourContact() {
-    /* debugger */
 
     getLoginData();
     for (let i = 0; i < contacts.length; i++) {
@@ -259,6 +295,9 @@ function loginIsYourContact() {
     }
 }
 
+/**
+ * Get all Data from localstorage for the active User
+ */
 function getLoginData() {
     let activeUserContactAsText = localStorage.getItem('loginData');
     if (activeUserContactAsText) {

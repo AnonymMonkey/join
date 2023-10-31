@@ -1,3 +1,6 @@
+/**
+ * Init-function onload
+ */
 async function contactsInit() {
     includeHTML();
     await loadData();
@@ -7,4 +10,3 @@ async function contactsInit() {
     adjustQuicklinkBG();
     detectDarkmode();
 }
-
