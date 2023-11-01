@@ -85,7 +85,9 @@ function selectedRadioButton(prio, frameName) {
   document.getElementById('priority_label').classList.add('d-none');
   document.getElementById(prio).checked = true;
   document.getElementById(frameName).classList.add(`${frameName}_selected`);
-  document.getElementById(`img${prio}`).src = `../../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
+  document.getElementById(
+    `img${prio}`,
+  ).src = `../../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
   document.getElementById('prioResult').innerHTML = prio;
 }
 
@@ -148,7 +150,7 @@ async function addNewTask() {
   let allMember = contactSelection;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
-  
+
   await createTask(
     id,
     title,
@@ -160,16 +162,11 @@ async function addNewTask() {
     category,
     formattedTaskDate,
   );
-  // if (origin) {
-  //   await closeAddTaskOverlay();
-  // }
-  // else{
-    await resetForm();
-    await identifyGuest();
-    openSelectedQuicklink('quickBoard')
-  //}
+  
+  await resetForm();
+  await identifyGuest();
+  openSelectedQuicklink('quickBoard');
 }
-
 
 /**
  * Used to check whether it is a new or an existing task.
@@ -308,7 +305,7 @@ function deleteSubtask(id) {
 function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
-  let editField = document.getElementById('subtaskEdit');  
+  let editField = document.getElementById('subtaskEdit');
 
   editField.classList.remove('d-none');
   subtaskfield.value = newSubtasks[id]['subtitle'];
@@ -326,7 +323,7 @@ function editSubtask(id) {
  * Function to change style on taskFormFooter when editing subtask
  * @param {number} pixel - number of pixels to move up/down
  */
-function moveTaskFormFooter(pixel) {  
+function moveTaskFormFooter(pixel) {
   let taskFormFooter = document.getElementById('taskFormFooter');
   taskFormFooter.style.top = `-${pixel}px`;
   taskFormFooter.style.position = 'relative';
@@ -441,4 +438,32 @@ function whoAmi() {
       document.getElementById(userDiv).innerHTML += ` <b>(You)`;
     }
   }
+}
+
+/** Click-Eventlistener to close the menues if you´re outside their containers */
+document.addEventListener('click', function (event) {
+  let menuCategory = document.getElementById('frame74task');
+  let menuUser = document.getElementById('frame74');
+  let menuUserSelection = document.getElementById('user_selection-background');
+
+  if (menuCategory.contains(event.target) || menuUser.contains(event.target) || menuUserSelection.contains(event.target)) {
+    event.stopPropagation();
+  } else {    
+    hideMenues();
+  }
+});
+
+/**
+ * Hide the menues
+ */
+function hideMenues() {
+  let arrowDropdownCategory = document.getElementById('arrow_dropdown_addCategory');
+  let categorySelection = document.getElementById('category_selection-background');  
+  let arrowDropdownTask = document.getElementById('arrow_dropdown_addTask');
+  let userSelection = document.getElementById('user_selection-background');
+
+  arrowDropdownCategory.style.transform = 'rotate(360deg)';
+  categorySelection.classList.add('d-none');
+  arrowDropdownTask.style.transform = 'rotate(360deg)';
+  userSelection.classList.add('d-none');
 }
