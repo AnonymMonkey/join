@@ -110,6 +110,11 @@
     width: 100%;
 }
 
+#selected_user{
+    overflow: auto;
+    padding-left: 10px;
+}
+
 .add-contact-button-area {
     display: flex;
     width: 100%;
