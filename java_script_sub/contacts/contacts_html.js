@@ -19,7 +19,7 @@ function contacts_overlay_html() {
                 <form id="onsubmit" onsubmit="createContact(); return false;">
                     <div class="overlay-right-form">
                         <div class="place-img">
-                            <input required type="text" name="" id="contact_name" placeholder="Name">
+                            <input required type="text" name="" id="contact_name" placeholder="Name Name">
                             <img src="../assets/img/contacts/person_small.svg">
                         </div>
                         
@@ -29,14 +29,13 @@ function contacts_overlay_html() {
                         </div>
                         
                         <div class="place-img">
-                            <input required type="tel" name="" id="contact_phone" placeholder="+491234567"
-                            pattern="\\+\\d{2}\\d{7,}">
+                            <input required type="number" max="100000000" id="contact_phone" placeholder="01234567">
                             <img src="../assets/img/contacts/call.svg">
                         </div>
                     </div>
                     <div id="errorMsg" class="requiredField"></div>
                     <div class="buttons">
-                        <div class="buttons-cancel" onclick="closeContactOverlay()">Cancel<svg width="25"
+                        <div class="buttons-cancel pointer" onclick="closeContactOverlay()">Cancel<svg width="25"
                                 height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M12.2495 12.0001L17.4925 17.2431M7.00653 17.2431L12.2495 12.0001L7.00653 17.2431ZM17.4925 6.75708L12.2485 12.0001L17.4925 6.75708ZM12.2485 12.0001L7.00653 6.75708L12.2485 12.0001Z"
@@ -44,7 +43,7 @@ function contacts_overlay_html() {
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <button id="create_btn" onclick="doNotClose(event)">Create contact<img
+                        <button class="pointer" id="create_btn" onclick="doNotClose(event)">Create contact<img
                                 src="../assets/img/contacts/check.svg"></button>
                     </div>
                 </form>
@@ -71,7 +70,7 @@ function showContact_html(name, mail, phone, initials, color, ID) {
             <div>
                 <div class="contact-name">${name}</div>
                 <div class="contact-buttons">
-                    <div onclick="editContact(${ID})" class="contact-button">
+                    <div onclick="editContact(${ID})" class="contact-button pointer">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_84566_2385" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                 <rect width="24" height="24" fill="#2A3647"/>
@@ -82,7 +81,7 @@ function showContact_html(name, mail, phone, initials, color, ID) {
                         </svg>
                         <div>Edit</div>
                     </div>
-                    <div onclick="deleteContactOverlay(${ID})" class="contact-button">
+                    <div onclick="deleteContactOverlay(${ID})" class="contact-button pointer">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_84566_2379" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                 <rect width="24" height="24" fill="#2A3647"/>

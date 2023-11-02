@@ -30,11 +30,21 @@ async function smallAnimatedLabel(message, imgSrc) {
             overlay.style.right = "20vw";
         }, 10);
 
-        setTimeout(() => {
-            overlay.style.right = "-50vw";
+        if (window.innerWidth <= 450) {
             setTimeout(() => {
-                document.body.removeChild(overlay);
+                overlay.style.right = "-100vw";
+                setTimeout(() => {
+                    document.body.removeChild(overlay);
+                }, 2000);
             }, 2000);
-        }, 2000);
+        } else {
+            setTimeout(() => {
+                overlay.style.right = "-50vw";
+                setTimeout(() => {
+                    document.body.removeChild(overlay);
+                }, 2000);
+            }, 2000);
+        }
+
     }, timeout);
 }

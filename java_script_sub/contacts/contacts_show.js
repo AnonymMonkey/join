@@ -48,6 +48,12 @@ function showContact(ID) {
 
 }
 
+function getLastJsonObjectID() {
+    let lastEntry = contacts[contacts.length - 1];
+    let lastEntryID = lastEntry['register_entry'][0]['contact_ID']
+    return lastEntryID;
+}
+
 /**
  * Return to register - Responsive
  */

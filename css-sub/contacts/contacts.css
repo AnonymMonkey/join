@@ -123,6 +123,7 @@
 
 .contact-info div:last-child {
     overflow: hidden;
+    padding-bottom: 0px;
 }
 
 .contact-info:hover {

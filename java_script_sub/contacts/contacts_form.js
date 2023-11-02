@@ -33,8 +33,8 @@ function checkName() {
  */
 function checkMail(ID) {
     searchMailsInJSON();
-    let mailInput = elementByID("contact_mail");
-    let currentMail = getIndexOfJson(ID)['contact_mail'];
+    let mailInput = elementByID('contact_mail');
+    let currentMail = getIndexOfJson('ID', ID)['contact_mail'];
 
     if (mailInput.value !== currentMail) {
         if (emailAddresses.includes(mailInput.value)) {

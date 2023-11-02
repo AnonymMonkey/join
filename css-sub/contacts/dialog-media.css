@@ -97,12 +97,14 @@
     }
 }
 
-@media (max-height: 850px) {
+@media (max-height: 900px) {
     .overlay-right form {
-        height: unset;        
+        height: unset;
     }
 
     .overlay-right .person-bg {
+        min-width: unset;
+        min-height: unset;
         width: 80px;
         height: 80px;
     }
@@ -121,9 +123,13 @@
     .place-img {
         transform: scale(0.7);
     }
+
+    .contact-headline-initials-font {
+        font-size: 27px;
+    }
 }
 
-@media (max-height: 780px) {
+@media (max-height: 785px) {
     #overlay_title_sub {
         display: none;
     }
@@ -131,9 +137,7 @@
     .overlay-left img {
         display: none;
     }
-}
 
-@media (max-height: 700px) {
     .place-img {
         transform: scale(0.6);
     }
@@ -142,3 +146,5 @@
         height: 35px;
     }
 }
+
+@media (max-height: 700px) {}

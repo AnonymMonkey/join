@@ -74,11 +74,13 @@
 
     .content-contact {
         width: 100%;
+        overflow: hidden;
     }
 
     .contact-register {
         position: relative;
         left: 0;
+        height: calc(100% - 128px);
     }
 
     .show-contact {
@@ -100,8 +102,8 @@
         position: absolute;
         width: 56px;
         height: 56px;
-        bottom: calc(5vh + 128px);
-        right: 60px;
+        right: 30px;
+        bottom: 20px;
         padding: 12px;
         border-radius: 46px;
         border: 1px;
@@ -119,6 +121,21 @@
 
     .contact-register img {
         height: 80%;
+    }
+}
+
+@media (max-height: 830px) {
+    .contact {
+        gap: 10px;
+        margin-top: 2vh;
+    }
+
+    .show-contact {
+        margin-top: 4vh;
+    }
+
+    .arrow-back {
+        top: calc(4vh + 18px);
     }
 }
 
@@ -183,15 +200,31 @@
         font-weight: 700;
         line-height: 120%;
     }
-}
 
-@media (max-height: 830px) {
-    .contact {
-        gap: 10px;
-        margin-top: 2vh;
+    .contact-register {
+        padding: 0;
     }
 
-    .show-contact {
-        margin-top: 4vh;
+    .contact-inner-register {
+        padding: 16px 22px;
+    }
+}
+
+@media (max-height: 735px) {
+    .show-contact-h1-sub {
+        display: none;
+    }
+
+    .show-contact-headline img {
+        top: 0;
+    }
+
+    .contact {
+        top: -30px;
+    }
+
+    .contact-show-info {
+        height: 100%;
+        margin: 10px 0;
     }
 }

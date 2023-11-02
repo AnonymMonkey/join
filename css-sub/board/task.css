@@ -47,7 +47,7 @@ select {
 .close-button-task {
   position: absolute;
   top: 48px;
-  right: 48px;  
+  right: 48px;
 }
 
 
@@ -119,7 +119,7 @@ select {
 
 .frame219 {
   display: flex;
-  width: 440px;  
+  width: 440px;
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
@@ -468,7 +468,7 @@ input {
   line-height: 120%;
 }
 
-form {
+#addTaskInputForm {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -628,7 +628,7 @@ textarea {
   display: flex;
   flex-direction: column;
   width: 440px;
-  gap: 8px;  
+  gap: 8px;
 }
 
 .subtasks_text {

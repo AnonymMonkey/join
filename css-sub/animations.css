@@ -20,3 +20,11 @@
     position: fixed;
     bottom: 5vh;
 }
+
+@media (max-width: 450px) {
+    .small-overlay {
+        transform: scale(0.7);
+        position: relative;
+        bottom: 150px;
+    }
+}

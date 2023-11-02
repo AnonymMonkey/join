@@ -16,7 +16,7 @@ async function createContact() {
     if (!nameIsValid || !mailIsValid) {
         return;
     }
-    create_btn.disable = true;
+    create_btn.disabled = true;
     await getValues();
     await saveData();
     resetContactsForm();
@@ -25,7 +25,7 @@ async function createContact() {
 
     closeContactOverlay();
     smallAnimatedLabel('Contact succesfully created');
-    contactsInit();
+    await contactsInit();
     showContact(getLastJsonObjectID());
 }
 
