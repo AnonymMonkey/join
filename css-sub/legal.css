@@ -1,11 +1,10 @@
 .headlineBig{
     color: #000;
-    /* Version 2/t1 */
     font-family: Inter;
     font-size: 61px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; /* 73.2px */ 
+    line-height: 120%;
 }
 
 .headlineMid{
@@ -14,7 +13,7 @@
     font-size: 27px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; /* 32.4px */ 
+    line-height: 120%; 
 }
 
 .headlineSmall{
@@ -36,11 +35,11 @@
     line-height: 120%; 
 }
 
-/* */
+
 .content{
     display: flex;
     max-width: clamp(350px, 100%, 1140px);
-    
+    height: 80%;
     
     flex-direction: column;
     align-items: flex-start;
@@ -51,12 +50,10 @@
     padding-bottom: 100px;
     padding-top: 100px;
 
-        /*fixation*/
-        position: fixed;
-        left: 300px;
-        right: 200px;
+    position: fixed;
+    left: 300px;
+    right: 200px;
 }
-
 
 .textHighlight{
     color: var(--Ligth-blue, #29ABE2);
@@ -76,8 +73,6 @@
     height: 32px;
     flex-shrink: 0;
     border-radius: 24px;
-    
-
     position: fixed;
     top: 228px;
     left: 1309px;
@@ -90,7 +85,6 @@
 }
 
 .arrowBack{
-    /*Fixation*/
     position: fixed;
     top: 228px;
     left: 1309px;

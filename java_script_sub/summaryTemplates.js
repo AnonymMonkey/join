@@ -3,62 +3,57 @@
  */
 async function getInitialHTMLTemplate() {
     document.getElementById('content').innerHTML = /*html*/` 
+    
+    <!-- insert content and own style from here -->
+    <div class="d-flex column">
     <section class="headlineSection">
         <span class="headlineSummary">Summary</span>
-        <img  class="headlineVector" src="../assets/img/summary/vector_blue.png" alt="">
+        <img class="headlineVector" src="../assets/img/summary/vector_blue.png" alt="">
         <span class="headlineSpan">Everything in a nutshell!</span>
-        <img  class="headlineVectorMobile" src="../assets/img/summary/vector_blue_mobile.png" alt="">
+        <img class="headlineVectorMobile" src="../assets/img/summary/vector_blue_mobile.png" alt="">
     </section>
-    <section class="flex mediumCardSection">
-        <div onclick="openBoard()" class="cardMedium svgPen">
-            <!--Pen Desktop-->
-            <div class="penDesktop"></div>
-                        
-            <div id="summaryToDo" class="flex column">
 
+    <div class="table">
+        <section class="flex mediumCardSection">
+            <div onclick="openBoard()" class="cardMedium svgPen">
+                <!--Pen Desktop-->
+                <div class="penDesktop"></div>
+                <div id="summaryToDo" class="flex column"></div>
             </div>
-        </div>
-        <div onclick="openBoard()" class="cardMedium">          
-        <div class="checkmarkDesktop"></div>        
-            <div id="summaryDone" class="flex column">
 
+            <div onclick="openBoard()" class="cardMedium">
+                <!--Cehckmark Desktop-->
+                <div class="checkmarkDesktop"></div>
+                <div id="summaryDone" class="flex column"></div>
             </div>
-        </div>
-    </section>
-    <section class="flex largeCardSection">
-        <div onclick="openBoard()" class="cardLarge">
-            <div class="urgentSection">
-                <img class="redArrows" src="../assets/img/summary/red_up_arrows.png" alt="">
-                <img class="redArrowsMobile" src="../assets/img/summary/red_up_arrows_mobile.png" alt="">
-                <div id="summaryUrgent" class="flex column">
+        </section>
+        <section class="flex largeCardSection">
+            <div onclick="openBoard()" class="cardLarge">
+                <div class="urgentSection">
+                    <img class="redArrows" src="../assets/img/summary/red_up_arrows.png" alt="">
+                    <img class="redArrowsMobile" src="../assets/img/summary/red_up_arrows_mobile.png"
+                        alt="">
 
+                    <div id="summaryUrgent" class="flex column"></div>
                 </div>
+
+                <img class="vectorGrey" src="../assets/img/summary/vector_grey.png" alt="">
+                <img class="vectorGreyMobile" src="../assets/img/summary/vector_grey_mobile.png" alt="">
+
+                <div id="deadline" class="deadlineSection"></div>
             </div>
-            <img class="vectorGrey" src="../assets/img/summary/vector_grey.png" alt="">
-            <img class="vectorGreyMobile" src="../assets/img/summary/vector_grey_mobile.png" alt="">
-            <div id="deadline" class="deadlineSection">
+         </section>
+        <section class="flex smallCardSection">
+            <div id="summaryTasks" onclick="openBoard()" class="cardSmall"></div>
 
-            </div>
-        </div>
-    </section>
+            <div id="summaryInProgress" onclick="openBoard()" class="cardSmall"></div>
 
-    <div id="greeting" class="greetingSection">
-
+            <div id="summaryAwaitingFeedback" onclick="openBoard()" class="cardSmall"></div>
+        </section>
     </div>
-    <section class="flex smallCardSection">
-        <div id="summaryTasks" onclick="openBoard()" class="cardSmall">
+</div>
 
-        </div>
-
-        <div id="summaryInProgress" onclick="openBoard()" class="cardSmall">
-
-        </div>
-        
-        <div id="summaryAwaitingFeedback" onclick="openBoard()" class="cardSmall">
-
-        </div>
-    </section>          
-</div>`;
+<div id="greeting" class="greetingSection"></div>`;
 }
 
 

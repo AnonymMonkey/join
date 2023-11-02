@@ -7,7 +7,7 @@
 <div class="d-none" id="category_select"></div>
 <!-- form start -->
 
-<form class="custom-scrollbar" autocomplete="off" id="addTaskInputForm" onsubmit="addNewTask(); return false;">
+<form class="custom-scrollbar" autocomplete="off" id="addTaskInputForm" onsubmit="formSubmit(); return false;">
   <div class="addtask_content">
     <div class="frame219">
       <div class="task_title">
@@ -136,8 +136,7 @@
           <img id="addSubtaskInput" onclick="addnewSubtask()" class="d-none pointer button-hover"
             src="../assets/img/add-task/check_black.svg" alt="Accept-Image">
         </div>
-        <div id="frame14_subtask_label" class="requiredField d-none">Maximum number
-          reached</div>
+        <div id="frame14_subtask_label" class="requiredField d-none">Max number Subtasks reached</div>
         <ul id="subtasklist"></ul>
         <div id="subtaskEdit" class="d-none">
           <input type="text" maxlength="30" id="subtaskEditInput">

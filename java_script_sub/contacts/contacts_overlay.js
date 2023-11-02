@@ -1,6 +1,5 @@
 /**
- * A animation function for open the big overlays / dialogs
- * 
+ * Open contact-overlay with animation
  */
 function openContactOverlay() {
     let overlayBg = elementByID("overlay-bg");
@@ -24,8 +23,7 @@ function openContactOverlay() {
 }
 
 /**
- * A animation function for close the big overlays / dialogs
- * 
+ * Close contact-overlay with animation
  */
 function closeContactOverlay() {
     let overlayBg = elementByID("overlay-bg");

@@ -252,3 +252,9 @@
     padding: 8px;
   }
 }
+
+@media (max-width: 380px) {
+  .overlay-content-addTask {
+      transform: scale(0.84);
+    }
+}

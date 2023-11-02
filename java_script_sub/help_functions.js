@@ -9,9 +9,8 @@ function elementByID(id) {
 }
 
 /**
- * HELP FUNCTION: Created a random hex color and save it in a array
- * 
- * @returns - the hex color
+ * Create random-Color for each contact
+ * @returns - returns a color code like #fa995e
  */
 function randomColor() {
     let color;
@@ -43,9 +42,8 @@ function randomID() {
 }
 
 /**
- * HELP FUNCTION: capitalize first letter
- * 
- * @param {string} string - any text
+ * Capitalize the first letter of a string
+ * @param {string} string - string to edit
  * @returns 
  */
 function capitalizeFirstLetter(string) {
@@ -53,10 +51,9 @@ function capitalizeFirstLetter(string) {
 }
 
 /**
- * HELP FUNCTION: Makes hex code to rgb code
- * 
- * @param {string} hex - a hex code
- * @returns - the rgb code
+ * Convert hex-values to rgb-colors
+ * @param {string} hex - color code like #fa995e
+ * @returns rgb-value
  */
 function hexToRgb(hex) {
     hex = hex.replace(/^#/, '');
@@ -79,10 +76,9 @@ function hexToRgb(hex) {
 }
 
 /**
- * HELP FUNCTION: returns a style attribute for background color
- * 
- * @param {string} color - a hex code
- * @returns - the style for change the background color
+ * Set background-color on initials
+ * @param {string} color - color-name like #fa995e
+ * @returns style for background-color
  */
 function contactFirstLettersBG(color) {
     let rgb = hexToRgb(color);

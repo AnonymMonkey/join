@@ -125,10 +125,21 @@ async function getNextFreeId(items, idKey) {
 }
 
 /**
+ * Animation of success and create a new task
+ */
+async function formSubmit() {
+  await smallAnimatedLabel(
+    'Task added to board',
+    '../assets/img/summary/board.svg',
+  );
+  setTimeout(addNewTask, 3000);
+}
+
+/**
  * Used to get all Form-field values
  * @param {string} origin - Origin, from where the function was called
  */
-async function addNewTask(origin) {
+async function addNewTask() {
   let status = document.getElementById('temporaryStatus').innerHTML;
   let category = document.getElementById('category_select').innerHTML;
   let id = parseInt(await checkExistingTask(), 10);
@@ -139,10 +150,7 @@ async function addNewTask(origin) {
   let allMember = contactSelection;
   let duedate = document.getElementById('addtask-duedate').value;
   let formattedTaskDate = new Date(duedate).getTime();
-  await smallAnimatedLabel(
-    'Task added to board',
-    '../assets/img/summary/board.svg',
-  );
+
   await createTask(
     id,
     title,
@@ -154,11 +162,9 @@ async function addNewTask(origin) {
     category,
     formattedTaskDate,
   );
-  if (origin) {
-    closeAddTaskOverlay();
-  }
-  resetForm();
-  identifyGuest();
+
+  await resetForm();
+  await identifyGuest();
   openSelectedQuicklink('quickBoard');
 }
 
@@ -299,7 +305,7 @@ function deleteSubtask(id) {
 function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
-  let editField = document.getElementById('subtaskEdit');  
+  let editField = document.getElementById('subtaskEdit');
 
   editField.classList.remove('d-none');
   subtaskfield.value = newSubtasks[id]['subtitle'];
@@ -313,7 +319,11 @@ function editSubtask(id) {
   moveTaskFormFooter(40);
 }
 
-function moveTaskFormFooter(pixel) {  
+/**
+ * Function to change style on taskFormFooter when editing subtask
+ * @param {number} pixel - number of pixels to move up/down
+ */
+function moveTaskFormFooter(pixel) {
   let taskFormFooter = document.getElementById('taskFormFooter');
   taskFormFooter.style.top = `-${pixel}px`;
   taskFormFooter.style.position = 'relative';
@@ -428,4 +438,40 @@ function whoAmi() {
       document.getElementById(userDiv).innerHTML += ` <b>(You)`;
     }
   }
+}
+
+/** Click-Eventlistener to close the menues if you´re outside their containers */
+document.addEventListener('click', function (event) {
+  let menuCategory = document.getElementById('frame74task');
+  let menuUser = document.getElementById('frame74');
+  let menuUserSelection = document.getElementById('user_selection-background');
+
+  if (
+    menuCategory.contains(event.target) ||
+    menuUser.contains(event.target) ||
+    menuUserSelection.contains(event.target)
+  ) {
+    event.stopPropagation();
+  } else {
+    hideMenues();
+  }
+});
+
+/**
+ * Hide the menues
+ */
+function hideMenues() {
+  let arrowDropdownCategory = document.getElementById(
+    'arrow_dropdown_addCategory',
+  );
+  let categorySelection = document.getElementById(
+    'category_selection-background',
+  );
+  let arrowDropdownTask = document.getElementById('arrow_dropdown_addTask');
+  let userSelection = document.getElementById('user_selection-background');
+
+  arrowDropdownCategory.style.transform = 'rotate(360deg)';
+  categorySelection.classList.add('d-none');
+  arrowDropdownTask.style.transform = 'rotate(360deg)';
+  userSelection.classList.add('d-none');
 }

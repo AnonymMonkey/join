@@ -26,3 +26,30 @@
         top: 5%;
     }
 }
+
+@media(max-width: 500px) {
+    .screen{
+        transform: scale(0.8);
+    }
+
+    .signUp {
+        flex-direction: column;
+        align-items: center;
+        height: 630px;
+        top: 3vh;
+    }
+}
+
+
+@media(max-width: 400px) {
+    .signUp {
+        top: 5vh;
+    }
+}
+
+@media(max-width: 370px) {
+    .signUp {
+        height: 630px;
+        top: 7vh;
+    }
+}

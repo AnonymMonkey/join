@@ -9,19 +9,9 @@ if(msg) {
 let users = [];
 let emailAddresses = [];
 
-function checkMail(email) {
-    searchMailsInJSON();    
-    if (emailAddresses.includes(email)) {            
-        document.getElementById('signupMsgBox').classList.remove('dNone');
-        document.getElementById('signupMsgBox').innerHTML = /*html*/`
-            <span>This Email already exists!</span>  
-        `;
-        return false;
-    } 
-    return true;
-}
-
-
+/**
+ * pushes all existing mail addresse from user database into an array 
+ */
 function searchMailsInJSON() {
     for (let i = 0; i < users.length; i++) {
         const element = users[i];     
@@ -30,6 +20,9 @@ function searchMailsInJSON() {
 }
 
 
+/**
+ * starts the sign up procedure
+ */
 async function registerUser(){
     let name = document.getElementById('signupName').value;
     let email = document.getElementById('signupEmail').value;    
@@ -41,6 +34,7 @@ async function registerUser(){
             pushUser(name, email, password);
             await setItem('users', JSON.stringify(users));
             await openSignUpOverlay();
+            setTimeout(openSuccessfullRegistered, 1500);
         }
         else{
             showMsgBoxInvalidConfirmation();
@@ -49,24 +43,21 @@ async function registerUser(){
 }
 
 
+/**
+ * checks if the signup name includes exactly two names which starts with a 
+ * capital letter
+ * @returns true or false 
+ */
 async function checkName() {
     let nameInput = elementByID("signupName").value;
     let namenParts = nameInput.split(" ");
     if (namenParts.length !== 2) {
-        document.getElementById('signupMsgBox').classList.remove('dNone');
-        document.getElementById('signupMsgBox').innerHTML = /*html*/`
-                <span>Please enter exactly two names with a space in between.</span><br>
-                <span>The names should start with a capital letter.</span>
-                `;
+        exactlyTwoNames();
         return false;
     }
     for (let i = 0; i <= namenParts.length - 1; i++) {
         if (namenParts[i][0] !== namenParts[i][0].toUpperCase()) {
-            document.getElementById('signupMsgBox').classList.remove('dNone');
-            document.getElementById('signupMsgBox').innerHTML = /*html*/`
-                <span>Please enter exactly two names with a space in between.</span><br>
-                <span>The names should start with a capital letter.</span>
-            `;
+            capitalLetters()
             return false;
         }
     }
@@ -74,6 +65,35 @@ async function checkName() {
 }
 
 
+/**
+ * shows error Message with the requirements of the user name
+ */
+function exactlyTwoNames(){
+    document.getElementById('signupMsgBox').classList.remove('dNone');
+    document.getElementById('signupMsgBox').innerHTML = /*html*/`
+        <span>Please enter exactly two names with a space in between.</span><br>
+        <span>The names should start with a capital letter.</span>
+    `;  
+}
+
+
+/**
+ * shows error Message with the requirements of the user name
+ */
+function capitalLetters(){
+    document.getElementById('signupMsgBox').classList.remove('dNone');
+    document.getElementById('signupMsgBox').innerHTML = /*html*/`
+        <span>Please enter exactly two names with a space in between.</span><br>
+        <span>The names should start with a capital letter.</span>
+    `; 
+}
+
+
+/**
+ * checks if the email address is already used for another user
+ * @param {String} email 
+ * @returns true or false
+ */
 function checkMail(email) {
     searchMailsInJSON();    
     if (emailAddresses.includes(email)) {            
@@ -87,43 +107,20 @@ function checkMail(email) {
 }
 
 
-//Funktion kürzen//
-async function openSignUpOverlay() {
-    //added following 2 lines
-    let signup = elementByID("bodySignup");
-    let legal = elementByID("signupLegalPrivacy");
-    
-    let overlayBg = elementByID("overlay-bg-addTask");
-    let overlayContent = elementByID("overlay-content-addTask");
-    
-    //added following 2 lines
-    legal.classList.add("dNone");
-    signup.classList.add("dNone");
-    
-
-    overlayContent.classList.remove("slideOut");
-
-    overlayBg.classList.add("d-flex");
-    overlayBg.classList.remove("dNone");
-
-    overlayContent.classList.add("slide-in");
-    overlayContent.style.right = "0";
-
-    overlayContent.addEventListener("animationend", onAnimationEnd);
-
-    function onAnimationEnd() {
-        overlayContent.removeEventListener("animationend", onAnimationEnd);
-        overlayBg.classList.remove("dNone");        
-    }  
-    setTimeout(openSuccessfullRegistered, 1500);
-}
-
-
+/**
+ * opens login page after successfully registered
+ */
 function openSuccessfullRegistered(){
     window.location.href = 'http://127.0.0.1:5500/index.html?msg=userregistered';
 }
 
 
+/**
+ * pushs user Data to an array and saves it to local storage
+ * @param {String} email of the logged in user
+ * @param {String} password of the logged in user
+ * @param {String} name of the logged in user
+ */
 async function pushUser(name, email, password){
     users.push({
         name: name,
@@ -133,6 +130,9 @@ async function pushUser(name, email, password){
 }
 
 
+/**
+ * loads all users from backend
+ */
 async function loadUsers(){
     try {
         users = JSON.parse(await getItem('users'));
@@ -140,6 +140,7 @@ async function loadUsers(){
         console.error('Loading error:', e);
     }
 }
+
 
 /**
  * shows an error message if the confirmation of the password is wrong
@@ -153,6 +154,7 @@ function showMsgBoxInvalidConfirmation(){
     `;
 }
 
+
 /**
  * checks if the checkbox of "remember me" is checked or unchecked
  */
@@ -165,6 +167,7 @@ function changeCheckbox(){
     }
 }
 
+
 /**
  * changes the status of the checkbox to unchecked
  */
@@ -175,6 +178,7 @@ function signupCheckboxOff(){
     document.getElementById('signupSubmit').classList.add('dNone');
     isChecked = false;
 }
+
 
 /**
  * changes the status of the checkbox to checked
@@ -358,4 +362,34 @@ function openPrivacy(){
  */
 function openLegal(){
     window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html', '_blank');
+}
+
+
+async function openSignUpOverlay() {
+    //added following 2 lines
+    let signup = elementByID("screen");
+    let legal = elementByID("signupLegalPrivacy");
+    
+    let overlayBg = elementByID("overlay-bg-signup");
+    let overlayContent = elementByID("overlay-content-signup");
+    
+    //added following 2 lines
+    legal.classList.add("dNone");
+    signup.classList.add("dNone");
+    
+
+    overlayContent.classList.remove("slideOut");
+
+    overlayBg.classList.add("d-flex");
+    overlayBg.classList.remove("dNone");
+
+    overlayContent.classList.add("slide-in");
+    overlayContent.style.right = "0";
+
+    overlayContent.addEventListener("animationend", onAnimationEnd);
+
+    function onAnimationEnd() {
+        overlayContent.removeEventListener("animationend", onAnimationEnd);
+        overlayBg.classList.remove("dNone");        
+    }  
 }

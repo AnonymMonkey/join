@@ -107,7 +107,7 @@ function generateOverlayContent(element) {
       <span class="board_card_label_task">${taskCategory[tasks[id]['category']]['title']
     }</span>
     </div>  
-    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeTaskOverlay(), doNotClose(event)">
+    <img src="../assets/img/contacts/close.svg" class="close-button-task pointer" onclick="closeTaskOverlay(), doNotClose(event)">
     </div>
       <span class="frame119_title_task">${tasks[id]['title']}</span>
       <span class="frame119_content_task">${tasks[id]['description']}</span>
@@ -154,7 +154,7 @@ async function generateOverlayAddTask(status) {
   contentAddTask = document.getElementById('overlayAddTaskContent');
   contentAddTask.innerHTML = '';
   contentAddTask.innerHTML = /*html*/ `
-    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeAddTaskOverlay()">        
+    <img src="../assets/img/contacts/close.svg" class="close-button-task pointer" onclick="closeAddTaskOverlay()">        
     `;
   document.getElementById('temporaryStatus').innerHTML = status;
   document.getElementById('addTaskClear').classList.add('d-none');
@@ -211,7 +211,7 @@ async function generateOverlayEditTask(element) {
   contentEditTask = document.getElementById('overlayEditTaskContent');
   contentEditTask.innerHTML = '';
   contentEditTask.innerHTML = /*html*/ `
-    <img src="../assets/img/contacts/close.svg" class="close-button pointer" onclick="closeEditTaskOverlay()">
+    <img src="../assets/img/contacts/close.svg" class="close-button-task pointer" onclick="closeEditTaskOverlay()">
   `;
 
   getTaskData();

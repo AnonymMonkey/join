@@ -109,3 +109,23 @@ body {
 /* .h {
   height: calc(100vh - 96px);
 } */
+
+#landscape{
+  width: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;  
+  height: 100vh;
+}
+
+#landscapeImg{
+  width: 10vw;
+  height: auto;
+}
+
+#landscapeText{    
+  color: #000000;
+}

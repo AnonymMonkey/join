@@ -1,8 +1,7 @@
 /**
- * This function create a animated label for everything messages who wants a small animation
- * 
- * @param {string} message - the message for the small animated label
- * @param {string} imgSrc - a image for the small animated label when its want
+ * Showing a confirmation-message (add, delete, edit)
+ * @param {string} message - message-text
+ * @param {string} imgSrc - path of an image which should be displayed
  */
 async function smallAnimatedLabel(message, imgSrc) {
     const timeout = 500;

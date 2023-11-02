@@ -1,4 +1,4 @@
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
     .overlay-content {
         position: relative;
         width: 50vw;
@@ -68,7 +68,7 @@
         margin-top: 0;
         gap: 10px;
         justify-content: center;
-        position: absolute;
+        /* position: absolute; */
         bottom: 5px;
     }
 
@@ -99,7 +99,7 @@
 
 @media (max-height: 850px) {
     .overlay-right form {
-        height: unset;
+        height: unset;        
     }
 
     .overlay-right .person-bg {
@@ -114,6 +114,8 @@
 
     .overlay-right-form {
         gap: 0;
+        top: 20px;
+        position: relative;
     }
 
     .place-img {

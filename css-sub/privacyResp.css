@@ -1,6 +1,5 @@
 @media(max-width: 1440px){
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: auto;
@@ -13,38 +12,45 @@
         height: 32px;
         flex-shrink: 0;
         border-radius: 24px;
-        
-    
         position: fixed;
         top: 228px;
         left: auto;
         bottom: 764px;
         right: 100px
     }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        overflow-y: auto; 
+        padding-bottom: 200px;
+        padding-top: 50px;
+        position: absolute;
+        left: 250px;
+        right: 100px;  
+    }
 }
+
+
 
 
 @media(max-width: 910px){
     .content{
         display: flex;
-
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
         overflow-y: auto; 
-
-        padding-right: 100px;
         padding-bottom: 200px;
         padding-top: 50px;
-        
-        /*fixation*/
         position: absolute;
         left: 130px;
         right: 100px;  
     }
 
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: auto;
@@ -57,8 +63,6 @@
         height: 32px;
         flex-shrink: 0;
         border-radius: 24px;
-        
-    
         position: fixed;
         top: 228px;
         left: auto;
@@ -71,16 +75,13 @@
 @media(max-width: 800px){
     .content{
         width: clamp(320px, 100%, 800px );
-        /*fixation*/
         position: fixed;
         left: auto;
-        
         right: -70px;
         overflow-y: scroll;  
     }
 
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: 600px;
@@ -93,23 +94,18 @@
         height: 32px;
         flex-shrink: 0;
         border-radius: 24px;
-        
-    
         position: fixed;
         top: 228px;
         left: 600px;
         bottom: 764px;
         right: auto;
     }
-
-
 }
 
 
 @media(max-width: 642px){
     .content{
         width: clamp(320px, 100%, 500px );
-        /*fixation*/
         position: fixed;
         left: auto;
         right: 0px;
@@ -117,7 +113,6 @@
     }
 
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: auto;
@@ -130,8 +125,6 @@
         height: 32px;
         flex-shrink: 0;
         border-radius: 24px;
-        
-    
         position: fixed;
         top: 228px;
         left: auto;
@@ -143,11 +136,9 @@
 
 @media(max-width: 520px){
     .content{
-        /*fixation*/
         position: fixed;
         left: 16px;
         right: 0px;  
-
         width: clamp(320px, 100%, 500px );
         overflow-y: scroll; 
     }
@@ -155,7 +146,6 @@
 
 @media(max-width:430px){
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: 300px;
@@ -168,8 +158,6 @@
         height: 32px;
         flex-shrink: 0;
         border-radius: 24px;
-        
-    
         position: fixed;
         top: 228px;
         left: 300px;

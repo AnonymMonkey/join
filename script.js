@@ -19,3 +19,26 @@ function detectDarkmode() {
     link.setAttribute('href', '../assets/img/logo_light.png');
   }
 }
+
+/**
+ * Show infobox if Site is in Landscape-Mode
+ */
+function checkViewPort() {
+  if (screen.availHeight < screen.availWidth) {
+
+    if(screen.availHeight < 440){
+      body = document.body;      
+      body.innerHTML = "";
+      body.innerHTML = /*html*/`
+        <div id="landscape">
+         <img id="landscapeImg" src="../assets/img/favicon.png">
+         <div id="landscapeText">Join is built to be used in portrait mode.</div>
+         </div>
+       `;
+    }
+
+  }else{
+    location.reload();
+  }
+}
+window.onresize = checkViewPort;

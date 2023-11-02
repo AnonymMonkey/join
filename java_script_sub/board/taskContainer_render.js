@@ -19,9 +19,3 @@ async function taskContainerRenderHTML(view, viewName) {
     setDateRange();
     addSubtask();
 }
-
-
-/**
- * <div id="overlay-bg-${view}Task" class="overlay-bg-${view}Task d-none" onclick="close${viewName}TaskOverlay()">
-    <div id="overlay-content-${view}Task" class="overlay-content-${view}Task d-flex" onclick="doNotClose(event)">
- */

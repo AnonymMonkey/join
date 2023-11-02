@@ -7,9 +7,8 @@ const generatedIDs = new Set();
 const generatedColors = new Set();
 
 /**
- * This function create a contact with validation, saves the data and load all datas from remote Storage
- * 
- * @returns 
+ * Create a new contact
+ * @returns abort if condition is true
  */
 async function createContact() {
     let nameIsValid = checkName();
@@ -31,9 +30,8 @@ async function createContact() {
 }
 
 /**
- * This function is a light version for create contact on other sub sites
- * 
- * @returns 
+ * Create a new contact from board
+ * @returns abort if condition is true
  */
 async function createContactLight() {
     let nameIsValid = checkName();
@@ -51,6 +49,9 @@ async function createContactLight() {
     smallAnimatedLabel('Contact succesfully created');
 }
 
+/**
+ * Getting values
+ */
 async function getValues() {
     getCategoryLetter();
     getJSON_Entry();
@@ -192,12 +193,10 @@ function createRegisterInfo() {
 
 }
 
-// TODO - Ihr beide: JSDOC
 /**
- * 
- * 
- * @param {*} nameFromLogin 
- * @returns 
+ * Get initials from logged-in User
+ * @param {string} nameFromLogin - name from logged-in user
+ * @returns - initials of logged-in user
  */
 function getContactFirstLetters(nameFromLogin) {
     let loginName = nameFromLogin;
@@ -224,8 +223,7 @@ function getContactFirstLetters(nameFromLogin) {
 }
 
 /**
- * This function reset the values from creat contact
- * 
+ * Reset html-form (set inputs empty)
  */
 function resetContactsForm() {
     contact_name.value = '';
@@ -234,15 +232,24 @@ function resetContactsForm() {
     create_btn.disabled = false;
 }
 
-// TODO - Ihr beide: JSDOC
 /**
- * 
- * 
+ * Deletes empty categories if contact is deleted
+ */
+function deleteTest() {
+    for (let i = 0; i < categories.length; i++) {
+        categories.splice(1, 3);
+        saveData();
+    }
+}
+
+/**
+ * Add active User to contacts if not exist on first login
  */
 async function addActiveUserToContacts() {
     getLoginData();
     let isFound = false;
     for (let i = 0; i < contacts.length; i++) {
+
         if (contacts[i]['register_entry'][0]['contact_mail'] == activeUserLoginMail) {
             isFound = true;
         }
@@ -269,7 +276,11 @@ async function addActiveUserToContacts() {
  * This function selected the active Loginuser and check with contacts if is your contact and write a YOU behind it
  * 
  */
+/**
+ * Add YOU to Contact-list if contact is active User
+ */
 function loginIsYourContact() {
+
     getLoginData();
     for (let i = 0; i < contacts.length; i++) {
         let contactMail = contacts[i]['register_entry'][0]['contact_mail'];
@@ -289,10 +300,8 @@ function loginIsYourContact() {
     }
 }
 
-// TODO - Ihr beide: JSDOC
 /**
- * 
- * 
+ * Get all Data from localstorage for the active User
  */
 function getLoginData() {
     let activeUserContactAsText = localStorage.getItem('loginData');

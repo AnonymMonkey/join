@@ -3,7 +3,7 @@ let selectedContact = null;
 /**
  * This function shows the contact informations when click on a contact in the register
  * 
- * @param {*} ID - This is the ID from the specific contact
+ * @param {number} ID - This is the ID from the specific contact
  */
 function showContact(ID) {
     if (window.innerWidth <= 1200) {
@@ -48,26 +48,8 @@ function showContact(ID) {
 
 }
 
-// TODO STEFAN: check mal bitte ob das noch von bedeutung ist... glaube das kam von dir bzw. uns :D
-/* function getLastJsonObject() {
-    let keysArray = Object.keys(contacts);
-    let lastKey = keysArray[keysArray.length - 1];
-    let lastValue = contacts[lastKey];
-
-    return lastValue;
-
-}
-
-function getLastJsonObjectID() {
-    let lastObject = getLastJsonObject();
-    let lastObjectID = lastObject['register_entry'][0]['contact_ID'];
-    return lastObjectID;
-} */
-
-
 /**
- * This function remove the contact informations
- * 
+ * Return to register - Responsive
  */
 function returnToRegister() {
     let show = elementByID('show_contact')
