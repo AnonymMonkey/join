@@ -269,7 +269,7 @@ async function addnewSubtask() {
 
   hideEditSubtask();
   let nextSubId = await getNextFreeId(newSubtasks, 'subid');
-  if (newSubtasks.length < 5) {
+  if (newSubtasks.length < 25) {
     let newSubtask = {
       subid: nextSubId,
       subtitle: subtitleValue,
@@ -295,7 +295,6 @@ function deleteSubtask(id) {
   newSubtasks.splice(id, 1);
   addSubtask();
   hideEditSubtask();
-  moveTaskFormFooter(0);
 }
 
 /**
@@ -306,6 +305,7 @@ function editSubtask(id) {
   let subtaskfield = document.getElementById('subtaskEditInput');
   let subTaskActions = document.getElementById('subtaskEditActions');
   let editField = document.getElementById('subtaskEdit');
+  let subtaskArea = document.getElementById('subtaskArea');
 
   editField.classList.remove('d-none');
   subtaskfield.value = newSubtasks[id]['subtitle'];
@@ -314,32 +314,9 @@ function editSubtask(id) {
     <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
     <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
-    `;
-  setEditPosition(id, editField);
-  moveTaskFormFooter(40);
-}
-
-/**
- * Function to change style on taskFormFooter when editing subtask
- * @param {number} pixel - number of pixels to move up/down
- */
-function moveTaskFormFooter(pixel) {
-  let taskFormFooter = document.getElementById('taskFormFooter');
-  taskFormFooter.style.top = `-${pixel}px`;
-  taskFormFooter.style.position = 'relative';
-}
-
-/**
- * This function sets the EditField of a Subtask above the selected list-element
- * @param {number} id - selected Subtask
- * @param {string} editField - the Subtask editField
- */
-function setEditPosition(id, editField) {
-  let editPosition = newSubtasks.length - (id + 1);
-  let defaultPxl = 38;
-  let everySub = 29;
-  let newPos = defaultPxl + editPosition * everySub;
-  editField.style = `top: -${newPos}px`;
+    `;  
+  subtaskArea.scrollTop = 0;
+  subtaskfield.focus();  
 }
 
 /**
@@ -351,7 +328,6 @@ function updateSubtask(id) {
     document.getElementById('subtaskEditInput').value;
   addSubtask();
   hideEditSubtask();
-  moveTaskFormFooter(0);
 }
 
 /**
