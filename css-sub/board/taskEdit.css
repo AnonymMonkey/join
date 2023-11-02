@@ -1,19 +1,19 @@
 @import url('taskEditResp.css');
 
-.overlay-bg-editTask {    
+.overlay-bg-editTask {
   left: 0;
   width: 100%;
-  z-index: 5;  
+  z-index: 5;
 }
 
-.overlay-content-editTask {
+/* .overlay-content-editTask {
   width: 525px;
   padding: 48px 24px;
   flex-direction: column;
   left: 60px;
-}
+} */
 
-.addtask_content {  
+.addtask_content {
   flex-direction: column;
 }
 
@@ -33,7 +33,7 @@ input[type='date']::placeholder {
   display: none;
 }
 
-.frame39 {  
+.frame39 {
   top: 0;
   left: 0;
   position: relative;
@@ -55,13 +55,13 @@ input[type='date']::placeholder {
   display: none;
 }
 
-#addTaskInputForm{
+#addTaskInputForm {
   height: 70vh;
   overflow-y: auto;
-  margin-top: 8px;
+  margin-top: 20px;
 }
 
-.priority{
+.priority {
   width: 98%;
 }
 

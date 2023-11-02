@@ -17,7 +17,7 @@ document.addEventListener('click', function (event) {
 });
 */
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 async function userSelection(isClosed) {
   //Function gets called by toggleAssignedTo() from add_task.js with isClosed = undefined
   //if the undefined status is not catched the userSelection(isClosed)-function will
@@ -105,7 +105,7 @@ function searchContact() {
   }
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function createBadge(ID) {
   let selectedUser = elementByID('selected_user');
   checkBadge(ID);
@@ -121,14 +121,14 @@ function createBadge(ID) {
   }
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function checkBadge(ID) {
   getBadge(ID);
   hiddenBadge(ID);
   changeContactBG(ID);
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function getBadge(ID) {
   if (userIndex(ID) == -1) {
     contactSelection.push(ID);
@@ -137,7 +137,7 @@ function getBadge(ID) {
   }
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function hiddenBadge(ID) {
   if (userIndex(ID) == -1) {
     if (uncheckedIMG(ID) && checkedIMG(ID)) {
@@ -152,7 +152,7 @@ function hiddenBadge(ID) {
   }
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function changeContactBG(ID) {
   if (userIndex(ID) == -1) {
     if (userElement(ID) && userName(ID)) {
@@ -167,33 +167,33 @@ function changeContactBG(ID) {
   }
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function userInitial_style(userInitial, i, color) {
   return (userInitial.style.cssText = `background-color: ${color}; z-index: ${i + 10
     }; margin-left: -10px;`);
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function checkedIMG(ID) {
   return elementByID(`img_checked_${ID}`);
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function uncheckedIMG(ID) {
   return elementByID(`img_unchecked_${ID}`);
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function userElement(contactID) {
   return elementByID(`user_element_${contactID}`);
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function userName(contactID) {
   return elementByID(`user_name_${contactID}`);
 }
 
-// TODO - Ihr beide: JSDOC
+// TODO JSDOC
 function userIndex(ID) {
   return contactSelection.indexOf(ID);
 }

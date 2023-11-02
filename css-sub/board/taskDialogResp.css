@@ -1,23 +1,23 @@
 @media (max-width: 910px) {
-    .overlay-content-task {
-        left: 0;
-      }
+  .overlay-content-task {
+    height: 100%;
   }
+}
 
-  @media (max-width: 550px) {
-    .overlay-content-task {
-        transform: scale(0.8);
-      }
+@media (max-width: 550px) {
+  .overlay-content-task {
+    transform: scale(0.8);
   }
+}
 
-  @media (max-width: 450px) {
-    .overlay-content-task {
-        transform: scale(0.65);
-      }
+@media (max-width: 450px) {
+  .overlay-content-task {
+    transform: scale(0.65);
   }
+}
 
-  @media (max-width: 380px) {
-    .overlay-content-task {
-        transform: scale(0.5);
-      }
+@media (max-width: 380px) {
+  .overlay-content-task {
+    transform: scale(0.6);
   }
+}

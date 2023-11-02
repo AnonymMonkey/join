@@ -110,22 +110,27 @@ body {
   height: calc(100vh - 96px);
 } */
 
-#landscape{
+#landscape {
   width: 50%;
   margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;  
+  gap: 20px;
   height: 100vh;
 }
 
-#landscapeImg{
+#landscapeImg {
   width: 10vw;
   height: auto;
 }
 
-#landscapeText{    
+#landscapeText {
   color: #000000;
+}
+
+.bs-i {
+  box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }

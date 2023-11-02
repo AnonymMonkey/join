@@ -20,17 +20,18 @@ input::-webkit-inner-spin-button {
 .overlay-content-task {
   position: relative;
   width: 525px;
-  padding: 48px 40px;
+  height: calc(100vh - 224px);
+  margin-bottom: 35px;
+  padding: 32px 40px;
   border-radius: 30px;
   gap: 24px;
-  left: 60px;
   background-color: #fff;
   z-index: 6;
-  transition: right 0.3s ease;  
+  transition: right 0.3s ease;
 }
 
 .slide-in {
-  animation: slideIn 0.3s ease-in-out forwards;  
+  animation: slideIn 0.3s ease-in-out forwards;
 }
 
 .slideOut {
@@ -58,7 +59,7 @@ input::-webkit-inner-spin-button {
 }
 
 #overlayTaskContent {
-  gap: 24px;
+  gap: 16px;
   display: flex;
   flex-direction: column;
 }
@@ -109,9 +110,9 @@ input::-webkit-inner-spin-button {
   width: 100%;
   word-wrap: break-word;
   height: auto;
-  font-size: 61px;
+  font-size: 47px;
   font-weight: 700;
-  line-height: 73.2px;
+  line-height: unset;
   color: black;
 }
 
@@ -180,10 +181,10 @@ input::-webkit-inner-spin-button {
   color: #2a3647;
 }
 
-.task-contactlist {  
+.task-contactlist {
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 220px;
+  max-height: 16vh;
 }
 
 .task-contactlist-contact {
@@ -201,7 +202,7 @@ input::-webkit-inner-spin-button {
   gap: 16px;
 }
 
-.profile-badge {  
+.profile-badge {
   width: 42px;
   height: 42px;
   border-radius: 45px;
@@ -252,7 +253,7 @@ input::-webkit-inner-spin-button {
 
 .frame204 {
   width: 100%;
-  max-height: 120px;
+  max-height: 12vh;
   overflow-y: auto;
   margin-bottom: 10px;
 }
@@ -276,12 +277,12 @@ input::-webkit-inner-spin-button {
   width: 24px;
   height: 24px;
   padding: 4px;
-  border-radius: 3px;  
+  border-radius: 3px;
 }
 
-.subtasks-checkbutton:hover {  
+.subtasks-checkbutton:hover {
   background-color: rgba(211, 208, 208, 0.954);
-  border-radius: 50%;  
+  border-radius: 50%;
 }
 
 .subtasks-title {
@@ -298,8 +299,8 @@ input::-webkit-inner-spin-button {
   align-items: center;
   gap: 8px;
   position: absolute;
-  right: 40px;
-  bottom: 48px;
+  right: 32px;
+  bottom: 32px;
 }
 
 .delete-task,
@@ -313,12 +314,12 @@ input::-webkit-inner-spin-button {
 
 .delete-task:hover,
 .edit-task:hover {
-  scale: 1.02;  
-  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);  
+  scale: 1.02;
+  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
 }
 
 .delete-task:hover .delete-text,
-.edit-task:hover .edit-text{  
+.edit-task:hover .edit-text {
   font-weight: bold;
 }
 

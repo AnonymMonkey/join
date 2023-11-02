@@ -21,10 +21,9 @@
   #done {
     display: flex;
     overflow-x: auto;
-    height: 300px;
+    height: auto;
     padding: 10px 0px 10px 10px;
     align-items: center;
-    gap: 20px;
   }
 
   .frame136,
@@ -39,10 +38,11 @@
     width: 95%;
   }
 
-  .card {    
+  .card {
     width: unset;
     aspect-ratio: 1/1;
     position: relative;
+    transform: scale(0.9);
   }
 
   .placeholderCard {
@@ -57,27 +57,23 @@
     left: 16px;
   }
 
-  .frame119{
-    height: -webkit-fill-available;
-  }
-
-  .frameX{
+  .frameX {
     width: 200px;
   }
 
   .frame114 {
     margin-top: 35px;
   }
-  
+
   .frame114_title,
-  .frame114_content{
+  .frame114_content {
     text-overflow: ellipsis;
-    overflow: hidden; 
+    overflow: hidden;
     width: 160px;
     white-space: nowrap;
   }
 
-  .frame114_progressbar{
+  .frame114_progressbar {
     width: 85px;
   }
 
