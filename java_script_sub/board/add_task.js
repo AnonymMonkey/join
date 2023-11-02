@@ -162,7 +162,7 @@ async function addNewTask() {
     category,
     formattedTaskDate,
   );
-  
+
   await resetForm();
   await identifyGuest();
   openSelectedQuicklink('quickBoard');
@@ -446,9 +446,13 @@ document.addEventListener('click', function (event) {
   let menuUser = document.getElementById('frame74');
   let menuUserSelection = document.getElementById('user_selection-background');
 
-  if (menuCategory.contains(event.target) || menuUser.contains(event.target) || menuUserSelection.contains(event.target)) {
+  if (
+    menuCategory.contains(event.target) ||
+    menuUser.contains(event.target) ||
+    menuUserSelection.contains(event.target)
+  ) {
     event.stopPropagation();
-  } else {    
+  } else {
     hideMenues();
   }
 });
@@ -457,8 +461,12 @@ document.addEventListener('click', function (event) {
  * Hide the menues
  */
 function hideMenues() {
-  let arrowDropdownCategory = document.getElementById('arrow_dropdown_addCategory');
-  let categorySelection = document.getElementById('category_selection-background');  
+  let arrowDropdownCategory = document.getElementById(
+    'arrow_dropdown_addCategory',
+  );
+  let categorySelection = document.getElementById(
+    'category_selection-background',
+  );
   let arrowDropdownTask = document.getElementById('arrow_dropdown_addTask');
   let userSelection = document.getElementById('user_selection-background');
 

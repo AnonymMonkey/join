@@ -19,3 +19,19 @@ function detectDarkmode() {
     link.setAttribute('href', '../assets/img/logo_light.png');
   }
 }
+
+/**
+ * Show infobox if Site is in Landscape-Mode
+ */
+// function checkViewPort() {
+//   if (screen.availHeight < screen.availWidth) {
+
+//     if(screen.availHeight < 440){
+//       document.body.innerHTML = " Leer ";
+//     }
+
+//   }else{
+//     location.reload();
+//   }
+// }
+// window.onresize = checkViewPort;
