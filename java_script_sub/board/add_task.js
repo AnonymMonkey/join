@@ -306,6 +306,7 @@ function editSubtask(id) {
   let subTaskActions = document.getElementById('subtaskEditActions');
   let editField = document.getElementById('subtaskEdit');
   let subtaskArea = document.getElementById('subtaskArea');
+  let subtaskList = document.getElementById('subtasklist');
 
   editField.classList.remove('d-none');
   subtaskfield.value = newSubtasks[id]['subtitle'];
@@ -316,7 +317,8 @@ function editSubtask(id) {
     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
     `;  
   subtaskArea.scrollTop = 0;
-  subtaskfield.focus();  
+  subtaskfield.focus();
+  subtaskList.style.filter = "blur(2px)";
 }
 
 /**
@@ -330,14 +332,18 @@ function updateSubtask(id) {
   hideEditSubtask();
 }
 
+
 /**
  * Hiding input-field
  */
 function hideEditSubtask() {
-  subtaskEditInput = document.getElementById('subtaskEditInput');
+  let subtaskEditInput = document.getElementById('subtaskEditInput');
+  let subtaskEdit = document.getElementById('subtaskEdit');
+  let subtaskList = document.getElementById('subtasklist');
+  
   subtaskEditInput.value = '';
-  subtaskEdit = document.getElementById('subtaskEdit');
   subtaskEdit.classList.add('d-none');
+  subtaskList.style.filter = "blur(0px)";
 }
 
 /**
