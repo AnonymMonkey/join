@@ -91,7 +91,7 @@
     flex-shrink: 0;
 }
 
-#user_selection-background {    
+#user_selection-background {
     width: 100%;
     background-color: #FFF;
     border-radius: 10px;
@@ -110,9 +110,10 @@
     width: 100%;
 }
 
-#selected_user{
+#selected_user {
     overflow: auto;
     padding-left: 10px;
+    max-width: 100%;
 }
 
 .add-contact-button-area {

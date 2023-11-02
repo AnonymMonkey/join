@@ -29,7 +29,7 @@ function generateTasksHTML(element) {
     </div>  
     ${progressHTML}
     <div class="frameX">
-      <div class="frame139">
+      <div class="frame139 custom-scrollbar">
         ${badgeHTML}        
       </div>
       <div class="priority_symbol">
@@ -73,7 +73,7 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
 
 function generateProfileBadgesTask(initials, badgeColor, name) {
   return (badgeHTMLTask += /*html*/ `
-  <div class="task-contactlist-contact">
+  <div class="task-contactlist-contact custom-scrollbar">
     <div class="frame191">
       <div style="background-color: ${badgeColor};" class="profile-badge">${initials}</div>
       <div class="profile-name">${name}</div>
@@ -127,12 +127,12 @@ function generateOverlayContent(element) {
    
     <div class="frame214">
       <div class="frame214_text">Assigned To:</div>  
-      <div class="task-contactlist">${badgeHTMLTask}</div>
+      <div class="task-contactlist custom-scrollbar">${badgeHTMLTask}</div>
     </div>    
 
     <div class="frame215">
       <div class="frame215_text">Subtasks</div>
-      <div id="frame204" class="frame204">${subtaskHTML}</div>
+      <div id="frame204" class="frame204 custom-scrollbar">${subtaskHTML}</div>
     </div>
 
     <div class="frame20">

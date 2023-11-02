@@ -344,6 +344,8 @@
   align-items: center;
   align-self: stretch;
   flex-wrap: wrap;
+  overflow: auto;
+  height: 64px;
 }
 
 .frame217 {
