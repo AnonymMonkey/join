@@ -32,7 +32,7 @@ function checkViewPort() {
       body.innerHTML = /*html*/`
         <div id="landscape">
          <img id="landscapeImg" src="../assets/img/favicon.png">
-         <div id="landscapeText">Join is built to be used in portrait mode.</div>
+         <div id="landscapeText">Sorry! Join is built to be used in portrait mode.</div>
          </div>
        `;
     }

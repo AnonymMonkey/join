@@ -671,6 +671,11 @@ textarea {
   border: none;
 }
 
+#subtaskArea{
+  max-height: 90px;
+  overflow: auto;
+}
+
 #frame14_subtask_text:focus {
   background: none;
 }
@@ -698,7 +703,7 @@ textarea {
 }
 
 #subtaskEdit {
-  width: 440px;
+  width: 100%;
   height: 32px;
   padding: 4px 24px 4px 16px;
   background-color: #ffffff;
