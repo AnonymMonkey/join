@@ -1,3 +1,8 @@
+/**
+ * This function changes the overlay for edit contact and show the contact informations
+ * 
+ * @param {*} ID - This is the ID from the specific contact
+ */
 async function editContact(ID) {
     openContactOverlay();
     let pos = getIndexOfJson(ID);
@@ -42,6 +47,13 @@ async function editContact(ID) {
 
 }
 
+/**
+ * This function will change und save the contact in JSON structure
+ * 
+ * @param {number} pos - This is the index of the contact
+ * @param {*} ID - This is the ID from the specific contact
+ * @returns - nothing
+ */
 async function changeContactData(pos, ID) {
     let nameIsValid = checkName();
     let mailIsValid = checkMail(ID);

@@ -93,3 +93,24 @@ function showContact_html(name, mail, phone, initials, color, ID) {
         </div>
         `;
 }
+
+function createContactEntry_html(ID, color, initials, name, mail) {
+    return `
+        <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
+            <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
+            <div>
+                <div id="contact_name_${ID}" class="contact-info-name">${name}</div>
+                <div class="contact-info-mail">${mail}</div>
+            </div>
+        </div>
+        `;
+}
+
+function createContactCategory_html(category) {
+    return `
+        <div id="category_${category}">
+            <div class="contact-letter">${category}</div>
+        </div>
+        <img src="../assets/img/contacts/cutline2.svg">
+        `;
+}

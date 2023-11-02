@@ -1,5 +1,10 @@
 let selectedContact = null;
 
+/**
+ * This function shows the contact informations when click on a contact in the register
+ * 
+ * @param {*} ID - This is the ID from the specific contact
+ */
 function showContact(ID) {
     if (window.innerWidth <= 1200) {
         elementByID('contact_register').classList.add('d-none');
@@ -43,6 +48,7 @@ function showContact(ID) {
 
 }
 
+// TODO STEFAN: check mal bitte ob das noch von bedeutung ist... glaube das kam von dir bzw. uns :D
 /* function getLastJsonObject() {
     let keysArray = Object.keys(contacts);
     let lastKey = keysArray[keysArray.length - 1];
@@ -59,7 +65,10 @@ function getLastJsonObjectID() {
 } */
 
 
-/* return to register - Responsive */
+/**
+ * This function remove the contact informations
+ * 
+ */
 function returnToRegister() {
     let show = elementByID('show_contact')
 

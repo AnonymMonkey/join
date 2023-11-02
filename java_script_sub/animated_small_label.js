@@ -1,3 +1,9 @@
+/**
+ * This function create a animated label for everything messages who wants a small animation
+ * 
+ * @param {string} message - the message for the small animated label
+ * @param {string} imgSrc - a image for the small animated label when its want
+ */
 async function smallAnimatedLabel(message, imgSrc) {
     const timeout = 500;
 
@@ -7,7 +13,7 @@ async function smallAnimatedLabel(message, imgSrc) {
 
         overlay.appendChild(document.createTextNode(message));
 
-        if(imgSrc){
+        if (imgSrc) {
             const img = document.createElement("img");
             img.src = imgSrc;
             overlay.appendChild(img);

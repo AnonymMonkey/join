@@ -6,9 +6,11 @@ let activeUserLoginData;
 const generatedIDs = new Set();
 const generatedColors = new Set();
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// CREATE CONTACT ||||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * This function create a contact with validation, saves the data and load all datas from remote Storage
+ * 
+ * @returns 
+ */
 async function createContact() {
     let nameIsValid = checkName();
     let mailIsValid = checkNewMail();
@@ -28,6 +30,11 @@ async function createContact() {
     showContact(getLastJsonObjectID());
 }
 
+/**
+ * This function is a light version for create contact on other sub sites
+ * 
+ * @returns 
+ */
 async function createContactLight() {
     let nameIsValid = checkName();
     let mailIsValid = checkMail();
@@ -44,14 +51,15 @@ async function createContactLight() {
     smallAnimatedLabel('Contact succesfully created');
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// GET VALUES ||||||||||||||||||||||||||||||||||||||||||||||| //
-
 async function getValues() {
     getCategoryLetter();
     getJSON_Entry();
 }
 
+/**
+ * This function get all names of JSON contacts and iterate it for the first letters and create a new array
+ * 
+ */
 function getCategoryLetter() {
     categories = [];
     for (let i = 0; i < contacts.length; i++) {
@@ -63,6 +71,11 @@ function getCategoryLetter() {
     }
 }
 
+
+/**
+ * This function push a contact data structure
+ * 
+ */
 function getJSON_Entry() {
     contacts.push({
         register_entry: [
@@ -78,14 +91,21 @@ function getJSON_Entry() {
     });
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// STORAGE |||||||||||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * A function to compact several functions to save datas in remote Storage
+ * 
+ */
 async function saveData() {
     await saveToStorage('categories', categories);
     await saveToStorage('contacts', contacts);
 }
 
+/**
+ * This function set the data for the remote storage or gives a error
+ * 
+ * @param {string} key - This is the key for the remote storage 
+ * @param {string} data - This is the value for the remote storage
+ */
 async function saveToStorage(key, data) {
     try {
         await setItem(key, JSON.stringify(data));
@@ -94,11 +114,21 @@ async function saveToStorage(key, data) {
     }
 }
 
+/**
+ * A function to compact several functions to load datas in remote Storage
+ * 
+ */
 async function loadData() {
     await loadFromStorage('contacts', contacts);
     await loadFromStorage('categories', categories);
 }
 
+/**
+ * This function get the data for the remote storage or gives a error
+ * 
+ * @param {string} key - This is the key for the remote storage 
+ * @param {string} data - This is the value for the remote storage
+ */
 async function loadFromStorage(key, data) {
     try {
         const storedData = await getItem(key);
@@ -110,18 +140,27 @@ async function loadFromStorage(key, data) {
     }
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// CREATE REGISTER |||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * This function created the contact register
+ * 
+ */
 async function createRegister() {
     let register = elementByID('register');
     register.innerHTML = createRegisterEntry();
 }
 
+/**
+ * This function get the information for creating contact register
+ * 
+ */
 function createRegisterEntry() {
     createRegisterInfo();
 }
 
+/**
+ * This function craft the construct for the contact register
+ * 
+ */
 function createRegisterInfo() {
     let register = elementByID('register');
     let infoHTML = '';
@@ -133,12 +172,7 @@ function createRegisterInfo() {
             return firstLetter === category;
         });
 
-        infoHTML += `
-            <div id="category_${category}">
-                <div class="contact-letter">${category}</div>
-            </div>
-            <img src="../assets/img/contacts/cutline2.svg">
-        `;
+        infoHTML += createContactCategory_html(category);
 
         for (let contact of categoryContacts) {
             let registerEntry = contact['register_entry'][0];
@@ -148,15 +182,7 @@ function createRegisterInfo() {
             let ID = registerEntry['contact_ID'];
             let color = registerEntry['contact_color'];
 
-            let contactHTML = `
-                <div onclick="showContact(${ID})" data-contact-id="contactID_${ID}" class="contact-info pointer">
-                    <div id="contactLettersID_${ID}" class="first-letters" ${contactFirstLettersBG(color)}>${initials}</div>
-                    <div>
-                        <div id="contact_name_${ID}" class="contact-info-name">${name}</div>
-                        <div class="contact-info-mail">${mail}</div>
-                    </div>
-                </div>
-            `;
+            let contactHTML = createContactEntry_html(ID, color, initials, name, mail);
 
             infoHTML += contactHTML;
         }
@@ -166,7 +192,13 @@ function createRegisterInfo() {
 
 }
 
-// TODO: param wird nur mitgegeben, wenn Name vom Login kommt ansonsten wird else gecalled - SIMON
+// TODO - Ihr beide: JSDOC
+/**
+ * 
+ * 
+ * @param {*} nameFromLogin 
+ * @returns 
+ */
 function getContactFirstLetters(nameFromLogin) {
     let loginName = nameFromLogin;
     if (loginName) {
@@ -191,9 +223,10 @@ function getContactFirstLetters(nameFromLogin) {
     }
 }
 
-// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| //
-// RESET & DELETE ||||||||||||||||||||||||||||||||||||||||||| //
-
+/**
+ * This function reset the values from creat contact
+ * 
+ */
 function resetContactsForm() {
     contact_name.value = '';
     contact_mail.value = '';
@@ -201,23 +234,18 @@ function resetContactsForm() {
     create_btn.disabled = false;
 }
 
-function deleteTest() {
-    for (let i = 0; i < categories.length; i++) {
-        categories.splice(1, 3);
-        saveData();
-    }
-}
-
-
+// TODO - Ihr beide: JSDOC
+/**
+ * 
+ * 
+ */
 async function addActiveUserToContacts() {
     getLoginData();
     let isFound = false;
     for (let i = 0; i < contacts.length; i++) {
-
         if (contacts[i]['register_entry'][0]['contact_mail'] == activeUserLoginMail) {
-            /*activeUserID = contacts[i]['register_entry'][0].contact_ID;*/
             isFound = true;
-        } 
+        }
     }
 
     if (!isFound) {
@@ -237,9 +265,11 @@ async function addActiveUserToContacts() {
     }
 }
 
+/**
+ * This function selected the active Loginuser and check with contacts if is your contact and write a YOU behind it
+ * 
+ */
 function loginIsYourContact() {
-    /* debugger */
-
     getLoginData();
     for (let i = 0; i < contacts.length; i++) {
         let contactMail = contacts[i]['register_entry'][0]['contact_mail'];
@@ -259,6 +289,11 @@ function loginIsYourContact() {
     }
 }
 
+// TODO - Ihr beide: JSDOC
+/**
+ * 
+ * 
+ */
 function getLoginData() {
     let activeUserContactAsText = localStorage.getItem('loginData');
     if (activeUserContactAsText) {

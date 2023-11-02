@@ -1,3 +1,8 @@
+/**
+ * This function delete the contact from JSON
+ * 
+ * @param {number} ID - This is the ID from the specific contact
+ */
 async function deleteContact(ID) {
     let showArea = elementByID('show_contact')
 

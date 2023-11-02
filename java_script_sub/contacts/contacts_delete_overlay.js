@@ -1,3 +1,8 @@
+/**
+ * This function change the overlay for delete a contact and show the contact informations
+ * 
+ * @param {number} ID - This is the ID from the specific contact
+ */
 async function deleteContactOverlay(ID) {
     openContactOverlay();
     let pos = getIndexOfJson('ID', ID);

@@ -1,3 +1,7 @@
+/**
+ * This function change the overlay for add contact and go to create contact
+ * 
+ */
 function addContact() {
     openContactOverlay();
 

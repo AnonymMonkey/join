@@ -7,4 +7,3 @@ async function contactsInit() {
     adjustQuicklinkBG();
     detectDarkmode();
 }
-
