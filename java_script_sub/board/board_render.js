@@ -159,7 +159,10 @@ async function generateOverlayAddTask(status) {
     `;
   document.getElementById('temporaryStatus').innerHTML = status;
   document.getElementById('addTaskClear').classList.add('d-none');
-  document.getElementById('addTaskCancel').classList.remove('d-none');
+  /* document.getElementById('addTaskCancel').classList.remove('d-none'); */
+  document.getElementById('vector4').classList.add('d-none');
+  document.getElementById('addtask_content').classList.add('column');
+  document.getElementById('taskFormFooter').style = "padding-right: 10px;";
   adjustQuicklinkBG();
 }
 

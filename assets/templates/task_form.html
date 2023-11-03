@@ -8,7 +8,7 @@
 <!-- form start -->
 
 <form class="custom-scrollbar" autocomplete="off" id="addTaskInputForm" onsubmit="formSubmit(); return false;">
-  <div class="addtask_content">
+  <div id="addtask_content" class="addtask_content">
     <div class="frame219">
       <div class="task_title">
         <div class="task_title_text">
@@ -41,13 +41,13 @@
           <img onclick="toggleAssignedTo()" id="arrow_dropdown_addTask" class="arrow-dropdown"
             src="../../assets/img/add-task/arrow_drop_down.png" alt="Arrow-Image">
         </div>
-        <div id="user_selection-background" class="d-none">
+        <div id="user_selection-background" class="d-none bs-i">
           <div class="d-none custom-scrollbar" id="user_selection"></div>
         </div>
         <div id="selected_user" class="flex custom-scrollbar"></div>
       </div>
     </div>
-    <div class="vector4">
+    <div id="vector4" class="vector4">
       <svg xmlns="http://www.w3.org/2000/svg" width="2" height="426" viewBox="0 0 2 426" fill="none">
         <path d="M1.24805 1L1.24854 425" stroke="#D1D1D1" stroke-linecap="round" />
       </svg>
@@ -107,7 +107,7 @@
           <img onclick="toggleCategory()" id="arrow_dropdown_addCategory" class="arrow-dropdown"
             src="../../assets/img/add-task/arrow_drop_down.png" style="transform: rotate(360deg);" alt="Arrow-Image">
         </div>
-        <div id="category_selection-background" class="d-none">
+        <div id="category_selection-background" class="d-none bs-i">
           <div data-value="0" onclick="setCategory(0,this.getAttribute('data-value'), 'add')"
             class="categoryElement pointer">HTML + CSS</div>
           <div data-value="1" onclick="setCategory(0,this.getAttribute('data-value'), 'add')"

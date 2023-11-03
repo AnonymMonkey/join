@@ -1,15 +1,19 @@
-.overlay-bg-addTask {  
+.overlay-bg-addTask {
   left: 232px;
-  width: calc(100% - 232px);  
+  width: calc(100% - 232px);
   z-index: 4;
 }
 
-.overlay-content-addTask {    
-  padding: 48px 40px;
+.overlay-content-addTask {
+  padding: 48px 16px;
 }
 
-.addtask_content {  
+.addtask_content {
   left: 328px;
+}
+
+.requiredInfo {
+  width: 100%;
 }
 
 .vector4 {
@@ -24,8 +28,8 @@
   transform: rotate(-0deg);
 }
 
-.frame40 {  
-  gap: 1px;  
+.frame40 {
+  gap: 1px;
   color: #000;
   font-family: Inter;
   font-size: 61px;
@@ -34,12 +38,12 @@
   line-height: 120%;
 }
 
-.frame39 {  
+.frame39 {
   top: 174px;
   left: 610.25px;
 }
 
-#editTaskButton[type=submit]{
+#editTaskButton[type=submit] {
   display: none;
 }
 
