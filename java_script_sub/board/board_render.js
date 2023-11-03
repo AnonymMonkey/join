@@ -6,6 +6,7 @@
 function generateTasksHTML(element) {
   progressHTML = '';
   badgeHTML = '';
+  restHTML = '';
   badgeHTMLTask = '';
   taskProgress(element);
   assignedTo(element);
@@ -30,7 +31,7 @@ function generateTasksHTML(element) {
     ${progressHTML}
     <div class="frameX">
       <div class="frame139 custom-scrollbar">
-        ${badgeHTML}        
+        ${badgeHTML} ${restHTML}
       </div>
       <div class="priority_symbol">
         <img src="../assets/img/add-task/${prioIcon}.svg">

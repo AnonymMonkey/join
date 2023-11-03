@@ -15,7 +15,6 @@ async function init() {
   adjustQuicklinkBG();
   setStylesheet();
   detectDarkmode();
-  getAllContactIDs();
 }
 
 /**
@@ -216,29 +215,9 @@ async function assignedTo(task) {
     }
     
     if(rest > 0){
-      console.log('größer 3 ' + counterMember + " rest: " + rest);
+      return (restHTML += /*html*/ `<div class="rest">+ ${rest}</div>`);
     }
-
   }
-// async function assignedTo(task) {
-//   let pixelLeft = 0;
-//   let counterMember = 0;
-//   for (let i = 0; i < task['member'].length; i++) {
-//     const element = task['member'][i];
-
-//     for (let j = 0; j < contactsTask.length; j++) {
-//       let contactTask = contactsTask[j];
-//       if (contactTask['register_entry'][0]['contact_ID'] === element) {
-//         let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-//         let contactColor = contactTask['register_entry'][0]['contact_color'];
-//         pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
-//         generateProfileBadgesBoard(contactInitials, contactColor, pixelLeft);
-//         pixelLeft = pixelLeft + 8;
-//         counterMember++;
-//       }
-//     }
-//   }
-// }
 
 /**
  * Generating profile-badges on taskview
@@ -314,12 +293,4 @@ async function deleteTask(searchId) {
     await setItem('tasks', tasks);
     init();
   }
-}
-
-/**
- * get all IDs from Contacts
- */
-function getAllContactIDs() {  
-  let contactIds = contactsTask.map(entry => entry.register_entry[0].contact_ID);  
-  allContactIDs.push(contactIds);
 }
