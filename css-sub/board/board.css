@@ -322,7 +322,8 @@
   background: var(--version-2-main-color, #4589ff);
 }
 
-.frame114_progresstext {
+.frame114_progresstext,
+.rest {
   color: #000;
   font-family: Inter;
   font-size: 12px;
@@ -331,14 +332,9 @@
   line-height: 120%;
 }
 
-.rest {
-  color: #000;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  text-align: left;
+.rest{
+  position: relative;
+  right: 20px;
 }
 
 .frameX {
