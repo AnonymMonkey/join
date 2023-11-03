@@ -273,7 +273,8 @@ input::-webkit-inner-spin-button {
 }
 
 .close-button,
-.close-button-task {
+.close-button-task,
+#overlayEditTaskContent {
     position: absolute;
     top: 20px;
     right: 20px;

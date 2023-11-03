@@ -474,7 +474,6 @@ input {
   flex-direction: column;
   position: relative;
   padding-right: 10px;
-  height: 70vh;
   overflow-y: auto;
 }
 

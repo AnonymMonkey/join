@@ -56,9 +56,8 @@ input[type='date']::placeholder {
 }
 
 #addTaskInputForm {
-  height: 70vh;
   overflow-y: auto;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 .priority {

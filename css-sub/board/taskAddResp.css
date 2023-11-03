@@ -40,10 +40,9 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 70vh;
     overflow-y: auto;
   }
-  
+
   #addTaskCancel {
     display: none;
   }
@@ -123,10 +122,11 @@
   }
 }
 
-@media (max-width: 1024px) {  
+@media (max-width: 1024px) {
   .frame27 {
     width: auto;
   }
+
   #addTaskClear {
     display: none;
   }
@@ -141,20 +141,20 @@
     width: 100%;
     position: relative;
   }
-  
+
   #task_form {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     left: 0;
-    width: 100%;    
+    width: 100%;
     height: calc(80vh);
-    padding: 16px;    
+    padding: 16px;
   }
-  
+
   #addTaskInputForm {
     width: 100%;
-  }    
+  }
 
   .frame27,
   .frame35 {
@@ -177,7 +177,7 @@
     padding: 32px 24px;
   }
 
-  .frame40 { 
+  .frame40 {
     font-size: 48px;
   }
 
@@ -186,17 +186,18 @@
   .low {
     gap: 0px;
   }
-  
+
   #frame24,
   #frame25,
-  #frame26 {  
-    padding-right: 8px;        
+  #frame26 {
+    padding-right: 8px;
   }
-  .priority_text{
+
+  .priority_text {
     right: 8px;
   }
 
-  .requiredInfo{
+  .requiredInfo {
     width: 40%;
   }
 
@@ -207,47 +208,51 @@
     align-items: center;
     gap: 4px;
   }
-  
+
   #createTaskButton {
     font-size: 0;
     width: auto;
   }
-  #subtaskEditInput {    
+
+  #subtaskEditInput {
     width: 75%;
   }
+
   .priority_text {
     font-size: 0;
   }
+
   #frame24,
   #frame25,
-  #frame26 {  
+  #frame26 {
     padding-right: 30px;
   }
 
-  .overlay-content-addTask,
-  .overlay-content-editTask{
+  .overlay-content-addTask {
     padding: 16px;
     margin-bottom: 32px;
   }
 
-  #task_form{
+  #task_form {
     height: calc(80vh - 128px);
   }
 
-  .requiredInfo{
+  .requiredInfo {
     width: 100%;
   }
 
 }
 
 @media (max-width: 400px) {
-  .overlay-content-addTask{
+  .overlay-content-addTask {
     padding: 4px;
   }
-  #addTaskInputForm{
+
+  #addTaskInputForm {
     padding: 8px;
   }
-  .frame40{
+
+  .frame40 {
     font-size: 36px;
     padding: 8px;
   }
@@ -255,6 +260,6 @@
 
 @media (max-width: 380px) {
   .overlay-content-addTask {
-      transform: scale(0.84);
-    }
+    transform: scale(0.84);
+  }
 }
