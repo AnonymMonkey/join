@@ -3,6 +3,7 @@ let contactsTask = [];
 let tasks = [];
 let taskCategory = [];
 let progressHTML = '';
+let allContactIDs = [];
 
 async function init() {
   await loadTasks();
@@ -14,6 +15,7 @@ async function init() {
   adjustQuicklinkBG();
   setStylesheet();
   detectDarkmode();
+  getAllContactIDs();
 }
 
 /**
@@ -187,24 +189,56 @@ function taskProgress(element) {
  * @param {number} task - number of current task-element
  */
 async function assignedTo(task) {
-  let pixelLeft = 0;
-  let counterMember = 0;
-  for (let i = 0; i < task['member'].length; i++) {
-    const element = task['member'][i];
+    let pixelLeft = 0;
+    let counterMember = 0;
+    let rest = 0;
 
-    for (let j = 0; j < contactsTask.length; j++) {
-      let contactTask = contactsTask[j];
-      if (contactTask['register_entry'][0]['contact_ID'] === element) {
-        let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-        let contactColor = contactTask['register_entry'][0]['contact_color'];
-        pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
-        generateProfileBadges(contactInitials, contactColor, pixelLeft);
-        pixelLeft = pixelLeft + 8;
-        counterMember++;
+    for (let i = 0; i < task['member'].length; i++) {
+      const element = task['member'][i];
+        
+      for (let j = 0; j < contactsTask.length; j++) {
+        let contactTask = contactsTask[j];
+        if (contactTask['register_entry'][0]['contact_ID'] === element) {          
+          
+          if(counterMember > 3){            
+            rest++;
+          }
+          else{
+            let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+            let contactColor = contactTask['register_entry'][0]['contact_color'];
+            pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
+            generateProfileBadgesBoard(contactInitials, contactColor, pixelLeft);
+            pixelLeft = pixelLeft + 8;
+          }          
+          counterMember++;          
+        }
       }
     }
+    
+    if(rest > 0){
+      console.log('größer 3 ' + counterMember + " rest: " + rest);
+    }
+
   }
-}
+// async function assignedTo(task) {
+//   let pixelLeft = 0;
+//   let counterMember = 0;
+//   for (let i = 0; i < task['member'].length; i++) {
+//     const element = task['member'][i];
+
+//     for (let j = 0; j < contactsTask.length; j++) {
+//       let contactTask = contactsTask[j];
+//       if (contactTask['register_entry'][0]['contact_ID'] === element) {
+//         let contactInitials = contactTask['register_entry'][0]['contact_initials'];
+//         let contactColor = contactTask['register_entry'][0]['contact_color'];
+//         pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
+//         generateProfileBadgesBoard(contactInitials, contactColor, pixelLeft);
+//         pixelLeft = pixelLeft + 8;
+//         counterMember++;
+//       }
+//     }
+//   }
+// }
 
 /**
  * Generating profile-badges on taskview
@@ -221,7 +255,7 @@ function assignedToTask(task) {
       let contactColor = contactTask['register_entry'][0]['contact_color'];
       let contactName = contactTask['register_entry'][0]['contact_name'];
 
-      generateProfileBadgesTask(contactInitials, contactColor, contactName);
+      generateProfileBadgesTaskOverlay(contactInitials, contactColor, contactName);
     }
   }
 }
@@ -280,4 +314,12 @@ async function deleteTask(searchId) {
     await setItem('tasks', tasks);
     init();
   }
+}
+
+/**
+ * get all IDs from Contacts
+ */
+function getAllContactIDs() {  
+  let contactIds = contactsTask.map(entry => entry.register_entry[0].contact_ID);  
+  allContactIDs.push(contactIds);
 }

@@ -54,7 +54,7 @@ function generateProgressHTML(
       </div>`);
 }
 
-function generateProfileBadges(initials, badgeColor, pixelLeft) {
+function generateProfileBadgesBoard(initials, badgeColor, pixelLeft) {
   return (badgeHTML += /*html*/ `
     <div class="frame217">
       <div style="left: -${pixelLeft}px" class="profile_badge">
@@ -71,7 +71,7 @@ function generateProfileBadges(initials, badgeColor, pixelLeft) {
   `);
 }
 
-function generateProfileBadgesTask(initials, badgeColor, name) {
+function generateProfileBadgesTaskOverlay(initials, badgeColor, name) {
   return (badgeHTMLTask += /*html*/ `
   <div class="task-contactlist-contact">
     <div class="frame191">
