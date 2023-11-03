@@ -5,17 +5,16 @@
 }
 
 @media(max-width: 1024px) {
-    .content{
+    .content {
         transform: scale(0.8);
-        top: 0;
     }
 
 }
 
 
 @media(max-width: 990px) {
-    
-    .content{
+
+    .content {
         transform: scale(1);
         top: 96px;
     }
@@ -24,7 +23,7 @@
         justify-content: center;
         margin-left: 0;
     }
-    
+
 
     .headlineVector {
         display: none;
@@ -37,7 +36,7 @@
 
 
 @media(max-width: 910px) {
-    
+
     .content {
         display: flex;
         left: auto;
@@ -48,10 +47,11 @@
     }
 
     .content-summary {
+        align-items: center;
         justify-content: center;
         margin-left: auto;
     }
-    
+
     .table {
         max-width: 476px;
         width: 95vw;
@@ -116,7 +116,7 @@
     .deadlineSpan {
         font-size: 19px;
     }
-    
+
     .dateTextSpan {
         font-size: 12px;
     }
@@ -126,13 +126,12 @@
 @media(max-width: 500px) {
     .content {
         transform: scale(0.7);
-        top: 0;
     }
 
     .deadlineSpan {
         font-size: 19px;
     }
-    
+
     .dateTextSpan {
         font-size: 12px;
     }
@@ -167,7 +166,7 @@
     .deadlineSpan {
         font-size: 15px;
     }
-    
+
     .dateTextSpan {
         font-size: 13px;
     }
@@ -193,5 +192,19 @@
 
     .tasksAmount {
         font-size: 50px;
+    }
+}
+
+@media(max-height: 750px) {
+    .headlineSpan {
+        display: none;
+    }
+
+    .headlineSection {
+        margin-bottom: 10px;
+    }
+
+    .headlineSection img {
+        display: none;
     }
 }
