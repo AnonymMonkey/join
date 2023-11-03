@@ -13,7 +13,7 @@ async function initAddTasks() {
   await loadData();
   await userSelection('isClosed');
   detectDarkmode();
-  eventListener('task_form');
+  eventListener('body');
 }
 
 /**

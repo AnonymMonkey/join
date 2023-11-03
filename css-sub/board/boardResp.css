@@ -72,11 +72,7 @@
     width: 160px;
     white-space: nowrap;
   }
-
-  .frame114_progressbar {
-    width: 85px;
-  }
-
+ 
   .no_tasks_feedback {
     width: 230px;
     align-self: unset;

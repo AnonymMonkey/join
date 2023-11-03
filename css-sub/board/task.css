@@ -525,8 +525,7 @@ textarea {
   display: flex;
   width: 440px;
   justify-content: center;
-  align-items: center;
-  gap: 16px;
+  align-items: center;  
 }
 
 .priority [type='radio'] {
