@@ -199,6 +199,7 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    margin-top: -8vh;
 }
 
 .spanGreeting {
@@ -315,4 +316,3 @@ body {
 .cardMedium:hover .checkmarkDesktop {
     background-image: url('../assets/img/summary/checkmark-hover.png');
 }
-

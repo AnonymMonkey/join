@@ -54,13 +54,12 @@ async function editContact(ID) {
 }
 
 function validatePhoneNumberInput(inputElement, errorMsgElement) {
-    // Entfernen Sie alle Zeichen, die keine Ziffern sind, aus der Eingabe.
     inputElement.value = inputElement.value.replace(/\D/g, "");
 
     if (inputElement.value.length < 7) {
         errorMsgElement.innerHTML = "The phone number must have at least 7 numbers";
     } else {
-        errorMsgElement.innerHTML = ""; // Löschen Sie die Fehlermeldung, wenn die Eingabe gültig ist.
+        errorMsgElement.innerHTML = "";
     }
 }
 
@@ -69,7 +68,7 @@ function validatePhoneNumber(phoneNumber, errorMsgElement) {
         errorMsgElement.innerHTML = "The phone number must have at least 7 numbers";
         return false;
     }
-    errorMsgElement.innerHTML = ""; // Löschen Sie die Fehlermeldung, wenn die Eingabe gültig ist.
+    errorMsgElement.innerHTML = "";
     return true;
 }
 

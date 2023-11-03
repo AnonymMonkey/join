@@ -1,13 +1,12 @@
 @media (max-width: 1200px) {
     .content-contact {
         max-width: 100%;
-        left: 0;
+        left: 232px;
     }
 
     .show-contact {
         width: -webkit-fill-available;
         margin-right: 5vw;
-        margin-left: calc(5vw + 232px);
     }
 
     .arrow-back {
@@ -31,7 +30,7 @@
 
     .contact-register {
         position: relative;
-        left: 232px;
+        left: 0;
     }
 
     .contact-register button {

@@ -34,8 +34,9 @@ async function createContact() {
  * @returns abort if condition is true
  */
 async function createContactLight() {
+    debugger;
     let nameIsValid = checkName();
-    let mailIsValid = checkMail();
+    let mailIsValid = checkNewMail();
     if (!nameIsValid && !mailIsValid) {
         return;
     }
@@ -230,16 +231,6 @@ function resetContactsForm() {
     contact_mail.value = '';
     contact_phone.value = '';
     create_btn.disabled = false;
-}
-
-/**
- * Deletes empty categories if contact is deleted
- */
-function deleteTest() {
-    for (let i = 0; i < categories.length; i++) {
-        categories.splice(1, 3);
-        saveData();
-    }
 }
 
 /**

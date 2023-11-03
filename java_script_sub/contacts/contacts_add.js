@@ -13,6 +13,11 @@ function addContact() {
     let overlayName = elementByID("contact_name");
     let overlayMail = elementByID("contact_mail");
     let overlayPhone = elementByID("contact_phone");
+    let errorMsg = elementByID("errorMsg");
+
+    overlayPhone.oninput = function () {
+        validatePhoneNumberInput(this, errorMsg);
+    };
 
     overlayTitle.innerHTML = "Add contact";
     createButton.innerHTML = "Create contact <img src='../assets/img/contacts/check.svg'>";
@@ -26,12 +31,20 @@ function addContact() {
     overlayPhone.value = "";
 
     if (window.location.href.includes("contacts.html?msg=contacts")) {
-        onsubmit.onsubmit = function () {
+        onsubmit.onsubmit = function (event) {
+            event.preventDefault();
+            if (!validatePhoneNumber(overlayPhone.value, errorMsg)) {
+                return;
+            }
             createContact();
             return false;
         };
     } else {
-        onsubmit.onsubmit = function () {
+        onsubmit.onsubmit = function (event) {
+            event.preventDefault();
+            if (!validatePhoneNumber(overlayPhone.value, errorMsg)) {
+                return;
+            }
             createContactLight();
             return false;
         };

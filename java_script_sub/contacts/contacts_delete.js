@@ -40,4 +40,5 @@ async function deleteContact(ID) {
     }
 
     smallAnimatedLabel("Contact successfully deleted");
+    returnToRegister();
 }

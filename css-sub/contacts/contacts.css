@@ -360,6 +360,6 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    margin-top: 8px;
-    text-align: center;
+    /*     margin-top: 8px; */
+    text-align: start;
 }
