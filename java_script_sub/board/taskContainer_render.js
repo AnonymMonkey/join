@@ -18,4 +18,5 @@ async function taskContainerRenderHTML(view, viewName) {
   await includeHTML();
   setDateRange();
   addSubtask();
+  eventListener('addTaskInputForm');
 }

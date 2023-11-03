@@ -13,6 +13,7 @@ async function initAddTasks() {
   await loadData();
   await userSelection('isClosed');
   detectDarkmode();
+  eventListener('task_form');
 }
 
 /**
@@ -315,10 +316,10 @@ function editSubtask(id) {
     <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
     <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
-    `;  
+    `;
   subtaskArea.scrollTop = 0;
   subtaskfield.focus();
-  subtaskList.style.filter = "blur(2px)";
+  subtaskList.style.filter = 'blur(2px)';
 }
 
 /**
@@ -332,7 +333,6 @@ function updateSubtask(id) {
   hideEditSubtask();
 }
 
-
 /**
  * Hiding input-field
  */
@@ -340,10 +340,10 @@ function hideEditSubtask() {
   let subtaskEditInput = document.getElementById('subtaskEditInput');
   let subtaskEdit = document.getElementById('subtaskEdit');
   let subtaskList = document.getElementById('subtasklist');
-  
+
   subtaskEditInput.value = '';
   subtaskEdit.classList.add('d-none');
-  subtaskList.style.filter = "blur(0px)";
+  subtaskList.style.filter = 'blur(0px)';
 }
 
 /**
@@ -422,22 +422,31 @@ function whoAmi() {
   }
 }
 
-/** Click-Eventlistener to close the menues if you´re outside their containers */
-document.addEventListener('click', function (event) {
-  let menuCategory = document.getElementById('frame74task');
-  let menuUser = document.getElementById('frame74');
-  let menuUserSelection = document.getElementById('user_selection-background');
+/** Click-Eventlistener to close the menues if you´re outside their containers
+ * @param {string} myID - ID which is fired on the Click-Event
+ */
+function eventListener(myID) {
+  let container = document.getElementById(myID);
+  container.addEventListener('click', function (event) {
+    let menuCategory = document.getElementById('frame74task');
+    let menuUser = document.getElementById('frame74');
+    let menuUserSelection = document.getElementById(
+      'user_selection-background',
+    );
 
-  if (
-    menuCategory.contains(event.target) ||
-    menuUser.contains(event.target) ||
-    menuUserSelection.contains(event.target)
-  ) {
-    event.stopPropagation();
-  } else {
-    hideMenues();
-  }
-});
+    if (menuCategory && menuUserSelection) {
+      if (
+        menuCategory.contains(event.target) ||
+        menuUser.contains(event.target) ||
+        menuUserSelection.contains(event.target)
+      ) {
+        event.stopPropagation();
+      } else {
+        hideMenues();
+      }
+    }
+  });
+}
 
 /**
  * Hide the menues
