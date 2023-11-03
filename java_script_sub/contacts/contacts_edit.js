@@ -21,6 +21,11 @@ async function editContact(ID) {
     let overlayName = elementByID("contact_name");
     let overlayMail = elementByID("contact_mail");
     let overlayPhone = elementByID("contact_phone");
+    let errorMsg = elementByID("errorMsg");
+
+    overlayPhone.oninput = function () {
+        validatePhoneNumberInput(this, errorMsg);
+    };
 
     overlayTitle.innerHTML = "Edit contact";
 
@@ -39,12 +44,33 @@ async function editContact(ID) {
 
     onsubmit.onsubmit = null;
 
-    createButton.onclick = async function (event) {
+    onsubmit.onsubmit = function (event) {
         event.preventDefault();
+        if (!validatePhoneNumber(overlayPhone.value, errorMsg)) {
+            return;
+        }
         changeContactData(pos, ID);
-
     };
+}
 
+function validatePhoneNumberInput(inputElement, errorMsgElement) {
+    // Entfernen Sie alle Zeichen, die keine Ziffern sind, aus der Eingabe.
+    inputElement.value = inputElement.value.replace(/\D/g, "");
+
+    if (inputElement.value.length < 7) {
+        errorMsgElement.innerHTML = "The phone number must have at least 7 numbers";
+    } else {
+        errorMsgElement.innerHTML = ""; // Löschen Sie die Fehlermeldung, wenn die Eingabe gültig ist.
+    }
+}
+
+function validatePhoneNumber(phoneNumber, errorMsgElement) {
+    if (phoneNumber.length < 7) {
+        errorMsgElement.innerHTML = "The phone number must have at least 7 numbers";
+        return false;
+    }
+    errorMsgElement.innerHTML = ""; // Löschen Sie die Fehlermeldung, wenn die Eingabe gültig ist.
+    return true;
 }
 
 /**

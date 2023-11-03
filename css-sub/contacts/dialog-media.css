@@ -145,6 +145,20 @@
     .place-img input {
         height: 35px;
     }
+
+    .buttons {
+        transform: scale(0.6);
+    }
 }
 
-@media (max-height: 700px) {}
+@media (max-height: 700px) {
+    .requiredField {
+        font-size: 8px;
+        position: relative;
+        top: 16px;
+    }
+
+    .overlay-right-form {
+        top: 35px;
+    }
+}

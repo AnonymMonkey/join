@@ -29,7 +29,7 @@ function contacts_overlay_html() {
                         </div>
                         
                         <div class="place-img">
-                            <input required type="number" max="100000000" id="contact_phone" placeholder="01234567">
+                            <input required pattern="[0-9]{7,}" type="number" id="contact_phone" placeholder="01234567">
                             <img src="../assets/img/contacts/call.svg">
                         </div>
                     </div>
