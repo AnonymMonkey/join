@@ -21,7 +21,7 @@ async function userSelection(isClosed) {
   let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
   adjustArrowDropdown(select, selectBG, arrowDropdown, isClosed);
   if (isOpen) {
-    closeUserSelection(selectedUser);
+    closeUserSelection(selectedUser, select, selectBG)
   } else {
     select.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
@@ -51,7 +51,7 @@ async function userSelection(isClosed) {
  * closes userselection
  * @param {Element} selectedUser 
  */
-function closeUserSelection(selectedUser){
+function closeUserSelection(selectedUser, select, selectBG){
   select.classList.add('d-none');
   selectBG.classList.add('d-none');
   selectedUser.classList.remove('d-none');
