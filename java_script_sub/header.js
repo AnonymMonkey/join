@@ -233,7 +233,7 @@ async function openSelectedQuicklink(id){
  * opens the legal notice as a non user/guest
  */
 function showLegalExternal(){
-    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external?msg=legal.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/legal_notice_external.html?msg=legal', '_blank');
 }
 
 
@@ -241,7 +241,7 @@ function showLegalExternal(){
  * opens the privacy data protection as a non user/guest
  */
 function showPrivacyExternal(){
-    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external?msg=privacy.html', '_blank');
+    window.open('http://127.0.0.1:5500/html-sub/privacy_data_protection_external.html?msg=privacy', '_blank');
 }
 
 
