@@ -9,11 +9,6 @@ let isOpen = true;
 async function userSelection(isClosed) {
   isOpen = isClosed;
   await loadContacts();
-  contacts.sort((a, b) =>
-    a.register_entry[0].contact_name.localeCompare(
-      b.register_entry[0].contact_name,
-    ),
-  );
   let select = elementByID('user_selection');
   let selectedUser = elementByID('selected_user');
   let selectBG = elementByID('user_selection-background');
@@ -23,27 +18,40 @@ async function userSelection(isClosed) {
   if (isOpen) {
     closeUserSelection(selectedUser, select, selectBG)
   } else {
-    select.innerHTML = '';
-    for (let i = 0; i < contacts.length; i++) {
-      let contact = contacts[i]['register_entry'][0];
-      let name = contact['contact_name'];
-      let initials = contact['contact_initials'];
-      let color = contact['contact_color'];
-      let ID = contact['contact_ID'];
-
-      select.innerHTML += user_select_html(name, initials, color, ID);
-      hiddenBadge(ID);
-      changeContactBG(ID);
-      search.onkeyup = function () {
-        searchContact();
-      };
-    }
-    select.innerHTML += userSelection_addContact_button();
-    showUserSelection(isClosed);
+    renderUsersInUserselection(select, search, isClosed);
   }
   if (!isClosed) {
     whoAmi();
   }
+}
+
+
+/**
+ * renders the user within the userselection
+ * @param {Element} select element user_selection
+ * @param {Element} search element search_contact
+ * @param {Boolean} isClosed status of userSelection
+ */
+function renderUsersInUserselection(select, search, isClosed){
+  contacts.sort((a, b) =>
+  a.register_entry[0].contact_name.localeCompare(
+    b.register_entry[0].contact_name,
+  ),);
+  select.innerHTML = '';
+  for (let i = 0; i < contacts.length; i++) {
+    let contact = contacts[i]['register_entry'][0];
+    let name = contact['contact_name'];
+    let initials = contact['contact_initials'];
+    let color = contact['contact_color'];
+    let ID = contact['contact_ID'];
+    select.innerHTML += user_select_html(name, initials, color, ID);
+    hiddenBadge(ID);
+    changeContactBG(ID);
+    search.onkeyup = function () {
+      searchContact();
+    };}
+  select.innerHTML += userSelection_addContact_button();
+  showUserSelection(isClosed);
 }
 
 
