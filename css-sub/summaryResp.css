@@ -39,8 +39,8 @@
 
     .content {
         display: flex;
-        left: auto;
-        right: 30vw;
+        left: unset;
+        right: unset;
         max-width: 50%;
         height: calc(100vh - 96px);
         margin-top: 0;
@@ -50,6 +50,13 @@
         align-items: center;
         justify-content: center;
         margin-left: auto;
+        width: 100% !important;
+        max-width: unset;
+        height: 100% !important;
+        position: relative;
+        top: unset;
+        left: unset;
+        margin: unset;
     }
 
     .table {
@@ -157,6 +164,11 @@
 
     .tasksAmount {
         font-size: 64px;
+    }
+
+    .table {
+        max-width: unset;
+        width: unset;
     }
 }
 

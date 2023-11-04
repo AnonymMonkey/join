@@ -1,6 +1,5 @@
-@media(max-width: 1440px){
+/* @media(max-width: 1440px){
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: auto;
@@ -21,58 +20,29 @@
         bottom: 764px;
         right: 100px
     }
-}
+} */
 
-@media(max-width: 910px){
-    .content{
-        display: flex;
-
-        
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        overflow-y: auto; 
-        
-        padding-right: 100px;
-        padding-bottom: 200px;
-       
-        padding-top: 50px;
-        
-        /*fixation*/
-        position: absolute;
-        left: 130px;
-        right: 100px;  
-    }
-
-    .arrowBack{
-        /*Fixation*/
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 170px;
-    }
-
-    .arrowBackground{
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 24px;
-        
-    
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 170px;
+@media(max-width: 910px) {
+    .content {
+        left: 0;
+        max-width: fit-content;
+        height: calc(100% - 128px - 96px - 80px);
+        width: 100%;
+        right: 0;
     }
 }
 
+@media(max-width: 450px) {
+    .headlineBig {
+        text-wrap: wrap;
+        width: fit-content;
+    }
+}
 
+/*
 @media(max-width: 800px){
     .content{
         width: clamp(320px, 100%, 500px );
-        /*fixation*/
         position: fixed;
         left: auto;
         
@@ -93,7 +63,6 @@
 
 @media(max-width: 680px){
     .content{
-        /*fixation*/
         position: fixed;
         left: 16px;
         right: 0px;  
@@ -103,7 +72,6 @@
     }
 
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: 420px;
@@ -131,7 +99,6 @@
 @media(max-width: 640px){
     .content{
         width: clamp(320px, 100%, 500px );
-        /*fixation*/
         position: fixed;
         left: auto;
         right: 0px;
@@ -139,7 +106,6 @@
     }
 
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: auto;
@@ -165,7 +131,6 @@
 
 @media(max-width:520px){
     .content{
-        /*fixation*/
         position: fixed;
         left: 16px;
         right: 0px;  
@@ -179,7 +144,6 @@
 
 @media(max-width:430px){
     .arrowBack{
-        /*Fixation*/
         position: fixed;
         top: 228px;
         left: 300px;
@@ -201,3 +165,4 @@
         right: 100px;
     }
 }
+ */

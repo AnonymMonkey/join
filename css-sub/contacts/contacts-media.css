@@ -74,6 +74,7 @@
     .content-contact {
         width: 100%;
         overflow: hidden;
+        left: unset;
     }
 
     .contact-register {

@@ -1,181 +1,41 @@
-@media(max-width: 1440px){
-    .arrowBack{
-        /*Fixation*/
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 100px;
-    }
-
-    .arrowBackground{
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 24px;
-        
-    
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 100px
+@media(max-width: 910px) {
+    .content-help {
+        left: unset;
+        width: 100%;
+        height: calc(100% - 128px - 96px - 80px);
+        bottom: calc(128px + 96px);
     }
 }
 
-
-@media(max-width: 910px){
-    .content{
-        display: flex;
-
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        overflow-y: auto; 
-
-        padding-right: 100px;
-        padding-bottom: 200px;
-        padding-top: 50px;
-        
-        /*fixation*/
-        position: absolute;
-        left: 130px;
-        right: 100px;  
+@media(max-width: 450px) {
+    .content {
+        padding-right: 0;
     }
 
-    .arrowBack{
-        /*Fixation*/
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 170px;
+    .headlineBig {
+        font-size: 47px;
+        overflow-wrap: break-word;
+        inline-size: min-content;
     }
 
-    .arrowBackground{
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 24px;
-        
-    
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 170px;
-    }
-}
-
-
-@media(max-width: 800px){
-    .content{
-        width: clamp(320px, 100%, 500px );
-        /*fixation*/
-        position: fixed;
-        left: auto;
-        
-        right: 100px;
-        overflow-y: scroll;  
-    }
-}
-
-
-@media(max-width: 642px){
-    .content{
-        width: clamp(320px, 100%, 500px );
-        /*fixation*/
-        position: fixed;
-        left: auto;
-        right: 0px;
-        overflow-y: scroll;  
+    .info-text {
+        width: 85%;
     }
 
-
-    .arrowBack{
-        /*Fixation*/
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 50px;
-    }
-
-    .arrowBackground{
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 24px;
-        
-    
-        position: fixed;
-        top: 228px;
-        left: auto;
-        bottom: 764px;
-        right: 50px;
-    }
-}
-
-
-@media(max-width: 520px){
-    .content{
-        /*fixation*/
-        position: fixed;
-        left: 16px;
-        right: 0px;  
-
-        width: clamp(320px, 100%, 500px );
-        overflow-y: scroll; 
-    }
-}
-
-
-@media(max-width:430px){
-    .arrowBack{
-        /*Fixation*/
-        position: fixed;
-        top: 228px;
-        left: 350px;
-        bottom: 764px;
-        right: 20px;
-    }
-
-    .arrowBackground{
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 24px;
-        
-    
-        position: fixed;
-        top: 228px;
-        left: 300px;
-        bottom: 764px;
+    .arrowBackground {
         right: 20px;
     }
 }
 
-@media(max-width:400px){
-    .arrowBack{
-        /*Fixation*/
-        position: fixed;
-        top: 228px;
-        left: 310px;
-        bottom: 764px;
-        right: 20px;
+@media(max-width: 350px) {
+
+    .info-text div,
+    p,
+    li {
+        font-size: small;
     }
 
-    .arrowBackground{
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-        border-radius: 24px;
-        
-    
-        position: fixed;
-        top: 228px;
-        left: 310px;
-        bottom: 764px;
-        right: 20px;
+    .arrowBackground {
+        top: calc(96px + 4vh);
     }
 }

@@ -1,4 +1,4 @@
-.headlineBig{
+.headlineBig {
     color: #000;
     font-family: Inter;
     font-size: 61px;
@@ -7,91 +7,76 @@
     line-height: 120%;
 }
 
-.headlineMid{
+.headlineMid {
     color: var(--black, #000);
     font-family: Inter;
     font-size: 27px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; 
+    line-height: 120%;
 }
 
-.headlineSmall{
+.headlineSmall {
     color: var(--black, #000);
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
-    line-height: 120%; 
+    line-height: 120%;
 }
 
 
-.text{
+.text {
     color: var(--black, #000);
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; 
+    line-height: 120%;
 }
 
 
-.content{
+.content {
     display: flex;
-    max-width: clamp(350px, 100%, 1140px);
+    ;
     height: 80%;
-    
+
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px; 
+    gap: 24px;
     overflow-y: auto;
 
     padding-right: 150px;
     padding-bottom: 100px;
-    padding-top: 100px;
 
     position: fixed;
-    left: 300px;
     right: 200px;
 }
 
-.textHighlight{
+.textHighlight {
     color: var(--Ligth-blue, #29ABE2);
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 120%; 
+    line-height: 120%;
 }
 
-.clickable{
+.clickable {
     cursor: pointer;
 }
 
-.arrowBackground{
+.arrowBackground {
     width: 32px;
     height: 32px;
     flex-shrink: 0;
     border-radius: 24px;
-    position: fixed;
-    top: 228px;
-    left: 1309px;
-    bottom: 764px;
-    right: 98.5px;
 }
 
-.arrowBackground:hover{
+.arrowBackground:hover {
     background: #ededee;
 }
 
-.arrowBack{
-    position: fixed;
-    top: 228px;
-    left: 1309px;
-    bottom: 764px;
-    right: 98.5px;
-}
-
-.arrowBack:hover{
+.arrowBack:hover {
     transform: scale(1.1);
 }
