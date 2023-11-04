@@ -17,7 +17,6 @@
 .contact-register {
     width: 456px;
     height: 100%;
-    /* 928px */
     flex-shrink: 0;
 
     background: var(--white, #FFF);
@@ -170,7 +169,6 @@
     cursor: pointer;
 }
 
-/* -------------------- */
 .show-contact {
     display: inline-flex;
     margin-left: 5vw;
@@ -360,6 +358,5 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    /*     margin-top: 8px; */
     text-align: start;
 }

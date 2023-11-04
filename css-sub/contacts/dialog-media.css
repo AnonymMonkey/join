@@ -68,7 +68,6 @@
         margin-top: 0;
         gap: 10px;
         justify-content: center;
-        /* position: absolute; */
         bottom: 5px;
     }
 
@@ -89,7 +88,6 @@
 
     .overlay-right-form {
         align-items: center;
-        /*         width: 50vw; */
     }
 
     .place-img input::placeholder {

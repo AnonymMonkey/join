@@ -6,13 +6,6 @@
   z-index: 5;
 }
 
-/* .overlay-content-editTask {
-  width: 525px;
-  padding: 48px 24px;
-  flex-direction: column;
-  left: 60px;
-} */
-
 .addtask_content {
   flex-direction: column;
 }
