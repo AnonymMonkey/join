@@ -1,31 +1,12 @@
 let contactSelection = [];
 let isOpen = true;
 
-/*
-document.addEventListener('click', function (event) {
-    let select = document.getElementById('user_selection');
-    let selectBG = elementByID("user_selection-background");
-    let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
-    let selectedUser = elementByID('selected_user');
 
-    if (select && !selectBG.contains(event.target)) {
-        select.classList.add('d-none');
-        selectBG.classList.add('d-none');
-        selectedUser.classList.remove('d-none');
-        arrowDropdown.classList.remove('open');        
-    }
-});
-*/
-
-// TODO JSDOC
+/**
+ * shows the elements of the userselection depending if its open or closed
+ * @param {Boolean} isClosed 
+ */
 async function userSelection(isClosed) {
-  //Function gets called by toggleAssignedTo() from add_task.js with isClosed = undefined
-  //if the undefined status is not catched the userSelection(isClosed)-function will
-  //remove all changes from toggleAssignedTo(), which will be prevented by this if-statement
-  //if(isClosed == undefined){
-  //  return;
-  //}
-
   isOpen = isClosed;
   await loadContacts();
   contacts.sort((a, b) =>
@@ -37,27 +18,10 @@ async function userSelection(isClosed) {
   let selectedUser = elementByID('selected_user');
   let selectBG = elementByID('user_selection-background');
   let search = elementByID('search_contact');
-
   let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
-
-  if (select.classList.contains('d-none')) {
-    select.classList.remove('d-none');
-    if (isClosed !== undefined) {
-      arrowDropdown.style.transform = 'rotate(360deg)';
-    }
-  } else {
-    select.classList.add('d-none');
-    selectBG.classList.add('d-none');
-    if (isClosed !== undefined) {
-      arrowDropdown.style.transform = 'rotate(180deg)';
-    }
-  }
-
+  adjustArrowDropdown(select, selectBG, arrowDropdown, isClosed);
   if (isOpen) {
-    select.classList.add('d-none');
-    selectBG.classList.add('d-none');
-    selectedUser.classList.remove('d-none');
-    isOpen = false;
+    closeUserSelection(selectedUser);
   } else {
     select.innerHTML = '';
     for (let i = 0; i < contacts.length; i++) {
@@ -75,17 +39,62 @@ async function userSelection(isClosed) {
       };
     }
     select.innerHTML += userSelection_addContact_button();
-    if (isClosed !== undefined) {
-      select.classList.remove('d-none');
-      selectBG.classList.remove('d-none');
-      selectedUser.classList.add('d-none');
-      isOpen = true;
-    }
+    showUserSelection(isClosed);
   }
   if (!isClosed) {
     whoAmi();
   }
 }
+
+
+/**
+ * closes userselection
+ * @param {Element} selectedUser 
+ */
+function closeUserSelection(selectedUser){
+  select.classList.add('d-none');
+  selectBG.classList.add('d-none');
+  selectedUser.classList.remove('d-none');
+  isOpen = false;
+}
+
+
+/**
+ * Adjusts the Arrow for the dropdown menu of the user selection
+ * @param {Element} select  element user_selection
+ * @param {Element} selectBG  element user_selection-background
+ * @param {Element} arrowDropdown  element arrow_dropdown_addTask'
+ * @param {Boolean} isClosed  status of userSelection
+ */
+function adjustArrowDropdown(select, selectBG, arrowDropdown, isClosed){
+  if (select.classList.contains('d-none')) {
+    select.classList.remove('d-none');
+    if (isClosed !== undefined) {
+      arrowDropdown.style.transform = 'rotate(360deg)';
+    }
+  } else {
+    select.classList.add('d-none');
+    selectBG.classList.add('d-none');
+    if (isClosed !== undefined) {
+      arrowDropdown.style.transform = 'rotate(180deg)';
+    }
+  }
+}
+
+
+/**
+ * adjusts the visibillity of the userSelection
+ * @param {Boolean} isClosed 
+ */
+function showUserSelection(isClosed){
+  if (isClosed !== undefined) {
+    select.classList.remove('d-none');
+    selectBG.classList.remove('d-none');
+    selectedUser.classList.add('d-none');
+    isOpen = true;
+  }
+}
+
 
 /**
  * Filter all Contacts by name, hide unmatching
@@ -105,7 +114,11 @@ function searchContact() {
   }
 }
 
-// TODO JSDOC
+
+/**
+ * creates badge for the user with according ID
+ * @param {Number} ID ID of user
+ */
 function createBadge(ID) {
   let selectedUser = elementByID('selected_user');
   checkBadge(ID);
@@ -121,14 +134,22 @@ function createBadge(ID) {
   }
 }
 
-// TODO JSDOC
+
+/**
+ * checks badge of user with according ID
+ * @param {Number} ID ID of user
+ */
 function checkBadge(ID) {
   getBadge(ID);
   hiddenBadge(ID);
   changeContactBG(ID);
 }
 
-// TODO JSDOC
+
+/**
+ * gets badge of user with according ID
+ * @param {Number} ID ID of user
+ */
 function getBadge(ID) {
   if (userIndex(ID) == -1) {
     contactSelection.push(ID);
@@ -137,7 +158,11 @@ function getBadge(ID) {
   }
 }
 
-// TODO JSDOC
+
+/**
+ * Hide badge of user with according ID
+ * @param {Number} ID ID of user
+ */
 function hiddenBadge(ID) {
   if (userIndex(ID) == -1) {
     if (uncheckedIMG(ID) && checkedIMG(ID)) {
@@ -152,7 +177,11 @@ function hiddenBadge(ID) {
   }
 }
 
-// TODO JSDOC
+
+/**
+ * Changes background of user with according ID
+ * @param {Number} ID ID of user
+ */
 function changeContactBG(ID) {
   if (userIndex(ID) == -1) {
     if (userElement(ID) && userName(ID)) {
@@ -167,33 +196,60 @@ function changeContactBG(ID) {
   }
 }
 
-// TODO JSDOC
+
+/**
+ * Styles the user-initial element
+ * @param {String} userInitial userinitials of user
+ * @param {Number} i value for z-index
+ * @param {Hex} color color for badge
+ * @returns 
+ */
 function userInitial_style(userInitial, i, color) {
   return (userInitial.style.cssText = `background-color: ${color}; z-index: ${i + 10
     }; margin-left: -10px;`);
 }
 
-// TODO JSDOC
+
+/**
+ * @param {Number} ID ID of user
+ * @returns the HTML-img_checked-element with the according ID
+ */
 function checkedIMG(ID) {
   return elementByID(`img_checked_${ID}`);
 }
 
-// TODO JSDOC
+
+/**
+ * @param {Number} ID ID of user
+ * @returns the HTML-img_unchecked-element with the according ID
+ */
 function uncheckedIMG(ID) {
   return elementByID(`img_unchecked_${ID}`);
 }
 
-// TODO JSDOC
+
+/**
+ * @param {Number} contactID contactID of user
+ * @returns the HTML-user-element with the according contactID
+ */
 function userElement(contactID) {
   return elementByID(`user_element_${contactID}`);
 }
 
-// TODO JSDOC
+
+/**
+ * @param {Number} contactID contactID of user
+ * @returns the HTML-name-element with the according contactID
+ */
 function userName(contactID) {
   return elementByID(`user_name_${contactID}`);
 }
 
-// TODO JSDOC
+
+/**
+ * @param {Number} ID ID of user
+ * @returns index of the contacts array for the the given ID
+ */
 function userIndex(ID) {
   return contactSelection.indexOf(ID);
 }

@@ -34,7 +34,6 @@ async function createContact() {
  * @returns abort if condition is true
  */
 async function createContactLight() {
-    debugger;
     let nameIsValid = checkName();
     let mailIsValid = checkNewMail();
     if (!nameIsValid && !mailIsValid) {
@@ -173,9 +172,7 @@ function createRegisterInfo() {
                 contact['register_entry'][0]['contact_name'][0].toUpperCase();
             return firstLetter === category;
         });
-
         infoHTML += createContactCategory_html(category);
-
         for (let contact of categoryContacts) {
             let registerEntry = contact['register_entry'][0];
             let name = registerEntry['contact_name'];
@@ -189,10 +186,9 @@ function createRegisterInfo() {
             infoHTML += contactHTML;
         }
     }
-
     register.innerHTML = infoHTML;
-
 }
+
 
 /**
  * Get initials from logged-in User
@@ -245,7 +241,15 @@ async function addActiveUserToContacts() {
             isFound = true;
         }
     }
+    pushContact(isFound);
 
+}
+
+/**
+ * Pushes user to contactslist if the user is not already in it
+ * @param {Boolean} isFound returns true if user is already in the contactslist
+ */
+async function pushContact(isFound){
     if (!isFound) {
         contacts.push({
             register_entry: [
