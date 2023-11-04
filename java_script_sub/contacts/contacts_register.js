@@ -282,9 +282,6 @@ async function pushContact(isFound) {
  * This function selected the active Loginuser and check with contacts if is your contact and write a YOU behind it
  * 
  */
-/**
- * Add YOU to Contact-list if contact is active User
- */
 function loginIsYourContact() {
 
     getLoginData();
