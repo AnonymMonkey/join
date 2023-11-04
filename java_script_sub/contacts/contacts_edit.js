@@ -53,6 +53,12 @@ async function editContact(ID) {
     };
 }
 
+/**
+ * This function set and check the validate for the phone number input
+ * 
+ * @param {string} inputElement - the input element
+ * @param {string} errorMsgElement - the warn message element
+ */
 function validatePhoneNumberInput(inputElement, errorMsgElement) {
     inputElement.value = inputElement.value.replace(/\D/g, "");
 
@@ -63,6 +69,13 @@ function validatePhoneNumberInput(inputElement, errorMsgElement) {
     }
 }
 
+/**
+ * This function check the validate for the phone number
+ * 
+ * @param {number} phoneNumber - the phone number from phone input
+ * @param {string} errorMsgElement - the warn message element
+ * @returns 
+ */
 function validatePhoneNumber(phoneNumber, errorMsgElement) {
     if (phoneNumber.length < 7) {
         errorMsgElement.innerHTML = "The phone number must have at least 7 numbers";

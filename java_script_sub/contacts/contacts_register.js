@@ -168,25 +168,36 @@ function createRegisterInfo() {
 
     for (let category of categories.sort()) {
         let categoryContacts = contacts.filter((contact) => {
-            let firstLetter =
-                contact['register_entry'][0]['contact_name'][0].toUpperCase();
+            let firstLetter = contact['register_entry'][0]['contact_name'][0].toUpperCase();
             return firstLetter === category;
         });
         infoHTML += createContactCategory_html(category);
-        for (let contact of categoryContacts) {
-            let registerEntry = contact['register_entry'][0];
-            let name = registerEntry['contact_name'];
-            let mail = registerEntry['contact_mail'];
-            let initials = registerEntry['contact_initials'];
-            let ID = registerEntry['contact_ID'];
-            let color = registerEntry['contact_color'];
-
-            let contactHTML = createContactEntry_html(ID, color, initials, name, mail);
-
-            infoHTML += contactHTML;
-        }
+        infoHTML += sortContactToCategory(categoryContacts);
     }
     register.innerHTML = infoHTML;
+}
+
+/**
+ * This function sorts the contacts into the appropriate category
+ * 
+ * @param {JSON} categoryContacts - a JSON structure of a contact
+ * @returns the html structure of sorted contacts
+ */
+function sortContactToCategory(categoryContacts) {
+    let infoHTML = '';
+
+    for (let contact of categoryContacts) {
+        let registerEntry = contact['register_entry'][0];
+        let name = registerEntry['contact_name'];
+        let mail = registerEntry['contact_mail'];
+        let initials = registerEntry['contact_initials'];
+        let ID = registerEntry['contact_ID'];
+        let color = registerEntry['contact_color'];
+        let contactHTML = createContactEntry_html(ID, color, initials, name, mail);
+        infoHTML += contactHTML;
+    }
+
+    return infoHTML;
 }
 
 
@@ -249,7 +260,7 @@ async function addActiveUserToContacts() {
  * Pushes user to contactslist if the user is not already in it
  * @param {Boolean} isFound returns true if user is already in the contactslist
  */
-async function pushContact(isFound){
+async function pushContact(isFound) {
     if (!isFound) {
         contacts.push({
             register_entry: [
