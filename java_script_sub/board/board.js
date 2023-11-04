@@ -4,6 +4,7 @@ let tasks = [];
 let taskCategory = [];
 let progressHTML = '';
 let allContactIDs = [];
+let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
 
 async function init() {
   await loadTasks();
@@ -15,6 +16,7 @@ async function init() {
   adjustQuicklinkBG();
   setStylesheet();
   detectDarkmode();
+  hideButtons();
 }
 
 /**
@@ -30,7 +32,6 @@ function setStylesheet() {
  * @param {string} search - part of the title or description
  */
 function updateHTML(search) {
-  let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
   let longText = [
     'No tasks To do',
     'No tasks in progress',
@@ -51,6 +52,7 @@ function updateHTML(search) {
     let filteredByStatus = filteredTasks.filter((t) => t['status'] === status);
     issue(status, filteredByStatus, longText[index]);
   });
+  hideButtons();
 }
 
 /**
@@ -88,7 +90,7 @@ function startDragging(id) {
  * @param {string} status - active status of element
  */
 function startTransform(id, status) {
-  document.getElementById(id).style.transform = 'rotate(5deg)';
+  document.getElementById(id).style.transform = 'scale(0.9) rotate(5deg)';
   addHighlight(status);
 }
 
@@ -98,7 +100,7 @@ function startTransform(id, status) {
  * @param {string} status - active status of element
  */
 function stopTransform(id, status) {
-  document.getElementById(id).style.transform = 'rotate(0deg)';
+  document.getElementById(id).style.transform = 'scale(0.9) rotate(0deg)';
   removeHighlight(status);
 }
 
@@ -146,7 +148,7 @@ function removeHighlight() {
  * Calculating progress on subtasks
  * @param {number} doneSubtaskCount - number of all done subtasks
  * @param {number} allSubtaskCount - number of all subtasks
- * @returns 
+ * @returns
  */
 function calculateProgress(doneSubtaskCount, allSubtaskCount) {
   const basis = 128;
@@ -188,36 +190,35 @@ function taskProgress(element) {
  * @param {number} task - number of current task-element
  */
 async function assignedTo(task) {
-    let pixelLeft = 0;
-    let counterMember = 0;
-    let rest = 0;
+  let pixelLeft = 0;
+  let counterMember = 0;
+  let rest = 0;
 
-    for (let i = 0; i < task['member'].length; i++) {
-      const element = task['member'][i];
-        
-      for (let j = 0; j < contactsTask.length; j++) {
-        let contactTask = contactsTask[j];
-        if (contactTask['register_entry'][0]['contact_ID'] === element) {          
-          
-          if(counterMember > 3){            
-            rest++;
-          }
-          else{
-            let contactInitials = contactTask['register_entry'][0]['contact_initials'];
-            let contactColor = contactTask['register_entry'][0]['contact_color'];
-            pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
-            generateProfileBadgesBoard(contactInitials, contactColor, pixelLeft);
-            pixelLeft = pixelLeft + 8;
-          }          
-          counterMember++;          
+  for (let i = 0; i < task['member'].length; i++) {
+    const element = task['member'][i];
+
+    for (let j = 0; j < contactsTask.length; j++) {
+      let contactTask = contactsTask[j];
+      if (contactTask['register_entry'][0]['contact_ID'] === element) {
+        if (counterMember > 3) {
+          rest++;
+        } else {
+          let contactInitials =
+            contactTask['register_entry'][0]['contact_initials'];
+          let contactColor = contactTask['register_entry'][0]['contact_color'];
+          pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
+          generateProfileBadgesBoard(contactInitials, contactColor, pixelLeft);
+          pixelLeft = pixelLeft + 8;
         }
+        counterMember++;
       }
     }
-    
-    if(rest > 0){
-      return (restHTML += /*html*/ `<div class="rest">+ ${rest}</div>`);
-    }
   }
+
+  if (rest > 0) {
+    return (restHTML += /*html*/ `<div class="rest">+ ${rest}</div>`);
+  }
+}
 
 /**
  * Generating profile-badges on taskview
@@ -234,7 +235,11 @@ function assignedToTask(task) {
       let contactColor = contactTask['register_entry'][0]['contact_color'];
       let contactName = contactTask['register_entry'][0]['contact_name'];
 
-      generateProfileBadgesTaskOverlay(contactInitials, contactColor, contactName);
+      generateProfileBadgesTaskOverlay(
+        contactInitials,
+        contactColor,
+        contactName,
+      );
     }
   }
 }
@@ -275,7 +280,7 @@ async function loadTaskCategory() {
 /**
  * Get array-index of task
  * @param {number} searchId - id of current task
- * @returns 
+ * @returns
  */
 function getTaskIndex(searchId) {
   return tasks.findIndex((item) => item.id === searchId);
@@ -293,4 +298,39 @@ async function deleteTask(searchId) {
     await setItem('tasks', tasks);
     init();
   }
+}
+
+/**
+ * change the Task status on onclick
+ * @param {string} status - status of currentTask
+ * @param {string} direction - the symbol plus or minus
+ */
+function changeStatus(status, direction) {
+  let position = statuses.indexOf(status);
+
+  if (position !== -1) {
+    let operations = {
+      '+': (pos) => pos + 1,
+      '-': (pos) => pos - 1,
+    };
+
+    let operation = operations[direction];
+    let destination = operation(position);
+    moveTo(statuses[destination]);
+  }
+}
+
+/**
+ * Hide unnecessary buttons to change status (in todo and done)
+ */
+function hideButtons() {
+  let buttons = document.querySelectorAll('.card_headline button');
+  buttons.forEach(function (button) {
+    if (
+      button.dataset.value === 'todo_down' ||
+      button.dataset.value === 'done_up'
+    ) {
+      button.style.display = 'none';
+    }
+  });
 }

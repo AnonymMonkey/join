@@ -23,10 +23,10 @@ function generateTasksHTML(element) {
       <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']}">
       <span class="board_card_label">${taskCategory[element['category']]['title']
     }</span></div><div class="card_actions" onclick="doNotClose(event)">
-      <button class="pointer" onclick="categoryUp()">
+      <button data-value="${status}_up" class="pointer" onclick="startDragging(${element['id']}), changeStatus('${status}', '+'), doNotClose(event)">
         <img class="arrowUp" src="../../assets/img/add-task/arrow_drop_down.png" alt="Arrow-Image">
       </button>
-      <button class="pointer" onclick="categoryDown()">
+      <button data-value="${status}_down" class="pointer" onclick="startDragging(${element['id']}), changeStatus('${status}', '-'), doNotClose(event)">
         <img class="arrowDown" src="../../assets/img/add-task/arrow_drop_down.png" alt="Arrow-Image">
       </button>
     </div>
