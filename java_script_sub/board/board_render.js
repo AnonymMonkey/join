@@ -19,11 +19,18 @@ function generateTasksHTML(element) {
     }, '${status}')" ondragstart="startDragging(${element['id']
     })"  class="card pointer">
     <div class="frame119">
-      <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']
-    }">
+      <div class="card_headline">
+      <div class="board_card" style="background: ${taskCategory[element['category']]['bgColor']}">
       <span class="board_card_label">${taskCategory[element['category']]['title']
-    }</span>
+    }</span></div><div class="card_actions" onclick="doNotClose(event)">
+      <button class="pointer" onclick="categoryUp()">
+        <img class="arrowUp" src="../../assets/img/add-task/arrow_drop_down.png" alt="Arrow-Image">
+      </button>
+      <button class="pointer" onclick="categoryDown()">
+        <img class="arrowDown" src="../../assets/img/add-task/arrow_drop_down.png" alt="Arrow-Image">
+      </button>
     </div>
+  </div>
     <div class="frame114">
       <span class="frame114_title">${element['title']}</span>
       <span class="frame114_content">${element['description']}</span>
