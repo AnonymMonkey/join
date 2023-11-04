@@ -156,10 +156,6 @@
   margin-left: 10px;
 }
 
-.column_title img:hover {
-  filter: invert(40%) sepia(30%) saturate(1500%) hue-rotate(190deg) brightness(120%) contrast(90%);
-}
-
 .frame136,
 .frame149,
 .frame137,
@@ -426,4 +422,34 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 120%;
+}
+
+.card_headline{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card_actions{
+  display: none;
+  gap: 4px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.card_actions button{
+  border: none;
+  background: transparent;
+}
+
+.arrowDown{  
+  transform: rotate(180deg);
+}
+
+.arrowDown:hover,
+.arrowUp:hover{  
+  background-color: #d9d9d9;
+  border-radius: 50%;
 }
