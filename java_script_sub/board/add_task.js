@@ -243,7 +243,17 @@ function addSubtask() {
   let list = document.getElementById('subtasklist');
   list.innerHTML = '';
   for (let i = 0; i < newSubtasks.length; i++) {
-    list.innerHTML += /*html*/ `
+    list.innerHTML += addSubtaskHTML(i);    
+  }
+}
+
+/**
+ * Generate HTML to added Subtask
+ * @param {number} i - number of subtask
+ * @returns 
+ */
+function addSubtaskHTML(i) {
+  return /*html*/ `
       <li class="pointer" ondblclick="editSubtask(${i})">
         <div>&bull; 
           ${newSubtasks[i].subtitle}
@@ -255,7 +265,6 @@ function addSubtask() {
         </div>
       </li>
       `;
-  }
 }
 
 /**
@@ -312,14 +321,23 @@ function editSubtask(id) {
   editField.classList.remove('d-none');
   subtaskfield.value = newSubtasks[id]['subtitle'];
   subTaskActions.innerHTML = '';
-  subTaskActions.innerHTML = /*html*/ `
-    <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
-    <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
-    <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
-    `;
+  subTaskActions.innerHTML = editSubtaskHTML(id);  
   subtaskArea.scrollTop = 0;
   subtaskfield.focus();
   subtaskList.style.filter = 'blur(2px)';
+}
+
+/**
+ * Generate HTML to edit Subtasks
+ * @param {number} id - number of current subtask (active to edit)
+ * @returns 
+ */
+function editSubtaskHTML(id) {
+  return /*html*/ `
+     <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
+     <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
+     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
+     `;
 }
 
 /**
