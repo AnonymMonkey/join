@@ -1,0 +1,167 @@
+@media(max-width: 1440px){
+    .arrowBack{
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        overflow-y: auto; 
+        padding-bottom: 200px;
+        padding-top: 50px;
+        position: absolute;
+        left: 250px;
+        right: 100px;  
+    }
+}
+
+
+
+
+@media(max-width: 910px){
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        overflow-y: auto; 
+        padding-bottom: 200px;
+        padding-top: 50px;
+        position: absolute;
+        left: 130px;
+        right: 100px;  
+    }
+
+    .arrowBack{
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 170px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 170px;
+    }
+}
+
+
+@media(max-width: 800px){
+    .content{
+        width: clamp(320px, 100%, 800px );
+        position: fixed;
+        left: auto;
+        right: -70px;
+        overflow-y: scroll;  
+    }
+
+    .arrowBack{
+        position: fixed;
+        top: 228px;
+        left: 600px;
+        bottom: 764px;
+        right: auto;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        position: fixed;
+        top: 228px;
+        left: 600px;
+        bottom: 764px;
+        right: auto;
+    }
+}
+
+
+@media(max-width: 642px){
+    .content{
+        width: clamp(320px, 100%, 500px );
+        position: fixed;
+        left: auto;
+        right: 0px;
+        overflow-y: scroll;  
+    }
+
+    .arrowBack{
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        position: fixed;
+        top: 228px;
+        left: auto;
+        bottom: 764px;
+        right: 100px;
+    }
+}
+
+
+@media(max-width: 520px){
+    .content{
+        position: fixed;
+        left: 16px;
+        right: 0px;  
+        width: clamp(320px, 100%, 500px );
+        overflow-y: scroll; 
+    }
+}
+
+@media(max-width:430px){
+    .arrowBack{
+        position: fixed;
+        top: 228px;
+        left: 300px;
+        bottom: 764px;
+        right: 100px;
+    }
+
+    .arrowBackground{
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 24px;
+        position: fixed;
+        top: 228px;
+        left: 300px;
+        bottom: 764px;
+        right: 100px;
+    }
+}

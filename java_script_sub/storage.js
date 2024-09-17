@@ -1,33 +1,36 @@
-const STORAGE_TOKEN = 'TGOC6J8TYRQ77OFG0DRIZ0U4RV5ZU3930WO1CZ06'; // Token für Gruppe join-697
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
+/* const STORAGE_URL */
+const STORAGE_URL = "https://join-38d79-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /**
  * Store a key-value pair in remote storage.
  * @param {string} key - name for the remote-storage key
  * @param {string} value - name for the remote-storage value
- * @returns 
+ * @returns
  */
 async function setItem(key, value) {
-  const payload = { key, value, token: STORAGE_TOKEN };
-  return fetch(STORAGE_URL, {
-    method: 'POST',
-    body: JSON.stringify(payload),
-  }).then((res) => res.json());
+  if (value == null) {
+    console.error("Wert ist null, Abbruch");
+    return;
+  }
+
+  return fetch(`${STORAGE_URL}${key}.json`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(value),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.error("Fehler beim Speichern:", err));
 }
 
 /**
  * Get a key-value pair from remote storage.
  * @param {string} key - name for the remote-storage key
- * @returns 
+ * @returns
  */
 async function getItem(key) {
-  const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-  return fetch(url)
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.data) {
-        return res.data.value;
-      }
-      throw `Could not find data with key "${key}".`;
-    });
+  let response = await fetch(STORAGE_URL + key + ".json");
+  let responseToJson = await response.json();
+  return responseToJson;
 }

@@ -1,4 +1,4 @@
-@import url('../animations.css');
+@import url("../animations.css");
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -118,7 +118,7 @@ select {
   left: 74px;
 }
 
-input[type='date']::placeholder {
+input[type="date"]::placeholder {
   color: #d1d1d1;
 }
 
@@ -305,7 +305,7 @@ input {
   top: 40px;
   left: 0;
   width: 100%;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 10px;
   height: 288px;
   position: absolute;
@@ -328,7 +328,7 @@ input {
 
 .categoryElement:hover {
   border-radius: 10px;
-  background-color: #EEE;
+  background-color: #eee;
 }
 
 #frame74_select {
@@ -517,9 +517,10 @@ textarea {
   width: 440px;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 
-.priority [type='radio'] {
+.priority [type="radio"] {
   opacity: 0;
 }
 

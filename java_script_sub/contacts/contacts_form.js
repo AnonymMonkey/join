@@ -2,28 +2,28 @@ let emailAddresses = [];
 
 /**
  * This function check the form validation for contact name
- * 
+ *
  * @returns true or false
  */
 function checkName() {
-    let nameInput = elementByID("contact_name");
-    let namenParts = nameInput.value.split(" ");
+  let nameInput = elementByID("contact_name");
+  let namenParts = nameInput.value.split(" ");
 
-    if (namenParts.length !== 2) {
-        let msg = 'Please enter exactly two names with a space in between.';
-        showErrorMessage(msg, nameInput);
-        return false;
+  if (namenParts.length !== 2) {
+    let msg = "Please enter exactly two names with a space in between.";
+    showErrorMessage(msg, nameInput);
+    return false;
+  }
+
+  for (var i = 0; i < namenParts.length; i++) {
+    if (namenParts[i][0] !== namenParts[i][0].toUpperCase()) {
+      let msg = "The names should start with a capital letter.";
+      showErrorMessage(msg, nameInput);
+      return false;
     }
+  }
 
-    for (var i = 0; i < namenParts.length; i++) {
-        if (namenParts[i][0] !== namenParts[i][0].toUpperCase()) {
-            let msg = 'The names should start with a capital letter.';
-            showErrorMessage(msg, nameInput);
-            return false;
-        }
-    }
-
-    return true;
+  return true;
 }
 
 /**
@@ -32,44 +32,42 @@ function checkName() {
  * @returns true or false
  */
 function checkMail(ID) {
-    searchMailsInJSON();
-    let mailInput = elementByID('contact_mail');
-    let currentMail = getIndexOfJson('ID', ID)['contact_mail'];
+  searchMailsInJSON();
+  let mailInput = elementByID("contact_mail");
+  let currentMail = getIndexOfJson("contact_ID", ID)["contact_mail"];
 
-    if (mailInput.value !== currentMail) {
-        if (emailAddresses.includes(mailInput.value)) {
-            let msg = 'This Email already exists!';
-            showErrorMessage(msg, mailInput);
-            return false;
-        }
+  if (mailInput.value !== currentMail) {
+    if (emailAddresses.includes(mailInput.value)) {
+      let msg = "This Email already exists!";
+      showErrorMessage(msg, mailInput);
+      return false;
     }
-    return true;
+  }
+  return true;
 }
 
 /**
- * Check if mail already exists 
+ * Check if mail already exists
  * @returns true or false
  */
 function checkNewMail() {
-    searchMailsInJSON();
-    let mailInput = elementByID("contact_mail");
-    if (emailAddresses.includes(mailInput.value)) {
-        let msg = 'This Email already exists!';
-        showErrorMessage(msg, mailInput);
-        return false;
-    }
-    return true;
+  searchMailsInJSON();
+  let mailInput = elementByID("contact_mail");
+  if (emailAddresses.includes(mailInput.value)) {
+    let msg = "This Email already exists!";
+    showErrorMessage(msg, mailInput);
+    return false;
+  }
+  return true;
 }
 
 /**
- * Check if mail already exists 
+ * Check if mail already exists
  */
 function searchMailsInJSON() {
-    contacts.forEach(entry => {
-        let registerEntry = entry.register_entry[0];
-
-        emailAddresses.push(registerEntry.contact_mail);
-    });
+  contacts.forEach((contact) => {
+    emailAddresses.push(contact.contact_mail);
+  });
 }
 
 /**
@@ -78,7 +76,7 @@ function searchMailsInJSON() {
  * @param {string} errorField - name of the input-field
  */
 function showErrorMessage(msg, errorField) {
-    let errorMsg = elementByID("errorMsg");
-    errorMsg.innerHTML = msg;
-    errorField.focus();
+  let errorMsg = elementByID("errorMsg");
+  errorMsg.innerHTML = msg;
+  errorField.focus();
 }

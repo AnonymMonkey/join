@@ -2,9 +2,9 @@ let currentDraggedElement;
 let contactsTask = [];
 let tasks = [];
 let taskCategory = [];
-let progressHTML = '';
+let progressHTML = "";
 let allContactIDs = [];
-let statuses = ['todo', 'inProgress', 'awaitFeedback', 'done'];
+let statuses = ["todo", "inProgress", "awaitFeedback", "done"];
 
 async function init() {
   await loadTasks();
@@ -23,8 +23,8 @@ async function init() {
  * Enable/Disable the recognized stylesheet
  */
 function setStylesheet() {
-  document.getElementById('defaultStyle').disabled = false;
-  document.getElementById('smallScreenStyle').disabled = true;
+  document.getElementById("defaultStyle").disabled = false;
+  document.getElementById("smallScreenStyle").disabled = true;
 }
 
 /**
@@ -32,24 +32,16 @@ function setStylesheet() {
  * @param {string} search - part of the title or description
  */
 function updateHTML(search) {
-  let longText = [
-    'No tasks To do',
-    'No tasks in progress',
-    'No await feedback',
-    'No tasks done',
-  ];
+  let longText = ["No tasks To do", "No tasks in progress", "No await feedback", "No tasks done"];
 
   let filteredTasks = search
     ? tasks.filter(
-        (t) =>
-          statuses.includes(t['status']) &&
-          (t['title'].toLowerCase().includes(search) ||
-            t['description'].toLowerCase().includes(search)),
+        (t) => statuses.includes(t["status"]) && (t["title"].toLowerCase().includes(search) || t["description"].toLowerCase().includes(search))
       )
     : tasks;
 
   statuses.forEach((status, index) => {
-    let filteredByStatus = filteredTasks.filter((t) => t['status'] === status);
+    let filteredByStatus = filteredTasks.filter((t) => t["status"] === status);
     issue(status, filteredByStatus, longText[index]);
   });
   hideButtons();
@@ -63,15 +55,13 @@ function updateHTML(search) {
  */
 async function issue(name, job, longText) {
   if (job.length) {
-    document.getElementById(name).innerHTML = '';
+    document.getElementById(name).innerHTML = "";
     for (let index = 0; index < job.length; index++) {
       let element = job[index];
       document.getElementById(name).innerHTML += generateTasksHTML(element);
     }
   } else {
-    document.getElementById(
-      name,
-    ).innerHTML = `<div class="no_tasks_feedback">${longText}</div>`;
+    document.getElementById(name).innerHTML = `<div class="no_tasks_feedback">${longText}</div>`;
   }
   generatePlaceholer(name);
 }
@@ -90,7 +80,7 @@ function startDragging(id) {
  * @param {string} status - active status of element
  */
 function startTransform(id, status) {
-  document.getElementById(id).style.transform = 'scale(0.9) rotate(5deg)';
+  document.getElementById(id).style.transform = "scale(0.9) rotate(5deg)";
   addHighlight(status);
 }
 
@@ -100,7 +90,7 @@ function startTransform(id, status) {
  * @param {string} status - active status of element
  */
 function stopTransform(id, status) {
-  document.getElementById(id).style.transform = 'scale(0.9) rotate(0deg)';
+  document.getElementById(id).style.transform = "scale(0.9) rotate(0deg)";
   removeHighlight(status);
 }
 
@@ -114,8 +104,8 @@ function allowDrop(ev) {
  */
 async function moveTo(status) {
   let id = getTaskIndex(currentDraggedElement);
-  tasks[id]['status'] = status;
-  await setItem('tasks', JSON.stringify(tasks));
+  tasks[id]["status"] = status;
+  await setItem("tasks", JSON.stringify(tasks));
   updateHTML();
 }
 
@@ -124,12 +114,12 @@ async function moveTo(status) {
  * @param {string} status - active status of element
  */
 function addHighlight(status) {
-  let matches = document.querySelectorAll('div.placeholderCard');
+  let matches = document.querySelectorAll("div.placeholderCard");
   let excludeContainer = document.getElementById(status);
 
   matches.forEach(function (placeholderItem) {
     if (!excludeContainer.contains(placeholderItem)) {
-      placeholderItem.classList.add('highlight');
+      placeholderItem.classList.add("highlight");
     }
   });
 }
@@ -138,9 +128,9 @@ function addHighlight(status) {
  * Remove highlighting
  */
 function removeHighlight() {
-  let matches = document.querySelectorAll('div.placeholderCard');
+  let matches = document.querySelectorAll("div.placeholderCard");
   matches.forEach((placeholderItem) => {
-    placeholderItem.classList.remove('highlight');
+    placeholderItem.classList.remove("highlight");
   });
 }
 
@@ -162,7 +152,7 @@ function calculateProgress(doneSubtaskCount, allSubtaskCount) {
  * Filtering tasks by given value
  */
 function filterTasks() {
-  let search = document.getElementById('search').value;
+  let search = document.getElementById("search").value;
   search = search.toLowerCase();
   updateHTML(search);
 }
@@ -172,11 +162,17 @@ function filterTasks() {
  * @param {number} element - number of current task-element
  */
 function taskProgress(element) {
+  if (!element["subtasks"] || !Array.isArray(element["subtasks"])) {
+    console.error("Subtasks are undefined or not an array", element);
+    return;
+  }
+
   let doneSubtaskCount = 0;
-  let allSubtaskCount = element['subtasks'].length;
-  if (element['subtasks'] && allSubtaskCount > 0) {
-    for (const subtask of element['subtasks']) {
-      if (subtask['substatus'] === 'done') {
+  let allSubtaskCount = element["subtasks"].length;
+
+  if (allSubtaskCount > 0) {
+    for (const subtask of element["subtasks"]) {
+      if (subtask["substatus"] === "done") {
         doneSubtaskCount++;
       }
     }
@@ -194,18 +190,17 @@ async function assignedTo(task) {
   let counterMember = 0;
   let rest = 0;
 
-  for (let i = 0; i < task['member'].length; i++) {
-    const element = task['member'][i];
+  for (let i = 0; i < task["member"].length; i++) {
+    const element = task["member"][i];
 
     for (let j = 0; j < contactsTask.length; j++) {
       let contactTask = contactsTask[j];
-      if (contactTask['register_entry'][0]['contact_ID'] === element) {
+      if (contactTask.contact_ID === element) {
         if (counterMember > 3) {
           rest++;
         } else {
-          let contactInitials =
-            contactTask['register_entry'][0]['contact_initials'];
-          let contactColor = contactTask['register_entry'][0]['contact_color'];
+          let contactInitials = contactTask.contact_initials;
+          let contactColor = contactTask.contact_color;
           pixelLeft = counterMember % 5 === 0 ? 0 : pixelLeft;
           generateProfileBadgesBoard(contactInitials, contactColor, pixelLeft);
           pixelLeft = pixelLeft + 8;
@@ -227,19 +222,14 @@ async function assignedTo(task) {
 function assignedToTask(task) {
   for (let i = 0; i < contactsTask.length; i++) {
     let contactTask = contactsTask[i];
-    let contactId = contactTask['register_entry'][0]['contact_ID'];
+    let contactId = contactTask.contact_ID;
 
-    if (tasks[task]['member'].includes(contactId)) {
-      let contactInitials =
-        contactTask['register_entry'][0]['contact_initials'];
-      let contactColor = contactTask['register_entry'][0]['contact_color'];
-      let contactName = contactTask['register_entry'][0]['contact_name'];
+    if (tasks[task]["member"].includes(contactId)) {
+      let contactInitials = contactTask.contact_initials;
+      let contactColor = contactTask.contact_color;
+      let contactName = contactTask.contact_name;
 
-      generateProfileBadgesTaskOverlay(
-        contactInitials,
-        contactColor,
-        contactName,
-      );
+      generateProfileBadgesTaskOverlay(contactInitials, contactColor, contactName);
     }
   }
 }
@@ -249,9 +239,18 @@ function assignedToTask(task) {
  */
 async function loadContacts() {
   try {
-    contactsTask = JSON.parse(await getItem('contacts'));
+    const storedContacts = await getItem("contacts");
+
+    if (typeof storedContacts === "string") {
+      contactsTask = JSON.parse(storedContacts);
+    } else if (typeof storedContacts === "object" && storedContacts !== null) {
+      contactsTask = storedContacts;
+    } else {
+      contactsTask = [];
+    }
   } catch (e) {
-    console.error('Loading error:', e);
+    console.error("Loading error:", e);
+    contactsTask = [];
   }
 }
 
@@ -260,9 +259,24 @@ async function loadContacts() {
  */
 async function loadTasks() {
   try {
-    tasks = JSON.parse(await getItem('tasks'));
+    const storedTask = await getItem("tasks");
+
+    if (typeof storedTask === "string") {
+      tasks = JSON.parse(storedTask);
+    } else if (typeof storedTask === "object" && storedTask !== null) {
+      tasks = storedTask;
+    } else {
+      tasks = [];
+    }
+
+    tasks.forEach((task) => {
+      if (!Array.isArray(task["subtasks"])) {
+        task["subtasks"] = [];
+      }
+    });
   } catch (e) {
-    console.error('Loading error:', e);
+    console.error("Loading error:", e);
+    tasks = [];
   }
 }
 
@@ -271,9 +285,17 @@ async function loadTasks() {
  */
 async function loadTaskCategory() {
   try {
-    taskCategory = JSON.parse(await getItem('taskCategory'));
+    const storedTaskCategory = await getItem("taskCategory");
+
+    if (Array.isArray(storedTaskCategory)) {
+      taskCategory = storedTaskCategory;
+    } else {
+      console.error("Task categories are not in the correct format.");
+      taskCategory = [];
+    }
   } catch (e) {
-    console.error('Loading error:', e);
+    console.error("Error loading task categories:", e);
+    taskCategory = [];
   }
 }
 
@@ -295,7 +317,7 @@ async function deleteTask(searchId) {
   if (taskIndex !== -1) {
     tasks.splice(taskIndex, 1);
     closeTaskOverlay();
-    await setItem('tasks', tasks);
+    await setItem("tasks", tasks);
     init();
   }
 }
@@ -310,8 +332,8 @@ function changeStatus(status, direction) {
 
   if (position !== -1) {
     let operations = {
-      '+': (pos) => pos + 1,
-      '-': (pos) => pos - 1,
+      "+": (pos) => pos + 1,
+      "-": (pos) => pos - 1,
     };
 
     let operation = operations[direction];
@@ -324,13 +346,10 @@ function changeStatus(status, direction) {
  * Hide unnecessary buttons to change status (in todo and done)
  */
 function hideButtons() {
-  let buttons = document.querySelectorAll('.card_headline button');
+  let buttons = document.querySelectorAll(".card_headline button");
   buttons.forEach(function (button) {
-    if (
-      button.dataset.value === 'todo_down' ||
-      button.dataset.value === 'done_up'
-    ) {
-      button.style.display = 'none';
+    if (button.dataset.value === "todo_down" || button.dataset.value === "done_up") {
+      button.style.display = "none";
     }
   });
 }

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 
     <script src="../java_script_sub/w3_include.js"></script>
     <script src="../script.js"></script>
@@ -13,44 +11,40 @@
     <script src="../java_script_sub/summary.js"></script>
     <script src="../java_script_sub/summaryTemplates.js"></script>
 
-
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css-sub/summary.css" />
     <link rel="stylesheet" href="../css-sub/summaryResp.css" />
     <link rel="stylesheet" href="../css-sub/headerSidebar.css" />
     <link rel="stylesheet" href="../css-sub/headerSidebarResp.css" />
 
-    <link id="favicon" rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link id="favicon" rel="icon" type="image/png" href="../assets/img/favicon.png" />
 
     <title>Join</title>
-</head>
+  </head>
 
-<body onload="renderSummary()">
+  <body onload="renderSummary()">
     <div class="mainContainer column">
-        <div id="header" w3-include-html="../assets/templates/header.html"></div>
+      <div id="header" w3-include-html="../assets/templates/header.html"></div>
 
+      <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
+      <div id="content" class="content d-flex content-summary">
+        <!-- insert content and own style from here -->
+        <div class="d-flex column">
+          <section class="headlineSection">
+            <span class="headlineSummary">Summary</span>
+            <img class="headlineVector" src="../assets/img/summary/vector_blue.png" alt="" />
+            <span class="headlineSpan">Everything in a nutshell!</span>
+            <img class="headlineVectorMobile" src="../assets/img/summary/vector_blue_mobile.png" alt="" />
+          </section>
 
-        <div id="sidebar" class="h" w3-include-html="../assets/templates/sidebar.html"></div>
-        <div id="content" class="content d-flex content-summary">
+          <div class="table">
+            <section class="flex mediumCardSection">
+              <div onclick="openBoard()" class="cardMedium svgPen">
+                <!--Pen Desktop-->
+                <div class="penDesktop"></div>
 
-            <!-- insert content and own style from here -->
-            <div class="d-flex column">
-                <section class="headlineSection">
-                    <span class="headlineSummary">Summary</span>
-                    <img class="headlineVector" src="../assets/img/summary/vector_blue.png" alt="">
-                    <span class="headlineSpan">Everything in a nutshell!</span>
-                    <img class="headlineVectorMobile" src="../assets/img/summary/vector_blue_mobile.png" alt="">
-                </section>
-
-                <div class="table">
-                    <section class="flex mediumCardSection">
-                        <div onclick="openBoard()" class="cardMedium svgPen">
-
-                            <!--Pen Desktop-->
-                            <div class="penDesktop"></div>
-
-                            <!--Pen Mobile-->
-                            <!--                             <svg class="penMobile" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                <!--Pen Mobile-->
+                <!--                             <svg class="penMobile" width="40" height="40" viewBox="0 0 40 40" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="20" cy="20" r="20" fill="#2A3647" />
                                 <path
@@ -61,55 +55,51 @@
                                     fill="white" />
                             </svg> -->
 
-                            <div id="summaryToDo" class="flex column"></div>
-                        </div>
+                <div id="summaryToDo" class="flex column"></div>
+              </div>
 
-                        <div onclick="openBoard()" class="cardMedium">
+              <div onclick="openBoard()" class="cardMedium">
+                <!--Cehckmark Desktop-->
+                <div class="checkmarkDesktop"></div>
 
-                            <!--Cehckmark Desktop-->
-                            <div class="checkmarkDesktop"></div>
-
-                            <!--Cehckmark Mobile-->
-                            <!--                             <svg class="checkmarkMobile" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                <!--Cehckmark Mobile-->
+                <!--                             <svg class="checkmarkMobile" width="40" height="40" viewBox="0 0 40 40" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="20" cy="20" r="20" fill="#2A3647" />
                                 <path d="M11.3203 20.0001L17.8297 26.4151L28.6788 13.585" stroke="white"
                                     stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                             </svg> -->
 
-                            <div id="summaryDone" class="flex column"></div>
-                        </div>
-                    </section>
-                    <section class="flex largeCardSection">
-                        <div onclick="openBoard()" class="cardLarge">
-                            <div class="urgentSection">
-                                <img class="redArrows" src="../assets/img/summary/red_up_arrows.png" alt="">
-                                <img class="redArrowsMobile" src="../assets/img/summary/red_up_arrows_mobile.png"
-                                    alt="">
+                <div id="summaryDone" class="flex column"></div>
+              </div>
+            </section>
+            <section class="flex largeCardSection">
+              <div onclick="openBoard()" class="cardLarge">
+                <div class="urgentSection">
+                  <img class="redArrows" src="../assets/img/summary/red_up_arrows.png" alt="" />
+                  <img class="redArrowsMobile" src="../assets/img/summary/red_up_arrows_mobile.png" alt="" />
 
-                                <div id="summaryUrgent" class="flex column"></div>
-                            </div>
-
-                            <img class="vectorGrey" src="../assets/img/summary/vector_grey.png" alt="">
-                            <img class="vectorGreyMobile" src="../assets/img/summary/vector_grey_mobile.png" alt="">
-
-                            <div id="deadline" class="deadlineSection"></div>
-                        </div>
-                    </section>
-                    <section class="flex smallCardSection">
-                        <div id="summaryTasks" onclick="openBoard()" class="cardSmall"></div>
-
-                        <div id="summaryInProgress" onclick="openBoard()" class="cardSmall"></div>
-
-                        <div id="summaryAwaitingFeedback" onclick="openBoard()" class="cardSmall"></div>
-                    </section>
+                  <div id="summaryUrgent" class="flex column"></div>
                 </div>
-            </div>
 
-            <div id="greeting" class="greetingSection"></div>
+                <img class="vectorGrey" src="../assets/img/summary/vector_grey.png" alt="" />
+                <img class="vectorGreyMobile" src="../assets/img/summary/vector_grey_mobile.png" alt="" />
 
+                <div id="deadline" class="deadlineSection"></div>
+              </div>
+            </section>
+            <section class="flex smallCardSection">
+              <div id="summaryTasks" onclick="openBoard()" class="cardSmall"></div>
+
+              <div id="summaryInProgress" onclick="openBoard()" class="cardSmall"></div>
+
+              <div id="summaryAwaitingFeedback" onclick="openBoard()" class="cardSmall"></div>
+            </section>
+          </div>
         </div>
-    </div>
-</body>
 
+        <div id="greeting" class="greetingSection"></div>
+      </div>
+    </div>
+  </body>
 </html>

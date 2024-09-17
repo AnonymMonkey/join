@@ -11,9 +11,9 @@ async function initAddTasks() {
   setDateRange();
   addSubtask();
   await loadData();
-  await userSelection('isClosed');
+  await userSelection("isClosed");
   detectDarkmode();
-  eventListener('body');
+  eventListener("body");
 }
 
 /**
@@ -23,12 +23,12 @@ function setDateRange() {
   let no_of_years = 1;
   let year = new Date().getFullYear();
   let maxyear = new Date().getFullYear() + no_of_years;
-  let month = ('0' + (new Date().getMonth() + 1)).slice(-2);
-  let date = ('0' + new Date().getDate()).slice(-2);
-  let today = year + '-' + month + '-' + date;
-  let maxdate = maxyear + '-' + month + '-' + date;
-  document.getElementById('addtask-duedate').min = today;
-  document.getElementById('addtask-duedate').max = maxdate;
+  let month = ("0" + (new Date().getMonth() + 1)).slice(-2);
+  let date = ("0" + new Date().getDate()).slice(-2);
+  let today = year + "-" + month + "-" + date;
+  let maxdate = maxyear + "-" + month + "-" + date;
+  document.getElementById("addtask-duedate").min = today;
+  document.getElementById("addtask-duedate").max = maxdate;
 }
 
 /**
@@ -37,8 +37,8 @@ function setDateRange() {
  * @param {string} labelField - the associated label
  */
 function invalid(fieldName, labelField) {
-  document.getElementById(`${fieldName}`).classList.add('error');
-  document.getElementById(labelField).classList.remove('d-none');
+  document.getElementById(`${fieldName}`).classList.add("error");
+  document.getElementById(labelField).classList.remove("d-none");
 }
 
 /**
@@ -47,8 +47,8 @@ function invalid(fieldName, labelField) {
  * @param {string} labelField - the associated label
  */
 function valid(fieldName, labelField) {
-  document.getElementById(`${fieldName}`).classList.remove('error');
-  document.getElementById(labelField).classList.add('d-none');
+  document.getElementById(`${fieldName}`).classList.remove("error");
+  document.getElementById(labelField).classList.add("d-none");
 }
 
 /**
@@ -58,7 +58,7 @@ function valid(fieldName, labelField) {
  * @param {string} labelField - the associated label
  */
 function validateField(inputField, errorField, labelField) {
-  if (document.getElementById(inputField).value === '') {
+  if (document.getElementById(inputField).value === "") {
     invalid(errorField, labelField);
   } else {
     valid(errorField, labelField);
@@ -71,25 +71,16 @@ function validateField(inputField, errorField, labelField) {
  * @param {string} frameName -
  */
 function selectedRadioButton(prio, frameName) {
-  let frames = ['frame24', 'frame25', 'frame26'];
-  let images = { Urgent: 'imgUrgent', Medium: 'imgMedium', Low: 'imgLow' };
-  frames.forEach((frame) =>
-    document.getElementById(frame).classList.remove(`${frame}_selected`),
-  );
-  Object.keys(images).forEach(
-    (key) =>
-      (document.getElementById(
-        images[key],
-      ).src = `../../assets/img/add-task/${key.toLowerCase()}.svg`),
-  );
-  document.getElementById('priority').classList.remove('error');
-  document.getElementById('priority_label').classList.add('d-none');
+  let frames = ["frame24", "frame25", "frame26"];
+  let images = { Urgent: "imgUrgent", Medium: "imgMedium", Low: "imgLow" };
+  frames.forEach((frame) => document.getElementById(frame).classList.remove(`${frame}_selected`));
+  Object.keys(images).forEach((key) => (document.getElementById(images[key]).src = `../assets/img/add-task/${key.toLowerCase()}.svg`));
+  document.getElementById("priority").classList.remove("error");
+  document.getElementById("priority_label").classList.add("d-none");
   document.getElementById(prio).checked = true;
   document.getElementById(frameName).classList.add(`${frameName}_selected`);
-  document.getElementById(
-    `img${prio}`,
-  ).src = `../../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
-  document.getElementById('prioResult').innerHTML = prio;
+  document.getElementById(`img${prio}`).src = `../assets/img/add-task/${prio.toLowerCase()}_white.svg`;
+  document.getElementById("prioResult").innerHTML = prio;
 }
 
 /**
@@ -97,16 +88,16 @@ function selectedRadioButton(prio, frameName) {
  * @param {string} view - parameter which defines the origin of the function
  */
 function subtaskActions(view) {
-  if (view == 'show') {
-    document.getElementById('clearSubtaskInput').classList.remove('d-none');
-    document.getElementById('addSubtaskInput').classList.remove('d-none');
-    document.getElementById('subtask-vector').classList.remove('d-none');
-    document.getElementById('plusSubtaskButton').classList.add('d-none');
+  if (view == "show") {
+    document.getElementById("clearSubtaskInput").classList.remove("d-none");
+    document.getElementById("addSubtaskInput").classList.remove("d-none");
+    document.getElementById("subtask-vector").classList.remove("d-none");
+    document.getElementById("plusSubtaskButton").classList.add("d-none");
   } else {
-    document.getElementById('clearSubtaskInput').classList.add('d-none');
-    document.getElementById('addSubtaskInput').classList.add('d-none');
-    document.getElementById('subtask-vector').classList.add('d-none');
-    document.getElementById('plusSubtaskButton').classList.remove('d-none');
+    document.getElementById("clearSubtaskInput").classList.add("d-none");
+    document.getElementById("addSubtaskInput").classList.add("d-none");
+    document.getElementById("subtask-vector").classList.add("d-none");
+    document.getElementById("plusSubtaskButton").classList.remove("d-none");
   }
 }
 
@@ -129,10 +120,7 @@ async function getNextFreeId(items, idKey) {
  * Animation of success and create a new task
  */
 async function formSubmit() {
-  await smallAnimatedLabel(
-    'Task added to board',
-    '../assets/img/summary/board.svg',
-  );
+  await smallAnimatedLabel("Task added to board", "../assets/img/summary/board.svg");
   setTimeout(addNewTask, 3000);
 }
 
@@ -141,32 +129,22 @@ async function formSubmit() {
  * @param {string} origin - Origin, from where the function was called
  */
 async function addNewTask() {
-  let status = document.getElementById('temporaryStatus').innerHTML;
-  let category = document.getElementById('category_select').innerHTML;
+  let status = document.getElementById("temporaryStatus").innerHTML;
+  let category = document.getElementById("category_select").innerHTML;
   let id = parseInt(await checkExistingTask(), 10);
-  let title = document.getElementById('frame14_text').value;
-  let description = document.getElementById('frame17_text').value;
-  let prio = document.getElementById('prioResult').innerHTML;
+  let title = document.getElementById("frame14_text").value;
+  let description = document.getElementById("frame17_text").value;
+  let prio = document.getElementById("prioResult").innerHTML;
   let addTaskSubtasks = newSubtasks;
   let allMember = contactSelection;
-  let duedate = document.getElementById('addtask-duedate').value;
+  let duedate = document.getElementById("addtask-duedate").value;
   let formattedTaskDate = new Date(duedate).getTime();
 
-  await createTask(
-    id,
-    title,
-    description,
-    status,
-    prio,
-    addTaskSubtasks,
-    allMember,
-    category,
-    formattedTaskDate,
-  );
+  await createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate);
 
   await resetForm();
   await identifyGuest();
-  openSelectedQuicklink('quickBoard');
+  openSelectedQuicklink("quickBoard");
 }
 
 /**
@@ -175,9 +153,9 @@ async function addNewTask() {
  */
 async function checkExistingTask() {
   let id;
-  let currentTask = document.getElementById('currentTask').innerText;
-  if (currentTask === '') {
-    id = await getNextFreeId(tasks, 'id');
+  let currentTask = document.getElementById("currentTask").innerText;
+  if (currentTask === "") {
+    id = await getNextFreeId(tasks, "id");
   } else {
     id = currentTask;
   }
@@ -196,17 +174,7 @@ async function checkExistingTask() {
  * @param {number} category - category of the new task
  * @param {date} formattedTaskDate - Duedate of the new task
  */
-async function createTask(
-  id,
-  title,
-  description,
-  status,
-  prio,
-  addTaskSubtasks,
-  allMember,
-  category,
-  formattedTaskDate,
-) {
+async function createTask(id, title, description, status, prio, addTaskSubtasks, allMember, category, formattedTaskDate) {
   let newTask = {
     id: id,
     title: title,
@@ -233,24 +201,24 @@ async function changeTaskArray(id, newTask) {
   } else {
     tasks.push(newTask);
   }
-  await setItem('tasks', tasks);
+  await setItem("tasks", tasks);
 }
 
 /**
  * Generate list of subtasks
  */
 function addSubtask() {
-  let list = document.getElementById('subtasklist');
-  list.innerHTML = '';
+  let list = document.getElementById("subtasklist");
+  list.innerHTML = "";
   for (let i = 0; i < newSubtasks.length; i++) {
-    list.innerHTML += addSubtaskHTML(i);    
+    list.innerHTML += addSubtaskHTML(i);
   }
 }
 
 /**
  * Generate HTML to added Subtask
  * @param {number} i - number of subtask
- * @returns 
+ * @returns
  */
 function addSubtaskHTML(i) {
   return /*html*/ `
@@ -259,9 +227,9 @@ function addSubtaskHTML(i) {
           ${newSubtasks[i].subtitle}
         </div>      
         <div class="subtaskActionPanel">
-          <img onclick="editSubtask(${i})" class="pointer button-hover" src="../../assets/img/board/edit.svg">
-          <img class="subtask-vector" src="../../assets/img/add-task/vector_dark.png">
-          <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
+          <img onclick="editSubtask(${i})" class="pointer button-hover" src="../assets/img/board/edit.svg">
+          <img class="subtask-vector" src="../assets/img/add-task/vector_dark.png">
+          <img onclick="deleteSubtask(${i})" class="pointer button-hover" src="../assets/img/board/delete.svg">
         </div>
       </li>
       `;
@@ -272,25 +240,25 @@ function addSubtaskHTML(i) {
  * @returns
  */
 async function addnewSubtask() {
-  let subtitleValue = document.getElementById('frame14_subtask_text').value;
+  let subtitleValue = document.getElementById("frame14_subtask_text").value;
   if (!subtitleValue) {
     return;
   }
 
   hideEditSubtask();
-  let nextSubId = await getNextFreeId(newSubtasks, 'subid');
+  let nextSubId = await getNextFreeId(newSubtasks, "subid");
   if (newSubtasks.length < 25) {
     let newSubtask = {
       subid: nextSubId,
       subtitle: subtitleValue,
-      substatus: 'open',
+      substatus: "open",
     };
     newSubtasks.push(newSubtask);
-    document.getElementById('frame14_subtask_text').value = '';
+    document.getElementById("frame14_subtask_text").value = "";
     addSubtask();
   } else {
-    document.getElementById('frame14_subtask').classList.add('error');
-    document.getElementById('frame14_subtask_label').classList.remove('d-none');
+    document.getElementById("frame14_subtask").classList.add("error");
+    document.getElementById("frame14_subtask_label").classList.remove("d-none");
   }
   subtaskActions();
 }
@@ -300,8 +268,8 @@ async function addnewSubtask() {
  * @param {number} id - id of subtask in array
  */
 function deleteSubtask(id) {
-  document.getElementById('frame14_subtask_label').classList.add('d-none');
-  document.getElementById('frame14_subtask').classList.remove('error');
+  document.getElementById("frame14_subtask_label").classList.add("d-none");
+  document.getElementById("frame14_subtask").classList.remove("error");
   newSubtasks.splice(id, 1);
   addSubtask();
   hideEditSubtask();
@@ -312,31 +280,31 @@ function deleteSubtask(id) {
  * @param {number} id - id of subtask in array
  */
 function editSubtask(id) {
-  let subtaskfield = document.getElementById('subtaskEditInput');
-  let subTaskActions = document.getElementById('subtaskEditActions');
-  let editField = document.getElementById('subtaskEdit');
-  let subtaskArea = document.getElementById('subtaskArea');
-  let subtaskList = document.getElementById('subtasklist');
+  let subtaskfield = document.getElementById("subtaskEditInput");
+  let subTaskActions = document.getElementById("subtaskEditActions");
+  let editField = document.getElementById("subtaskEdit");
+  let subtaskArea = document.getElementById("subtaskArea");
+  let subtaskList = document.getElementById("subtasklist");
 
-  editField.classList.remove('d-none');
-  subtaskfield.value = newSubtasks[id]['subtitle'];
-  subTaskActions.innerHTML = '';
-  subTaskActions.innerHTML = editSubtaskHTML(id);  
+  editField.classList.remove("d-none");
+  subtaskfield.value = newSubtasks[id]["subtitle"];
+  subTaskActions.innerHTML = "";
+  subTaskActions.innerHTML = editSubtaskHTML(id);
   subtaskArea.scrollTop = 0;
   subtaskfield.focus();
-  subtaskList.style.filter = 'blur(2px)';
+  subtaskList.style.filter = "blur(2px)";
 }
 
 /**
  * Generate HTML to edit Subtasks
  * @param {number} id - number of current subtask (active to edit)
- * @returns 
+ * @returns
  */
 function editSubtaskHTML(id) {
   return /*html*/ `
-     <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../../assets/img/board/delete.svg">
-     <img class="subtask-vector" src="../../assets/img/add-task/vector.png">
-     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../../assets/img/add-task/check_black.svg">
+     <img onclick="deleteSubtask(${id})" class="pointer button-hover" src="../assets/img/board/delete.svg">
+     <img class="subtask-vector" src="../assets/img/add-task/vector.png">
+     <img onclick="updateSubtask(${id})" class="pointer button-hover" src="../assets/img/add-task/check_black.svg">
      `;
 }
 
@@ -345,8 +313,7 @@ function editSubtaskHTML(id) {
  * @param {number} id - id of subtask in array
  */
 function updateSubtask(id) {
-  newSubtasks[id]['subtitle'] =
-    document.getElementById('subtaskEditInput').value;
+  newSubtasks[id]["subtitle"] = document.getElementById("subtaskEditInput").value;
   addSubtask();
   hideEditSubtask();
 }
@@ -355,13 +322,13 @@ function updateSubtask(id) {
  * Hiding input-field
  */
 function hideEditSubtask() {
-  let subtaskEditInput = document.getElementById('subtaskEditInput');
-  let subtaskEdit = document.getElementById('subtaskEdit');
-  let subtaskList = document.getElementById('subtasklist');
+  let subtaskEditInput = document.getElementById("subtaskEditInput");
+  let subtaskEdit = document.getElementById("subtaskEdit");
+  let subtaskList = document.getElementById("subtasklist");
 
-  subtaskEditInput.value = '';
-  subtaskEdit.classList.add('d-none');
-  subtaskList.style.filter = 'blur(0px)';
+  subtaskEditInput.value = "";
+  subtaskEdit.classList.add("d-none");
+  subtaskList.style.filter = "blur(0px)";
 }
 
 /**
@@ -369,7 +336,7 @@ function hideEditSubtask() {
  * @param {string} field - associated fieldname
  */
 function clearInput(field) {
-  document.getElementById(field).value = '';
+  document.getElementById(field).value = "";
   hideEditSubtask();
   subtaskActions();
 }
@@ -378,19 +345,17 @@ function clearInput(field) {
  * Hide/Unhide the Category-Selection, Transform Arrow-Image and sets Focus
  */
 function toggleCategory() {
-  let arrowDropdown = document.getElementById('arrow_dropdown_addCategory');
-  let categorySelection = document.getElementById(
-    'category_selection-background',
-  );
-  let categorySelect = document.getElementById('category_select');
+  let arrowDropdown = document.getElementById("arrow_dropdown_addCategory");
+  let categorySelection = document.getElementById("category_selection-background");
+  let categorySelect = document.getElementById("category_select");
 
-  if (categorySelection.classList.contains('d-none')) {
+  if (categorySelection.classList.contains("d-none")) {
     categorySelect.focus();
-    arrowDropdown.style.transform = 'rotate(180deg)';
-    categorySelection.classList.remove('d-none');
+    arrowDropdown.style.transform = "rotate(180deg)";
+    categorySelection.classList.remove("d-none");
   } else {
-    arrowDropdown.style.transform = 'rotate(360deg)';
-    categorySelection.classList.add('d-none');
+    arrowDropdown.style.transform = "rotate(360deg)";
+    categorySelection.classList.add("d-none");
   }
 }
 
@@ -398,15 +363,15 @@ function toggleCategory() {
  * Hide/Unhide the AssignetTo-Selection, Transform Arrow-Image and sets Focus
  */
 function toggleAssignedTo() {
-  let arrowDropdown = document.getElementById('arrow_dropdown_addTask');
-  let userSelection = document.getElementById('user_selection-background');
+  let arrowDropdown = document.getElementById("arrow_dropdown_addTask");
+  let userSelection = document.getElementById("user_selection-background");
 
-  if (userSelection.classList.contains('d-none')) {
-    arrowDropdown.style.transform = 'rotate(180deg)';
-    userSelection.classList.remove('d-none');
+  if (userSelection.classList.contains("d-none")) {
+    arrowDropdown.style.transform = "rotate(180deg)";
+    userSelection.classList.remove("d-none");
   } else {
-    arrowDropdown.style.transform = 'rotate(360deg)';
-    userSelection.classList.add('d-none');
+    arrowDropdown.style.transform = "rotate(360deg)";
+    userSelection.classList.add("d-none");
   }
 }
 
@@ -417,9 +382,16 @@ function toggleAssignedTo() {
  * @param {string} origin - name of origin where function was called
  */
 function setCategory(key, choice, origin) {
-  let categoryName = taskCategory[choice]['title'];
-  document.getElementById('category_select_name').value = categoryName;
-  document.getElementById('category_select').innerHTML = choice;
+  let category = taskCategory.find((cat) => cat.id == choice);
+
+  if (category) {
+    let categoryName = category.title;
+    document.getElementById("category_select_name").value = categoryName;
+    document.getElementById("category_select").innerHTML = choice;
+  } else {
+    console.error("Kategorie nicht gefunden");
+  }
+
   if (origin) {
     toggleCategory();
   }
@@ -430,11 +402,11 @@ function setCategory(key, choice, origin) {
  */
 function whoAmi() {
   for (let i = 0; i < contacts.length; i++) {
-    let contactMaillist = contacts[i]['register_entry'][0]['contact_mail'];
+    let contactMaillist = contacts[i].contact_mail;
     let checkedMaillist = contactMaillist.includes(activeUserMail);
     if (checkedMaillist) {
-      contactID = contacts[i]['register_entry'][0]['contact_ID'];
-      let userDiv = 'user_name_' + contactID;
+      contactID = contacts[i].contact_ID;
+      let userDiv = "user_name_" + contactID;
       document.getElementById(userDiv).innerHTML += ` <b>(You)`;
     }
   }
@@ -445,19 +417,13 @@ function whoAmi() {
  */
 function eventListener(myID) {
   let container = document.getElementById(myID);
-  container.addEventListener('click', function (event) {
-    let menuCategory = document.getElementById('frame74task');
-    let menuUser = document.getElementById('frame74');
-    let menuUserSelection = document.getElementById(
-      'user_selection-background',
-    );
+  container.addEventListener("click", function (event) {
+    let menuCategory = document.getElementById("frame74task");
+    let menuUser = document.getElementById("frame74");
+    let menuUserSelection = document.getElementById("user_selection-background");
 
     if (menuCategory && menuUserSelection) {
-      if (
-        menuCategory.contains(event.target) ||
-        menuUser.contains(event.target) ||
-        menuUserSelection.contains(event.target)
-      ) {
+      if (menuCategory.contains(event.target) || menuUser.contains(event.target) || menuUserSelection.contains(event.target)) {
         event.stopPropagation();
       } else {
         hideMenues();
@@ -470,17 +436,13 @@ function eventListener(myID) {
  * Hide the menues
  */
 function hideMenues() {
-  let arrowDropdownCategory = document.getElementById(
-    'arrow_dropdown_addCategory',
-  );
-  let categorySelection = document.getElementById(
-    'category_selection-background',
-  );
-  let arrowDropdownTask = document.getElementById('arrow_dropdown_addTask');
-  let userSelection = document.getElementById('user_selection-background');
+  let arrowDropdownCategory = document.getElementById("arrow_dropdown_addCategory");
+  let categorySelection = document.getElementById("category_selection-background");
+  let arrowDropdownTask = document.getElementById("arrow_dropdown_addTask");
+  let userSelection = document.getElementById("user_selection-background");
 
-  arrowDropdownCategory.style.transform = 'rotate(360deg)';
-  categorySelection.classList.add('d-none');
-  arrowDropdownTask.style.transform = 'rotate(360deg)';
-  userSelection.classList.add('d-none');
+  arrowDropdownCategory.style.transform = "rotate(360deg)";
+  categorySelection.classList.add("d-none");
+  arrowDropdownTask.style.transform = "rotate(360deg)";
+  userSelection.classList.add("d-none");
 }
