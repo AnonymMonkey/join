@@ -106,7 +106,7 @@ async function getLoginType() {
     loadFromLocalStorage();
     activeUserName = await setActiveUser();
   } else {
-    activeUserName = "undefined";
+    activeUserName = "";
   }
 }
 

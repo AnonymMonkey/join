@@ -148,7 +148,7 @@
     justify-content: flex-start;
     left: 0;
     width: 100%;
-    height: calc(80vh);
+    height: calc(80vh - 64px);
     padding: 16px;
   }
 
@@ -200,7 +200,6 @@
   .requiredInfo {
     width: 40%;
   }
-
 }
 
 @media (max-width: 500px) {
@@ -233,14 +232,9 @@
     margin-bottom: 32px;
   }
 
-  #task_form {
-    height: calc(80vh - 128px);
-  }
-
   .requiredInfo {
     width: 100%;
   }
-
 }
 
 @media (max-width: 400px) {

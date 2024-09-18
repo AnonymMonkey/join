@@ -2,10 +2,10 @@
  * rendering the initial template for summary.html
  */
 async function getInitialHTMLTemplate() {
-    document.getElementById('content').innerHTML = /*html*/` 
+  document.getElementById("content").innerHTML = /*html*/ ` 
     
     <!-- insert content and own style from here -->
-    <div class="d-flex column">
+<div class="s-content d-flex column">
     <section class="headlineSection">
         <span class="headlineSummary">Summary</span>
         <img class="headlineVector" src="../assets/img/summary/vector_blue.png" alt="">
@@ -56,60 +56,58 @@ async function getInitialHTMLTemplate() {
 <div id="greeting" class="greetingSection"></div>`;
 }
 
-
 /**
  * rendering the summary including all needed values from board
  */
 async function getHTMLTemplateforSummary() {
-    //Amount To-do
-    document.getElementById('summaryToDo').innerHTML = /*html*/`
+  //Amount To-do
+  document.getElementById("summaryToDo").innerHTML = /*html*/ `
         <span class="tasksAmount">${amountTodos}</span>
         <span class="tasksSpan">To-do</span>
     `;
-    //Amount Tasks In Board
-    document.getElementById('summaryTasks').innerHTML = /*html*/`
+  //Amount Tasks In Board
+  document.getElementById("summaryTasks").innerHTML = /*html*/ `
         <span class="tasksAmount">${amountInBoard}</span>
         <span class="tasksSpan">Tasks In</span>
         <span class="tasksSpan">Board</span>
     `;
-    //Amount Tasks Done
-    document.getElementById('summaryDone').innerHTML = /*html*/`
+  //Amount Tasks Done
+  document.getElementById("summaryDone").innerHTML = /*html*/ `
         <span class="tasksAmount">${amountDone}</span>
         <span class="tasksSpan">Done</span>
     `;
-    //Amount Tasks Urgent
-    document.getElementById('summaryUrgent').innerHTML = /*html*/`
+  //Amount Tasks Urgent
+  document.getElementById("summaryUrgent").innerHTML = /*html*/ `
         <span class="tasksAmount">${amountUrgent}</span>
         <span class="tasksSpan">Urgent</span>
     `;
-    //Urgent duedate / Deadline
-    document.getElementById('deadline').innerHTML = /*html*/`
+  //Urgent duedate / Deadline
+  document.getElementById("deadline").innerHTML = /*html*/ `
         <span class="deadlineSpan">${urgentDueDate}</span>
         <span class="dateTextSpan">Upcoming Deadline</span>
     `;
-    //Amount Tasks In Progress
-    document.getElementById('summaryInProgress').innerHTML = /*html*/`
+  //Amount Tasks In Progress
+  document.getElementById("summaryInProgress").innerHTML = /*html*/ `
         <span class="tasksAmount">${amountInProgress}</span>
         <span class="tasksSpan">Tasks In</span>
         <span class="tasksSpan">Progress</span>
     `;
-    //Amount Tasks In Awaiting Feedback
-    document.getElementById('summaryAwaitingFeedback').innerHTML = /*html*/`
+  //Amount Tasks In Awaiting Feedback
+  document.getElementById("summaryAwaitingFeedback").innerHTML = /*html*/ `
         <span class="tasksAmount">${amountAwaitingFeedback}</span>
         <span class="tasksSpan">Awaiting</span>
         <span class="tasksSpan">Feedback</span>
     `;
 
-    if (activeUserName == 'undefined') {
-        document.getElementById('greeting').innerHTML = /*html*/`
+  if (activeUserName == "undefined") {
+    document.getElementById("greeting").innerHTML = /*html*/ `
         <span class="spanGreeting">${currentGreeting}</span>  
     `;
-    }
-    else {
-        document.getElementById('greeting').innerHTML = /*html*/`
+  } else {
+    document.getElementById("greeting").innerHTML = /*html*/ `
         <span class="spanGreeting">${currentGreeting}</span>
         <br>
         <span class="spanName">${activeUserName}</span>
     `;
-    }
+  }
 }

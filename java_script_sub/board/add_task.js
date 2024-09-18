@@ -186,6 +186,7 @@ async function createTask(id, title, description, status, prio, addTaskSubtasks,
     category: category,
     duedate: formattedTaskDate,
   };
+
   await changeTaskArray(id, newTask);
 }
 
@@ -201,6 +202,7 @@ async function changeTaskArray(id, newTask) {
   } else {
     tasks.push(newTask);
   }
+
   await setItem("tasks", tasks);
 }
 

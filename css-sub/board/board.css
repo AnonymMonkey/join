@@ -1,10 +1,10 @@
-@import url('taskDialog.css');
-@import url('../animations.css');
+@import url("taskDialog.css");
+@import url("../animations.css");
 
 .content_board-optimize {
   margin-left: calc(5vw - 10px) !important;
   max-width: -webkit-fill-available;
-  width: auto;
+  width: 100%;
   margin-right: 20px;
 }
 
@@ -328,7 +328,7 @@
   line-height: 120%;
 }
 
-.rest{
+.rest {
   position: relative;
   right: 20px;
 }
@@ -361,7 +361,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 45px;
-  background: #FFF;
+  background: #fff;
   position: relative;
 }
 
@@ -390,9 +390,9 @@
 }
 
 .group9_ellipse {
-  fill: #FF7A00;
+  fill: #ff7a00;
   stroke-width: 1px;
-  stroke: #FFFFFF;
+  stroke: #ffffff;
   position: relative;
 }
 
@@ -402,7 +402,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   font-style: normal;
   font-size: 12px;
@@ -424,14 +424,14 @@
   line-height: 120%;
 }
 
-.card_headline{
+.card_headline {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.card_actions{
+.card_actions {
   display: none;
   gap: 4px;
   position: absolute;
@@ -439,17 +439,17 @@
   right: 20px;
 }
 
-.card_actions button{
+.card_actions button {
   border: none;
   background: transparent;
 }
 
-.arrowDown{  
+.arrowDown {
   transform: rotate(180deg);
 }
 
 .arrowDown:hover,
-.arrowUp:hover{  
+.arrowUp:hover {
   background-color: #d9d9d9;
   border-radius: 50%;
 }

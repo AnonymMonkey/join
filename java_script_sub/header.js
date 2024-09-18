@@ -122,7 +122,7 @@ async function setActiveUser() {
  */
 function getActiveUserInitials() {
   let name = activeUserName;
-  if (name != "undefined" && name != undefined) {
+  if (name != "" && name != undefined) {
     let words = name.split(" ");
     let firstInitial = words[0].charAt(0).toUpperCase();
     let secondInitial = words[1].charAt(0).toUpperCase();
@@ -151,7 +151,7 @@ async function identifyGuest() {
  * sets the values according to the guest status after first guest login
  */
 function enteringAsAGuest() {
-  document.getElementById("headerInitials").textContent = "G";
+  document.getElementById("headerInitials").innerHTML = "G";
   document.getElementById("headerInitialsLogin").classList.add("dNone");
   activeUserInitials = "";
   guest = true;
@@ -161,7 +161,7 @@ function enteringAsAGuest() {
  * sets the values according to the user status
  */
 function enteringAsAUser() {
-  document.getElementById("headerInitialsLogin").textContent = activeUserInitials;
+  document.getElementById("headerInitialsLogin").innerHTML = activeUserInitials;
   document.getElementById("headerInitials").classList.add("dNone");
   guest = false;
 }
@@ -177,7 +177,7 @@ function enteringWithoutLoginOrGuest() {
  * sets the values according to the guest status, when moving from site to site within join
  */
 function continueAsAGuest() {
-  document.getElementById("headerInitials").textContent = "G";
+  document.getElementById("headerInitials").innerHTML = "G";
   document.getElementById("headerInitialsLogin").classList.add("dNone");
   guest = true;
 }

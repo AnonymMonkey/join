@@ -261,11 +261,15 @@ async function loadTasks() {
   try {
     const storedTask = await getItem("tasks");
 
-    if (typeof storedTask === "string") {
-      tasks = JSON.parse(storedTask);
-    } else if (typeof storedTask === "object" && storedTask !== null) {
+    if (Array.isArray(storedTask)) {
       tasks = storedTask;
+    } else if (typeof storedTask === "object" && storedTask !== null) {
+      tasks = Object.values(storedTask);
+    } else if (storedTask === null || storedTask === undefined) {
+      console.error("Loaded tasks are null or undefined.");
+      tasks = [];
     } else {
+      console.error("Loaded tasks are not in the correct format.");
       tasks = [];
     }
 
@@ -289,6 +293,8 @@ async function loadTaskCategory() {
 
     if (Array.isArray(storedTaskCategory)) {
       taskCategory = storedTaskCategory;
+    } else if (typeof storedTaskCategory === "object" && storedTaskCategory !== null) {
+      taskCategory = Object.values(storedTaskCategory);
     } else {
       console.error("Task categories are not in the correct format.");
       taskCategory = [];
