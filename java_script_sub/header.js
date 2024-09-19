@@ -9,23 +9,23 @@ let activeUserInitials;
 let activeUserName;
 
 const QUICKLINK_LOGIN = {
-  quickSummary: "http://andino-eichberger.developerakademie.net/join/html-sub/summary.html?msg=summary&login=true",
-  quickAddTask: "http://andino-eichberger.developerakademie.net/join/html-sub/add_task.html?msg=addtask&login=true",
-  quickBoard: "http://andino-eichberger.developerakademie.net/join/html-sub/board.html?msg=board&login=true",
-  quickContacts: "http://andino-eichberger.developerakademie.net/join/html-sub/contacts.html?msg=contacts&login=true",
-  privacy: "http://andino-eichberger.developerakademie.net/join/html-sub/privacy_data_protection.html?msg=privacy&login=true",
-  legal: "http://andino-eichberger.developerakademie.net/join/html-sub/legal_notice.html?msg=legal&login=true",
-  help: "http://andino-eichberger.developerakademie.net/join/html-sub/help.html?msg=help&login=true",
+  quickSummary: "http://join.andino-eichberger.com/html-sub/summary.html?msg=summary&login=true",
+  quickAddTask: "http://join.andino-eichberger.com/html-sub/add_task.html?msg=addtask&login=true",
+  quickBoard: "http://join.andino-eichberger.com/html-sub/board.html?msg=board&login=true",
+  quickContacts: "http://join.andino-eichberger.com/html-sub/contacts.html?msg=contacts&login=true",
+  privacy: "http://join.andino-eichberger.com/html-sub/privacy_data_protection.html?msg=privacy&login=true",
+  legal: "http://join.andino-eichberger.com/html-sub/legal_notice.html?msg=legal&login=true",
+  help: "http://join.andino-eichberger.com/html-sub/help.html?msg=help&login=true",
 };
 
 const QUICKLINK_GUEST = {
-  quickSummary: "http://andino-eichberger.developerakademie.net/join/html-sub/summary.html?msg=summary",
-  quickAddTask: "http://andino-eichberger.developerakademie.net/join/html-sub/add_task.html?msg=addtask",
-  quickBoard: "http://andino-eichberger.developerakademie.net/join/html-sub/board.html?msg=board",
-  quickContacts: "http://andino-eichberger.developerakademie.net/join/html-sub/contacts.html?msg=contacts",
-  privacy: "http://andino-eichberger.developerakademie.net/join/html-sub/privacy_data_protection.html?msg=privacy",
-  legal: "http://andino-eichberger.developerakademie.net/join/html-sub/legal_notice.html?msg=legal",
-  help: "http://andino-eichberger.developerakademie.net/join/html-sub/help.html?msg=help",
+  quickSummary: "http://join.andino-eichberger.com/html-sub/summary.html?msg=summary",
+  quickAddTask: "http://join.andino-eichberger.com/html-sub/add_task.html?msg=addtask",
+  quickBoard: "http://join.andino-eichberger.com/html-sub/board.html?msg=board",
+  quickContacts: "http://join.andino-eichberger.com/html-sub/contacts.html?msg=contacts",
+  privacy: "http://join.andino-eichberger.com/html-sub/privacy_data_protection.html?msg=privacy",
+  legal: "http://join.andino-eichberger.com/html-sub/legal_notice.html?msg=legal",
+  help: "http://join.andino-eichberger.com/html-sub/help.html?msg=help",
 };
 
 /**
@@ -170,7 +170,7 @@ function enteringAsAUser() {
  * redirects to login page if user try to enter without login or guest login
  */
 function enteringWithoutLoginOrGuest() {
-  window.open("http://andino-eichberger.developerakademie.net/join/index.html", "_self");
+  window.open("http://join.andino-eichberger.com/index.html", "_self");
 }
 
 /**
@@ -202,7 +202,7 @@ function showSubmenu() {
  */
 function logOut() {
   localStorage.removeItem("loginData");
-  window.open("http://andino-eichberger.developerakademie.net/join/index.html", "_self");
+  window.open("http://join.andino-eichberger.com/index.html", "_self");
 }
 
 /**
@@ -221,14 +221,14 @@ async function openSelectedQuicklink(id) {
  * opens the legal notice as a non user/guest
  */
 function showLegalExternal() {
-  window.open("http://andino-eichberger.developerakademie.net/join/html-sub/legal_notice_external.html?msg=legal", "_blank");
+  window.open("http://join.andino-eichberger.com/html-sub/legal_notice_external.html?msg=legal", "_blank");
 }
 
 /**
  * opens the privacy data protection as a non user/guest
  */
 function showPrivacyExternal() {
-  window.open("http://andino-eichberger.developerakademie.net/join/html-sub/privacy_data_protection_external.html?msg=privacy", "_blank");
+  window.open("http://join.andino-eichberger.com/html-sub/privacy_data_protection_external.html?msg=privacy", "_blank");
 }
 
 /**
@@ -374,5 +374,5 @@ function addBgToQuickContactsResp() {
  * opens board page
  */
 function openBoard() {
-  window.open("http://andino-eichberger.developerakademie.net/join/html-sub/board.html?msg=board", "_self");
+  window.open("http://join.andino-eichberger.com/html-sub/board.html?msg=board", "_self");
 }

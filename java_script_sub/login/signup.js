@@ -108,7 +108,7 @@ function checkMail(email) {
  * opens login page after successfully registered
  */
 function openSuccessfullRegistered() {
-  window.location.href = "https://andino-eichberger.developerakademie.net/join/index.html?msg=userregistered";
+  window.location.href = "https://join.andino-eichberger.com/index.html?msg=userregistered";
 }
 
 /**
@@ -330,21 +330,21 @@ function signupCoverConfirmation() {
  * opens the login page
  */
 function openLogin() {
-  window.location.href = "https://andino-eichberger.developerakademie.net/join/index.html";
+  window.location.href = "https://join.andino-eichberger.com/index.html";
 }
 
 /**
  * opens the privacy data protection as a non user/guest
  */
 function openPrivacy() {
-  window.open("https://andino-eichberger.developerakademie.net/join/html-sub/privacy_data_protection_external.html", "_blank");
+  window.open("https://join.andino-eichberger.com/html-sub/privacy_data_protection_external.html", "_blank");
 }
 
 /**
  * opens the legal notice as a non user/guest
  */
 function openLegal() {
-  window.open("https://andino-eichberger.developerakademie.net/join/html-sub/legal_notice_external.html", "_blank");
+  window.open("https://join.andino-eichberger.com/html-sub/legal_notice_external.html", "_blank");
 }
 
 async function openSignUpOverlay() {

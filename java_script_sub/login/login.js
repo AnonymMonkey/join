@@ -59,7 +59,7 @@ async function login() {
     activeUser = user.email;
     pushLoginData(email, password, user.name);
     await saveUserToLocalStorage("activeUser", activeUser);
-    window.location.href = `http://andino-eichberger.developerakademie.net/join/html-sub/summary.html?msg=login&login=true`;
+    window.location.href = `http://join.andino-eichberger.com/html-sub/summary.html?msg=login&login=true`;
   } else {
     showMsgBoxInvalidPassword();
   }
@@ -245,14 +245,14 @@ function revealPassword() {
  */
 function guestLogin() {
   localStorage.removeItem("activeUser");
-  window.location.href = "https://andino-eichberger.developerakademie.net/join/html-sub/summary.html?msg=guest";
+  window.location.href = "https://join.andino-eichberger.com/html-sub/summary.html?msg=guest";
 }
 
 /**
  * opens the signup page
  */
 function openSignUp() {
-  window.location.href = "https://andino-eichberger.developerakademie.net/join/html-sub/sign_up.html";
+  window.location.href = "https://join.andino-eichberger.com/html-sub/sign_up.html";
 }
 
 /**
@@ -289,14 +289,14 @@ function animateLogo() {
  * opens the legal notice as a non user/guest
  */
 function openLegal() {
-  window.open("https://andino-eichberger.developerakademie.net/join/html-sub/legal_notice_external.html?msg=legal", "_blank");
+  window.open("https://join.andino-eichberger.com/html-sub/legal_notice_external.html?msg=legal", "_blank");
 }
 
 /**
  * opens the privacy data protection as a non user/guest
  */
 function openPrivacy() {
-  window.open("https://andino-eichberger.developerakademie.net/join/html-sub/privacy_data_protection_external.html?msg=privacy", "_blank");
+  window.open("https://join.andino-eichberger.com/html-sub/privacy_data_protection_external.html?msg=privacy", "_blank");
 }
 
 /**
