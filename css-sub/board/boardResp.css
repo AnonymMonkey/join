@@ -39,7 +39,7 @@
   }
 
   .card {
-    width: unset;
+    width: min-content;
     aspect-ratio: 1/1;
     position: relative;
     transform: scale(0.9);
@@ -72,7 +72,7 @@
     width: 160px;
     white-space: nowrap;
   }
- 
+
   .no_tasks_feedback {
     width: 230px;
     align-self: unset;
@@ -106,7 +106,6 @@
 
   .search_task_web {
     width: 100%;
-
   }
 
   .buttonText {
@@ -152,8 +151,7 @@
     gap: 20px;
   }
 
-  .card_actions{
+  .card_actions {
     display: flex;
   }
-
 }

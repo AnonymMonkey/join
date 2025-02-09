@@ -112,7 +112,7 @@
 
 #selected_user {
   overflow: auto;
-  padding-left: 4px 10px;
+  padding: 2px 12px;
   max-width: 100%;
 }
 

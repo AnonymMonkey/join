@@ -35,9 +35,7 @@ function updateHTML(search) {
   let longText = ["No tasks To do", "No tasks in progress", "No await feedback", "No tasks done"];
 
   let filteredTasks = search
-    ? tasks.filter(
-        (t) => statuses.includes(t["status"]) && (t["title"].toLowerCase().includes(search) || t["description"].toLowerCase().includes(search))
-      )
+    ? tasks.filter((t) => statuses.includes(t["status"]) && (t["title"].toLowerCase().includes(search) || t["description"].toLowerCase().includes(search)))
     : tasks;
 
   statuses.forEach((status, index) => {
@@ -261,13 +259,13 @@ async function loadTasks() {
   try {
     const storedTask = await getItem("tasks");
 
-    if (Array.isArray(storedTask)) {
-      tasks = storedTask;
-    } else if (typeof storedTask === "object" && storedTask !== null) {
-      tasks = Object.values(storedTask);
-    } else if (storedTask === null || storedTask === undefined) {
-      console.error("Loaded tasks are null or undefined.");
-      tasks = [];
+    // Prüfen, ob die Daten als String zurückkommen und erst dann parsen
+    let parsedTask = typeof storedTask === "string" ? JSON.parse(storedTask) : storedTask;
+
+    if (Array.isArray(parsedTask)) {
+      tasks = parsedTask;
+    } else if (typeof parsedTask === "object" && parsedTask !== null) {
+      tasks = Object.values(parsedTask);
     } else {
       console.error("Loaded tasks are not in the correct format.");
       tasks = [];
